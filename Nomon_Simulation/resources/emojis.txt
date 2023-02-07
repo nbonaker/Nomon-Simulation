@@ -59,7 +59,3 @@
 :purple_heart:
 :green_heart:
 :broken_heart:
-:heart:
-_
-$
-@

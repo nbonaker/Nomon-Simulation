@@ -33,6 +33,8 @@
 
 from Nomon_Core import config
 from Nomon_Simulation.keyboard_symbol import Keyboard
+from Nomon_Simulation import kconfig
+from Nomon_Simulation import sim_config
 from Nomon_Simulation.text_stats import calc_MSD
 import pandas as pd
 import numpy as np
@@ -43,18 +45,19 @@ import csv
 
 class SimulatedUser:
     def __init__(self, cwd=os.getcwd(), job_num=None, custom_keys=None, num_jobs=0):
-
-        self.cwd = os.getcwd()
-
+        # used for tracking overall progressbar
         self.job_num = job_num
         self.num_jobs = num_jobs
 
         self.working_dir=cwd
 
-        self.initialize_keyboard()
+        # initialize the keyboard
+        self.keyboard = Keyboard()
+        print("Initializing Keyboard with the following layout:")
+        for row in kconfig.emoji_target_layout:
+            print(row)
 
     def init_sim_data(self):
-        # self.init_clocks()
         self.num_selections = 0
         self.sel_per_min = []
 
@@ -70,15 +73,9 @@ class SimulatedUser:
 
         self.num_errors = 0
         self.error_rate_avg = []
-        self.kde_errors = []
-        self.kde_errors_avg = None
 
-        # self.on_timer()
         self.winner = False
         self.winner_text = ""
-
-    def initialize_keyboard(self):
-        self.keyboard = Keyboard()
 
     def get_session_clicks(self):
         session_click_df = self.click_df[self.click_df["Session Num"] == self.session]
@@ -87,51 +84,44 @@ class SimulatedUser:
         self.session_dead_times = list(session_click_df[["Dead Time (s)"]].to_numpy().T[0])
         self.session_time_rotates = list(session_click_df[["Clock Period (s)"]].to_numpy().T[0])
 
-
-    def parameter_metrics(self, parameters, num_clicks=500, trials=1, attribute=None):
+    def parameter_metrics(self, parameters, trials=1, verbose=False):
         self.init_sim_data()
-        # Load parameters or use defaults
 
+        # initialize the click time samples
         click_df = parameters["click_df"]
         self.calibration_clicks = click_df[click_df["Session Num"].isna()][["Click Time Relative (s)"]].to_numpy().T[0]
         self.click_df = click_df[click_df["Session Num"].notna()]
 
         self.num_sessions = int(click_df["Session Num"].max())
 
-        if "time_rotate" in parameters:
-            self.keyboard.rotate_index = parameters["time_rotate"]
-            self.keyboard.time_rotate = config.period_li[self.keyboard.rotate_index]
-            self.keyboard.change_speed()
-        else:
-            self.keyboard.rotate_index = config.default_rotate_ind
-            self.keyboard.time_rotate = config.period_li[self.keyboard.rotate_index]
-
+        # list to store sim results
         full_results = []
 
         for trial in range(trials):
-            self.initialize_keyboard()
+            # reinitialize the keyboard for each trial
+            self.keyboard = Keyboard()
 
-            ####### prime kde with calibration data
+            # prime kde with calibration data before the first session
             for yin in self.calibration_clicks:
                 self.keyboard.bc.clock_inf.clock_util.clock_inf.kde.add_point(float(yin))
 
+            # run through each session in the user data
             for session in range(1, self.num_sessions+1):
                 self.session = session
 
                 self.update_progress_bar(trial, trials, session, self.num_sessions)
 
+                # get the click data for the current session
                 self.get_session_clicks()
-
-                # self.keyboard.rotate_index = int(self.click_dist_copy[0])
-                self.keyboard.time_rotate = config.period_li[self.keyboard.rotate_index]
-                # print(self.time_rotate)
-                self.keyboard.change_speed()
 
                 self.num_presses_total = 0
                 self.phrase_num = 0
 
+                # type phrases until all clicks are used
                 while len(self.session_click_times) > 0:
-                    target_phrase = [self.keyboard.key_chars[i] for i in np.random.randint(0, len(self.keyboard.key_chars)-3, 7)]
+                    # construct a target phrase of 5 symbols followed by two periods ".."
+                    target_phrase = [self.keyboard.key_chars[i] for i in np.random.randint(0, len(self.keyboard.key_chars)-3, 5)]
+                    target_phrase += [kconfig.break_char]*2
 
                     phrase_results = {}
 
@@ -139,12 +129,14 @@ class SimulatedUser:
                     self.num_corrections = 0
                     self.num_selections = 0
                     self.start_time = self.keyboard.sim_time.time()
-
                     self.phrase_num +=1
-                    self.type_text(target_phrase, verbose=False)
+
+                    # type the target phrase, verbose=True will show targets and selections
+                    self.type_phrase(target_phrase, verbose=verbose)
 
                     self.num_presses_total += self.num_presses
 
+                    # only save simulation data from phrases more than halfway finished
                     if len(self.keyboard.typed) > 3 and self.num_selections > 0:
                         self.num_chars += int(len(self.keyboard.typed))
                         self.num_words += int(len(self.keyboard.typed))
@@ -159,13 +151,9 @@ class SimulatedUser:
                         phrase_results["num_chars"] = len(self.keyboard.typed)
 
                         full_results.append(phrase_results)
-
-                    # print(calc_MSD(self.typed, text))
-                    #
-                    # print(self.typed)
                     self.keyboard.typed = ""  # reset tracking and context for lm -- new sentence
 
-                ########### reset clock scores
+                # reset keyboard and clock scores for next session
                 (self.keyboard.bc.clock_inf.clocks_on, self.keyboard.bc.clock_inf.clocks_off, clock_score_prior, self.keyboard.bc.is_undo,
                  self.keyboard.bc.is_equalize) = self.keyboard.make_choice(self.keyboard.bc.clock_inf.sorted_inds[0])
                 # learn new scores
@@ -177,7 +165,137 @@ class SimulatedUser:
 
         print("\n\n")
 
+        # save simulation metrics to pandas df
         self.result_df = pd.DataFrame(full_results)
+
+    def type_phrase(self, target_phrase, verbose=False):
+        if verbose:
+            print("\nPhrase: ", target_phrase)
+
+        # start with first target in phrase
+        target_clock, cur_target_phrase = self.next_target(target_phrase)
+
+        # typing phrase with available number of click times
+        while len(self.session_click_times) > 0:
+            if verbose:
+                print("Target: "+self.keyboard.clock_to_text(target_clock))
+
+            # call function to select target clock
+            clock_selected = self.select_clock(target_clock, verbose=verbose)
+
+            # terminate phrase if clock not selected (ran out of clicks)
+            if clock_selected is None:
+                break
+
+            # if correct clock selected
+            elif clock_selected:
+                # if phrase not finished, move to next target
+                if len(cur_target_phrase) > 0:
+                    target_clock, cur_target_phrase = self.next_target(cur_target_phrase)
+
+                # terminate phrase when everything has been typed
+                else:
+                    break
+
+            # incorrect clock selected, need to undo
+            else:
+                undo_depth = 1
+                while 0 < undo_depth <= sim_config.max_undo_depth:
+                    undo_clock = self.keyboard.key_chars.index(kconfig.mybad_char)
+                    if verbose:
+                        tab = "-----"*undo_depth
+                        print(tab+"Target: Undo")
+                    self.num_corrections += 1
+                    undo_success = self.select_clock(undo_clock, verbose=verbose, undo_depth=undo_depth)
+
+                    # clock not selected (ran out of clicks)
+                    if undo_success is None:
+                        break
+
+                    # undo clock selected
+                    elif undo_success:
+                        undo_depth -= 1
+
+                    # incorrect clock selected, need to undo
+                    else:
+                        undo_depth += 1
+
+    def select_clock(self, target_clock, verbose=False, undo_depth=0):
+
+        ndt = self.keyboard.bc.clock_inf.clock_util.num_divs_time
+        time_elapsed = 0
+
+        cur_clicks = []
+
+        # try to select target clock until success or maximum number of clicks reached
+        for i in range(sim_config.max_clicks_per_selection):
+            self.keyboard.winner = False
+
+            # time increment until a keypress is simulated
+            time_delta = 0
+
+            # add the time until the target clock is exactly at noon to the time increment
+            if self.keyboard.bc.clock_inf.clock_util.cur_hours[target_clock] > ndt / 2:
+                time_delta += (ndt * 3 / 2 - self.keyboard.bc.clock_inf.clock_util.cur_hours[
+                    target_clock]) / ndt * self.keyboard.time_rotate
+            else:
+                time_delta += (ndt / 2 - self.keyboard.bc.clock_inf.clock_util.cur_hours[target_clock]) / ndt * self.keyboard.time_rotate
+
+            # pop a new click time sample if available
+            if len(self.session_click_times) > 0:
+                click_offset = float(self.session_click_times.pop())
+                delay_offset = float(self.session_dead_times.pop())
+                time_rotate = float(self.session_time_rotates.pop())
+
+                # update clock period if different than current value
+                if self.keyboard.time_rotate != time_rotate:
+                    self.keyboard.time_rotate = time_rotate
+                    self.keyboard.change_speed()
+
+            # otherwise terminate selection process when run out of clicks
+            else:
+                break
+
+            cur_clicks += [click_offset]
+
+            # determine the closest full rotation to the dead time sample and add to time increment
+            full_rotation_factor = (delay_offset//self.keyboard.time_rotate)
+            time_delta += full_rotation_factor*self.keyboard.time_rotate
+
+            # add the click time sample to the time increment
+            time_delta += click_offset
+
+            # step the simulation forward by the time increment
+            time_elapsed += time_delta
+            self.keyboard.sim_time.set_time(self.keyboard.sim_time.time() + time_delta)
+            self.keyboard.increment_clocks()
+
+            # simulate a keypress at the new time
+            self.keyboard.on_press()
+            self.num_presses += 1
+
+            # check if press resulted in a clock selection
+            if self.keyboard.winner:
+
+                selected_clock = self.keyboard.previous_winner
+                if verbose:
+
+                    tab = "-----"*undo_depth
+                    print(tab + "Typed: " + self.keyboard.typed)
+                self.keyboard.winner = False
+
+                # return if selected clock was the correct target
+                if selected_clock == target_clock:
+                    self.num_selections += 1
+                    return True
+                else:
+                    return False
+
+        return None
+
+    def next_target(self, text):
+        target_char = text[0]
+        return self.keyboard.key_chars.index(target_char), text[1:]
 
     def update_progress_bar(self, trial, trials, session, num_sessions):
         if self.num_jobs == 0:
@@ -186,189 +304,5 @@ class SimulatedUser:
             progress = int(((trial + session / num_sessions) / trials + self.job_num)/self.num_jobs * 50)
 
         sys.stdout.write('\r')
-        # the exact output you're looking for:
         sys.stdout.write("[%-50s] %d%%" % ('=' * progress, 2 * progress))
         sys.stdout.flush()
-
-    def update_sim_averages(self, num_trials):
-
-        time_int = self.keyboard.sim_time.time() - self.prev_time
-        self.prev_time = float(self.keyboard.sim_time.time())
-
-        self.sel_per_min += [self.num_selections / (time_int / 60)]
-
-        self.char_per_min += [self.num_chars / (time_int / 60)]
-
-        if self.num_selections > 0:
-            self.press_per_sel += [self.num_presses / self.num_selections]
-
-            self.error_rate_avg += [self.num_errors / self.num_selections]
-        else:
-            self.press_per_sel += [float("inf")]
-
-            self.error_rate_avg += [float("inf")]
-
-        if self.num_chars > 0:
-            self.press_per_char += [self.num_presses / self.num_chars]
-        else:
-            self.press_per_char += [float("inf")]
-
-        if self.num_words > 0:
-            self.press_per_word += [self.num_presses / self.num_words]
-        else:
-            self.press_per_word += [float("inf")]
-
-    def type_text(self, text, verbose=False):
-        self.target_text = text
-        prev_target_text = self.target_text
-        success = True
-
-        while len(self.target_text) > 0 or not success and len(self.session_click_times) > 0:
-            if success:
-                prev_target_text = self.target_text
-                target_clock, self.target_text = self.next_target(self.target_text)
-            else:
-                target_clock, self.target_text = self.next_target(prev_target_text)
-
-            self.target_clock = target_clock
-
-            if verbose:
-                print("Target: ", self.keyboard.clock_to_text(target_clock), target_clock)
-
-            success = self.select_clock(target_clock, verbose=verbose)
-            if success is not None:
-                # return
-
-                if not success:
-                    enter_press_num = self.num_presses
-                    undo_depth = 1
-                    while undo_depth > 0 and undo_depth <= 3:
-
-                        undo_clock = len(self.keyboard.key_chars)-1
-                        if verbose:
-                            print("Target: ", "Undo ", undo_clock)
-                        self.num_corrections += 1
-                        undo_success = self.select_clock(undo_clock, verbose=verbose, undo_depth=undo_depth)
-
-                        if undo_success is not None:
-                            if undo_success:
-                                undo_depth -= 1
-                            elif success == "END":
-                                return
-                            else:
-                                undo_depth += 1
-
-                    if (undo_depth > 2):
-                        success = True
-                    else:
-                        success = False
-
-                if success == "END":
-                    return
-
-    def select_clock(self, target_clock, verbose=False, undo_depth=0):
-
-        ndt = self.keyboard.bc.clock_inf.clock_util.num_divs_time
-        num_press = 0
-        time_elapsed = 0
-
-        cur_clicks = []
-        initial_dens_li = self.keyboard.bc.clock_inf.kde.dens_li
-        for i in range(15):
-            self.keyboard.winner = False
-            if self.keyboard.bc.clock_inf.clock_util.cur_hours[target_clock] > ndt / 2:
-                time_delta = (ndt * 3 / 2 - self.keyboard.bc.clock_inf.clock_util.cur_hours[
-                    target_clock]) / ndt * self.keyboard.time_rotate
-            else:
-                time_delta = (ndt / 2 - self.keyboard.bc.clock_inf.clock_util.cur_hours[target_clock]) / ndt * self.keyboard.time_rotate
-
-            if len(self.session_click_times) == 0:
-                return "END"
-            else:
-                click_offset = float(self.session_click_times.pop())
-                delay_offset = float(self.session_dead_times.pop())
-                time_rotate = float(self.session_time_rotates.pop())
-                if self.keyboard.time_rotate != time_rotate:
-                    self.keyboard.time_rotate = time_rotate
-                    self.keyboard.change_speed()
-                    # print(self.keyboard.time_rotate)
-
-            cur_clicks += [click_offset]
-
-            # simulate gaze point
-            # if self.gaze_scale == 0:
-            #     self.gaze_x_loc = self.gaze_y_loc = 0
-            # else:
-            #     target_x, target_y = self.clock_locs[self.target_clock]
-            #     self.gaze_x_loc = np.random.normal(target_x, self.gaze_scale*self.clock_radius/2)
-            #     self.gaze_y_loc = np.random.normal(target_y, self.gaze_scale*self.clock_radius/2)
-
-
-            full_rotation_factor = (delay_offset//self.keyboard.time_rotate)
-            time_delta += full_rotation_factor*self.keyboard.time_rotate
-
-            time_delta += click_offset
-
-            time_elapsed += time_delta
-            self.keyboard.sim_time.set_time(self.keyboard.sim_time.time() + time_delta)
-
-            self.keyboard.increment_clocks()
-
-            self.keyboard.on_press()
-            self.num_presses += 1
-
-            # recovery_time = 0.4
-            # self.time.set_time(self.time.time() + recovery_time)
-            #             # self.on_timer()
-            if self.keyboard.winner:
-
-                selected_clock = self.keyboard.previous_winner
-
-                if verbose:
-                    if undo_depth > 0:
-                        tab = "    "
-                    else:
-                        tab = ""
-                    print(tab + "    Typed \"" + self.keyboard.typed + "\"")
-                self.keyboard.winner = False
-
-                if selected_clock == target_clock:
-                    self.num_selections += 1
-                else:
-                    return False
-                return True
-
-        return None
-
-    def next_target(self, text):
-
-        target_letter = text[0]
-
-        return self.keyboard.key_chars.index(target_letter)*(self.keyboard.N_pred+1) + self.keyboard.N_pred, text[1:]
-
-
-
-def main():
-    with open('simulations/ajay_data/click_times_user_63.csv', newline='') as f:
-        reader = csv.reader(f)
-        user_data = list(reader)
-
-    data_len = len(user_data)
-    click_dists = user_data[:data_len//2]
-    delay_dists = user_data[data_len//2:]
-
-    click_dists = click_dists[-5:]
-    delay_dists = delay_dists[-5:]
-
-
-    sim = SimulatedUser()
-    params = { "time_rotate": 14, "click_dist": click_dists, "delay_dist": delay_dists}
-
-    sim.parameter_metrics(params, trials=1)
-    print(sim.result_df)
-    sim.result_df.to_csv('simulations/ajay_data/test_df_opt.csv', index=False)
-
-
-
-if __name__ == "__main__":
-    main()

@@ -41,7 +41,7 @@ current_folder= os.path.dirname(os.path.abspath(__file__))
 period_li = np.arange(21)
 period_li = 6*np.e**(-period_li/10)
 
-print(period_li)
+# print(period_li)
 scale_min = 1
 scale_max = len(period_li) - 1
 default_rotate_ind = 6  # 19 # (22,) 19, 16, 13, 10, 7

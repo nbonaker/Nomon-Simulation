@@ -46,6 +46,7 @@ emoji_text = emoji_file.read()
 emoji_file.close()
 emoji_keys = emoji_text.split("\n")
 emoji_keys = [emoji.emojize(key, use_aliases=True) for key in emoji_keys]
+emoji_keys += [break_char, space_char, clear_char, mybad_char]
 
 num_rows = 10
 num_cols = 7
@@ -58,6 +59,7 @@ for i in range(num_emoji_keys):
     emoji_target_layout[-1].append(emoji_keys[i])
 
 emoji_target_layout[-1] += [break_char, space_char, clear_char, mybad_char]
+
 
 # base window size (for relative size calculations)
 base_window_width = 1200

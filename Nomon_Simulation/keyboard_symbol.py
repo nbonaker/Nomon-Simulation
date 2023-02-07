@@ -112,11 +112,18 @@ class Keyboard:
 
         # calculate the clock centers for the display
         self.clock_centers = []
-        for i in range(0, 7):
-            for j in range(0, 10):
-                if i == 6 and j % 2:
-                    continue
-                self.clock_centers.append((x_spacing * (j) + clock_radius * 2, y_spacing * (i) + clock_radius * 2))
+
+        # for i in range(0, 7):
+        #     for j in range(0, 10):
+        #         if i == 6 and j % 2:
+        #             continue
+        #         self.clock_centers.append((x_spacing * (j) + clock_radius * 2, y_spacing * (i) + clock_radius * 2))
+        for row_num, row in enumerate(kconfig.emoji_target_layout):
+            for col_num in range(len(row)):
+                if len(row) < kconfig.num_cols:
+                    self.clock_centers.append((x_spacing * (col_num*2) + clock_radius * 2, y_spacing * (row_num) + clock_radius * 2))
+                else:
+                    self.clock_centers.append((x_spacing * (col_num) + clock_radius * 2, y_spacing * (row_num) + clock_radius * 2))
 
         self.N_keys = len(self.key_chars)
         self.win_diffs = []
