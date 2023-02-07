@@ -2,3 +2,5 @@ venv_s/
 .idea/
 results/
 figures/
+ajay_data/
+__pycache__/
