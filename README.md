@@ -1,49 +1,60 @@
-Nomon
+Nomon Simulated User Overview
 ================
-This repository contains the Windows Installer for Nomon.
+This repository contains a framework for simulating the use of nomon with data collected from real single-switch users. The repository is divided into three sections:
+- **Nomon-Core** --- Contains the core backend attributes that facilitate the Nomon selection mechanism
+- **Nomon-Simulation** --- Contains a framework that simulates user interactions with a running instance of the Nomon keyboard.
+- **Nomon-User-Data** --- Contains detailed data tables on how switch users interacted with the Nomon keyboard as they learned to use it. This data is used as an input to the Nomon-Simulation framework above.
 
+***Note -- This repository contains code for a python-based implementation of the Nomon selection mechanism. We are no longer actively developing or supporting a python based application for Nomon, but a legacy application can be found [here](https://github.com/tbroderick/Nomon). We recommended checking out our [web based application](https://github.com/nbonaker/NomonWeb) (JS/HTML/PHP) if you wish to see or adapt the code for purposes beyond user simulation.*** 
+
+Nomon Background
+================
+To learn more about Nomon, visit our main website [nomon.app](https://nomon.app)
 Nomon, invented by [Tamara Broderick](http://people.csail.mit.edu/tbroderick/index.html), is a keyboard application that uses a single switch selection method, allowing users to select a letter or a word with a single click. These clicks are distinguished by their timing, which can be controlled depending on the users desired speed. Each letter and suggested word is paired with a set of small clocks, each one associated with each option of a letter or a word. Repeatedly, when the clock's moving hand is at noon, the user clicks the single click until the desired option is selected. Using this method, users can select words and letters to form sentences with just a single switch.
-
-Nomon has also been used in different applications such as games. GNOMON (Gaming Nomon) is a software developed based on Nomon presenting "action-oriented single switch video games" that allows children with disabilities to also enjoy video games [link](https://dl.acm.org/citation.cfm?id=3085957). This was a successful application of Nomon, allowing users with disability to overcome some barriers.
 
 Relevant papers about Nomon include:
 - Broderick, T and MacKay, DJC. Fast and flexible selection with a single switch. *PLoS ONE* 4(10), e7481. [link](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0007481)
 - Broderick, T. Nomon: Efficient communication with a single switch. *Technical Report* (extension of Master's Thesis). Cavendish Laboratory, University of Cambridge. [ps](http://www.inference.org.uk/nomon/files/nomon_tech_report.ps) [pdf](http://www.inference.org.uk/nomon/files/nomon_tech_report.pdf)
+- Nicholas Ryan Bonaker, Emli-Mari Nel, Keith Vertanen, and Tamara Broderick. 2022. A Performance Evaluation of Nomon: A Flexible Interface for Noisy Single-Switch Users. In Proceedings of the 2022 CHI Conference on Human Factors in Computing Systems (CHI '22). Association for Computing Machinery, New York, NY, USA, Article 495, 1–17. [link](https://dl.acm.org/doi/10.1145/3491102.3517738)
 
-This is a [video]()
- of the past version of Nomon as described in the papers above.
-
-The software is licensed under the [MIT license](https://opensource.org/licenses/MIT), so you are free to use it for whatever purpose you choose.
-
-Installing Nomon on Windows
+Nomon-Core
 ================
-1. Download the latest installer from our google drive (https://drive.google.com/open?id=1VvtzymjkKMjzNXFzJ6oT12m_MjbWAV8B)
-2. Choose a directory for Nomon (example (default): "C:\Program Files\Nomon")
-3. "Do you want to allow an unknown publisher to make changes to your device?" may appear. If it does, click "yes."
+- **`BroderClocks.py`** -- Manages the `ClockInferenceEngine` and `ClockUtil` classes and communicates with the keyboard application. Handles switch-press events and makes selection decisions based on the clock probabilities. 
+- **`ClockInferenceEngine.py`** -- Handles the inference and probability estimates pertaining to the clocks. 
+- **`ClockUtil.py`** -- Manages the movement and position of clock hands.
+- **`Config.py`** -- Hyperparameters controlling the core selection mechanism behind Nomon.
 
-We have succesfully tested the installer on Windows 7 and Windows 10.
+Nomon-Simulation
+================
+Main Files:
+- **`Keyboard.py`** -- Controls the interface of the Nomon keyboard. Manges the layout of the clocks/words/characters and keeps track of the typed text.
+- **`SimulatedUser.py`** -- Interacts with the main `Keyboard` class to simulate user interactions. Controls which clocks are targeted, when switch-press events occur, and saves entry data from the simulation.
+- **`SimConfig.py`** -- Hyperparameters controlling the behavior of the `SimulatedUser`
+- **`KConfig.py`** -- Hyperparameters controlling the keyboard interface and it's layout.
 
-Running Nomon on Windows
-============
-You can also watch [this video](https://youtu.be/fv-WvW0JktE) for instructions on running and using Nomon.
-1. Locate the Nomon desktop icon (it is a yellow "N")
-2. Click on the icon
+Simulations Directory: 
 
-If you get an error "IOError: [Errno13] Permission denied" error, you will need to run Nomon as Administrator:
-1. Right click on the icon
-2. Select "Run as Administrator" from the list of options
-3. "Do you want this app from an unknown publisher to make changes to your device?" may appear. If it does, click "yes."
+*simulations/ \
+&emsp;&emsp;&emsp;&emsp;&emsp; simulation1/ \
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; results/ -- contains the output csv data files \
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; sim.py -- contains the SimulationUtil class \
+&emsp;&emsp;&emsp;&emsp;&emsp; simulation2/ \
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ...* 
 
-**Note:** At the moment the "talk" capabilities of Nomon are not part of the release. This will be included in a future release.
+- **SimulationUtil** -- Simulations are managed by a SimulationUtil class. These classes are unique to each simulation and control the varied parameters that are fed into the SimulatedUser and keyboard instances. They also manage the saving of data into the simulation's subdirectory. The SimulationUtil class also contains code to split parameter searches (multiple, longitudinal simulations) into jobs that can be executed concurrently on multiple CPU cores. 
 
-Troubleshooting
-====================
-**IOError: [Errno13] Permission denied**
-
-Check that you are not using an old version of Nomon (version 2 or earlier). If this is the case--and you wish to install an older version--make sure you have not installed Nomon in the Program Files directory. You can resolve this issue permanently by reinstalling Nomon in a different dirctory (such as C:\Nomon), or you can run Nomon as Administrator (see instructions on how to do this in "Running Nomon").
-====================
-How to Use Nomon:
-[This same video](https://youtu.be/fv-WvW0JktE) also has instructions for using Nomon.
-
-
-
+Nomon-User-Data
+================
+CSV data tables containing the raw interaction data for the switch-users that trialed Nomon. Each row represents a single click sent into the Nomon Keyboard. The columns in the dataset are described below:
+ - **Session Num** -- The session number for the data. Sessions lasted 10 minutes each, though earlier sessions may be shorter.
+ - **Phrase Num** -- Counts the number of phrases in the current session.
+ - **Selection Num** -- Counts the number of selections needed to type the current phrase.
+ - **Click Num** -- Counts the number of switch presses needed to make the current selection.
+ - **Phrase Text** -- The target phrase presented to the user.
+ - **Typed Text** -- The text currently typed by the user on a given phrase. Note this may differ from the phrase text if the user made an error.
+ - **Target** -- The target word/character highlighted for the user to select.
+ - **Selection** -- The word/character/corrective option ultimately selected by the user. 
+ - **Clock Period (s)** -- The time in seconds it takes the clocks to make a full rotation.
+ - **Click Time Relative (s)** -- The time in seconds that the user clicked their switch relative to when the clock they ultimately selected was at Noon. This value can range from [-Clock Period/2, Clock Period/2].
+ - **Click Time Absolute (s)** -- The timestamp measured in seconds since epoch (epoch time) that the user clicked their switch.
+ - **Dead Time (s)** -- The time in seconds since the last time the user clicked. Equal to the difference between the current and previous Click Time Absolute values. 
