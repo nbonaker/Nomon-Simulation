@@ -1,0 +1,14 @@
+User ID,Session Num,Phrase Num,Total Experience (min),Clock Period (s),Click Dist SD (s),Click Dist p95 (s),Click Dist p99 (s),Phrase Text,Typed Text,Entry Rate (wpm),Click Load (clicks/character),Correction Rate (% of selections),Correction Time (s),Correction Click Load Contribution (%),Final Error Rate (%)
+70,1,1,0,2.98,0.1209,0.4843,0.6705,that was actually a question,that was actually a question.,2.522,1.379,7.143,11,12.5,0
+70,1,2,2.3,2.98,0.079,0.3353,0.5215,what was your experience with it,what was your experience with it.,4.213,0.97,0,0,0,0
+70,1,3,3.87,2.98,0.2124,0.8568,1.7508,delmon young would have a case,delmon young would have a case.,2.416,1.677,0,0,0,0
+70,1,4,6.43,2.98,0.2815,1.49,1.7135,no one broke the world record,no one broke the world record.,2.416,1.567,5.882,4,6.383,0
+70,2,1,8.92,2.98,0.2033,0.745,2.0115,tabinof is not a good coaster,tabinof is not a good coaster.,2.449,1.933,0,0,0,0
+70,2,2,11.37,2.98,0.1286,0.447,0.894,this has given me the fear,this has given me the fear.,3.522,1.444,0,0,0,0
+70,2,3,12.9,2.98,0.1852,0.8195,1.3038,i have the best coworkers ever,i have the best coworkers ever.,3.683,1.29,0,0,0,0
+70,2,4,14.58,2.98,0.2453,1.3038,1.7135,everyone at chopt knows me,everyone at chopt knows me.,2.769,1.519,0,0,0,0
+70,3,1,16.53,2.98,0.1871,0.745,1.639,no such thing as job security,no such thing as job security.,2.687,1.533,0,0,0,0
+70,3,2,18.77,2.98,0.0986,0.3353,0.745,how can sevco be back,how can sevco be back.,2.75,1.591,7.143,4,8.571,0
+70,3,3,20.37,2.98,0.0612,0.1863,0.3725,i'm so late to answer this,i'm so late to answer this.,3.273,1.333,0,0,0,0
+70,3,4,22.02,2.98,0.1395,0.4843,1.2293,i'll need to try that,i'll need to try that.,3.143,1.364,0,0,0,0
+70,3,5,23.42,2.98,0.3381,1.5273,1.7508,use an elgato video capture connector,use an elgato video capture co,2.432,1.9,4.348,3,5.263,0

@@ -1,0 +1,1016 @@
+Session Num,Phrase Num,Selection Num,Click Num,Task,Phrase Text,Typed Text,Target,Selection,Clock Period (s),Click Time Relative (s),Click Time Absolute (s),Dead Time (s)
+1,1,1,1,text,it's like evra signing for luton,i,,i,4.445,0.005,1651583555,0.0
+1,1,1,2,text,it's like evra signing for luton,i,,i,4.445,0.0727,1651583557,2.30700016
+1,1,2,1,text,it's like evra signing for luton,it's_,,it's_,4.445,-0.2708,1651583568,11.17499995
+1,1,2,2,text,it's like evra signing for luton,it's_,,it's_,4.445,-0.0047,1651583569,1.267999887
+1,1,2,3,text,it's like evra signing for luton,it's_,,it's_,4.445,0.0427,1651583573,4.167999983
+1,1,3,1,text,it's like evra signing for luton,it's like_,,like_,4.445,0.0854,1651583580,6.641000032
+1,1,3,2,text,it's like evra signing for luton,it's like_,,like_,4.445,0.0874,1651583582,2.322999954
+1,1,4,1,text,it's like evra signing for luton,it's like e,,e,4.445,0.3158,1651583598,15.59000015
+1,1,4,2,text,it's like evra signing for luton,it's like e,,e,4.445,0.2014,1651583603,4.964999914
+1,1,4,3,text,it's like evra signing for luton,it's like e,,e,4.445,0.1261,1651583605,2.364000082
+1,1,5,1,text,it's like evra signing for luton,it's like ev,,v,4.445,0.0767,1651583617,11.27099991
+1,1,5,2,text,it's like evra signing for luton,it's like ev,,v,4.445,0.1034,1651583619,2.305999994
+1,1,6,1,text,it's like evra signing for luton,it's like evr,,r,4.445,0.1361,1651583633,13.71300006
+1,1,6,2,text,it's like evra signing for luton,it's like evr,,r,4.445,-0.0117,1651583634,0.930000067
+1,1,7,1,text,it's like evra signing for luton,it's like evra,,a,4.445,-0.0424,1651583640,6.008999825
+1,1,7,2,text,it's like evra signing for luton,it's like evra,,a,4.445,0.1597,1651583642,2.366000175
+1,1,8,1,text,it's like evra signing for luton,it's like evra_,,Space,4.445,0.1897,1651583654,12.3499999
+1,1,8,2,text,it's like evra signing for luton,it's like evra_,,Space,4.445,0.1747,1651583657,2.384000063
+1,1,9,1,text,it's like evra signing for luton,it's like evra s,,s,4.445,0.0547,1651583664,7.440000057
+1,1,9,2,text,it's like evra signing for luton,it's like evra s,,s,4.445,0.0557,1651583666,1.640999794
+1,1,9,3,text,it's like evra signing for luton,it's like evra s,,s,4.445,0.2354,1651583668,2.460000038
+1,1,10,1,text,it's like evra signing for luton,it's like evra si,,i,4.445,0.1777,1651583677,8.943000078
+1,1,10,2,text,it's like evra signing for luton,it's like evra si,,i,4.445,0.1581,1651583680,2.379999876
+1,1,11,1,text,it's like evra signing for luton,it's like evra signing_,,signing_,4.445,0.0707,1651583686,6.871000051
+1,1,11,2,text,it's like evra signing for luton,it's like evra signing_,,signing_,4.445,-0.1111,1651583690,4.018000126
+1,1,11,3,text,it's like evra signing for luton,it's like evra signing_,,signing_,4.445,0.035,1651583693,2.26699996
+1,1,12,1,text,it's like evra signing for luton,it's like evra signing for_,,for_,4.445,0.2104,1651583699,5.937000036
+1,1,12,2,text,it's like evra signing for luton,it's like evra signing for_,,for_,4.445,0.1957,1651583701,2.424999952
+1,1,13,1,text,it's like evra signing for luton,it's like evra signing for l,,l,4.445,0.1014,1651583708,6.704999924
+1,1,13,2,text,it's like evra signing for luton,it's like evra signing for l,,l,4.445,0.1301,1651583709,1.069000006
+1,1,14,1,text,it's like evra signing for luton,it's like evra signing for lu,,u,4.445,0.039,1651583723,14.02800012
+1,1,14,2,text,it's like evra signing for luton,it's like evra signing for lu,,u,4.445,-0.1307,1651583727,4.628999949
+1,1,14,3,text,it's like evra signing for luton,it's like evra signing for lu,,u,4.445,0.2411,1651583730,2.454999924
+1,1,15,1,text,it's like evra signing for luton,it's like evra signing for lut,,t,4.445,0.1897,1651583745,15.06800008
+1,1,15,2,text,it's like evra signing for luton,it's like evra signing for lut,,t,4.445,0.1967,1651583749,4.326999903
+1,1,16,1,text,it's like evra signing for luton,it's like evra signing for luton_,,luton_,4.445,0.2671,1651583761,11.71099997
+1,1,16,2,text,it's like evra signing for luton,it's like evra signing for luton_,,luton_,4.445,0.1094,1651583763,2.321000099
+1,1,17,1,text,it's like evra signing for luton,it's like evra signing for luton._,,.,4.445,-0.0117,1651583767,3.881000042
+1,1,17,2,text,it's like evra signing for luton,it's like evra signing for luton._,,.,4.445,0.1747,1651583769,2.022000074
+1,1,17,3,text,it's like evra signing for luton,it's like evra signing for luton._,,.,4.445,0.2354,1651583770,1.191999912
+1,1,18,1,text,it's like evra signing for luton,it's like evra signing for luton.._,,.,4.445,-0.1674,1651583774,3.743000031
+1,1,18,2,text,it's like evra signing for luton,it's like evra signing for luton.._,,.,4.445,0.1331,1651583775,1.010999918
+1,2,1,1,text,i'm sorry these drivers are gladiators,i,,i,4.445,0.1421,1651583794,2.185000181
+1,2,1,2,text,i'm sorry these drivers are gladiators,i,,i,4.445,-0.0337,1651583796,2.181999922
+1,2,1,3,text,i'm sorry these drivers are gladiators,i,,i,4.445,0.3802,1651583799,2.618000031
+1,2,2,1,text,i'm sorry these drivers are gladiators,im_,,im_,4.445,0.0657,1651583805,6.881999969
+1,2,2,2,text,i'm sorry these drivers are gladiators,im_,,im_,4.445,-0.0584,1651583810,4.075999975
+1,2,3,1,text,i'm sorry these drivers are gladiators,im sorry_,,sorry_,4.445,0.3892,1651583815,5.170000076
+1,2,3,2,text,i'm sorry these drivers are gladiators,im sorry_,,sorry_,4.445,0.3008,1651583817,1.871999979
+1,2,3,3,text,i'm sorry these drivers are gladiators,im sorry_,,sorry_,4.445,0.2144,1651583819,2.431999922
+1,2,4,1,text,i'm sorry these drivers are gladiators,im sorry t,,t,4.445,0.4119,1651583825,5.519000053
+1,2,4,2,text,i'm sorry these drivers are gladiators,im sorry t,,t,4.445,0.6897,1651583826,1.0
+1,2,4,3,text,i'm sorry these drivers are gladiators,im sorry t,,t,4.445,0.2561,1651583829,3.122999907
+1,2,5,1,text,i'm sorry these drivers are gladiators,im sorry th,,h,4.445,0.2284,1651583837,8.853000164
+1,2,5,2,text,i'm sorry these drivers are gladiators,im sorry th,,h,4.445,0.2391,1651583840,2.450999975
+1,2,6,1,text,i'm sorry these drivers are gladiators,im sorry the,,e,4.445,0.1887,1651583849,8.828000069
+1,2,6,2,text,i'm sorry these drivers are gladiators,im sorry the,,e,4.445,0.1571,1651583851,2.367999792
+1,2,7,1,text,i'm sorry these drivers are gladiators,im sorry these_,,these_,4.445,-0.1101,1651583863,12.33200002
+1,2,7,2,text,i'm sorry these drivers are gladiators,im sorry these_,,these_,4.445,0.2104,1651583868,4.361999989
+1,2,8,1,text,i'm sorry these drivers are gladiators,im sorry these d,,d,4.445,0.3185,1651583889,20.91000009
+1,2,8,2,text,i'm sorry these drivers are gladiators,im sorry these d,,d,4.445,0.0934,1651583893,4.252000093
+1,2,8,3,text,i'm sorry these drivers are gladiators,im sorry these d,,d,4.445,0.1597,1651583895,2.386999846
+1,2,9,1,text,i'm sorry these drivers are gladiators,im sorry these di,,i,4.445,0.2431,1651583905,9.653000116
+1,2,9,2,text,i'm sorry these drivers are gladiators,im sorry these di,,i,4.445,0.1887,1651583907,2.191999912
+1,2,9,3,text,i'm sorry these drivers are gladiators,im sorry these di,,i,4.445,-0.1674,1651583914,6.51699996
+1,2,10,1,text,i'm sorry these drivers are gladiators,im sorry these d,,@,4.445,0.3185,1651583917,2.899000168
+1,2,10,2,text,i'm sorry these drivers are gladiators,im sorry these d,,@,4.445,0.0934,1651583920,3.057999849
+1,2,10,3,text,i'm sorry these drivers are gladiators,im sorry these d,,@,4.445,0.1597,1651583922,2.387000084
+1,2,11,1,text,i'm sorry these drivers are gladiators,im sorry these dr,,r,4.445,0.0884,1651583929,7.302999973
+1,2,11,2,text,i'm sorry these drivers are gladiators,im sorry these dr,,r,4.445,0.1164,1651583932,2.987999916
+1,2,11,3,text,i'm sorry these drivers are gladiators,im sorry these dr,,r,4.445,0.2681,1651583935,2.47300005
+1,2,12,1,text,i'm sorry these drivers are gladiators,im sorry these drive_,,drive_,4.445,0.0417,1651583944,9.292000055
+1,2,12,2,text,i'm sorry these drivers are gladiators,im sorry these drive_,,drive_,4.445,0.1351,1651583947,2.374000072
+1,2,12,3,text,i'm sorry these drivers are gladiators,im sorry these drive_,,drive_,4.445,0.0964,1651583949,2.319999933
+1,2,13,1,text,i'm sorry these drivers are gladiators,im sorry these drive r,,r,4.445,-0.0584,1651583960,11.18199992
+1,2,13,2,text,i'm sorry these drivers are gladiators,im sorry these drive r,,r,4.445,0.0964,1651583963,3.08100009
+1,2,13,3,text,i'm sorry these drivers are gladiators,im sorry these drive r,,r,4.445,0.1597,1651583966,2.447999954
+1,2,14,1,text,i'm sorry these drivers are gladiators,im sorry these drive_,,@,4.445,0.0417,1651583972,6.08100009
+1,2,14,2,text,i'm sorry these drivers are gladiators,im sorry these drive_,,@,4.445,0.1351,1651583973,1.250999928
+1,2,14,3,text,i'm sorry these drivers are gladiators,im sorry these drive_,,@,4.445,0.0964,1651583975,2.499000072
+1,2,15,1,text,i'm sorry these drivers are gladiators,im sorry these drive,,#,4.445,0.2134,1651583980,4.576999903
+1,2,15,2,text,i'm sorry these drivers are gladiators,im sorry these drive,,#,4.445,-0.0931,1651583982,2.131000042
+1,2,15,3,text,i'm sorry these drivers are gladiators,im sorry these drive,,#,4.445,0.2384,1651583985,2.453000069
+1,2,16,1,text,i'm sorry these drivers are gladiators,im sorry these driver_,,driver_,4.445,0.3138,1651583994,9.196999788
+1,2,16,2,text,i'm sorry these drivers are gladiators,im sorry these driver_,,driver_,4.445,0.2948,1651583996,2.501000166
+1,2,16,3,text,i'm sorry these drivers are gladiators,im sorry these driver_,,driver_,4.445,0.2064,1651583999,2.430999994
+1,2,17,1,text,i'm sorry these drivers are gladiators,im sorry these driver a,,a,4.445,0.2324,1651584005,6.625999928
+1,2,17,2,text,i'm sorry these drivers are gladiators,im sorry these driver a,,a,4.445,0.3028,1651584008,2.50999999
+1,2,17,3,text,i'm sorry these drivers are gladiators,im sorry these driver a,,a,4.445,0.2968,1651584010,2.515000105
+1,2,18,1,text,i'm sorry these drivers are gladiators,im sorry these driver are_,,are_,4.445,0.2661,1651584017,6.648000002
+1,2,18,2,text,i'm sorry these drivers are gladiators,im sorry these driver are_,,are_,4.445,0.1967,1651584019,2.409999847
+1,2,18,3,text,i'm sorry these drivers are gladiators,im sorry these driver are_,,are_,4.445,0.1627,1651584022,2.368000031
+1,2,19,1,text,i'm sorry these drivers are gladiators,im sorry these driver are g,,g,4.445,0.3445,1651584031,9.14199996
+1,2,19,2,text,i'm sorry these drivers are gladiators,im sorry these driver are g,,g,4.445,0.1807,1651584035,4.315000057
+1,2,20,1,text,i'm sorry these drivers are gladiators,im sorry these driver are gl,,l,4.445,0.1581,1651584049,14.05699992
+1,2,20,2,text,i'm sorry these drivers are gladiators,im sorry these driver are gl,,l,4.445,0.3972,1651584054,4.520000219
+1,2,20,3,text,i'm sorry these drivers are gladiators,im sorry these driver are gl,,l,4.445,0.1627,1651584056,2.36500001
+1,2,21,1,text,i'm sorry these drivers are gladiators,im sorry these driver are gla,,a,4.445,0.3792,1651584063,7.097999811
+1,2,21,2,text,i'm sorry these drivers are gladiators,im sorry these driver are gla,,a,4.445,0.2958,1651584066,2.516000032
+1,2,21,3,text,i'm sorry these drivers are gladiators,im sorry these driver are gla,,a,4.445,0.2094,1651584068,2.433000088
+1,2,22,1,text,i'm sorry these drivers are gladiators,im sorry these driver are glad,,d,4.445,0.4446,1651584080,11.63699985
+1,2,22,2,text,i'm sorry these drivers are gladiators,im sorry these driver are glad,,d,4.445,0.2354,1651584084,4.388000011
+1,2,23,1,text,i'm sorry these drivers are gladiators,im sorry these driver are gladiators_,,gladiators_,4.445,0.0447,1651584099,15.20900011
+1,2,23,2,text,i'm sorry these drivers are gladiators,im sorry these driver are gladiators_,,gladiators_,4.445,0.0397,1651584100,0.994999886
+1,2,23,3,text,i'm sorry these drivers are gladiators,im sorry these driver are gladiators_,,gladiators_,4.445,0.4149,1651584103,2.657999992
+1,2,24,1,text,i'm sorry these drivers are gladiators,im sorry these driver are gladiators._,,.,4.445,0.1807,1651584107,4.318000078
+1,2,24,2,text,i'm sorry these drivers are gladiators,im sorry these driver are gladiators._,,.,4.445,0.0397,1651584112,4.996999979
+1,2,24,3,text,i'm sorry these drivers are gladiators,im sorry these driver are gladiators._,,.,4.445,0.3028,1651584115,2.495000124
+1,2,25,1,text,i'm sorry these drivers are gladiators,im sorry these driver are gladiators.._,,.,4.445,0.2948,1651584120,4.688999891
+1,2,25,2,text,i'm sorry these drivers are gladiators,im sorry these driver are gladiators.._,,.,4.445,0.2354,1651584123,3.33100009
+1,2,25,3,text,i'm sorry these drivers are gladiators,im sorry these driver are gladiators.._,,.,4.445,0.1581,1651584127,4.434000015
+1,3,1,1,text,should i start playing it again,s,,s,4.445,0.0767,1651584133,5.56799984
+1,3,1,2,text,should i start playing it again,s,,s,4.445,-0.7857,1651584135,2.435000181
+1,3,1,3,text,should i start playing it again,s,,s,4.445,-1.9426,1651584138,2.438999891
+2,1,1,1,text,weezer is still very relevant,w,,w,4.445,0.2551,1651585179,0.0
+2,1,1,2,text,weezer is still very relevant,w,,w,4.445,0.3902,1651585182,2.614000082
+2,1,1,3,text,weezer is still very relevant,w,,w,4.445,0.5429,1651585185,2.754999876
+2,1,2,1,text,weezer is still very relevant,we,,e,4.445,0.1391,1651585194,8.753000021
+2,1,2,2,text,weezer is still very relevant,we,,e,4.445,0.2721,1651585196,2.493999958
+2,1,3,1,text,weezer is still very relevant,wee,,e,4.445,0.4606,1651585204,8.271000147
+2,1,3,2,text,weezer is still very relevant,wee,,e,4.445,0.3602,1651585206,1.296999931
+2,1,3,3,text,weezer is still very relevant,wee,,e,4.445,0.2948,1651585208,2.535000086
+2,1,4,1,text,weezer is still very relevant,weez,,z,4.445,0.1094,1651585215,7.013000011
+2,1,4,2,text,weezer is still very relevant,weez,,z,4.445,0.1887,1651585219,3.679999828
+2,1,4,3,text,weezer is still very relevant,weez,,z,4.445,0.3445,1651585221,2.558000088
+2,1,5,1,text,weezer is still very relevant,weezi,,i,4.445,0.2551,1651585226,4.161999941
+2,1,5,2,text,weezer is still very relevant,weezi,,i,4.445,0.2721,1651585228,2.511000156
+2,1,6,1,text,weezer is still very relevant,weez,,@,4.445,0.1094,1651585239,10.71599984
+2,1,6,2,text,weezer is still very relevant,weez,,@,4.445,0.1887,1651585240,1.685000181
+2,1,6,3,text,weezer is still very relevant,weez,,@,4.445,0.3445,1651585243,2.511999846
+2,1,6,4,text,weezer is still very relevant,weez,,@,4.445,0.2948,1651585245,2.5
+2,1,7,1,text,weezer is still very relevant,weeze,,e,4.445,0.2751,1651585252,6.322999954
+2,1,7,2,text,weezer is still very relevant,weeze,,e,4.445,0.2401,1651585254,2.445000172
+2,1,8,1,text,weezer is still very relevant,weezer,,r,4.445,0.5062,1651585263,9.148999929
+2,1,8,2,text,weezer is still very relevant,weezer,,r,4.445,0.2928,1651585266,2.504999876
+2,1,9,1,text,weezer is still very relevant,weezer_,,Space,4.445,0.1401,1651585275,8.766000032
+2,1,9,2,text,weezer is still very relevant,weezer_,,Space,4.445,0.0537,1651585277,2.272000074
+2,1,9,3,text,weezer is still very relevant,weezer_,,Space,4.445,-0.2061,1651585279,2.017999887
+2,1,9,4,text,weezer is still very relevant,weezer_,,Space,4.445,0.1827,1651585281,2.391000032
+2,1,10,1,text,weezer is still very relevant,weezer is_,,is_,4.445,0.1421,1651585289,7.281000137
+2,1,10,2,text,weezer is still very relevant,weezer is_,,is_,4.445,0.0954,1651585291,2.312000036
+2,1,10,3,text,weezer is still very relevant,weezer is_,,is_,4.445,0.3435,1651585294,2.569000006
+2,1,11,1,text,weezer is still very relevant,weezer is still_,,still_,4.445,0.3642,1651585301,7.181999922
+2,1,11,2,text,weezer is still very relevant,weezer is still_,,still_,4.445,0.1767,1651585305,4.329999924
+2,1,11,3,text,weezer is still very relevant,weezer is still_,,still_,4.445,0.1064,1651585307,2.328999996
+2,1,12,1,text,weezer is still very relevant,weezer is still v,,v,4.445,0.1967,1651585317,9.692000151
+2,1,12,2,text,weezer is still very relevant,weezer is still v,,v,4.445,0.037,1651585320,2.878000021
+2,1,12,3,text,weezer is still very relevant,weezer is still v,,v,4.445,0.4159,1651585323,2.622999907
+2,1,12,4,text,weezer is still very relevant,weezer is still v,,v,4.445,0.1657,1651585325,2.388000011
+2,1,13,1,text,weezer is still very relevant,weezer is still very_,,very_,4.445,0.0527,1651585337,11.88599992
+2,1,13,2,text,weezer is still very relevant,weezer is still very_,,very_,4.445,0.1074,1651585341,4.256000042
+2,1,14,1,text,weezer is still very relevant,weezer is still very r,,r,4.445,0.4586,1651585353,11.55299997
+2,1,14,2,text,weezer is still very relevant,weezer is still very r,,r,4.445,0.1984,1651585355,2.69900012
+2,1,14,3,text,weezer is still very relevant,weezer is still very r,,r,4.445,0.1541,1651585360,4.313999891
+2,1,15,1,text,weezer is still very relevant,weezer is still very re,,e,4.445,0.1994,1651585367,6.885999918
+2,1,15,2,text,weezer is still very relevant,weezer is still very re,,e,4.445,0.1947,1651585369,2.435000181
+2,1,16,1,text,weezer is still very relevant,weezer is still very rel,,l,4.445,0.3205,1651585377,7.648000002
+2,1,16,2,text,weezer is still very relevant,weezer is still very rel,,l,4.445,0.3375,1651585379,2.576999903
+2,1,16,3,text,weezer is still very relevant,weezer is still very rel,,l,4.445,0.5219,1651585382,2.746000051
+2,1,17,1,text,weezer is still very relevant,weezer is still very relevant_,,relevant_,4.445,0.1737,1651585390,8.487999916
+2,1,17,2,text,weezer is still very relevant,weezer is still very relevant_,,relevant_,4.445,0.1607,1651585393,2.387000084
+2,1,18,1,text,weezer is still very relevant,weezer is still very relevant._,,.,4.445,0.4586,1651585397,4.254999876
+2,1,18,2,text,weezer is still very relevant,weezer is still very relevant._,,.,4.445,0.1947,1651585401,3.745000124
+2,1,18,3,text,weezer is still very relevant,weezer is still very relevant._,,.,4.445,0.1541,1651585403,2.39199996
+2,1,19,1,text,weezer is still very relevant,weezer is still very relevant.._,,.,4.445,0.1737,1651585408,4.434000015
+2,1,19,2,text,weezer is still very relevant,weezer is still very relevant.._,,.,4.445,0.0954,1651585410,2.072999954
+2,1,19,3,text,weezer is still very relevant,weezer is still very relevant.._,,.,4.445,0.1421,1651585411,1.062000036
+2,2,1,1,text,i can't be the only one,i_,,i_,4.445,-0.6864,1651585423,11.79500008
+2,2,1,2,text,i can't be the only one,i_,,i_,4.445,1.4497,1651585425,2.27699995
+2,2,1,3,text,i can't be the only one,i_,,i_,4.445,-0.752,1651585427,2.499000072
+2,2,2,1,text,i can't be the only one,i can't_,,can't_,4.445,0.2798,1651585434,6.66899991
+2,2,2,2,text,i can't be the only one,i can't_,,can't_,4.445,0.4536,1651585437,2.694000006
+2,2,2,3,text,i can't be the only one,i can't_,,can't_,4.445,0.2741,1651585439,2.499000072
+2,2,3,1,text,i can't be the only one,i can't be_,,be_,4.445,0.3642,1651585444,5.130999804
+2,2,3,2,text,i can't be the only one,i can't be_,,be_,4.445,0.2968,1651585449,4.453000069
+2,2,3,3,text,i can't be the only one,i can't be_,,be_,4.445,-0.1327,1651585451,2.087000132
+2,2,3,4,text,i can't be the only one,i can't be_,,be_,4.445,0.2788,1651585453,2.493999958
+2,2,4,1,text,i can't be the only one,i can't be t,,t,4.445,0.1837,1651585462,8.504999876
+2,2,4,2,text,i can't be the only one,i can't be t,,t,4.445,0.0607,1651585464,2.275000095
+2,2,4,3,text,i can't be the only one,i can't be t,,t,4.445,0.0477,1651585466,2.266000032
+2,2,5,1,text,i can't be the only one,i can't be the_,,the_,4.445,0.2551,1651585472,5.690000057
+2,2,5,2,text,i can't be the only one,i can't be the_,,the_,4.445,0.2671,1651585475,2.492999792
+2,2,6,1,text,i can't be the only one,i can't be the only_,,only_,4.445,0.1827,1651585479,4.31400013
+2,2,6,2,text,i can't be the only one,i can't be the only_,,only_,4.445,0.1104,1651585481,2.328000069
+2,2,6,3,text,i can't be the only one,i can't be the only_,,only_,4.445,0.2294,1651585484,2.438999891
+2,2,7,1,text,i can't be the only one,i can't be the only one_,,one_,4.445,0.3782,1651585491,7.069000006
+2,2,7,2,text,i can't be the only one,i can't be the only one_,,one_,4.445,0.1627,1651585493,2.38499999
+2,2,7,3,text,i can't be the only one,i can't be the only one_,,one_,4.445,0.3345,1651585496,2.572000027
+2,2,8,1,text,i can't be the only one,i can't be the only one._,,.,4.445,0.1757,1651585500,4.378000021
+2,2,8,2,text,i can't be the only one,i can't be the only one._,,.,4.445,0.2401,1651585501,1.312999964
+2,2,8,3,text,i can't be the only one,i can't be the only one._,,.,4.445,0.1521,1651585503,1.377000093
+2,2,8,4,text,i can't be the only one,i can't be the only one._,,.,4.445,0.1164,1651585507,4.076999903
+2,2,9,1,text,i can't be the only one,i can't be the only one.._,,.,4.445,0.1827,1651585511,4.585999966
+2,2,9,2,text,i can't be the only one,i can't be the only one.._,,.,4.445,0.2798,1651585516,4.771000147
+2,2,9,3,text,i can't be the only one,i can't be the only one.._,,.,4.445,0.1521,1651585517,1.125999928
+2,2,9,4,text,i can't be the only one,i can't be the only one.._,,.,4.445,0.2918,1651585520,2.559999943
+2,3,1,1,text,but this love is ours,but_,,but_,4.445,-1.361,1651585526,6.289999962
+2,3,1,2,text,but this love is ours,but_,,but_,4.445,0.5549,1651585529,3.062000036
+2,3,1,3,text,but this love is ours,but_,,but_,4.445,0.4416,1651585532,2.401000023
+2,3,2,1,text,but this love is ours,but this_,,this_,4.445,0.0757,1651585541,9.638999939
+2,3,2,2,text,but this love is ours,but this_,,this_,4.445,0.1381,1651585542,1.062000036
+2,3,2,3,text,but this love is ours,but this_,,this_,4.445,0.0904,1651585545,2.312999964
+2,3,3,1,text,but this love is ours,but this l,,l,4.445,0.4099,1651585552,7.042000055
+2,3,3,2,text,but this love is ours,but this l,,l,4.445,0.1261,1651585555,3.632999897
+2,3,3,3,text,but this love is ours,but this l,,l,4.445,0.2868,1651585558,2.523000002
+2,3,4,1,text,but this love is ours,but this lo,,o,4.445,0.2094,1651585564,5.641000032
+2,3,4,2,text,but this love is ours,but this lo,,o,4.445,0.3335,1651585566,2.565000057
+2,3,4,3,text,but this love is ours,but this lo,,o,4.445,0.025,1651585568,2.25
+2,3,5,1,text,but this love is ours,but this love_,,love_,4.445,0.0417,1651585575,7.016000032
+2,3,5,2,text,but this love is ours,but this love_,,love_,4.445,0.1817,1651585576,1.140000105
+2,3,5,3,text,but this love is ours,but this love_,,love_,4.445,0.1727,1651585579,2.392999887
+2,3,6,1,text,but this love is ours,but this love is_,,is_,4.445,0.3158,1651585586,6.703999996
+2,3,6,2,text,but this love is ours,but this love is_,,is_,4.445,0.2461,1651585588,2.44900012
+2,3,6,3,text,but this love is ours,but this love is_,,is_,4.445,0.2741,1651585591,2.508999825
+2,3,7,1,text,but this love is ours,but this love is o,,o,4.445,-0.0337,1651585595,4.25
+2,3,7,2,text,but this love is ours,but this love is o,,o,4.445,0.2451,1651585598,3.120000124
+2,3,7,3,text,but this love is ours,but this love is o,,o,4.445,0.3892,1651585601,2.625999928
+2,3,8,1,text,but this love is ours,but this love is ou,,u,4.445,-0.3859,1651585609,8.217999935
+2,3,8,2,text,but this love is ours,but this love is ou,,u,4.445,0.4239,1651585614,5.21600008
+2,3,8,3,text,but this love is ours,but this love is ou,,u,4.445,0.0627,1651585616,2.27699995
+2,3,8,4,text,but this love is ours,but this love is ou,,u,4.445,0.2788,1651585619,2.496999979
+2,3,9,1,text,but this love is ours,but this love is ours_,,ours_,4.445,0.2381,1651585623,3.75999999
+2,3,9,2,text,but this love is ours,but this love is ours_,,ours_,4.445,0.2751,1651585625,2.51699996
+2,3,10,1,text,but this love is ours,but this love is ours._,,.,4.445,0.0747,1651585629,4.184000015
+2,3,10,2,text,but this love is ours,but this love is ours._,,.,4.445,0.2918,1651585630,0.952000141
+2,3,10,3,text,but this love is ours,but this love is ours._,,.,4.445,0.3128,1651585634,4.256999969
+2,3,11,1,text,but this love is ours,but this love is ours.._,,.,4.445,0.0667,1651585639,4.453999996
+2,3,11,2,text,but this love is ours,but this love is ours.._,,.,4.445,0.4416,1651585644,4.690000057
+2,3,11,3,text,but this love is ours,but this love is ours.._,,.,4.445,-0.0784,1651585648,4.251999855
+2,4,1,1,text,i used to like grigson,i_,,i_,4.445,-0.631,1651585655,7.387000084
+2,4,1,2,text,i used to like grigson,i_,,i_,4.445,-1.0565,1651585658,2.382999897
+2,4,1,3,text,i used to like grigson,i_,,i_,4.445,1.8923,1651585660,2.559000015
+2,4,2,1,text,i used to like grigson,i u,,u,4.445,-0.1527,1651585670,9.971000195
+2,4,2,2,text,i used to like grigson,i u,,u,4.445,0.0637,1651585674,3.898000002
+2,4,2,3,text,i used to like grigson,i u,,u,4.445,0.1261,1651585675,1.062999964
+2,4,2,4,text,i used to like grigson,i u,,u,4.445,0.2014,1651585678,2.43599987
+2,4,3,1,text,i used to like grigson,i used_,,used_,4.445,0.1837,1651585681,3.062000036
+2,4,3,2,text,i used to like grigson,i used_,,used_,4.445,0.0437,1651585683,2.259000063
+2,4,3,3,text,i used to like grigson,i used_,,used_,4.445,0.1897,1651585685,2.427000046
+2,4,4,1,text,i used to like grigson,i used to_,,to_,4.445,-0.1774,1651585689,3.948999882
+2,4,4,2,text,i used to like grigson,i used to_,,to_,4.445,0.0964,1651585691,1.677000046
+2,4,4,3,text,i used to like grigson,i used to_,,to_,4.445,0.2888,1651585693,2.513000011
+2,4,4,4,text,i used to like grigson,i used to_,,to_,4.445,0.1927,1651585696,2.424000025
+2,4,5,1,text,i used to like grigson,i used to l,,l,4.445,0.2054,1651585707,11.57200003
+2,4,5,2,text,i used to like grigson,i used to l,,l,4.445,0.3018,1651585711,3.176999807
+2,4,5,3,text,i used to like grigson,i used to l,,l,4.445,0.0944,1651585713,2.311000109
+2,4,6,1,text,i used to like grigson,i used to le,,e,4.445,-0.4712,1651585720,6.835000038
+2,4,6,2,text,i used to like grigson,i used to le,,e,4.445,0.0537,1651585722,2.578999996
+2,4,6,3,text,i used to like grigson,i used to le,,e,4.445,0.1947,1651585725,2.372999907
+2,4,7,1,text,i used to like grigson,i used to l,,@,4.445,0.2054,1651585734,8.860000134
+2,4,7,2,text,i used to like grigson,i used to l,,@,4.445,0.3018,1651585735,1.263000011
+2,4,7,3,text,i used to like grigson,i used to l,,@,4.445,0.0944,1651585737,2.676999807
+2,4,7,4,text,i used to like grigson,i used to l,,@,4.445,0.1967,1651585740,2.531000137
+2,4,8,1,text,i used to like grigson,i used to like_,,like_,4.445,0.1441,1651585743,3.332999945
+2,4,8,2,text,i used to like grigson,i used to like_,,like_,4.445,-0.0774,1651585745,2.137000084
+2,4,8,3,text,i used to like grigson,i used to like_,,like_,4.445,0.2571,1651585748,2.496000051
+3,1,1,1,text,today has been a terrible day,t,,t,4.445,0.1241,1651587689,0.0
+3,1,1,2,text,today has been a terrible day,t,,t,4.445,0.1561,1651587692,2.391000032
+3,1,2,1,text,today has been a terrible day,today_,,today_,4.445,0.2364,1651587699,7.201999903
+3,1,2,2,text,today has been a terrible day,today_,,today_,4.445,0.1847,1651587701,2.388000011
+3,1,2,3,text,today has been a terrible day,today_,,today_,4.445,0.3485,1651587704,2.56400013
+3,1,3,1,text,today has been a terrible day,today h,,h,4.445,0.3265,1651587711,7.537999868
+3,1,3,2,text,today has been a terrible day,today h,,h,4.445,-0.0831,1651587715,4.066999912
+3,1,3,3,text,today has been a terrible day,today h,,h,4.445,0.2521,1651587718,2.459000111
+3,1,4,1,text,today has been a terrible day,today has_,,has_,4.445,0.1697,1651587723,4.957000017
+3,1,4,2,text,today has been a terrible day,today has_,,has_,4.445,0.2014,1651587725,2.430999994
+3,1,5,1,text,today has been a terrible day,today has been_,,been_,4.445,-0.0514,1651587727,2.184999943
+3,1,5,2,text,today has been a terrible day,today has been_,,been_,4.445,0.2561,1651587728,1.190000057
+3,1,5,3,text,today has been a terrible day,today has been_,,been_,4.445,0.2094,1651587731,2.434000015
+3,1,6,1,text,today has been a terrible day,today has been a_,,a_,4.445,-0.0387,1651587733,2.190000057
+3,1,6,2,text,today has been a terrible day,today has been a_,,a_,4.445,0.1251,1651587736,3.004999876
+3,1,6,3,text,today has been a terrible day,today has been a_,,a_,4.445,0.2641,1651587739,2.499000072
+3,1,7,1,text,today has been a terrible day,today has been a t,,t,4.445,0.3712,1651587751,12.66899991
+3,1,7,2,text,today has been a terrible day,today has been a t,,t,4.445,0.1737,1651587756,4.321000099
+3,1,8,1,text,today has been a terrible day,today has been a te,,e,4.445,0.2808,1651587765,8.907999992
+3,1,8,2,text,today has been a terrible day,today has been a te,,e,4.445,0.2094,1651587767,2.447999954
+3,1,9,1,text,today has been a terrible day,today has been a terrible_,,terrible_,4.445,0.0407,1651587777,9.628999949
+3,1,9,2,text,today has been a terrible day,today has been a terrible_,,terrible_,4.445,0.1094,1651587778,1.070000172
+3,1,9,3,text,today has been a terrible day,today has been a terrible_,,terrible_,4.445,0.1647,1651587780,2.375999928
+3,1,10,1,text,today has been a terrible day,today has been a terrible d,,d,4.445,0.2481,1651587793,12.56399989
+3,1,10,2,text,today has been a terrible day,today has been a terrible d,,d,4.445,0.3285,1651587795,2.561000109
+3,1,11,1,text,today has been a terrible day,today has been a terrible day_,,day_,4.445,0.3088,1651587799,3.819999933
+3,1,11,2,text,today has been a terrible day,today has been a terrible day_,,day_,4.445,-0.0167,1651587801,2.192000151
+3,1,11,3,text,today has been a terrible day,today has been a terrible day_,,day_,4.445,0.2888,1651587804,2.507999897
+3,1,12,1,text,today has been a terrible day,today has been a terrible day._,,.,4.445,0.1094,1651587808,4.003999949
+3,1,12,2,text,today has been a terrible day,today has been a terrible day._,,.,4.445,-0.0167,1651587812,4.015000105
+3,1,12,3,text,today has been a terrible day,today has been a terrible day._,,.,4.445,-0.0514,1651587816,4.194000006
+3,1,12,4,text,today has been a terrible day,today has been a terrible day._,,.,4.445,0.2888,1651587818,2.437000036
+3,1,12,1,text,today has been a terrible day,today has been a terrible day.._,,.,4.445,0.3285,1651587823,4.497999907
+3,1,12,2,text,today has been a terrible day,today has been a terrible day.._,,.,4.445,0.2014,1651587827,3.812999964
+3,1,12,3,text,today has been a terrible day,today has been a terrible day.._,,.,4.445,0.1847,1651587829,2.38499999
+3,2,1,1,text,i guess patience will pay off,i_,,i_,4.445,1.6662,1651587836,7.051000118
+3,2,1,2,text,i guess patience will pay off,i_,,i_,4.445,1.6798,1651587839,2.756999969
+3,2,1,3,text,i guess patience will pay off,i_,,i_,4.445,-1.2727,1651587841,2.31799984
+3,2,2,1,text,i guess patience will pay off,i guess_,,guess_,4.445,0.4269,1651587849,7.587000132
+3,2,2,2,text,i guess patience will pay off,i guess_,,guess_,4.445,0.2054,1651587853,4.336999893
+3,2,3,1,text,i guess patience will pay off,i guess p,,p,4.445,-0.2885,1651587862,8.822000027
+3,2,3,2,text,i guess patience will pay off,i guess p,,p,4.445,0.2104,1651587865,3.381999969
+3,2,3,3,text,i guess patience will pay off,i guess p,,p,4.445,0.1737,1651587866,1.124000072
+3,2,3,4,text,i guess patience will pay off,i guess p,,p,4.445,0.035,1651587869,2.259000063
+3,2,4,1,text,i guess patience will pay off,i guess pa,,a,4.445,0.008,1651587877,8.612999916
+3,2,4,2,text,i guess patience will pay off,i guess pa,,a,4.445,0.2164,1651587880,2.450999975
+3,2,4,3,text,i guess patience will pay off,i guess pa,,a,4.445,0.1511,1651587882,2.374000072
+3,2,5,1,text,i guess patience will pay off,i guess pat,,t,4.445,0.4636,1651587891,8.434000015
+3,2,5,2,text,i guess patience will pay off,i guess pat,,t,4.445,0.3188,1651587894,3.174000025
+3,2,5,3,text,i guess patience will pay off,i guess pat,,t,4.445,0.2471,1651587896,2.448999882
+3,2,6,1,text,i guess patience will pay off,i guess patience_,,patience_,4.445,0.1617,1651587910,14.23399997
+3,2,6,2,text,i guess patience will pay off,i guess patience_,,patience_,4.445,-0.0444,1651587913,2.190999985
+3,2,6,3,text,i guess patience will pay off,i guess patience_,,patience_,4.445,0.2234,1651587915,2.430000067
+3,2,7,1,text,i guess patience will pay off,i guess patience w,,w,4.445,-0.0147,1651587923,7.641000032
+3,2,7,2,text,i guess patience will pay off,i guess patience w,,w,4.445,0.2621,1651587924,1.19900012
+3,2,7,3,text,i guess patience will pay off,i guess patience w,,w,4.445,0.4626,1651587927,2.680999994
+3,2,7,4,text,i guess patience will pay off,i guess patience w,,w,4.445,0.0637,1651587929,2.278999805
+3,2,8,1,text,i guess patience will pay off,i guess patience will_,,will_,4.445,0.3505,1651587931,2.249000072
+3,2,8,2,text,i guess patience will pay off,i guess patience will_,,will_,4.445,0.1461,1651587932,1.07400012
+3,2,8,3,text,i guess patience will pay off,i guess patience will_,,will_,4.445,0.3465,1651587935,2.561999798
+3,2,9,1,text,i guess patience will pay off,i guess patience will p,,p,4.445,0.1044,1651587943,7.9150002
+3,2,9,2,text,i guess patience will pay off,i guess patience will p,,p,4.445,0.2511,1651587947,4.388999939
+3,2,9,3,text,i guess patience will pay off,i guess patience will p,,p,4.445,0.3345,1651587950,2.563999891
+3,2,10,1,text,i guess patience will pay off,i guess patience will pay_,,pay_,4.445,0.2798,1651587957,7.264000177
+3,2,10,2,text,i guess patience will pay off,i guess patience will pay_,,pay_,4.445,0.0814,1651587959,2.319999933
+3,2,10,3,text,i guess patience will pay off,i guess patience will pay_,,pay_,4.445,0.025,1651587961,2.263999939
+3,2,11,1,text,i guess patience will pay off,i guess patience will pay o,,o,4.445,0.2284,1651587970,8.684000015
+3,2,11,2,text,i guess patience will pay off,i guess patience will pay o,,o,4.445,0.3415,1651587976,5.756000042
+3,2,11,3,text,i guess patience will pay off,i guess patience will pay o,,o,4.445,0.0974,1651587978,2.312999964
+3,2,12,1,text,i guess patience will pay off,i guess patience will pay off_,,off_,4.445,0.1737,1651587985,6.556999922
+3,2,12,2,text,i guess patience will pay off,i guess patience will pay off_,,off_,4.445,0.1491,1651587987,2.374000072
+3,2,12,3,text,i guess patience will pay off,i guess patience will pay off_,,off_,4.445,0.1551,1651587989,2.365999937
+3,2,13,1,text,i guess patience will pay off,i guess patience will pay off._,,.,4.445,0.3962,1651587994,4.445000172
+3,2,13,2,text,i guess patience will pay off,i guess patience will pay off._,,.,4.445,0.0517,1651587997,2.690999985
+3,2,13,3,text,i guess patience will pay off,i guess patience will pay off._,,.,4.445,0.1034,1651587998,1.691999912
+3,2,13,4,text,i guess patience will pay off,i guess patience will pay off._,,.,4.445,0.0804,1651588001,2.298000097
+3,2,14,1,text,i guess patience will pay off,i guess patience will pay off.._,,.,4.445,0.0824,1651588003,2.321999788
+3,2,14,2,text,i guess patience will pay off,i guess patience will pay off.._,,.,4.445,0.1571,1651588007,4.31400013
+3,3,1,1,text,thanks tricare for dropping the ball,t,,t,4.445,-1.255,1651588072,12.43700004
+3,3,1,2,text,thanks tricare for dropping the ball,t,,t,4.445,-0.9205,1651588074,2.184999943
+3,3,1,3,text,thanks tricare for dropping the ball,t,,t,4.445,-1.3037,1651588077,2.370000124
+3,3,2,1,text,thanks tricare for dropping the ball,th,,h,4.445,0.2104,1651588083,6.893999815
+3,3,2,2,text,thanks tricare for dropping the ball,th,,h,4.445,0.1581,1651588086,2.387000084
+3,3,3,1,text,thanks tricare for dropping the ball,thanks_,,thanks_,4.445,0.3545,1651588092,6.078000069
+3,3,3,2,text,thanks tricare for dropping the ball,thanks_,,thanks_,4.445,0.2721,1651588096,4.395999908
+3,3,3,3,text,thanks tricare for dropping the ball,thanks_,,thanks_,4.445,0.1134,1651588099,2.321000099
+3,3,4,1,text,thanks tricare for dropping the ball,thanks t,,t,4.445,-0.0664,1651588106,7.258999825
+3,3,4,2,text,thanks tricare for dropping the ball,thanks t,,t,4.445,-0.0357,1651588107,1.551000118
+3,3,4,3,text,thanks tricare for dropping the ball,thanks t,,t,4.445,0.3335,1651588110,2.572000027
+3,3,4,4,text,thanks tricare for dropping the ball,thanks t,,t,4.445,0.3355,1651588113,2.56099987
+3,3,5,1,text,thanks tricare for dropping the ball,thanks tr,,r,4.445,0.2888,1651588118,5.394000053
+3,3,5,2,text,thanks tricare for dropping the ball,thanks tr,,r,4.445,0.0447,1651588119,0.993000031
+3,3,5,3,text,thanks tricare for dropping the ball,thanks tr,,r,4.445,0.2788,1651588121,2.516000032
+3,3,6,1,text,thanks tricare for dropping the ball,thanks tri,,i,4.445,0.2204,1651588129,7.580999851
+3,3,6,2,text,thanks tricare for dropping the ball,thanks tri,,i,4.445,0.2144,1651588131,2.435000181
+3,3,7,1,text,thanks tricare for dropping the ball,thanks tric,,c,4.445,0.1431,1651588186,54.84899998
+3,3,7,2,text,thanks tricare for dropping the ball,thanks tric,,c,4.445,0.2244,1651588189,2.441999912
+3,3,7,3,text,thanks tricare for dropping the ball,thanks tric,,c,4.445,0.0914,1651588191,2.305000067
+3,3,8,1,text,thanks tricare for dropping the ball,thanks trica,,a,4.445,0.0437,1651588201,10.11299992
+3,3,8,2,text,thanks tricare for dropping the ball,thanks trica,,a,4.445,0.0737,1651588202,1.029000044
+3,3,8,3,text,thanks tricare for dropping the ball,thanks trica,,a,4.445,0.2918,1651588205,2.5
+3,3,9,1,text,thanks tricare for dropping the ball,thanks tricar,,r,4.445,0.2044,1651588212,7.032000065
+3,3,9,2,text,thanks tricare for dropping the ball,thanks tricar,,r,4.445,0.2908,1651588213,1.246000051
+3,3,9,3,text,thanks tricare for dropping the ball,thanks tricar,,r,4.445,0.2978,1651588217,4.446999788
+3,3,10,1,text,thanks tricare for dropping the ball,thanks tricare,,e,4.445,-0.0734,1651588226,8.546000004
+3,3,10,2,text,thanks tricare for dropping the ball,thanks tricare,,e,4.445,-1.2133,1651588227,1.00999999
+3,3,10,3,text,thanks tricare for dropping the ball,thanks tricare,,e,4.445,0.1044,1651588231,4.249000072
+3,3,11,1,text,thanks tricare for dropping the ball,thanks tricare_,,Space,4.445,0.4019,1651588238,7.098999977
+3,3,11,2,text,thanks tricare for dropping the ball,thanks tricare_,,Space,4.445,0.1887,1651588241,2.426000118
+3,3,12,1,text,thanks tricare for dropping the ball,thanks tricare for_,,for_,4.445,0.033,1651588258,17.28299999
+3,3,12,2,text,thanks tricare for dropping the ball,thanks tricare for_,,for_,4.445,0.2521,1651588262,4.379999876
+3,3,12,3,text,thanks tricare for dropping the ball,thanks tricare for_,,for_,4.445,0.1571,1651588265,2.386000156
+3,3,13,1,text,thanks tricare for dropping the ball,thanks tricare for d,,d,4.445,0.5012,1651588273,7.705999851
+3,3,13,2,text,thanks tricare for dropping the ball,thanks tricare for d,,d,4.445,0.1241,1651588277,4.90199995
+3,3,13,3,text,thanks tricare for dropping the ball,thanks tricare for d,,d,4.445,0.2144,1651588280,2.450000048
+3,3,14,1,text,thanks tricare for dropping the ball,thanks tricare for dr,,r,4.445,0.2988,1651588291,11.08500004
+3,3,14,2,text,thanks tricare for dropping the ball,thanks tricare for dr,,r,4.445,0.3642,1651588295,3.865999937
+3,3,14,3,text,thanks tricare for dropping the ball,thanks tricare for dr,,r,4.445,0.0874,1651588297,2.322000027
+4,1,1,1,text,still supporting the boys through everything,s,,s,4.445,0.2421,1652015378,0.0
+4,1,1,2,text,still supporting the boys through everything,s,,s,4.445,0.2254,1652015380,2.463999987
+4,1,1,3,text,still supporting the boys through everything,s,,s,4.445,-0.0037,1652015383,2.207999945
+4,1,2,1,text,still supporting the boys through everything,still_,,still_,4.445,0.3275,1652015392,9.253999949
+4,1,2,2,text,still supporting the boys through everything,still_,,still_,4.445,0.1154,1652015394,2.347000122
+4,1,2,3,text,still supporting the boys through everything,still_,,still_,4.445,0.3058,1652015397,2.510999918
+4,1,3,1,text,still supporting the boys through everything,still s,,s,4.445,0.4892,1652015415,17.90499997
+4,1,3,2,text,still supporting the boys through everything,still s,,s,4.445,-0.0297,1652015418,2.838000059
+4,1,3,3,text,still supporting the boys through everything,still s,,s,4.445,0.1917,1652015422,4.342000008
+4,1,3,4,text,still supporting the boys through everything,still s,,s,4.445,0.3852,1652015424,2.595000029
+4,1,4,1,text,still supporting the boys through everything,still su,,u,4.445,0.036,1652015434,9.289000034
+4,1,4,2,text,still supporting the boys through everything,still su,,u,4.445,0.1647,1652015435,1.088999987
+4,1,4,3,text,still supporting the boys through everything,still su,,u,4.445,-0.0357,1652015437,2.197999954
+4,1,5,1,text,still supporting the boys through everything,still sup,,p,4.445,0.2888,1652015444,7.006999969
+4,1,5,2,text,still supporting the boys through everything,still sup,,p,4.445,0.0467,1652015446,2.27699995
+4,1,5,3,text,still supporting the boys through everything,still sup,,p,4.445,0.1084,1652015449,2.34100008
+4,1,6,1,text,still supporting the boys through everything,still supporting_,,supporting_,4.445,0.005,1652015453,4.774999857
+4,1,6,2,text,still supporting the boys through everything,still supporting_,,supporting_,4.445,0.2751,1652015456,2.513000011
+4,1,7,1,text,still supporting the boys through everything,still supporting the_,,the_,4.445,0.1947,1652015465,8.798000097
+4,1,7,2,text,still supporting the boys through everything,still supporting the_,,the_,4.445,0.1887,1652015467,2.394999981
+4,1,8,1,text,still supporting the boys through everything,still supporting the b,,b,4.445,0.3285,1652015473,5.58100009
+4,1,8,2,text,still supporting the boys through everything,still supporting the b,,b,4.445,0.1997,1652015477,4.348999977
+4,1,8,3,text,still supporting the boys through everything,still supporting the b,,b,4.445,0.1351,1652015479,2.335999966
+4,1,9,1,text,still supporting the boys through everything,still supporting the bo,,o,4.445,0.2771,1652015485,5.701999903
+4,1,9,2,text,still supporting the boys through everything,still supporting the bo,,o,4.445,0.1747,1652015487,2.378000021
+4,1,10,1,text,still supporting the boys through everything,still supporting the boy,,y,4.445,0.2938,1652015495,7.279999971
+4,1,10,2,text,still supporting the boys through everything,still supporting the boy,,y,4.445,0.2234,1652015497,2.44900012
+4,1,10,3,text,still supporting the boys through everything,still supporting the boy,,y,4.445,0.1201,1652015500,2.335999966
+4,1,11,1,text,still supporting the boys through everything,still supporting the boys,,s,4.445,0.2164,1652015506,6.937999964
+4,1,11,2,text,still supporting the boys through everything,still supporting the boys,,s,4.445,0.1154,1652015509,2.337000132
+4,1,11,3,text,still supporting the boys through everything,still supporting the boys,,s,4.445,0.2451,1652015511,2.450999975
+4,1,12,1,text,still supporting the boys through everything,still supporting the boys_,,Space,4.445,0.4792,1652015516,4.636999846
+4,1,12,2,text,still supporting the boys through everything,still supporting the boys_,,Space,4.445,0.1627,1652015518,2.400000095
+4,1,13,1,text,still supporting the boys through everything,still supporting the boys t,,t,4.445,0.3792,1652015532,13.81900001
+4,1,13,2,text,still supporting the boys through everything,still supporting the boys t,,t,4.445,0.3068,1652015535,2.526000023
+4,1,14,1,text,still supporting the boys through everything,still supporting the boys th,,h,4.445,0.2501,1652015541,6.542999983
+4,1,14,2,text,still supporting the boys through everything,still supporting the boys th,,h,4.445,0.3028,1652015546,5.094000101
+4,1,14,3,text,still supporting the boys through everything,still supporting the boys th,,h,4.445,0.2848,1652015549,2.501999855
+4,1,15,1,text,still supporting the boys through everything,still supporting the boys through_,,through_,4.445,0.2244,1652015558,9.177999973
+4,1,15,2,text,still supporting the boys through everything,still supporting the boys through_,,through_,4.445,0.1084,1652015560,2.322999954
+4,1,15,3,text,still supporting the boys through everything,still supporting the boys through_,,through_,4.445,0.038,1652015563,2.25
+4,1,16,1,text,still supporting the boys through everything,still supporting the boys through e,,e,4.445,0.1607,1652015570,7.363000154
+4,1,16,2,text,still supporting the boys through everything,still supporting the boys through e,,e,4.445,0.2264,1652015573,3.105999947
+4,1,17,1,text,still supporting the boys through everything,still supporting the boys through everything_,,everything_,4.445,0.1411,1652015580,7.11500001
+4,1,17,2,text,still supporting the boys through everything,still supporting the boys through everything_,,everything_,4.445,0.2144,1652015584,4.354000092
+4,1,18,1,text,still supporting the boys through everything,still supporting the boys through everything._,,.,4.445,0.1201,1652015589,4.156999826
+4,1,18,2,text,still supporting the boys through everything,still supporting the boys through everything._,,.,4.445,0.2244,1652015591,2.779000044
+4,1,18,3,text,still supporting the boys through everything,still supporting the boys through everything._,,.,4.445,0.1351,1652015593,1.190999985
+4,1,18,4,text,still supporting the boys through everything,still supporting the boys through everything._,,.,4.445,0.2451,1652015595,2.502000093
+4,1,19,1,text,still supporting the boys through everything,still supporting the boys through everything.._,,.,4.445,0.3792,1652015597,1.927000046
+4,1,19,2,text,still supporting the boys through everything,still supporting the boys through everything.._,,.,4.445,0.2771,1652015601,4.375
+4,2,1,1,text,i'm coming to the show,i'm_,,i'm_,4.445,-0.0277,1652015613,11.41999984
+4,2,1,2,text,i'm coming to the show,i'm_,,i'm_,4.445,-1.0435,1652015617,4.373000145
+4,2,2,1,text,i'm coming to the show,i'm c,,c,4.445,0.3772,1652015621,3.718999863
+4,2,2,2,text,i'm coming to the show,i'm c,,c,4.445,0.2421,1652015625,4.38499999
+4,2,3,1,text,i'm coming to the show,i'm coming_,,coming_,4.445,0.1174,1652015633,7.47300005
+4,2,3,2,text,i'm coming to the show,i'm coming_,,coming_,4.445,0.1957,1652015635,2.398000002
+4,2,4,1,text,i'm coming to the show,i'm coming to_,,to_,4.445,0.1551,1652015642,6.84100008
+4,2,4,2,text,i'm coming to the show,i'm coming to_,,to_,4.445,0.2114,1652015644,2.416999817
+4,2,4,3,text,i'm coming to the show,i'm coming to_,,to_,4.445,0.1104,1652015647,2.338000059
+4,2,5,1,text,i'm coming to the show,i'm coming to the_,,the_,4.445,0.1361,1652015654,6.825999975
+4,2,5,2,text,i'm coming to the show,i'm coming to the_,,the_,4.445,0.1024,1652015656,2.325999975
+4,2,5,3,text,i'm coming to the show,i'm coming to the_,,the_,4.445,0.1897,1652015658,2.407000065
+4,2,6,1,text,i'm coming to the show,i'm coming to the s,,s,4.445,0.1321,1652015664,5.222000122
+4,2,6,2,text,i'm coming to the show,i'm coming to the s,,s,4.445,0.1597,1652015666,2.388999939
+4,2,6,3,text,i'm coming to the show,i'm coming to the s,,s,4.445,0.3465,1652015669,2.586999893
+4,2,7,1,text,i'm coming to the show,i'm coming to the show_,,show_,4.445,-0.0474,1652015674,5.684000015
+4,2,7,2,text,i'm coming to the show,i'm coming to the show_,,show_,4.445,0.1024,1652015677,2.950000048
+4,2,7,3,text,i'm coming to the show,i'm coming to the show_,,show_,4.445,0.3128,1652015680,2.532999992
+4,2,8,1,text,i'm coming to the show,i'm coming to the show._,,.,4.445,0.0934,1652015684,4.157000065
+4,2,8,2,text,i'm coming to the show,i'm coming to the show._,,.,4.445,0.2701,1652015687,3.519000053
+4,2,8,3,text,i'm coming to the show,i'm coming to the show._,,.,4.445,0.2621,1652015690,2.325999975
+4,2,9,1,text,i'm coming to the show,i'm coming to the show.._,,.,4.445,0.1024,1652015694,4.332999945
+4,2,9,2,text,i'm coming to the show,i'm coming to the show.._,,.,4.445,-1.0435,1652015698,3.851000071
+4,2,9,3,text,i'm coming to the show,i'm coming to the show.._,,.,4.445,0.1597,1652015702,4.279000044
+4,2,9,4,text,i'm coming to the show,i'm coming to the show.._,,.,4.445,0.1897,1652015705,2.511999846
+4,3,1,1,text,just did an undertale personality quiz,just_,,just_,4.445,0.0,1652015711,6.236000061
+4,3,1,2,text,just did an undertale personality quiz,just_,,just_,4.445,0.0,1652015713,2.270999908
+4,3,1,3,text,just did an undertale personality quiz,just_,,just_,4.445,0.0,1652015717,4.252000093
+4,3,2,1,text,just did an undertale personality quiz,just d,,d,4.445,0.3345,1652015722,4.964999914
+4,3,2,2,text,just did an undertale personality quiz,just d,,d,4.445,0.2194,1652015727,4.364000082
+4,3,2,3,text,just did an undertale personality quiz,just d,,d,4.445,0.1817,1652015729,2.40199995
+4,3,3,1,text,just did an undertale personality quiz,just did_,,did_,4.445,0.1847,1652015732,2.683000088
+4,3,3,2,text,just did an undertale personality quiz,just did_,,did_,4.445,0.1787,1652015734,2.394000053
+4,3,3,3,text,just did an undertale personality quiz,just did_,,did_,4.445,0.2938,1652015737,2.514999866
+4,3,4,1,text,just did an undertale personality quiz,just did a,,a,4.445,-0.1151,1652015740,3.709000111
+4,3,4,2,text,just did an undertale personality quiz,just did a,,a,4.445,0.1341,1652015743,3.010999918
+4,3,4,3,text,just did an undertale personality quiz,just did a,,a,4.445,0.3335,1652015746,2.562000036
+4,3,5,1,text,just did an undertale personality quiz,just did an_,,an_,4.445,0.2364,1652015753,7.220000029
+4,3,5,2,text,just did an undertale personality quiz,just did an_,,an_,4.445,0.1827,1652015756,2.386999846
+4,3,5,3,text,just did an undertale personality quiz,just did an_,,an_,4.445,0.4992,1652015758,2.719000101
+4,3,6,1,text,just did an undertale personality quiz,just did an u,,u,4.445,0.3832,1652015774,15.56299996
+4,3,6,2,text,just did an undertale personality quiz,just did an u,,u,4.445,0.1391,1652015775,1.075000048
+4,3,6,3,text,just did an undertale personality quiz,just did an u,,u,4.445,0.1551,1652015777,2.375999928
+4,3,7,1,text,just did an undertale personality quiz,just did an un,,n,4.445,0.2661,1652015784,6.952000141
+4,3,7,2,text,just did an undertale personality quiz,just did an un,,n,4.445,0.3702,1652015787,2.583999872
+4,3,7,3,text,just did an undertale personality quiz,just did an un,,n,4.445,0.3642,1652015790,2.595000029
+4,3,8,1,text,just did an undertale personality quiz,just did an und,,d,4.445,0.5329,1652015800,10.44899988
+4,3,8,2,text,just did an undertale personality quiz,just did an und,,d,4.445,-0.0911,1652015803,3.411000013
+4,3,8,3,text,just did an undertale personality quiz,just did an und,,d,4.445,-0.0197,1652015807,4.111999989
+4,3,9,1,text,just did an undertale personality quiz,just did an unde,,e,4.445,0.2848,1652015819,11.46700001
+4,3,9,2,text,just did an undertale personality quiz,just did an unde,,e,4.445,0.4059,1652015822,2.642000198
+4,3,9,3,text,just did an undertale personality quiz,just did an unde,,e,4.445,0.4049,1652015824,2.638999939
+4,3,10,1,text,just did an undertale personality quiz,just did an under,,r,4.445,0.1561,1652015840,15.82999992
+4,3,10,2,text,just did an undertale personality quiz,just did an under,,r,4.445,0.2521,1652015843,2.457000017
+4,3,11,1,text,just did an undertale personality quiz,just did an undert,,t,4.445,0.4626,1652015852,9.572000027
+4,3,11,2,text,just did an undertale personality quiz,just did an undert,,t,4.445,0.2314,1652015855,3.085999966
+4,3,11,3,text,just did an undertale personality quiz,just did an undert,,t,4.445,0.3942,1652015858,2.604000092
+4,3,12,1,text,just did an undertale personality quiz,just did an underta,,a,4.445,-0.0654,1652015869,11.09699988
+4,3,12,2,text,just did an undertale personality quiz,just did an underta,,a,4.445,0.3068,1652015871,2.534000158
+4,3,12,3,text,just did an undertale personality quiz,just did an underta,,a,4.445,0.2968,1652015874,2.511999846
+4,3,13,1,text,just did an undertale personality quiz,just did an undertal,,l,4.445,0.3415,1652015880,6.404999971
+4,3,13,2,text,just did an undertale personality quiz,just did an undertal,,l,4.445,0.2511,1652015883,2.469000101
+4,3,13,3,text,just did an undertale personality quiz,just did an undertal,,l,4.445,0.2741,1652015885,2.502000093
+4,3,14,1,text,just did an undertale personality quiz,just did an undertale,,e,4.445,0.4982,1652015891,5.26699996
+4,3,14,2,text,just did an undertale personality quiz,just did an undertale,,e,4.445,0.3692,1652015895,4.508999825
+4,3,15,1,text,just did an undertale personality quiz,just did an undertale_,,Space,4.445,0.2204,1652015901,5.651000023
+4,3,15,2,text,just did an undertale personality quiz,just did an undertale_,,Space,4.445,0.0457,1652015903,2.263000011
+4,3,16,1,text,just did an undertale personality quiz,just did an undertale _,,Space,4.445,0.016,1652015904,1.33100009
+4,3,16,2,text,just did an undertale personality quiz,just did an undertale _,,Space,4.445,0.5012,1652015906,1.448999882
+4,3,16,3,text,just did an undertale personality quiz,just did an undertale _,,Space,4.445,0.002,1652015908,2.21600008
+4,3,17,1,text,just did an undertale personality quiz,just did an undertale  p,,p,4.445,0.0647,1652015918,9.624000072
+4,3,17,2,text,just did an undertale personality quiz,just did an undertale  p,,p,4.445,0.1597,1652015920,2.055999994
+4,3,17,3,text,just did an undertale personality quiz,just did an undertale  p,,p,4.445,0.4079,1652015921,1.368999958
+4,3,18,1,text,just did an undertale personality quiz,just did an undertale  pe,,e,4.445,0.5539,1652015929,7.467000008
+4,3,18,2,text,just did an undertale personality quiz,just did an undertale  pe,,e,4.445,0.3078,1652015932,3.792999983
+4,3,18,3,text,just did an undertale personality quiz,just did an undertale  pe,,e,4.445,0.3058,1652015935,2.517999887
+4,3,19,1,text,just did an undertale personality quiz,just did an undertale  per,,r,4.445,0.2671,1652015946,10.80100012
+4,3,19,2,text,just did an undertale personality quiz,just did an undertale  per,,r,4.445,0.1857,1652015948,2.398000002
+5,1,1,1,text,but it happened this year,but_,,but_,4.445,0.2731,1652098138,0.0
+5,1,1,2,text,but it happened this year,but_,,but_,4.445,0.2521,1652098140,2.459000111
+5,1,1,3,text,but it happened this year,but_,,but_,4.445,0.2701,1652098143,2.497999907
+5,1,2,1,text,but it happened this year,but it_,,it_,4.445,0.2701,1652098146,3.120000124
+5,1,2,2,text,but it happened this year,but it_,,it_,4.445,0.001,1652098148,2.208999872
+5,1,2,3,text,but it happened this year,but it_,,it_,4.445,0.1994,1652098150,2.440999985
+5,1,3,1,text,but it happened this year,but it h,,h,4.445,0.2908,1652098163,12.61100006
+5,1,3,2,text,but it happened this year,but it h,,h,4.445,0.2441,1652098167,4.394999981
+5,1,4,1,text,but it happened this year,but it ha,,a,4.445,0.011,1652098174,6.72300005
+5,1,4,2,text,but it happened this year,but it ha,,a,4.445,-0.1011,1652098176,2.128000021
+5,1,4,3,text,but it happened this year,but it ha,,a,4.445,0.1617,1652098179,2.38499999
+5,1,5,1,text,but it happened this year,but it happened_,,happened_,4.445,0.2324,1652098184,5.351000071
+5,1,5,2,text,but it happened this year,but it happened_,,happened_,4.445,0.1104,1652098186,2.316999912
+5,1,5,3,text,but it happened this year,but it happened_,,happened_,4.445,0.1647,1652098189,2.375999928
+5,1,6,1,text,but it happened this year,but it happened t,,t,4.445,0.2391,1652098200,11.43499994
+5,1,6,2,text,but it happened this year,but it happened t,,t,4.445,0.2771,1652098203,2.517000198
+5,1,6,3,text,but it happened this year,but it happened t,,t,4.445,-0.3659,1652098204,1.832000017
+5,1,6,4,text,but it happened this year,but it happened t,,t,4.445,0.2364,1652098211,6.927999973
+5,1,7,1,text,but it happened this year,but it happened this_,,this_,4.445,0.2104,1652098221,9.45299983
+5,1,7,2,text,but it happened this year,but it happened this_,,this_,4.445,0.2411,1652098223,2.472000122
+5,1,8,1,text,but it happened this year,but it happened this y,,y,4.445,0.2551,1652098231,7.335000038
+5,1,8,2,text,but it happened this year,but it happened this y,,y,4.445,0.2401,1652098232,1.182999849
+5,1,8,3,text,but it happened this year,but it happened this y,,y,4.445,-0.0594,1652098234,2.179000139
+5,1,9,1,text,but it happened this year,but it happened this year_,,year_,4.445,0.1617,1652098238,4.302000046
+5,1,9,2,text,but it happened this year,but it happened this year_,,year_,4.445,-0.0117,1652098240,2.225999832
+5,1,10,1,text,but it happened this year,but it happened this year._,,.,4.445,0.001,1652098245,4.391000032
+5,1,10,2,text,but it happened this year,but it happened this year._,,.,4.445,0.2701,1652098246,1.497999907
+5,1,10,3,text,but it happened this year,but it happened this year._,,.,4.445,0.2411,1652098247,1.129000187
+5,1,11,1,text,but it happened this year,but it happened this year.._,,.,4.445,-0.0117,1652098252,4.534999847
+5,1,11,2,text,but it happened this year,but it happened this year.._,,.,4.445,0.2908,1652098254,1.501000166
+5,1,11,3,text,but it happened this year,but it happened this year.._,,.,4.445,-0.0594,1652098254,0.872999907
+5,2,1,1,text,how can he be so real,how_,,how_,4.445,0.0,1652098262,7.555000067
+5,2,1,2,text,how can he be so real,how_,,how_,4.445,0.0,1652098266,4.263000011
+5,2,1,3,text,how can he be so real,how_,,how_,4.445,0.0,1652098269,2.458999872
+5,2,2,1,text,how can he be so real,how can_,,can_,4.445,0.1261,1652098274,4.894999981
+5,2,2,2,text,how can he be so real,how can_,,can_,4.445,0.1697,1652098276,2.403000116
+5,2,2,3,text,how can he be so real,how can_,,can_,4.445,0.2054,1652098278,2.43599987
+5,2,3,1,text,how can he be so real,how can h,,h,4.445,0.2671,1652098287,9.062000036
+5,2,3,2,text,how can he be so real,how can h,,h,4.445,0.3545,1652098290,2.568000078
+5,2,3,3,text,how can he be so real,how can h,,h,4.445,0.1947,1652098292,2.398999929
+5,2,4,1,text,how can he be so real,how can he_,,he_,4.445,0.2204,1652098297,4.988000154
+5,2,4,2,text,how can he be so real,how can he_,,he_,4.445,0.2274,1652098300,2.444999933
+5,2,5,1,text,how can he be so real,how can he b,,b,4.445,0.1084,1652098307,6.839999914
+5,2,5,2,text,how can he be so real,how can he b,,b,4.445,0.1797,1652098312,4.952000141
+5,2,5,3,text,how can he be so real,how can he b,,b,4.445,0.2344,1652098314,2.454999924
+5,2,6,1,text,how can he be so real,how can he be_,,be_,4.445,0.037,1652098318,4.161000013
+5,2,6,2,text,how can he be so real,how can he be_,,be_,4.445,0.3275,1652098323,4.453000069
+5,2,7,1,text,how can he be so real,how can he be so_,,so_,4.445,0.031,1652098331,8.020999908
+5,2,7,2,text,how can he be so real,how can he be so_,,so_,4.445,0.5169,1652098332,1.450999975
+5,2,7,3,text,how can he be so real,how can he be so_,,so_,4.445,0.1511,1652098335,2.391000032
+5,2,8,1,text,how can he be so real,how can he be so r,,r,4.445,0.2651,1652098345,10.23300004
+5,2,8,2,text,how can he be so real,how can he be so r,,r,4.445,0.1994,1652098348,3.054999828
+5,2,8,3,text,how can he be so real,how can he be so r,,r,4.445,0.0904,1652098350,2.330000162
+5,2,9,1,text,how can he be so real,how can he be so re,,e,4.445,-0.0047,1652098357,6.703999996
+5,2,9,2,text,how can he be so real,how can he be so re,,e,4.445,0.3812,1652098361,4.50999999
+5,2,9,3,text,how can he be so real,how can he be so re,,e,4.445,0.2194,1652098364,2.437000036
+5,2,10,1,text,how can he be so real,how can he be so rea,,a,4.445,0.1857,1652098371,6.88499999
+5,2,10,2,text,how can he be so real,how can he be so rea,,a,4.445,-0.0297,1652098373,2.184000015
+5,2,10,3,text,how can he be so real,how can he be so rea,,a,4.445,0.1431,1652098375,2.373999834
+5,2,11,1,text,how can he be so real,how can he be so real_,,real_,4.445,0.0577,1652098380,4.835000038
+5,2,11,2,text,how can he be so real,how can he be so real_,,real_,4.445,0.2324,1652098383,2.455000162
+5,2,12,1,text,how can he be so real,how can he be so real._,,.,4.445,0.3375,1652098387,4.392999887
+5,2,12,2,text,how can he be so real,how can he be so real._,,.,4.445,0.2354,1652098389,1.950999975
+5,2,12,3,text,how can he be so real,how can he be so real._,,.,4.445,0.2044,1652098390,1.130000114
+5,2,13,1,text,how can he be so real,how can he be so real.._,,.,4.445,0.1897,1652098395,4.503999949
+5,2,13,2,text,how can he be so real,how can he be so real.._,,.,4.445,0.1311,1652098398,3.694999933
+5,2,13,3,text,how can he be so real,how can he be so real.._,,.,4.445,0.2304,1652098401,2.404999971
+5,3,1,1,text,this rapper desiigner is terrible,this_,,this_,4.445,0.6877,1652098406,5.419000149
+5,3,1,2,text,this rapper desiigner is terrible,this_,,this_,4.445,1.7742,1652098409,2.490999937
+5,3,1,3,text,this rapper desiigner is terrible,this_,,this_,4.445,-0.7607,1652098411,2.404999971
+5,3,2,1,text,this rapper desiigner is terrible,this r,,r,4.445,0.2004,1652098418,7.095000029
+5,3,2,2,text,this rapper desiigner is terrible,this r,,r,4.445,0.0944,1652098421,2.971999884
+5,3,2,3,text,this rapper desiigner is terrible,this r,,r,4.445,0.2134,1652098424,2.440000057
+5,3,3,1,text,this rapper desiigner is terrible,this ra,,a,4.445,0.3979,1652098430,6.46600008
+5,3,3,2,text,this rapper desiigner is terrible,this ra,,a,4.445,-0.1824,1652098434,3.974999905
+5,3,3,3,text,this rapper desiigner is terrible,this ra,,a,4.445,0.1907,1652098435,1.137000084
+5,3,4,1,text,this rapper desiigner is terrible,this rap,,p,4.445,0.3148,1652098441,6.203999996
+5,3,4,2,text,this rapper desiigner is terrible,this rap,,p,4.445,0.2024,1652098446,4.328000069
+5,3,5,1,text,this rapper desiigner is terrible,this rapp,,p,4.445,0.3415,1652098455,9.620999813
+5,3,5,2,text,this rapper desiigner is terrible,this rapp,,p,4.445,0.3098,1652098458,2.526000023
+5,3,5,3,text,this rapper desiigner is terrible,this rapp,,p,4.445,0.2354,1652098460,2.445000172
+5,3,6,1,text,this rapper desiigner is terrible,this rapper_,,rapper_,4.445,0.2661,1652098467,6.311999798
+5,3,6,2,text,this rapper desiigner is terrible,this rapper_,,rapper_,4.445,0.3535,1652098469,2.567000151
+5,3,6,3,text,this rapper desiigner is terrible,this rapper_,,rapper_,4.445,0.1697,1652098471,2.375
+5,3,7,1,text,this rapper desiigner is terrible,this rapper d,,d,4.445,0.2771,1652098475,3.309000015
+5,3,7,2,text,this rapper desiigner is terrible,this rapper d,,d,4.445,0.0547,1652098479,4.17599988
+5,3,7,3,text,this rapper desiigner is terrible,this rapper d,,d,4.445,0.1717,1652098481,2.397000074
+5,3,8,1,text,this rapper desiigner is terrible,this rapper de,,e,4.445,-0.1467,1652098487,5.279999971
+5,3,8,2,text,this rapper desiigner is terrible,this rapper de,,e,4.445,0.1084,1652098488,1.696000099
+5,3,8,3,text,this rapper desiigner is terrible,this rapper de,,e,4.445,0.3018,1652098491,2.514999866
+5,3,9,1,text,this rapper desiigner is terrible,this rapper des,,s,4.445,0.026,1652098502,11.20200014
+5,3,9,2,text,this rapper desiigner is terrible,this rapper des,,s,4.445,0.1937,1652098503,1.129999876
+5,3,9,3,text,this rapper desiigner is terrible,this rapper des,,s,4.445,0.4279,1652098506,2.63499999
+5,3,10,1,text,this rapper desiigner is terrible,this rapper design_,,design_,4.445,0.4626,1652098517,10.99500012
+5,3,10,2,text,this rapper desiigner is terrible,this rapper design_,,design_,4.445,0.2471,1652098518,1.184999943
+5,3,10,3,text,this rapper desiigner is terrible,this rapper design_,,design_,4.445,0.1927,1652098520,2.422999859
+5,3,11,1,text,this rapper desiigner is terrible,this rapper design,,#,4.445,0.1647,1652098527,6.292000055
+5,3,11,2,text,this rapper desiigner is terrible,this rapper design,,#,4.445,0.3385,1652098529,1.934999943
+5,3,11,3,text,this rapper desiigner is terrible,this rapper design,,#,4.445,0.3088,1652098531,2.531000137
+5,3,11,4,text,this rapper desiigner is terrible,this rapper design,,#,4.445,-0.1664,1652098538,6.520999908
+5,3,12,1,text,this rapper desiigner is terrible,this rapper desig,,#,4.445,-0.626,1652098539,1.377000093
+5,3,12,2,text,this rapper desiigner is terrible,this rapper desig,,#,4.445,-0.0754,1652098547,7.593999863
+5,3,12,3,text,this rapper desiigner is terrible,this rapper desig,,#,4.445,0.039,1652098548,1.63499999
+5,3,12,4,text,this rapper desiigner is terrible,this rapper desig,,#,4.445,0.2184,1652098553,4.34100008
+5,3,13,1,text,this rapper desiigner is terrible,this rapper design,,n,4.445,-0.0117,1652098560,6.929000139
+5,3,13,2,text,this rapper desiigner is terrible,this rapper design,,n,4.445,0.3882,1652098562,2.602999926
+5,3,14,1,text,this rapper desiigner is terrible,this rapper designer_,,designer_,4.445,0.1867,1652098566,3.67599988
+5,3,14,2,text,this rapper desiigner is terrible,this rapper designer_,,designer_,4.445,0.3692,1652098568,2.584000111
+5,3,14,3,text,this rapper desiigner is terrible,this rapper designer_,,designer_,4.445,0.1421,1652098571,2.371999979
+5,3,15,1,text,this rapper desiigner is terrible,this rapper designer is_,,is_,4.445,0.3642,1652098577,5.782999992
+5,3,15,2,text,this rapper desiigner is terrible,this rapper designer is_,,is_,4.445,0.2898,1652098579,2.526000023
+5,3,15,3,text,this rapper desiigner is terrible,this rapper designer is_,,is_,4.445,0.4526,1652098582,2.683000088
+5,3,16,1,text,this rapper desiigner is terrible,this rapper designer is t,,t,4.445,0.4576,1652098590,7.805999994
+5,3,16,2,text,this rapper desiigner is terrible,this rapper designer is t,,t,4.445,0.1977,1652098591,1.136999846
+5,3,17,1,text,this rapper desiigner is terrible,this rapper designer is te,,e,4.445,0.2304,1652098597,6.753000021
+5,3,17,2,text,this rapper desiigner is terrible,this rapper designer is te,,e,4.445,0.1511,1652098602,4.281000137
+5,3,18,1,text,this rapper desiigner is terrible,this rapper designer is terrible_,,terrible_,4.445,0.0844,1652098609,7.051999807
+5,3,18,2,text,this rapper desiigner is terrible,this rapper designer is terrible_,,terrible_,4.445,0.1727,1652098610,1.131000042
+5,3,18,3,text,this rapper desiigner is terrible,this rapper designer is terrible_,,terrible_,4.445,0.2721,1652098612,2.499000072
+5,3,19,1,text,this rapper desiigner is terrible,this rapper designer is terrible._,,.,4.445,0.3445,1652098617,4.194000006
+5,3,19,2,text,this rapper desiigner is terrible,this rapper designer is terrible._,,.,4.445,0.0577,1652098618,1.563999891
+5,3,19,3,text,this rapper desiigner is terrible,this rapper designer is terrible._,,.,4.445,0.1877,1652098621,3.078000069
+5,3,20,1,text,this rapper desiigner is terrible,this rapper designer is terrible.._,,.,4.445,0.1311,1652098626,4.592000008
+5,3,20,2,text,this rapper desiigner is terrible,this rapper designer is terrible.._,,.,4.445,0.2601,1652098627,1.267999887
+5,3,20,3,text,this rapper desiigner is terrible,this rapper designer is terrible.._,,.,4.445,0.1857,1652098632,4.407000065
+5,4,1,1,text,no such thing as job security,n,,n,4.445,-1.6062,1652098636,4.256999969
+5,4,1,2,text,no such thing as job security,n,,n,4.445,0.7254,1652098637,1.426000118
+5,4,1,3,text,no such thing as job security,n,,n,4.445,-1.4107,1652098640,2.474999905
+5,4,2,1,text,no such thing as job security,no_,,no_,4.445,0.2651,1652098644,4.09100008
+5,4,2,2,text,no such thing as job security,no_,,no_,4.445,0.2284,1652098646,2.443000078
+5,4,3,1,text,no such thing as job security,no s,,s,4.445,0.1044,1652098658,11.71499991
+5,4,3,2,text,no such thing as job security,no s,,s,4.445,0.3215,1652098663,5.101000071
+5,4,3,3,text,no such thing as job security,no s,,s,4.445,0.2611,1652098666,2.498999834
+5,4,4,1,text,no such thing as job security,no su,,u,4.445,0.1597,1652098672,6.856000185
+5,4,4,2,text,no such thing as job security,no su,,u,4.445,0.0707,1652098675,2.309999943
+5,4,4,3,text,no such thing as job security,no su,,u,4.445,0.1887,1652098677,2.398999929
+5,4,5,1,text,no such thing as job security,no such_,,such_,4.445,0.3185,1652098683,5.730999947
+5,4,5,2,text,no such thing as job security,no such_,,such_,4.445,0.3048,1652098685,2.54700017
+5,4,5,3,text,no such thing as job security,no such_,,such_,4.445,0.1697,1652098688,2.383999825
+5,4,6,1,text,no such thing as job security,no such t,,t,4.445,0.3872,1652098695,6.93900013
+5,4,6,2,text,no such thing as job security,no such t,,t,4.445,0.032,1652098699,4.161000013
+5,4,6,3,text,no such thing as job security,no such t,,t,4.445,0.2294,1652098701,2.440999985
+5,4,7,1,text,no such thing as job security,no such th,,h,4.445,0.3245,1652098713,11.49499989
+5,4,7,2,text,no such thing as job security,no such th,,h,4.445,0.2671,1652098715,2.502000093
+6,1,1,1,text,another day of pokemon catching,a,,a,4.445,0.1757,1652876399,0.0
+6,1,1,2,text,another day of pokemon catching,a,,a,4.445,0.1867,1652876403,4.33100009
+6,1,1,3,text,another day of pokemon catching,a,,a,4.445,0.2778,1652876405,2.493000031
+6,1,2,1,text,another day of pokemon catching,an,,n,4.445,0.1471,1652876417,11.34800005
+6,1,2,2,text,another day of pokemon catching,an,,n,4.445,0.3622,1652876419,2.574999809
+6,1,2,3,text,another day of pokemon catching,an,,n,4.445,0.0924,1652876422,2.328999996
+6,1,3,1,text,another day of pokemon catching,another_,,another_,4.445,0.2411,1652876427,5.03000021
+6,1,3,2,text,another day of pokemon catching,another_,,another_,4.445,0.3999,1652876429,2.640999794
+6,1,3,3,text,another day of pokemon catching,another_,,another_,4.445,0.3525,1652876432,2.590000153
+6,1,4,1,text,another day of pokemon catching,another day_,,day_,4.445,0.4179,1652876440,7.747999907
+6,1,4,2,text,another day of pokemon catching,another day_,,day_,4.445,0.4802,1652876442,2.703000069
+6,1,4,3,text,another day of pokemon catching,another day_,,day_,4.445,0.4556,1652876445,2.695999861
+6,1,5,1,text,another day of pokemon catching,another day of_,,of_,4.445,0.0727,1652876449,4.213000059
+6,1,5,2,text,another day of pokemon catching,another day of_,,of_,4.445,0.4586,1652876451,1.388000011
+6,1,5,3,text,another day of pokemon catching,another day of_,,of_,4.445,0.2461,1652876453,2.467000008
+6,1,6,1,text,another day of pokemon catching,another day of p,,p,4.445,-0.2031,1652876462,8.587000132
+6,1,6,2,text,another day of pokemon catching,another day of p,,p,4.445,0.4476,1652876463,1.055999994
+6,1,6,3,text,another day of pokemon catching,another day of p,,p,4.445,-0.0811,1652876467,4.066999912
+6,1,6,4,text,another day of pokemon catching,another day of p,,p,4.445,0.4676,1652876470,2.671999931
+6,1,6,5,text,another day of pokemon catching,another day of p,,p,4.445,0.2064,1652876472,2.417000055
+6,1,7,1,text,another day of pokemon catching,another day of po,,o,4.445,0.0757,1652876479,7.427999973
+6,1,7,2,text,another day of pokemon catching,another day of po,,o,4.445,0.3999,1652876481,1.328000069
+6,1,7,3,text,another day of pokemon catching,another day of po,,o,4.445,0.1441,1652876483,2.381999969
+6,1,8,1,text,another day of pokemon catching,another day of pok,,k,4.445,0.3505,1652876495,11.44899988
+6,1,8,2,text,another day of pokemon catching,another day of pok,,k,4.445,0.2561,1652876496,1.82400012
+6,1,8,3,text,another day of pokemon catching,another day of pok,,k,4.445,0.2411,1652876499,2.464999914
+6,1,9,1,text,another day of pokemon catching,another day of poke,,e,4.445,0.4922,1652876506,7.213000059
+6,1,9,2,text,another day of pokemon catching,another day of poke,,e,4.445,0.1124,1652876508,2.337000132
+6,1,9,3,text,another day of pokemon catching,another day of poke,,e,4.445,0.4852,1652876511,2.694999933
+6,1,10,1,text,another day of pokemon catching,another day of pokemon_,,pokemon_,4.445,0.2591,1652876517,6.013000011
+6,1,10,2,text,another day of pokemon catching,another day of pokemon_,,pokemon_,4.445,0.2918,1652876520,2.513000011
+6,1,11,1,text,another day of pokemon catching,another day of pokemon c,,c,4.445,0.3435,1652876525,5.531999826
+6,1,11,2,text,another day of pokemon catching,another day of pokemon c,,c,4.445,0.006,1652876529,4.140000105
+6,1,11,3,text,another day of pokemon catching,another day of pokemon c,,c,4.445,0.2074,1652876532,2.443000078
+6,1,12,1,text,another day of pokemon catching,another day of pokemon ca,,a,4.445,0.2034,1652876536,4.355999947
+6,1,12,2,text,another day of pokemon catching,another day of pokemon ca,,a,4.445,0.2084,1652876539,2.444999933
+6,1,13,1,text,another day of pokemon catching,another day of pokemon cat,,t,4.445,0.4766,1652876545,6.710000038
+6,1,13,2,text,another day of pokemon catching,another day of pokemon cat,,t,4.445,0.3702,1652876548,3.213000059
+6,1,13,3,text,another day of pokemon catching,another day of pokemon cat,,t,4.445,0.022,1652876551,2.248999834
+6,1,14,1,text,another day of pokemon catching,another day of pokemon catching_,,catching_,4.445,0.1341,1652876553,2.633000135
+6,1,14,2,text,another day of pokemon catching,another day of pokemon catching_,,catching_,4.445,0.2104,1652876558,4.35800004
+6,1,15,1,text,another day of pokemon catching,another day of pokemon catching._,,.,4.445,0.2561,1652876562,4.392999887
+6,1,15,2,text,another day of pokemon catching,another day of pokemon catching._,,.,4.445,0.2591,1652876564,2.255000114
+6,1,15,3,text,another day of pokemon catching,another day of pokemon catching._,,.,4.445,0.006,1652876569,4.490999937
+6,1,16,1,text,another day of pokemon catching,another day of pokemon catching.._,,.,3.293,0.4476,1652876897,328.506
+6,1,16,2,text,another day of pokemon catching,another day of pokemon catching.._,,.,3.293,0.2084,1652876900,3.017999887
+6,1,16,3,text,another day of pokemon catching,another day of pokemon catching.._,,.,3.293,0.4766,1652876904,3.875
+6,3,1,1,text,try to learn something today,t,,t,3.293,-0.2002,1652876914,9.509000063
+6,3,1,2,text,try to learn something today,t,,t,3.293,-0.0235,1652876916,1.884000063
+6,3,2,1,text,try to learn something today,try_,,try_,3.293,0.1242,1652876918,2.839999914
+6,3,2,2,text,try to learn something today,try_,,try_,3.293,0.1439,1652876921,3.020999908
+6,3,2,3,text,try to learn something today,try_,,try_,3.293,0.4346,1652876924,2.093000174
+6,3,3,1,text,try to learn something today,try to_,,to_,3.293,0.3482,1652876930,6.552999973
+6,3,3,2,text,try to learn something today,try to_,,to_,3.293,0.2342,1652876932,1.88499999
+6,3,3,3,text,try to learn something today,try to_,,to_,3.293,0.1659,1652876934,1.809999943
+6,3,4,1,text,try to learn something today,try to l,,l,3.293,0.2599,1652876943,8.736000061
+6,3,4,2,text,try to learn something today,try to l,,l,3.293,0.2562,1652876947,3.95600009
+6,3,4,3,text,try to learn something today,try to l,,l,3.293,0.1509,1652876948,1.773000002
+6,3,5,1,text,try to learn something today,try to learn_,,learn_,3.293,0.1985,1652876953,4.527999878
+6,3,5,2,text,try to learn something today,try to learn_,,learn_,3.293,0.1749,1652876955,1.815999985
+6,3,5,3,text,try to learn something today,try to learn_,,learn_,3.293,-0.6059,1652876956,1.013999939
+6,3,5,4,text,try to learn something today,try to learn_,,learn_,3.293,0.1142,1652876957,1.766000032
+6,3,6,1,text,try to learn something today,try to learn s,,s,3.293,0.2282,1652876964,7.07400012
+6,3,6,2,text,try to learn something today,try to learn s,,s,3.293,0.2939,1652876966,1.947000027
+6,3,6,3,text,try to learn something today,try to learn s,,s,3.293,0.2769,1652876968,1.902999878
+6,3,7,1,text,try to learn something today,try to learn something_,,something_,3.293,0.2542,1652876971,2.496999979
+6,3,7,2,text,try to learn something today,try to learn something_,,something_,3.293,0.3245,1652876973,1.950999975
+6,3,7,3,text,try to learn something today,try to learn something_,,something_,3.293,0.2492,1652876975,1.883000135
+6,3,8,1,text,try to learn something today,try to learn something t,,t,3.293,0.3899,1652876978,3.261999846
+6,3,8,2,text,try to learn something today,try to learn something t,,t,3.293,0.0855,1652876981,2.973999977
+6,3,8,3,text,try to learn something today,try to learn something t,,t,3.293,0.1182,1652876983,1.753000021
+7,1,1,1,text,nobody goes knapsacking across europe,n,,n,3.293,0.2995,1652963794,0.0
+7,1,1,2,text,nobody goes knapsacking across europe,n,,n,3.293,0.1749,1652963797,3.872999907
+7,1,1,3,text,nobody goes knapsacking across europe,n,,n,3.293,0.3205,1652963799,1.947999954
+7,1,2,1,text,nobody goes knapsacking across europe,no,,o,3.293,0.2502,1652963805,5.209000111
+7,1,2,2,text,nobody goes knapsacking across europe,no,,o,3.293,0.3879,1652963807,2.018999815
+7,1,3,1,text,nobody goes knapsacking across europe,nobody_,,nobody_,3.293,0.2055,1652963813,6.096000195
+7,1,3,2,text,nobody goes knapsacking across europe,nobody_,,nobody_,3.293,0.3869,1652963815,2.021999836
+7,1,3,3,text,nobody goes knapsacking across europe,nobody_,,nobody_,3.293,0.2272,1652963817,1.879000187
+7,1,4,1,text,nobody goes knapsacking across europe,nobody g,,g,3.293,0.2222,1652963823,6.034999847
+7,1,4,2,text,nobody goes knapsacking across europe,nobody g,,g,3.293,0.0625,1652963826,3.75999999
+7,1,4,3,text,nobody goes knapsacking across europe,nobody g,,g,3.293,0.1845,1652963828,1.843000174
+7,1,5,1,text,nobody goes knapsacking across europe,nobody go,,o,3.293,0.1769,1652963833,5.15199995
+7,1,5,2,text,nobody goes knapsacking across europe,nobody go,,o,3.293,0.2562,1652963835,1.879999876
+7,1,6,1,text,nobody goes knapsacking across europe,nobody goes_,,goes_,3.293,0.3065,1652963845,9.651000023
+7,1,6,2,text,nobody goes knapsacking across europe,nobody goes_,,goes_,3.293,0.1272,1652963848,3.019999981
+7,1,6,3,text,nobody goes knapsacking across europe,nobody goes_,,goes_,3.293,0.6159,1652963850,2.253000021
+7,1,6,4,text,nobody goes knapsacking across europe,nobody goes_,,goes_,3.293,0.0965,1652963852,1.756000042
+7,1,7,1,text,nobody goes knapsacking across europe,nobody goes k,,k,3.293,0.1072,1652963869,16.6099999
+7,1,7,2,text,nobody goes knapsacking across europe,nobody goes k,,k,3.293,0.2272,1652963870,1.562000036
+7,1,7,3,text,nobody goes knapsacking across europe,nobody goes k,,k,3.293,0.0578,1652963872,1.709000111
+7,1,8,1,text,nobody goes knapsacking across europe,nobody goes kn,,n,3.293,0.3849,1652963875,3.25
+7,1,8,2,text,nobody goes knapsacking across europe,nobody goes kn,,n,3.293,0.1042,1652963877,1.756000042
+7,1,8,3,text,nobody goes knapsacking across europe,nobody goes kn,,n,3.293,0.0488,1652963879,1.704999924
+7,1,9,1,text,nobody goes knapsacking across europe,nobody goes kna,,a,3.293,0.2272,1652963884,5.019999981
+7,1,9,2,text,nobody goes knapsacking across europe,nobody goes kna,,a,3.293,0.3432,1652963888,4.036999941
+7,1,9,3,text,nobody goes knapsacking across europe,nobody goes kna,,a,3.293,0.1589,1652963889,1.81400013
+7,1,10,1,text,nobody goes knapsacking across europe,nobody goes knap,,p,3.293,0.2949,1652963896,6.17599988
+7,1,10,2,text,nobody goes knapsacking across europe,nobody goes knap,,p,3.293,0.0925,1652963897,1.71600008
+7,1,10,3,text,nobody goes knapsacking across europe,nobody goes knap,,p,3.293,0.2095,1652963899,1.838000059
+7,1,11,1,text,nobody goes knapsacking across europe,nobody goes knaps,,s,3.293,0.3165,1652963904,4.628000021
+7,1,11,2,text,nobody goes knapsacking across europe,nobody goes knaps,,s,3.293,0.1292,1652963906,1.770999908
+7,1,12,1,text,nobody goes knapsacking across europe,nobody goes knapsa,,a,3.293,0.2362,1652963909,3.907999992
+7,1,12,2,text,nobody goes knapsacking across europe,nobody goes knapsa,,a,3.293,0.3335,1652963911,1.979000092
+7,1,13,1,text,nobody goes knapsacking across europe,nobody goes knapsac,,c,3.293,0.2889,1652963918,6.873999834
+7,1,13,2,text,nobody goes knapsacking across europe,nobody goes knapsac,,c,3.293,0.2472,1652963922,3.919000149
+7,1,13,3,text,nobody goes knapsacking across europe,nobody goes knapsac,,c,3.293,0.2512,1652963924,1.882999897
+7,1,14,1,text,nobody goes knapsacking across europe,nobody goes knapsack,,k,3.293,0.3532,1652963929,4.664000034
+7,1,14,2,text,nobody goes knapsacking across europe,nobody goes knapsack,,k,3.293,0.2859,1652963931,1.930999994
+7,1,15,1,text,nobody goes knapsacking across europe,nobody goes knapsacki,,i,3.293,0.3215,1652963939,7.95600009
+7,1,15,2,text,nobody goes knapsacking across europe,nobody goes knapsacki,,i,3.293,0.2649,1652963941,1.902999878
+7,1,16,1,text,nobody goes knapsacking across europe,nobody goes knapsackin,,n,3.293,0.2639,1652963946,5.24000001
+7,1,16,2,text,nobody goes knapsacking across europe,nobody goes knapsackin,,n,3.293,0.4176,1652963948,2.07400012
+7,1,17,1,text,nobody goes knapsacking across europe,nobody goes knapsacking,,g,3.293,0.0835,1652963953,5.063999891
+7,1,17,2,text,nobody goes knapsacking across europe,nobody goes knapsacking,,g,3.293,0.3085,1652963955,1.946000099
+7,1,18,1,text,nobody goes knapsacking across europe,nobody goes knapsacking_,,Space,3.293,0.2809,1652963960,5.253000021
+7,1,18,2,text,nobody goes knapsacking across europe,nobody goes knapsacking_,,Space,3.293,0.2482,1652963962,1.885999918
+7,1,19,1,text,nobody goes knapsacking across europe,nobody goes knapsacking a,,a,3.293,0.1382,1652963967,5.289000034
+7,1,19,2,text,nobody goes knapsacking across europe,nobody goes knapsacking a,,a,3.293,0.2185,1652963971,3.401000023
+7,1,19,3,text,nobody goes knapsacking across europe,nobody goes knapsacking a,,a,3.293,0.1965,1652963973,1.81799984
+7,1,20,1,text,nobody goes knapsacking across europe,nobody goes knapsacking ac,,c,3.293,0.0665,1652963980,7.310000181
+7,1,20,2,text,nobody goes knapsacking across europe,nobody goes knapsacking ac,,c,3.293,0.3295,1652963983,2.903999805
+7,1,20,3,text,nobody goes knapsacking across europe,nobody goes knapsacking ac,,c,3.293,0.1449,1652963986,3.014000177
+7,1,21,1,text,nobody goes knapsacking across europe,nobody goes knapsacking across_,,across_,3.293,0.3015,1652963989,3.518999815
+7,1,21,2,text,nobody goes knapsacking across europe,nobody goes knapsacking across_,,across_,3.293,0.1629,1652963991,1.819000006
+7,1,22,1,text,nobody goes knapsacking across europe,nobody goes knapsacking across e,,e,3.293,0.4912,1652963996,4.572000027
+7,1,22,2,text,nobody goes knapsacking across europe,nobody goes knapsacking across e,,e,3.293,0.2272,1652963998,2.773000002
+7,1,22,3,text,nobody goes knapsacking across europe,nobody goes knapsacking across e,,e,3.293,0.3025,1652964000,1.95600009
+7,1,23,1,text,nobody goes knapsacking across europe,nobody goes knapsacking across ever_,,ever_,3.293,0.3532,1652964009,8.84100008
+7,1,23,2,text,nobody goes knapsacking across europe,nobody goes knapsacking across ever_,,ever_,3.293,0.0665,1652964011,1.581999779
+7,1,23,3,text,nobody goes knapsacking across europe,nobody goes knapsacking across ever_,,ever_,3.293,0.1449,1652964012,1.636000156
+7,1,24,1,text,nobody goes knapsacking across europe,nobody goes knapsacking across e,,@,3.293,0.4912,1652964017,4.254999876
+7,1,24,2,text,nobody goes knapsacking across europe,nobody goes knapsacking across e,,@,3.293,0.2272,1652964018,1.383000135
+7,1,24,3,text,nobody goes knapsacking across europe,nobody goes knapsacking across e,,@,3.293,0.3025,1652964020,1.869999886
+7,1,25,1,text,nobody goes knapsacking across europe,nobody goes knapsacking across europe_,,europe_,3.293,0.2522,1652964023,2.582999945
+7,1,25,2,text,nobody goes knapsacking across europe,nobody goes knapsacking across europe_,,europe_,3.293,0.3959,1652964025,2.025000095
+7,1,25,3,text,nobody goes knapsacking across europe,nobody goes knapsacking across europe_,,europe_,3.293,0.3195,1652964027,1.961999893
+7,1,26,1,text,nobody goes knapsacking across europe,nobody goes knapsacking across europe._,,.,3.293,0.2809,1652964030,3.160000086
+7,1,26,2,text,nobody goes knapsacking across europe,nobody goes knapsacking across europe._,,.,3.293,0.1965,1652964032,2.756000042
+7,1,26,3,text,nobody goes knapsacking across europe,nobody goes knapsacking across europe._,,.,3.293,0.0835,1652964037,4.048000097
+7,1,27,1,text,nobody goes knapsacking across europe,nobody goes knapsacking across europe.._,,.,3.293,0.3195,1652964040,3.309999943
+7,1,27,2,text,nobody goes knapsacking across europe,nobody goes knapsacking across europe.._,,.,3.293,0.1449,1652964043,3.052999973
+7,1,27,3,text,nobody goes knapsacking across europe,nobody goes knapsacking across europe.._,,.,3.293,0.4912,1652964047,3.921999931
+7,2,1,1,text,i'm so late to answer this,i'm_,,i'm_,3.293,1.226,1652964055,8.549999952
+7,2,1,2,text,i'm so late to answer this,i'm_,,i'm_,3.293,1.6358,1652964057,1.95600009
+7,2,1,3,text,i'm so late to answer this,i'm_,,i'm_,3.293,0.9226,1652964059,1.834000111
+7,2,2,1,text,i'm so late to answer this,i'm s,,s,3.293,0.4246,1652964066,6.638000011
+7,2,2,2,text,i'm so late to answer this,i'm s,,s,3.293,0.3175,1652964069,3.211999893
+7,2,2,3,text,i'm so late to answer this,i'm s,,s,3.293,0.1795,1652964071,1.821000099
+7,2,3,1,text,i'm so late to answer this,i'm so_,,so_,3.293,0.2175,1652964074,3.437999964
+7,2,3,2,text,i'm so late to answer this,i'm so_,,so_,3.293,0.3702,1652964076,1.993000031
+7,2,3,3,text,i'm so late to answer this,i'm so_,,so_,3.293,0.3879,1652964078,2.018999815
+7,2,4,1,text,i'm so late to answer this,i'm so l,,l,3.293,0.0695,1652964080,2.078999996
+7,2,4,2,text,i'm so late to answer this,i'm so l,,l,3.293,0.4792,1652964083,3.052000046
+7,2,4,3,text,i'm so late to answer this,i'm so l,,l,3.293,0.3145,1652964087,3.194999933
+7,2,4,4,text,i'm so late to answer this,i'm so l,,l,3.293,0.3682,1652964089,2.013000011
+7,2,5,1,text,i'm so late to answer this,i'm so late_,,late_,3.293,0.4496,1652964092,3.163000107
+7,2,5,2,text,i'm so late to answer this,i'm so late_,,late_,3.293,0.3382,1652964095,3.207999945
+7,2,5,3,text,i'm so late to answer this,i'm so late_,,late_,3.293,0.3305,1652964097,1.992000103
+7,2,6,1,text,i'm so late to answer this,i'm so late to_,,to_,3.293,0.1362,1652964102,5.082999945
+7,2,6,2,text,i'm so late to answer this,i'm so late to_,,to_,3.293,0.0955,1652964105,2.959000111
+7,2,6,3,text,i'm so late to answer this,i'm so late to_,,to_,3.293,0.1292,1652964107,1.753999949
+7,2,7,1,text,i'm so late to answer this,i'm so late to a,,a,3.293,0.2719,1652964113,6.544999838
+7,2,7,2,text,i'm so late to answer this,i'm so late to a,,a,3.293,0.2025,1652964116,3.090000153
+7,2,7,3,text,i'm so late to answer this,i'm so late to a,,a,3.293,0.1905,1652964118,1.826999903
+7,2,8,1,text,i'm so late to answer this,i'm so late to an,,n,3.293,0.3045,1652964125,6.515000105
+7,2,8,2,text,i'm so late to answer this,i'm so late to an,,n,3.293,0.3652,1652964127,2.020999908
+7,2,8,3,text,i'm so late to answer this,i'm so late to an,,n,3.293,0.4386,1652964129,2.07400012
+7,2,9,1,text,i'm so late to answer this,i'm so late to answer_,,answer_,3.293,0.2232,1652964135,6.102999926
+7,2,9,2,text,i'm so late to answer this,i'm so late to answer_,,answer_,3.293,0.2125,1652964137,1.868000031
+7,2,9,3,text,i'm so late to answer this,i'm so late to answer_,,answer_,3.293,0.2075,1652964139,1.835000038
+7,2,10,1,text,i'm so late to answer this,i'm so late to answer t,,t,3.293,0.3979,1652964144,5.352999926
+7,2,10,2,text,i'm so late to answer this,i'm so late to answer t,,t,3.293,0.3799,1652964146,2.022000074
+7,2,10,3,text,i'm so late to answer this,i'm so late to answer t,,t,3.293,0.3502,1652964148,2.008999825
+7,2,11,1,text,i'm so late to answer this,i'm so late to answer th,,h,3.293,0.3185,1652964151,3.209000111
+7,2,11,2,text,i'm so late to answer this,i'm so late to answer th,,h,3.293,0.1262,1652964153,1.766000032
+7,2,11,3,text,i'm so late to answer this,i'm so late to answer th,,h,3.293,0.2202,1652964155,1.853999853
+7,2,12,1,text,i'm so late to answer this,i'm so late to answer this_,,this_,3.293,0.2125,1652964158,2.792000055
+7,2,12,2,text,i'm so late to answer this,i'm so late to answer this_,,this_,3.293,0.0338,1652964159,1.661000013
+7,2,12,3,text,i'm so late to answer this,i'm so late to answer this_,,this_,3.293,0.1142,1652964161,1.760999918
+7,2,13,1,text,i'm so late to answer this,i'm so late to answer this._,,.,3.293,0.3185,1652964164,3.143000126
+7,2,13,2,text,i'm so late to answer this,i'm so late to answer this._,,.,3.293,0.3552,1652964167,2.911000013
+7,2,13,3,text,i'm so late to answer this,i'm so late to answer this._,,.,3.293,0.3632,1652964171,3.536000013
+7,2,13,4,text,i'm so late to answer this,i'm so late to answer this._,,.,3.293,0.1995,1652964174,3.447999954
+7,2,13,5,text,i'm so late to answer this,i'm so late to answer this._,,.,3.293,0.3145,1652964177,3.157999992
+7,2,13,6,text,i'm so late to answer this,i'm so late to answer this._,,.,3.293,0.1895,1652964179,1.904000044
+7,2,14,1,text,i'm so late to answer this,i'm so late to answer this.._,,.,3.293,0.3799,1652964182,3.251999855
+7,2,14,2,text,i'm so late to answer this,i'm so late to answer this.._,,.,3.293,0.4386,1652964184,2.021000147
+7,2,14,3,text,i'm so late to answer this,i'm so late to answer this.._,,.,3.293,0.1292,1652964189,4.092000008
+7,2,14,4,text,i'm so late to answer this,i'm so late to answer this.._,,.,3.293,0.2232,1652964190,1.898999929
+7,3,1,1,text,he just can't move on,he_,,he_,3.293,-0.9243,1652964194,3.098999977
+7,3,1,2,text,he just can't move on,he_,,he_,3.293,-1.301,1652964195,1.761000156
+7,3,1,3,text,he just can't move on,he_,,he_,3.293,0.9336,1652964197,1.833999872
+7,3,2,1,text,he just can't move on,he just_,,just_,3.293,0.3839,1652964205,8.013999939
+7,3,2,2,text,he just can't move on,he just_,,just_,3.293,0.3692,1652964208,3.265000105
+7,3,2,3,text,he just can't move on,he just_,,just_,3.293,0.3979,1652964210,2.029000044
+7,3,3,1,text,he just can't move on,he just can't_,,can't_,3.293,0.2322,1652964219,8.19299984
+7,3,3,2,text,he just can't move on,he just can't_,,can't_,3.293,0.2532,1652964221,1.901000023
+7,3,3,3,text,he just can't move on,he just can't_,,can't_,3.293,0.5803,1652964223,2.210000038
+7,3,3,4,text,he just can't move on,he just can't_,,can't_,3.293,0.4186,1652964225,2.078000069
+7,3,4,1,text,he just can't move on,he just can't m,,m,3.293,0.2165,1652964230,4.954999924
+7,3,4,2,text,he just can't move on,he just can't m,,m,3.293,0.1162,1652964234,3.779000044
+7,3,4,3,text,he just can't move on,he just can't m,,m,3.293,0.2382,1652964235,1.881999969
+7,3,4,4,text,he just can't move on,he just can't m,,m,3.293,0.2949,1652964237,1.937999964
+7,3,5,1,text,he just can't move on,he just can't move_,,move_,3.293,0.3335,1652964243,5.398000002
+7,3,5,2,text,he just can't move on,he just can't move_,,move_,3.293,0.1559,1652964247,3.822000027
+7,3,5,3,text,he just can't move on,he just can't move_,,move_,3.293,0.3799,1652964249,2.026000023
+7,3,6,1,text,he just can't move on,he just can't move on_,,on_,3.293,0.3065,1652964252,3.845000029
+7,3,6,2,text,he just can't move on,he just can't move on_,,on_,3.293,0.3055,1652964254,1.960000038
+7,3,6,3,text,he just can't move on,he just can't move on_,,on_,3.293,0.2542,1652964256,1.907999992
+7,3,7,1,text,he just can't move on,he just can't move on._,,.,3.293,0.2959,1652964260,3.15199995
+7,3,7,2,text,he just can't move on,he just can't move on._,,.,3.293,0.2075,1652964261,1.503999949
+7,3,7,3,text,he just can't move on,he just can't move on._,,.,3.293,-0.1329,1652964262,1.184000015
+7,3,7,4,text,he just can't move on,he just can't move on._,,.,3.293,0.2312,1652964264,1.883000135
+7,3,8,1,text,he just can't move on,he just can't move on.._,,.,3.293,0.2689,1652964267,3.40899992
+7,3,8,2,text,he just can't move on,he just can't move on.._,,.,3.293,0.2522,1652964270,2.066999912
+7,3,8,3,text,he just can't move on,he just can't move on.._,,.,3.293,-1.2307,1652964273,3.855000019
+7,3,8,4,text,he just can't move on,he just can't move on.._,,.,3.293,0.2562,1652964276,2.880000114
+7,3,8,5,text,he just can't move on,he just can't move on.._,,.,3.293,0.1392,1652964278,1.763999939
+7,4,1,1,text,how can sevco be back,how_,,how_,3.293,-1.5601,1652964281,2.709000111
+7,4,1,2,text,how can sevco be back,how_,,how_,3.293,-1.3744,1652964282,1.251999855
+7,4,1,3,text,how can sevco be back,how_,,how_,3.293,-0.2092,1652964284,1.900000095
+7,4,2,1,text,how can sevco be back,how can_,,can_,3.293,0.5199,1652964288,4.029999971
+7,4,2,2,text,how can sevco be back,how can_,,can_,3.293,0.2262,1652964290,2.463999987
+7,4,2,3,text,how can sevco be back,how can_,,can_,3.293,0.1795,1652964292,1.832999945
+7,4,3,1,text,how can sevco be back,how can s,,s,3.293,0.4346,1652964300,7.776000023
+7,4,3,2,text,how can sevco be back,how can s,,s,3.293,0.3382,1652964303,3.22300005
+7,4,3,3,text,how can sevco be back,how can s,,s,3.293,0.4742,1652964305,2.136999846
+7,4,3,4,text,how can sevco be back,how can s,,s,3.293,0.4206,1652964307,2.066000223
+7,4,4,1,text,how can sevco be back,how can se,,e,3.293,0.4276,1652964313,5.407999992
+7,4,4,2,text,how can sevco be back,how can se,,e,3.293,0.2909,1652964315,1.940999985
+7,4,4,3,text,how can sevco be back,how can se,,e,3.293,0.2639,1652964317,1.892999887
+7,4,5,1,text,how can sevco be back,how can sev,,v,3.293,1.2817,1652964318,0.946000099
+7,4,5,2,text,how can sevco be back,how can sev,,v,3.293,0.3939,1652964326,8.263999939
+7,4,5,3,text,how can sevco be back,how can sev,,v,3.293,0.2709,1652964328,2.036999941
+7,4,5,4,text,how can sevco be back,how can sev,,v,3.293,0.3145,1652964329,1.322999954
+7,4,5,5,text,how can sevco be back,how can sev,,v,3.293,0.2282,1652964332,3.114000082
+7,4,6,1,text,how can sevco be back,how can sevc,,c,3.293,0.2165,1652964338,5.947999954
+7,4,6,2,text,how can sevco be back,how can sevc,,c,3.293,-0.3409,1652964341,2.518000126
+7,4,6,3,text,how can sevco be back,how can sevc,,c,3.293,0.2372,1652964343,2.462999821
+7,4,6,4,text,how can sevco be back,how can sevc,,c,3.293,0.1965,1652964345,1.839000225
+7,4,7,1,text,how can sevco be back,how can sevco,,o,3.293,0.3105,1652964350,5.274999857
+7,4,7,2,text,how can sevco be back,how can sevco,,o,3.293,0.0062,1652964355,4.97300005
+7,4,7,3,text,how can sevco be back,how can sevco,,o,3.293,0.2819,1652964357,1.917999983
+7,4,8,1,text,how can sevco be back,how can sevco_,,Space,3.293,0.4882,1652964363,5.447999954
+7,4,8,2,text,how can sevco be back,how can sevco_,,Space,3.293,0.1599,1652964365,1.789000034
+7,4,8,3,text,how can sevco be back,how can sevco_,,Space,3.293,0.1955,1652964366,1.835999966
+8,1,1,1,text,i sure do miss him,i_,,i_,3.293,0.2312,1653044615,0.0
+8,1,1,2,text,i sure do miss him,i_,,i_,3.293,0.2769,1653044617,1.926000118
+8,1,1,3,text,i sure do miss him,i_,,i_,3.293,0.2959,1653044619,1.938999891
+8,1,2,1,text,i sure do miss him,i s,,s,3.293,-0.8083,1653044621,2.128000021
+8,1,2,2,text,i sure do miss him,i s,,s,3.293,0.1975,1653044625,4.131999969
+8,1,2,3,text,i sure do miss him,i s,,s,3.293,0.1995,1653044628,3.562999964
+8,1,2,4,text,i sure do miss him,i s,,s,3.293,0.3175,1653044630,1.320000172
+8,1,2,5,text,i sure do miss him,i s,,s,3.293,0.0665,1653044631,1.705999851
+8,1,2,6,text,i sure do miss him,i s,,s,3.293,0.2689,1653044633,1.924999952
+8,1,3,1,text,i sure do miss him,i sure_,,sure_,3.293,0.2095,1653044642,8.93900013
+8,1,3,2,text,i sure do miss him,i sure_,,sure_,3.293,0.2619,1653044645,3.132999897
+8,1,3,3,text,i sure do miss him,i sure_,,sure_,3.293,0.4266,1653044648,2.085999966
+8,1,4,1,text,i sure do miss him,i sure d,,d,3.293,0.3255,1653044651,3.618000031
+8,1,4,2,text,i sure do miss him,i sure d,,d,3.293,0.1409,1653044655,3.81400013
+8,1,4,3,text,i sure do miss him,i sure d,,d,3.293,0.1559,1653044657,1.815000057
+8,1,5,1,text,i sure do miss him,i sure do_,,do_,3.293,0.1332,1653044663,5.697999954
+8,1,5,2,text,i sure do miss him,i sure do_,,do_,3.293,0.3789,1653044665,2.006999969
+8,1,5,3,text,i sure do miss him,i sure do_,,do_,3.293,0.3522,1653044667,2.013000011
+8,1,6,1,text,i sure do miss him,i sure do m,,m,3.293,0.4842,1653044676,9.932999849
+8,1,6,2,text,i sure do miss him,i sure do m,,m,3.293,0.3115,1653044680,3.507000208
+8,1,6,3,text,i sure do miss him,i sure do m,,m,3.293,0.3542,1653044685,5.322000027
+8,1,6,4,text,i sure do miss him,i sure do m,,m,3.293,0.7243,1653044688,2.372999907
+8,1,6,5,text,i sure do miss him,i sure do m,,m,3.293,0.1945,1653044690,1.826999903
+8,1,7,1,text,i sure do miss him,i sure do miss_,,miss_,3.293,0.3185,1653044702,12.36400008
+8,1,7,2,text,i sure do miss him,i sure do miss_,,miss_,3.293,0.0755,1653044705,2.954999924
+8,1,7,3,text,i sure do miss him,i sure do miss_,,miss_,3.293,0.3482,1653044707,1.995000124
+8,1,8,1,text,i sure do miss him,i sure do miss him_,,him_,3.293,0.2145,1653044710,3.264999866
+8,1,8,2,text,i sure do miss him,i sure do miss him_,,him_,3.293,0.0655,1653044713,2.930999994
+8,1,8,3,text,i sure do miss him,i sure do miss him_,,him_,3.293,0.1649,1653044715,1.819000006
+8,1,8,4,text,i sure do miss him,i sure do miss him_,,him_,3.293,0.3085,1653044717,1.946000099
+8,1,9,1,text,i sure do miss him,i sure do miss him._,,.,3.293,0.1649,1653044720,2.934000015
+8,1,9,2,text,i sure do miss him,i sure do miss him._,,.,3.293,0.3542,1653044724,3.842999935
+8,1,9,3,text,i sure do miss him,i sure do miss him._,,.,3.293,0.1409,1653044726,2.690000057
+8,1,9,4,text,i sure do miss him,i sure do miss him._,,.,3.293,0.3175,1653044728,1.688999891
+8,1,9,5,text,i sure do miss him,i sure do miss him._,,.,3.293,0.1559,1653044730,2.006999969
+8,1,10,1,text,i sure do miss him,i sure do miss him.._,,.,3.293,0.1559,1653044733,3.369000196
+8,1,10,2,text,i sure do miss him,i sure do miss him.._,,.,3.293,0.3255,1653044735,1.519999981
+8,1,10,3,text,i sure do miss him,i sure do miss him.._,,.,3.293,0.4266,1653044738,2.812000036
+8,1,10,4,text,i sure do miss him,i sure do miss him.._,,.,3.293,0.3522,1653044740,1.946999788
+8,2,1,1,text,this is not my cat,this_,,this_,3.293,1.115,1653044747,7.501000166
+8,2,1,2,text,this is not my cat,this_,,this_,3.293,1.3927,1653044750,3.200999975
+8,2,1,3,text,this is not my cat,this_,,this_,3.293,-1.0947,1653044753,2.427999973
+8,2,1,4,text,this is not my cat,this_,,this_,3.293,-0.95,1653044755,1.914000034
+8,2,2,1,text,this is not my cat,this is_,,is_,3.293,0.3412,1653044767,11.93700004
+8,2,2,2,text,this is not my cat,this is_,,is_,3.293,0.3512,1653044769,2.010999918
+8,2,2,3,text,this is not my cat,this is_,,is_,3.293,0.1082,1653044770,1.753999949
+8,2,3,1,text,this is not my cat,this is o,,o,3.293,0.0845,1653044780,9.901000023
+8,2,3,2,text,this is not my cat,this is o,,o,3.293,0.3265,1653044784,3.95600009
+8,2,3,3,text,this is not my cat,this is o,,o,3.293,0.4546,1653044786,2.136999846
+8,2,3,4,text,this is not my cat,this is o,,o,3.293,0.0665,1653044788,2.147000074
+8,2,3,5,text,this is not my cat,this is o,,o,3.293,0.3522,1653044790,1.881000042
+8,2,4,1,text,this is not my cat,this is_,,@,3.293,0.3412,1653044812,22.04200006
+8,2,4,2,text,this is not my cat,this is_,,@,3.293,0.3512,1653044815,2.875
+8,2,4,3,text,this is not my cat,this is_,,@,3.293,0.1082,1653044817,1.991999865
+8,2,4,4,text,this is not my cat,this is_,,@,3.293,0.1429,1653044819,1.748000145
+8,2,4,5,text,this is not my cat,this is_,,@,3.293,0.3025,1653044821,1.811999798
+8,2,5,1,text,this is not my cat,this is not_,,not_,3.293,0.2342,1653044824,3.517000198
+8,2,5,2,text,this is not my cat,this is not_,,not_,3.293,0.2502,1653044827,2.494999886
+8,2,5,3,text,this is not my cat,this is not_,,not_,3.293,0.3622,1653044829,1.993999958
+8,2,5,4,text,this is not my cat,this is not_,,not_,3.293,0.3085,1653044831,1.946000099
+8,2,6,1,text,this is not my cat,this is not my_,,my_,3.293,0.2659,1653044839,7.875999928
+8,2,6,2,text,this is not my cat,this is not my_,,my_,3.293,0.0258,1653044840,1.677999973
+8,2,6,3,text,this is not my cat,this is not my_,,my_,3.293,0.3542,1653044842,2.011000156
+8,2,6,4,text,this is not my cat,this is not my_,,my_,3.293,0.5199,1653044845,2.166999817
+8,2,7,1,text,this is not my cat,this is not my c,,c,3.293,0.3105,1653044848,3.828999996
+8,2,7,2,text,this is not my cat,this is not my c,,c,3.293,0.4039,1653044850,2.055000067
+8,2,7,3,text,this is not my cat,this is not my c,,c,3.293,0.3732,1653044852,2.008000135
+8,2,8,1,text,this is not my cat,this is not my ca,,a,3.293,0.1322,1653044855,2.997999907
+8,2,8,2,text,this is not my cat,this is not my ca,,a,3.293,0.3762,1653044859,3.244999886
+8,2,8,3,text,this is not my cat,this is not my ca,,a,3.293,0.3205,1653044861,1.945000172
+8,2,9,1,text,this is not my cat,this is not my cat,,t,3.293,0.1985,1653044868,7.036999941
+8,2,9,2,text,this is not my cat,this is not my cat,,t,3.293,0.2629,1653044872,3.944999933
+8,2,9,3,text,this is not my cat,this is not my cat,,t,3.293,0.3492,1653044874,2.006999969
+8,2,10,1,text,this is not my cat,this is not my cat_,,Space,3.293,0.2629,1653044879,5.833000183
+8,2,10,2,text,this is not my cat,this is not my cat_,,Space,3.293,-0.0245,1653044881,1.629999876
+8,2,10,3,text,this is not my cat,this is not my cat_,,Space,3.293,0.1985,1653044883,1.82400012
+8,2,10,4,text,this is not my cat,this is not my cat_,,Space,3.293,0.1779,1653044885,1.819999933
+8,2,11,1,text,this is not my cat,this is not my cat._,,.,3.293,0.2629,1653044898,13.14299989
+8,2,11,2,text,this is not my cat,this is not my cat._,,.,3.293,0.1779,1653044899,1.502000093
+8,2,11,3,text,this is not my cat,this is not my cat._,,.,3.293,0.1322,1653044901,1.946000099
+8,2,11,4,text,this is not my cat,this is not my cat._,,.,3.293,0.3105,1653044903,1.883999825
+8,2,12,1,text,this is not my cat,this is not my cat.._,,.,3.293,0.2659,1653044906,2.947000027
+8,2,12,2,text,this is not my cat,this is not my cat.._,,.,3.293,0.3762,1653044912,5.434000015
+8,2,12,3,text,this is not my cat,this is not my cat.._,,.,3.293,0.3732,1653044915,3.150000095
+8,2,12,4,text,this is not my cat,this is not my cat.._,,.,3.293,0.3492,1653044917,1.944000006
+8,3,1,1,text,anderson paak is wildly talented,a,,a,3.293,0.3989,1653044921,4.121999979
+8,3,1,2,text,anderson paak is wildly talented,a,,a,3.293,0.4722,1653044925,4.157000065
+8,3,1,3,text,anderson paak is wildly talented,a,,a,3.293,1.4937,1653044930,4.723999977
+8,3,1,4,text,anderson paak is wildly talented,a,,a,3.293,-0.941,1653044933,3.176999807
+8,3,1,5,text,anderson paak is wildly talented,a,,a,3.293,0.1709,1653044935,2.061000109
+8,3,2,1,text,anderson paak is wildly talented,an,,n,3.293,0.3602,1653044940,5.312000036
+8,3,2,2,text,anderson paak is wildly talented,an,,n,3.293,0.4356,1653044942,2.075999975
+8,3,2,3,text,anderson paak is wildly talented,an,,n,3.293,0.5506,1653044944,2.196000099
+8,3,2,4,text,anderson paak is wildly talented,an,,n,3.293,0.4692,1653044947,2.117999792
+8,3,3,1,text,anderson paak is wildly talented,anderson_,,anderson_,3.293,0.2075,1653044955,8.336000204
+8,3,3,2,text,anderson paak is wildly talented,anderson_,,anderson_,3.293,0.2155,1653044959,3.888000011
+8,3,3,3,text,anderson paak is wildly talented,anderson_,,anderson_,3.293,0.5059,1653044961,2.133999825
+8,3,3,4,text,anderson paak is wildly talented,anderson_,,anderson_,3.293,0.2759,1653044963,1.927000046
+8,3,4,1,text,anderson paak is wildly talented,anderson p,,p,3.293,0.3065,1653044972,9.270999908
+8,3,4,2,text,anderson paak is wildly talented,anderson p,,p,3.293,0.5059,1653044976,4.201000214
+8,3,4,3,text,anderson paak is wildly talented,anderson p,,p,3.293,0.2175,1653044978,1.869999886
+8,3,4,4,text,anderson paak is wildly talented,anderson p,,p,3.293,0.4356,1653044980,2.059000015
+8,3,5,1,text,anderson paak is wildly talented,anderson pa,,a,3.293,0.4486,1653044984,3.332999945
+8,3,5,2,text,anderson paak is wildly talented,anderson pa,,a,3.293,0.3722,1653044986,2.003000021
+8,3,5,3,text,anderson paak is wildly talented,anderson pa,,a,3.293,0.3175,1653044988,1.946000099
+8,3,6,1,text,anderson paak is wildly talented,anderson paa,,a,3.293,-0.0188,1653044990,2.820999861
+8,3,6,2,text,anderson paak is wildly talented,anderson paa,,a,3.293,0.1419,1653044993,2.641000032
+8,3,6,3,text,anderson paak is wildly talented,anderson paa,,a,3.293,0.3532,1653044996,3.413000107
+8,3,6,4,text,anderson paak is wildly talented,anderson paa,,a,3.293,0.3285,1653045000,4.016000032
+8,3,6,5,text,anderson paak is wildly talented,anderson paa,,a,3.293,0.2392,1653045002,1.869999886
+8,3,6,6,text,anderson paak is wildly talented,anderson paa,,a,3.293,0.2929,1653045004,1.933000088
+8,3,7,1,text,anderson paak is wildly talented,anderson paak,,k,3.293,0.4406,1653045018,13.90899992
+8,3,7,2,text,anderson paak is wildly talented,anderson paak,,k,3.293,0.3255,1653045021,3.203999996
+8,3,7,3,text,anderson paak is wildly talented,anderson paak,,k,3.293,0.3572,1653045023,1.992000103
+8,3,7,4,text,anderson paak is wildly talented,anderson paak,,k,3.293,0.1795,1653045025,1.819999933
+8,3,8,1,text,anderson paak is wildly talented,anderson paak_,,Space,3.293,0.2959,1653045031,5.878000021
+8,3,8,2,text,anderson paak is wildly talented,anderson paak_,,Space,3.293,0.0458,1653045036,4.987999916
+8,3,8,3,text,anderson paak is wildly talented,anderson paak_,,Space,3.293,0.1905,1653045041,5.146000147
+8,3,9,1,text,anderson paak is wildly talented,anderson paak is_,,is_,3.293,0.2352,1653045048,6.404999971
+8,3,9,2,text,anderson paak is wildly talented,anderson paak is_,,is_,3.293,0.3095,1653045051,3.194000006
+8,3,11,3,text,anderson paak is wildly talented,anderson paak is_,,is_,3.293,0.3432,1653045056,5.314999819

@@ -1,0 +1,542 @@
+Session Num,Phrase Num,Selection Num,Click Num,Task,Phrase Text,Typed Text,Target,Selection,Clock Period (s),Click Time Relative (s),Click Time Absolute (s),Dead Time (s)
+1,1,1,1,text,i love it out here,i,,i,5.429,2.5509,1646155165,0
+1,1,1,2,text,i love it out here,i,,i,5.429,-0.1148,1646155168,2.46600008
+1,1,1,3,text,i love it out here,i,,i,5.429,-0.2494,1646155170,2.773999929
+1,1,2,1,text,i love it out here,i_,,Space,5.429,0.0449,1646155179,8.200000048
+1,1,2,2,text,i love it out here,i_,,Space,5.429,-0.3024,1646155181,2.411999941
+1,1,3,1,text,i love it out here,i love_,,love_,5.429,0.3094,1646155196,14.57300019
+1,1,3,2,text,i love it out here,i love_,,love_,5.429,-0.2095,1646155197,1.480000019
+1,1,3,3,text,i love it out here,i love_,,love_,5.429,-0.6496,1646155199,2.038999796
+1,1,3,4,text,i love it out here,i love_,,love_,5.429,0.1727,1646155205,5.384000063
+1,1,3,5,text,i love it out here,i love_,,love_,5.429,0.2296,1646155207,2.937000036
+1,1,4,1,text,i love it out here,i love it_,,it_,5.429,0.2126,1646155218,10.22300005
+1,1,4,2,text,i love it out here,i love it_,,it_,5.429,-0.0339,1646155223,5.19299984
+1,1,4,3,text,i love it out here,i love it_,,it_,5.429,0.1158,1646155226,2.830000162
+1,1,5,1,text,i love it out here,i love it out_,,out_,5.429,0.014,1646155233,7.297999859
+1,1,5,2,text,i love it out here,i love it out_,,out_,5.429,0.3004,1646155234,1.366000175
+1,1,5,3,text,i love it out here,i love it out_,,out_,5.429,0.0439,1646155237,2.743999958
+1,1,6,1,text,i love it out here,i love it out h,,h,5.429,-0.1158,1646155248,10.72000003
+1,1,6,2,text,i love it out here,i love it out h,,h,5.429,0.1727,1646155253,5.40899992
+1,1,6,3,text,i love it out here,i love it out h,,h,5.429,0.1727,1646155256,2.878999949
+1,1,7,1,text,i love it out here,i love it out here_,,here_,5.429,0.4282,1646155265,9.176000118
+1,1,7,2,text,i love it out here,i love it out here_,,here_,5.429,0.4192,1646155267,1.471999884
+1,1,7,3,text,i love it out here,i love it out here_,,here_,5.429,0.1328,1646155270,2.832999945
+1,1,8,1,text,i love it out here,i love it out here._,,.,5.429,0.1727,1646155280,10.6960001
+1,1,8,2,text,i love it out here,i love it out here._,,.,5.429,-0.0339,1646155282,1.607000113
+1,1,8,3,text,i love it out here,i love it out here._,,.,5.429,-0.6496,1646155287,4.927999973
+1,1,8,4,text,i love it out here,i love it out here._,,.,5.429,-0.2494,1646155289,2.657999992
+1,1,9,1,text,i love it out here,i love it out here.._,,.,5.429,-0.1158,1646155295,5.776000023
+1,1,9,2,text,i love it out here,i love it out here.._,,.,5.429,-0.0339,1646155296,0.742999792
+1,1,9,3,text,i love it out here,i love it out here.._,,.,5.429,0.4282,1646155297,1.231000185
+1,1,9,4,text,i love it out here,i love it out here.._,,.,5.429,-0.6496,1646155300,2.78399992
+1,2,3,1,text,i'm coming to the show,i,,i,5.429,2.6328,1646155306,5.928999901
+1,2,3,2,text,i'm coming to the show,i,,i,5.429,-2.5338,1646155309,2.809000015
+1,2,4,1,text,i'm coming to the show,im_,,im_,5.429,-0.2814,1646155311,2.705000162
+1,2,4,2,text,i'm coming to the show,im_,,im_,5.429,0.2326,1646155313,1.273999929
+1,2,4,3,text,i'm coming to the show,im_,,im_,5.429,0.1727,1646155316,2.859999895
+1,2,5,1,text,i'm coming to the show,im c,,c,5.429,0.2765,1646155321,5.343000174
+1,2,5,2,text,i'm coming to the show,im c,,c,5.429,0.2186,1646155322,1.263999939
+1,2,5,3,text,i'm coming to the show,im c,,c,5.429,0.1228,1646155325,2.823999882
+1,2,6,1,text,i'm coming to the show,im coming_,,coming_,5.429,0.1098,1646155329,4.065000057
+1,2,6,2,text,i'm coming to the show,im coming_,,coming_,5.429,0.3793,1646155332,3.071000099
+1,2,6,3,text,i'm coming to the show,im coming_,,coming_,5.429,0.0439,1646155335,2.743999958
+1,2,7,1,text,i'm coming to the show,im coming to_,,to_,5.429,0.0679,1646155338,2.785000086
+1,2,7,2,text,i'm coming to the show,im coming to_,,to_,5.429,0.2276,1646155341,2.91899991
+1,2,8,1,text,i'm coming to the show,im coming to the_,,the_,5.429,-0.0658,1646155343,2.625
+1,2,8,2,text,i'm coming to the show,im coming to the_,,the_,5.429,-0.1936,1646155348,5.032999992
+1,2,8,3,text,i'm coming to the show,im coming to the_,,the_,5.429,0.036,1646155351,2.75
+1,2,9,1,text,i'm coming to the show,im coming to the s,,s,5.429,0.2126,1646155357,6.377000093
+1,2,9,2,text,i'm coming to the show,im coming to the s,,s,5.429,0.6038,1646155361,3.311999798
+1,2,9,3,text,i'm coming to the show,im coming to the s,,s,5.429,-0.0508,1646155366,5.184000015
+1,2,9,4,text,i'm coming to the show,im coming to the s,,s,5.429,-0.1297,1646155368,2.562000036
+1,2,10,1,text,i'm coming to the show,im coming to the show_,,show_,5.429,0.1717,1646155375,6.981000185
+1,2,10,2,text,i'm coming to the show,im coming to the show_,,show_,5.429,0.1887,1646155378,2.896999836
+1,2,10,3,text,i'm coming to the show,im coming to the show_,,show_,5.429,-0.0428,1646155381,2.648999929
+1,2,11,1,text,i'm coming to the show,im coming to the show._,,.,5.429,0.0838,1646155386,5.103000164
+1,2,11,2,text,i'm coming to the show,im coming to the show._,,.,5.429,0.1098,1646155391,4.816999912
+1,2,11,3,text,i'm coming to the show,im coming to the show._,,.,5.429,0.2366,1646155392,1.302999973
+1,2,11,4,text,i'm coming to the show,im coming to the show._,,.,5.429,-0.2754,1646155395,2.648000002
+1,2,12,1,text,i'm coming to the show,im coming to the show.._,,.,5.429,-0.0568,1646155400,5.440999985
+1,2,12,2,text,i'm coming to the show,im coming to the show.._,,.,5.429,1.3703,1646155406,5.246999979
+1,2,12,3,text,i'm coming to the show,im coming to the show.._,,.,5.429,2.5918,1646155410,4.19900012
+1,2,12,4,text,i'm coming to the show,im coming to the show.._,,.,5.429,0.2455,1646155415,4.951999903
+1,3,3,1,text,the corner of the old gallowgate,the_,,the_,5.429,2.3433,1646155422,7.322000027
+1,3,3,2,text,the corner of the old gallowgate,the_,,the_,5.429,0.1967,1646155425,2.886000156
+1,3,3,3,text,the corner of the old gallowgate,the_,,the_,5.429,0.9152,1646155427,2.298999786
+1,3,3,4,text,the corner of the old gallowgate,the_,,the_,5.429,1.6637,1646155430,2.79700017
+1,3,4,1,text,the corner of the old gallowgate,the c,,c,5.429,-0.1796,1646155436,6.487999916
+1,3,4,2,text,the corner of the old gallowgate,the c,,c,5.429,0.004,1646155440,3.944000006
+1,3,4,3,text,the corner of the old gallowgate,the c,,c,5.429,0.2206,1646155443,2.937000036
+1,3,5,1,text,the corner of the old gallowgate,the co,,o,5.429,0.012,1646155452,8.151000023
+1,3,5,2,text,the corner of the old gallowgate,the co,,o,5.429,0.02,1646155454,2.727999926
+1,3,5,3,text,the corner of the old gallowgate,the co,,o,5.429,-0.0428,1646155457,2.656000137
+1,3,6,1,text,the corner of the old gallowgate,the cor,,r,5.429,-0.0658,1646155467,9.936999798
+1,3,6,2,text,the corner of the old gallowgate,the cor,,r,5.429,0.021,1646155472,5.248000145
+1,3,6,3,text,the corner of the old gallowgate,the cor,,r,5.429,0.2525,1646155475,2.950999975
+1,3,7,1,text,the corner of the old gallowgate,the corn,,n,5.429,0.1408,1646155491,16.25
+1,3,7,2,text,the corner of the old gallowgate,the corn,,n,5.429,0.2216,1646155494,2.920000076
+1,3,7,3,text,the corner of the old gallowgate,the corn,,n,5.429,-1.3622,1646155496,1.333999872
+1,3,7,4,text,the corner of the old gallowgate,the corn,,n,5.429,-0.0279,1646155497,1.656000137
+1,3,7,5,text,the corner of the old gallowgate,the corn,,n,5.429,-0.0908,1646155500,2.616999865
+1,3,8,1,text,the corner of the old gallowgate,the corner_,,corner_,5.429,-0.1626,1646155505,5.048000097
+1,3,8,2,text,the corner of the old gallowgate,the corner_,,corner_,5.429,-0.1297,1646155507,2.552999973
+1,3,9,1,text,the corner of the old gallowgate,the corner of_,,of_,5.429,-0.2175,1646155510,2.471999884
+1,3,9,2,text,the corner of the old gallowgate,the corner of_,,of_,5.429,-0.2974,1646155514,3.640000105
+1,3,9,3,text,the corner of the old gallowgate,the corner of_,,of_,5.429,-0.0518,1646155516,2.647000074
+1,3,9,4,text,the corner of the old gallowgate,the corner of_,,of_,5.429,0.3144,1646155519,3.006999969
+1,3,10,1,text,the corner of the old gallowgate,the corner of the_,,the_,5.429,0.1258,1646155522,2.809999943
+1,3,10,2,text,the corner of the old gallowgate,the corner of the_,,the_,5.429,-0.2904,1646155524,2.424000025
+1,3,10,3,text,the corner of the old gallowgate,the corner of the_,,the_,5.429,-0.0189,1646155527,2.669999838
+1,3,11,1,text,the corner of the old gallowgate,the corner of the old_,,old_,5.429,0.5649,1646155536,8.986000061
+1,3,11,2,text,the corner of the old gallowgate,the corner of the old_,,old_,5.429,0.0998,1646155539,3.414999962
+1,3,11,3,text,the corner of the old gallowgate,the corner of the old_,,old_,5.429,-0.1706,1646155542,2.528000116
+1,3,11,4,text,the corner of the old gallowgate,the corner of the old_,,old_,5.429,0.2206,1646155545,2.911999941
+1,3,12,1,text,the corner of the old gallowgate,the corner of the old g,,g,5.429,-0.1068,1646155552,7.111999989
+1,3,12,2,text,the corner of the old gallowgate,the corner of the old g,,g,5.429,0.1588,1646155553,0.585999966
+1,3,12,3,text,the corner of the old gallowgate,the corner of the old g,,g,5.429,0.1098,1646155555,2.791000128
+1,3,13,1,text,the corner of the old gallowgate,the corner of the old ga,,a,5.429,-0.1297,1646155561,5.720000029
+1,3,13,2,text,the corner of the old gallowgate,the corner of the old ga,,a,5.429,0.2435,1646155564,2.934999943
+1,3,13,3,text,the corner of the old gallowgate,the corner of the old ga,,a,5.429,0.0779,1646155567,2.792999983
+1,3,14,1,text,the corner of the old gallowgate,the corner of the old gal,,l,5.429,-0.0758,1646155581,13.76699996
+1,3,14,2,text,the corner of the old gallowgate,the corner of the old gal,,l,5.429,0.3683,1646155586,5.604000092
+1,3,14,3,text,the corner of the old gallowgate,the corner of the old gal,,l,5.429,-0.0099,1646155589,2.700999975
+1,3,15,1,text,the corner of the old gallowgate,the corner of the old galloway_,,galloway_,5.429,2.6228,1646155592,3.037999868
+1,3,15,2,text,the corner of the old gallowgate,the corner of the old galloway_,,galloway_,5.429,0.0529,1646155600,7.544000149
+1,3,15,3,text,the corner of the old gallowgate,the corner of the old galloway_,,galloway_,5.429,-0.0508,1646155602,2.655999899
+1,3,15,4,text,the corner of the old gallowgate,the corner of the old galloway_,,galloway_,5.429,0.013,1646155605,2.705000162
+1,3,16,1,text,the corner of the old gallowgate,the corner of the old galloway._,,.,5.429,0.0938,1646155610,5.190999985
+1,3,16,2,text,the corner of the old gallowgate,the corner of the old galloway._,,.,5.429,-0.0189,1646155612,1.513000011
+1,3,16,3,text,the corner of the old gallowgate,the corner of the old galloway._,,.,5.429,-0.0818,1646155613,1.095999956
+1,3,16,4,text,the corner of the old gallowgate,the corner of the old galloway._,,.,5.429,0.2595,1646155615,2.575999975
+1,3,17,1,text,the corner of the old gallowgate,the corner of the old galloway.._,,.,5.429,-0.0508,1646155621,5.486999989
+1,3,17,2,text,the corner of the old gallowgate,the corner of the old galloway.._,,.,5.429,0.2296,1646155621,0.569000006
+1,3,17,3,text,the corner of the old gallowgate,the corner of the old galloway.._,,.,5.429,0.1967,1646155623,1.303999901
+1,3,17,4,text,the corner of the old gallowgate,the corner of the old galloway.._,,.,5.429,-0.3832,1646155625,2.538000107
+1,4,3,1,text,that is how you do it,this_,,this_,5.429,0,1646155637,12.15100002
+1,4,3,2,text,that is how you do it,this_,,this_,5.429,0,1646155639,1.470999956
+1,4,3,3,text,that is how you do it,this_,,this_,5.429,0,1646155641,2.479000092
+1,4,3,4,text,that is how you do it,this_,,this_,5.429,0,1646155644,2.479999781
+1,4,3,5,text,that is how you do it,this_,,this_,5.429,0.2386,1646155647,2.90500021
+1,4,4,1,text,that is how you do it,this is_,,is_,5.429,-0.0748,1646155660,13.51199985
+1,4,4,2,text,that is how you do it,this is_,,is_,5.429,0.1168,1646155663,2.832999945
+1,4,5,1,text,that is how you do it,this is h,,h,5.429,-0.2644,1646155677,13.73700023
+1,4,5,2,text,that is how you do it,this is h,,h,5.429,-0.1457,1646155678,1.558999777
+1,4,5,3,text,that is how you do it,this is h,,h,5.429,-0.1138,1646155681,2.592000008
+1,4,6,1,text,that is how you do it,this is how_,,how_,5.429,0.1647,1646155688,7.319000006
+1,4,6,2,text,that is how you do it,this is how_,,how_,5.429,-0.1606,1646155691,2.554000139
+1,4,7,1,text,that is how you do it,this is how y,,y,5.429,0.005,1646155699,7.806999922
+1,4,7,2,text,that is how you do it,this is how y,,y,5.429,-0.0828,1646155701,2.631000042
+1,4,8,1,text,that is how you do it,this is how you_,,you_,5.429,0.2515,1646155707,5.45600009
+1,4,8,2,text,that is how you do it,this is how you_,,you_,5.429,-0.0179,1646155709,2.687999964
+1,4,9,1,text,that is how you do it,this is how you do_,,do_,5.429,0.2206,1646155718,8.960000038
+1,4,9,2,text,that is how you do it,this is how you do_,,do_,5.429,0.1238,1646155724,5.342999935
+1,4,9,3,text,that is how you do it,this is how you do_,,do_,5.429,0.1717,1646155727,2.888000011
+1,4,10,1,text,that is how you do it,this is how you do it_,,it_,5.429,-0.0329,1646155728,1.674999952
+1,4,10,2,text,that is how you do it,this is how you do it_,,it_,5.429,0.1168,1646155731,2.828999996
+2,1,1,1,text,i do recommend your book,i_,,i_,5.429,-0.2684,1647381301,0
+2,1,1,2,text,i do recommend your book,i_,,i_,5.429,-0.1646,1647381306,5.063999891
+2,1,1,3,text,i do recommend your book,i_,,i_,5.429,-0.0858,1647381309,2.600000143
+2,1,2,1,text,i do recommend your book,i do_,,do_,5.429,-0.0139,1647381311,1.832000017
+2,1,2,2,text,i do recommend your book,i do_,,do_,5.429,-0.0608,1647381316,5.152999878
+2,1,2,3,text,i do recommend your book,i do_,,do_,5.429,-0.0369,1647381318,2.663000107
+2,1,3,1,text,i do recommend your book,i do r,,r,5.429,-0.2285,1647381336,17.56800008
+2,1,3,2,text,i do recommend your book,i do r,,r,5.429,0.2824,1647381338,2.351999998
+2,1,3,3,text,i do recommend your book,i do r,,r,5.429,-0.1138,1647381343,5.122999907
+2,1,4,1,text,i do recommend your book,i do re,,e,5.429,0.5939,1647381352,8.75
+2,1,4,2,text,i do recommend your book,i do re,,e,5.429,-0.0219,1647381353,1.023000002
+2,1,4,3,text,i do recommend your book,i do re,,e,5.429,0.002,1647381356,2.703999996
+2,1,5,1,text,i do recommend your book,i do rec,,c,5.429,-0.1796,1647381368,12.09699988
+2,1,5,2,text,i do recommend your book,i do rec,,c,5.429,0.2346,1647381369,1.295000076
+2,1,5,3,text,i do recommend your book,i do rec,,c,5.429,0.1857,1647381372,2.871999979
+2,1,6,1,text,i do recommend your book,i do recommend_,,recommend_,5.429,0.1298,1647381379,7.263999939
+2,1,6,2,text,i do recommend your book,i do recommend_,,recommend_,5.429,-0.2614,1647381382,2.448000193
+2,1,6,3,text,i do recommend your book,i do recommend_,,recommend_,5.429,0.5949,1647381385,3.296999931
+2,1,7,1,text,i do recommend your book,i do recommend y,,y,5.429,0.1138,1647381391,5.638999939
+2,1,7,2,text,i do recommend your book,i do recommend y,,y,5.429,0.2655,1647381394,2.952000141
+2,1,7,3,text,i do recommend your book,i do recommend y,,y,5.429,0.2186,1647381397,2.911999941
+2,1,8,1,text,i do recommend your book,i do recommend your_,,your_,5.429,0.1867,1647381403,6.687999964
+2,1,8,2,text,i do recommend your book,i do recommend your_,,your_,5.429,0.4411,1647381407,3.135999918
+2,1,8,3,text,i do recommend your book,i do recommend your_,,your_,5.429,0.0499,1647381409,2.76699996
+2,1,9,1,text,i do recommend your book,i do recommend your b,,b,5.429,0.3244,1647381421,11.79400015
+2,1,9,2,text,i do recommend your book,i do recommend your b,,b,5.429,-0.0538,1647381425,3.90199995
+2,1,9,3,text,i do recommend your book,i do recommend your b,,b,5.429,-0.2424,1647381427,2.450000048
+2,1,10,1,text,i do recommend your book,i do recommend your book_,,book_,5.429,-0.1487,1647381436,8.253999949
+2,1,10,2,text,i do recommend your book,i do recommend your book_,,book_,5.429,-0.0299,1647381441,5.200000048
+2,1,10,3,text,i do recommend your book,i do recommend your book_,,book_,5.429,-0.0049,1647381444,2.704999924
+2,1,11,1,text,i do recommend your book,i do recommend your book._,,.,5.429,-0.2285,1647381449,5.143000126
+2,1,11,2,text,i do recommend your book,i do recommend your book._,,.,5.429,0.2824,1647381450,1.287999868
+2,1,11,3,text,i do recommend your book,i do recommend your book._,,.,5.429,0.1857,1647381455,5.43200016
+2,1,11,4,text,i do recommend your book,i do recommend your book._,,.,5.429,0.1867,1647381458,2.71999979
+2,1,12,1,text,i do recommend your book,i do recommend your book.._,,.,5.429,-0.0369,1647381464,5.587000132
+2,1,12,2,text,i do recommend your book,i do recommend your book.._,,.,5.429,-0.0299,1647381466,2.292999983
+2,1,12,3,text,i do recommend your book,i do recommend your book.._,,.,5.429,-0.2424,1647381467,1.104000092
+2,2,3,1,text,wait until you get to haast,w,,w,5.429,0.0459,1647381472,5.256999969
+2,2,3,2,text,wait until you get to haast,w,,w,5.429,1.2166,1647381477,5.03399992
+2,2,3,3,text,wait until you get to haast,w,,w,5.429,1.958,1647381480,2.502000093
+2,2,4,1,text,wait until you get to haast,wa,,a,5.429,-0.0379,1647381486,6.128000021
+2,2,4,2,text,wait until you get to haast,wa,,a,5.429,0.0669,1647381489,2.78399992
+2,2,5,1,text,wait until you get to haast,wait_,,wait_,5.429,0.3633,1647381491,2.417000055
+2,2,5,2,text,wait until you get to haast,wait_,,wait_,5.429,-0.509,1647381492,0.566999912
+2,2,5,3,text,wait until you get to haast,wait_,,wait_,5.429,-0.0688,1647381495,3.24000001
+2,2,5,4,text,wait until you get to haast,wait_,,wait_,5.429,0.034,1647381500,5.263999939
+2,2,5,5,text,wait until you get to haast,wait_,,wait_,5.429,0.2505,1647381503,2.936000109
+2,2,6,1,text,wait until you get to haast,wait until_,,until_,5.429,-0.1088,1647381508,5.119999886
+2,2,6,2,text,wait until you get to haast,wait until_,,until_,5.429,0.1697,1647381511,2.880000114
+2,2,6,3,text,wait until you get to haast,wait until_,,until_,5.429,0.1538,1647381514,2.862999916
+2,2,7,1,text,wait until you get to haast,wait until you_,,you_,5.429,-1.2035,1647381519,5.281000137
+2,2,7,2,text,wait until you get to haast,wait until you_,,you_,5.429,-0.2295,1647381523,3.536000013
+2,2,7,3,text,wait until you get to haast,wait until you_,,you_,5.429,-0.2604,1647381528,4.648000002
+2,2,7,4,text,wait until you get to haast,wait until you_,,you_,5.429,0.2026,1647381530,1.903999805
+2,2,7,5,text,wait until you get to haast,wait until you_,,you_,5.429,0.1627,1647381532,2.880000114
+2,2,8,1,text,wait until you get to haast,wait until you get_,,get_,5.429,-1.1537,1647381541,8.440999985
+2,2,8,2,text,wait until you get to haast,wait until you get_,,get_,5.429,-0.2285,1647381542,1.566999912
+2,2,8,3,text,wait until you get to haast,wait until you get_,,get_,5.429,0.2505,1647381544,1.799999952
+2,2,8,4,text,wait until you get to haast,wait until you get_,,get_,5.429,0.1468,1647381548,3.45600009
+2,2,8,5,text,wait until you get to haast,wait until you get_,,get_,5.429,-0.2524,1647381549,0.799999952
+2,2,8,6,text,wait until you get to haast,wait until you get_,,get_,5.429,0.1148,1647381551,2.808000088
+2,2,9,1,text,wait until you get to haast,wait until you get to_,,to_,5.429,0.1368,1647381555,4.062999964
+2,2,9,2,text,wait until you get to haast,wait until you get to_,,to_,5.429,-0.8592,1647381557,1.801000118
+2,2,9,3,text,wait until you get to haast,wait until you get to_,,to_,5.429,-0.0349,1647381559,1.345999956
+2,2,9,4,text,wait until you get to haast,wait until you get to_,,to_,5.429,2.4691,1647381560,0.99000001
+2,2,9,5,text,wait until you get to haast,wait until you get to_,,to_,5.429,-0.453,1647381564,4.111999989
+2,2,9,6,text,wait until you get to haast,wait until you get to_,,to_,5.429,0.02,1647381568,3.95299983
+2,2,9,7,text,wait until you get to haast,wait until you get to_,,to_,5.429,-0.2694,1647381568,0.791000128
+2,2,9,8,text,wait until you get to haast,wait until you get to_,,to_,5.429,0.3693,1647381571,3.079999924
+2,2,10,1,text,wait until you get to haast,wait until you get to h,,h,5.429,-0.0688,1647381576,4.680000067
+2,2,10,2,text,wait until you get to haast,wait until you get to h,,h,5.429,0.6826,1647381582,5.911999941
+2,2,10,3,text,wait until you get to haast,wait until you get to h,,h,5.429,-0.3802,1647381583,1.335999966
+2,2,10,4,text,wait until you get to haast,wait until you get to h,,h,5.429,0.036,1647381589,5.256000042
+2,2,10,5,text,wait until you get to haast,wait until you get to h,,h,5.429,0.2106,1647381592,2.896000147
+2,2,11,1,text,wait until you get to haast,wait until you get to ha,,a,5.429,0.1068,1647381597,5.335999966
+2,2,11,2,text,wait until you get to haast,wait until you get to ha,,a,5.429,-2.0418,1647381598,0.648000002
+2,2,11,3,text,wait until you get to haast,wait until you get to ha,,a,5.429,-0.1636,1647381600,2.360999823
+2,2,11,4,text,wait until you get to haast,wait until you get to ha,,a,5.429,-0.0049,1647381605,5.359000206
+2,2,11,5,text,wait until you get to haast,wait until you get to ha,,a,5.429,0.2904,1647381610,4.536000013
+2,2,11,6,text,wait until you get to haast,wait until you get to ha,,a,5.429,0.1937,1647381613,3.503999949
+2,2,11,7,text,wait until you get to haast,wait until you get to ha,,a,5.429,-0.2604,1647381617,3.664000034
+2,2,11,8,text,wait until you get to haast,wait until you get to ha,,a,5.429,-0.0349,1647381620,2.664999962
+2,2,12,1,text,wait until you get to haast,wait until you get to haa,,a,5.429,0.6816,1647381626,6.638999939
+2,2,12,2,text,wait until you get to haast,wait until you get to haa,,a,5.429,-0.1327,1647381630,3.664000034
+2,2,12,3,text,wait until you get to haast,wait until you get to haa,,a,5.429,-0.1716,1647381633,3.121000051
+2,2,12,4,text,wait until you get to haast,wait until you get to haa,,a,5.429,0.4212,1647381639,5.638999939
+2,2,12,5,text,wait until you get to haast,wait until you get to haa,,a,5.429,0.0439,1647381641,2.736000061
+2,2,13,1,text,wait until you get to haast,wait until you get to haas,,s,5.429,0.1657,1647381646,4.44299984
+2,2,13,2,text,wait until you get to haast,wait until you get to haas,,s,5.429,0.0828,1647381651,5.318000078
+2,2,13,3,text,wait until you get to haast,wait until you get to haas,,s,5.429,0.6727,1647381655,3.390000105
+2,2,13,4,text,wait until you get to haast,wait until you get to haas,,s,5.429,0.1318,1647381657,2.816999912
+2,2,14,1,text,wait until you get to haast,wait until you get to haast,,t,5.429,0.027,1647381664,6.536000013
+2,2,14,2,text,wait until you get to haast,wait until you get to haast,,t,5.429,-0.0149,1647381667,2.678999901
+2,2,15,1,text,wait until you get to haast,wait until you get to haast.,,.,5.429,0.018,1647381673,5.937000036
+2,2,15,2,text,wait until you get to haast,wait until you get to haast.,,.,5.429,-0.0928,1647381674,1.962000132
+2,2,15,3,text,wait until you get to haast,wait until you get to haast.,,.,5.429,0.019,1647381678,3.021999836
+2,2,15,4,text,wait until you get to haast,wait until you get to haast.,,.,5.429,0.018,1647381680,2.751000166
+2,2,16,1,text,wait until you get to haast,wait until you get to haast..,,.,5.429,0.2106,1647381688,7.337999821
+2,2,16,2,text,wait until you get to haast,wait until you get to haast..,,.,5.429,-2.0418,1647381693,5.051000118
+2,2,16,3,text,wait until you get to haast,wait until you get to haast..,,.,5.429,-0.0349,1647381698,5.187999964
+2,2,16,4,text,wait until you get to haast,wait until you get to haast..,,.,5.429,-0.3802,1647381700,2.519000053
+2,3,3,1,text,but this love is ours,but_,,but_,5.429,0,1647381707,6.289999962
+2,3,3,2,text,but this love is ours,but_,,but_,5.429,0,1647381709,2.127000093
+2,3,3,3,text,but this love is ours,but_,,but_,5.429,0,1647381710,1.502999783
+2,3,3,4,text,but this love is ours,but_,,but_,5.429,0,1647381713,2.472000122
+2,3,3,5,text,but this love is ours,but_,,but_,5.429,-0.9141,1647381716,2.920000076
+2,3,4,1,text,but this love is ours,but this_,,this_,5.429,0.1408,1647381722,6.312999964
+2,3,4,2,text,but this love is ours,but this_,,this_,5.429,0.026,1647381725,2.726999998
+2,3,4,3,text,but this love is ours,but this_,,this_,5.429,-0.0998,1647381727,2.592999935
+2,3,5,1,text,but this love is ours,but this l,,l,5.429,-0.2684,1647381735,7.712000132
+2,3,5,2,text,but this love is ours,but this l,,l,5.429,-0.0768,1647381737,1.630999804
+2,3,5,3,text,but this love is ours,but this l,,l,5.429,0.1617,1647381740,2.880000114
+2,3,6,1,text,but this love is ours,but this lo,,o,5.429,0.3723,1647381746,6.889999866
+2,3,6,2,text,but this love is ours,but this lo,,o,5.429,0.1548,1647381752,5.382000208
+2,3,6,3,text,but this love is ours,but this lo,,o,5.429,0.0459,1647381755,2.731999874
+2,3,7,1,text,but this love is ours,but this love_,,love_,5.429,-0.3004,1647381758,3.012000084
+2,3,7,2,text,but this love is ours,but this love_,,love_,5.429,2.5249,1647381764,6.471999884
+2,3,7,3,text,but this love is ours,but this love_,,love_,5.429,-0.1407,1647381766,1.569000006
+2,3,7,4,text,but this love is ours,but this love_,,love_,5.429,-0.2275,1647381771,4.993000031
+2,3,8,1,text,but this love is ours,but this love is_,,is_,5.429,0.2106,1647381778,7.719000101
+2,3,8,2,text,but this love is ours,but this love is_,,is_,5.429,0.2176,1647381781,2.927999973
+2,3,8,3,text,but this love is ours,but this love is_,,is_,5.429,0.0978,1647381784,3
+2,3,9,1,text,but this love is ours,but this love is o,,o,5.429,-0.3882,1647381789,4.991999865
+2,3,9,2,text,but this love is ours,but this love is o,,o,5.429,0.2595,1647381790,0.687999964
+2,3,9,3,text,but this love is ours,but this love is o,,o,5.429,0.3544,1647381795,5.576000214
+2,3,9,4,text,but this love is ours,but this love is o,,o,5.429,0.012,1647381798,2.696999788
+2,3,10,1,text,but this love is ours,but this love is ou,,u,5.429,0.1308,1647381809,10.79900002
+2,3,10,2,text,but this love is ours,but this love is ou,,u,5.429,0.0659,1647381812,2.776000023
+2,3,11,1,text,but this love is ours,but this love is ours_,,ours_,5.429,0.6906,1647381828,16.14499998
+2,3,11,2,text,but this love is ours,but this love is ours_,,ours_,5.429,-0.0618,1647381830,1.647000074
+2,3,11,3,text,but this love is ours,but this love is ours_,,ours_,5.429,-0.476,1647381834,4.743999958
+2,3,11,4,text,but this love is ours,but this love is ours_,,ours_,5.429,-0.1168,1647381837,2.600000143
+2,3,12,1,text,but this love is ours,but this love is ours._,,.,5.429,-0.1537,1647381842,5.103999853
+2,3,12,2,text,but this love is ours,but this love is ours._,,.,5.429,-0.1856,1647381845,3.463999987
+2,3,12,3,text,but this love is ours,but this love is ours._,,.,5.429,-0.2035,1647381847,1.975000143
+2,3,12,4,text,but this love is ours,but this love is ours._,,.,5.429,-0.0768,1647381850,2.672999859
+2,3,13,1,text,but this love is ours,but this love is ours.._,,.,5.429,0.2445,1647381855,5.296000004
+2,3,13,2,text,but this love is ours,but this love is ours.._,,.,5.429,0.3074,1647381859,4.072000027
+2,3,13,3,text,but this love is ours,but this love is ours.._,,.,5.429,0.0579,1647381863,3.768000126
+2,3,13,4,text,but this love is ours,but this love is ours.._,,.,5.429,0.2495,1647381866,2.703999996
+3,1,1,1,text,conte's blue and white army,c,,c,5.429,0.008,1651587599,0
+3,1,1,2,text,conte's blue and white army,c,,c,5.429,0.7495,1651587601,1.822000027
+3,1,1,3,text,conte's blue and white army,c,,c,5.429,-0.1457,1651587606,5.064999819
+3,1,1,4,text,conte's blue and white army,c,,c,5.429,0.03,1651587609,2.736000061
+3,1,2,1,text,conte's blue and white army,co,,o,5.429,-0.505,1651587622,13.06299996
+3,1,2,2,text,conte's blue and white army,co,,o,5.429,-0.0189,1651587626,3.927999973
+3,1,2,3,text,conte's blue and white army,co,,o,5.429,0.2216,1651587629,2.920000076
+3,1,3,1,text,conte's blue and white army,con,,n,5.429,0.03,1651587640,10.68799996
+3,1,3,2,text,conte's blue and white army,con,,n,5.429,0.2535,1651587643,2.944000006
+3,1,4,1,text,conte's blue and white army,cont,,t,5.429,0.3254,1651587649,6.832000017
+3,1,4,2,text,conte's blue and white army,cont,,t,5.429,-0.479,1651587654,4.753999949
+3,1,4,3,text,conte's blue and white army,cont,,t,5.429,0.0549,1651587657,2.734000206
+3,1,5,1,text,conte's blue and white army,conte,,e,5.429,-0.1058,1651587666,9.279999971
+3,1,5,2,text,conte's blue and white army,conte,,e,5.429,0.2765,1651587669,2.983999968
+3,1,6,1,text,conte's blue and white army,conte',,',5.429,0.1168,1651587674,5.159999847
+3,1,6,2,text,conte's blue and white army,conte',,',5.429,0.1338,1651587678,4.055999994
+3,1,6,3,text,conte's blue and white army,conte',,',5.429,0.1018,1651587681,2.808000088
+3,1,7,1,text,conte's blue and white army,conte,,#,5.429,0.0619,1651587690,8.799999952
+3,1,7,2,text,conte's blue and white army,conte,,#,5.429,-0.1547,1651587695,5.062999964
+3,1,7,3,text,conte's blue and white army,conte,,#,5.429,0.0858,1651587698,2.800000191
+3,1,8,1,text,conte's blue and white army,conte',,',5.429,0.3024,1651587704,5.656999826
+3,1,8,2,text,conte's blue and white army,conte',,',5.429,-0.1846,1651587708,4.392000198
+3,1,8,3,text,conte's blue and white army,conte',,',5.429,-0.4231,1651587713,4.799999952
+3,1,8,4,text,conte's blue and white army,conte',,',5.429,-0.0818,1651587715,2.622999907
+3,1,9,1,text,conte's blue and white army,conte's,,s,5.429,-0.1846,1651587718,2.496000051
+3,1,9,2,text,conte's blue and white army,conte's,,s,5.429,-0.2734,1651587720,2.431999922
+3,1,10,1,text,conte's blue and white army,conte's_,,Space,5.429,-0.1197,1651587728,8.034000158
+3,1,10,2,text,conte's blue and white army,conte's_,,Space,5.429,-0.0019,1651587731,2.677999973
+3,1,11,1,text,conte's blue and white army,conte's b,,b,5.429,0.3963,1651587737,6.079999924
+3,1,11,2,text,conte's blue and white army,conte's b,,b,5.429,0.2386,1651587738,0.641000032
+3,1,11,3,text,conte's blue and white army,conte's b,,b,5.429,-0.0408,1651587740,2.639999866
+3,1,12,1,text,conte's blue and white army,conte's bl,,l,5.429,-0.0888,1651587752,11.35300016
+3,1,12,2,text,conte's blue and white army,conte's bl,,l,5.429,0.2066,1651587757,5.414999962
+3,1,12,3,text,conte's blue and white army,conte's bl,,l,5.429,0.036,1651587760,2.750999928
+3,1,13,1,text,conte's blue and white army,conte's blue_,,blue_,5.429,-0.1058,1651587770,9.897000074
+3,1,13,2,text,conte's blue and white army,conte's blue_,,blue_,5.429,0.3094,1651587773,3.016000032
+3,1,13,3,text,conte's blue and white army,conte's blue_,,blue_,5.429,0.014,1651587776,2.703999996
+3,1,14,1,text,conte's blue and white army,conte's blue and_,,and_,5.429,-0.1537,1651587780,4.431999922
+3,1,14,2,text,conte's blue and white army,conte's blue and_,,and_,5.429,0.0699,1651587785,5.304000139
+3,1,14,3,text,conte's blue and white army,conte's blue and_,,and_,5.429,0.014,1651587788,2.70299983
+3,1,15,1,text,conte's blue and white army,conte's blue and w,,w,5.429,0.1178,1651587800,11.58500004
+3,1,15,2,text,conte's blue and white army,conte's blue and w,,w,5.429,0.0858,1651587805,5.288000107
+3,1,15,3,text,conte's blue and white army,conte's blue and w,,w,5.429,-0.0179,1651587808,2.695999861
+3,1,16,1,text,conte's blue and white army,conte's blue and wh,,h,5.429,-0.0408,1651587818,10.61599994
+3,1,16,2,text,conte's blue and white army,conte's blue and wh,,h,5.429,-0.0309,1651587821,2.650000095
+3,1,17,1,text,conte's blue and white army,conte's blue and white_,,white_,5.429,0.3653,1651587823,1.757999897
+3,1,17,2,text,conte's blue and white army,conte's blue and white_,,white_,5.429,-0.2015,1651587823,0.872000217
+3,1,17,3,text,conte's blue and white army,conte's blue and white_,,white_,5.429,-0.0259,1651587826,2.654999971
+3,1,18,1,text,conte's blue and white army,conte's blue and white a,,a,5.429,0.3893,1651587833,6.735999823
+3,1,18,2,text,conte's blue and white army,conte's blue and white a,,a,5.429,0.038,1651587837,4.60800004
+3,1,18,3,text,conte's blue and white army,conte's blue and white a,,a,5.429,-0.0638,1651587840,2.618000031
+3,1,19,1,text,conte's blue and white army,conte's blue and white among_,,among_,5.429,-0.1197,1651587858,18.03800011
+3,1,19,2,text,conte's blue and white army,conte's blue and white among_,,among_,5.429,-0.0179,1651587863,4.432999849
+3,1,19,3,text,conte's blue and white army,conte's blue and white among_,,among_,5.429,0.3893,1651587863,0.945000172
+3,1,20,1,text,conte's blue and white army,conte's blue and white a,,@,5.429,0.3893,1651587876,12.85500002
+3,1,20,2,text,conte's blue and white army,conte's blue and white a,,@,5.429,0.038,1651587880,3.967999935
+3,1,20,3,text,conte's blue and white army,conte's blue and white a,,@,5.429,-0.0638,1651587883,2.407000065
+3,1,21,1,text,conte's blue and white army,conte's blue and white am,,m,5.429,-0.0638,1651587888,5.025999784
+3,1,21,2,text,conte's blue and white army,conte's blue and white am,,m,5.429,0.1178,1651587893,5.174000025
+3,1,21,3,text,conte's blue and white army,conte's blue and white am,,m,5.429,-0.0259,1651587896,2.594000101
+3,1,22,1,text,conte's blue and white army,conte's blue and white a,,@,5.429,0.3893,1651587905,9.358999968
+3,1,22,2,text,conte's blue and white army,conte's blue and white a,,@,5.429,0.038,1651587910,5.319999933
+3,1,22,3,text,conte's blue and white army,conte's blue and white a,,@,5.429,-0.0638,1651587913,2.775000095
+3,1,23,1,text,conte's blue and white army,conte's blue and white ar,,r,5.429,0.2934,1651587921,7.664000034
+3,1,23,2,text,conte's blue and white army,conte's blue and white ar,,r,5.429,-0.0418,1651587925,3.904000044
+3,1,23,3,text,conte's blue and white army,conte's blue and white ar,,r,5.429,-0.3203,1651587927,2.361999989
+3,1,24,1,text,conte's blue and white army,conte's blue and white army_,,army_,5.429,-0.0418,1651587933,5.638999939
+3,1,24,2,text,conte's blue and white army,conte's blue and white army_,,army_,5.429,0.0779,1651587934,1.119999886
+3,1,24,3,text,conte's blue and white army,conte's blue and white army_,,army_,5.429,-0.1616,1651587936,2.519999981
+3,1,25,1,text,conte's blue and white army,conte's blue and white army._,,.,5.429,0.038,1651587941,5.024000168
+3,1,25,2,text,conte's blue and white army,conte's blue and white army._,,.,5.429,0.3653,1651587943,1.361000061
+3,1,25,3,text,conte's blue and white army,conte's blue and white army._,,.,5.429,0.0779,1651587944,1.342999935
+3,1,26,1,text,conte's blue and white army,conte's blue and white army.._,,.,5.429,-0.0259,1651587950,5.616999865
+3,1,26,2,text,conte's blue and white army,conte's blue and white army.._,,.,5.429,0.0779,1651587951,1.368000031
+3,1,26,3,text,conte's blue and white army,conte's blue and white army.._,,.,5.429,-0.3203,1651587952,1.288000107
+3,1,26,4,text,conte's blue and white army,conte's blue and white army.._,,.,5.429,0.3893,1651587955,2.369999886
+3,2,3,1,text,woke up still loving y'all,w,,w,5.429,-0.7355,1651587960,5.332999945
+3,2,3,2,text,woke up still loving y'all,w,,w,5.429,0.1508,1651587963,2.761000156
+3,2,4,1,text,woke up still loving y'all,wo,,o,5.429,-0.0329,1651587970,7.102999926
+3,2,4,2,text,woke up still loving y'all,wo,,o,5.429,0.0559,1651587973,2.769000053
+3,2,5,1,text,woke up still loving y'all,woke_,,woke_,5.429,1.0539,1651587976,3.440999985
+3,2,5,2,text,woke up still loving y'all,woke_,,woke_,5.429,0.0719,1651587981,5.135999918
+3,2,5,3,text,woke up still loving y'all,woke_,,woke_,5.429,0.2655,1651587985,3.552999973
+3,2,5,4,text,woke up still loving y'all,woke_,,woke_,5.429,0.1108,1651587986,1.1650002
+3,2,5,5,text,woke up still loving y'all,woke_,,woke_,5.429,-0.1606,1651587988,2.527999878
+3,2,6,1,text,woke up still loving y'all,woke u,,u,5.429,-0.0548,1651587996,8.065000057
+3,2,6,2,text,woke up still loving y'all,woke u,,u,5.429,0.3174,1651587999,3.013999939
+3,2,7,1,text,woke up still loving y'all,woke up_,,up_,5.429,-0.0968,1651588005,5.104000092
+3,2,7,2,text,woke up still loving y'all,woke up_,,up_,5.429,0.0539,1651588007,2.751999855
+3,2,8,1,text,woke up still loving y'all,woke up s,,s,5.429,0.038,1651588018,10.86400008
+3,2,8,2,text,woke up still loving y'all,woke up s,,s,5.429,0.3973,1651588024,5.599999905
+3,2,8,3,text,woke up still loving y'all,woke up s,,s,5.429,0.0459,1651588026,2.728000164
+3,2,9,1,text,woke up still loving y'all,woke up still_,,still_,5.429,-0.1048,1651588035,8.648999929
+3,2,9,2,text,woke up still loving y'all,woke up still_,,still_,5.429,-0.0588,1651588038,2.647000074
+3,2,9,3,text,woke up still loving y'all,woke up still_,,still_,5.429,-0.4011,1651588040,2.296000004
+3,2,10,1,text,woke up still loving y'all,woke up still l,,l,5.429,0.0629,1651588050,9.585000038
+3,2,10,2,text,woke up still loving y'all,woke up still l,,l,5.429,0.2475,1651588053,2.944999933
+3,2,10,3,text,woke up still loving y'all,woke up still l,,l,5.429,-0.2175,1651588055,2.493999958
+3,2,11,1,text,woke up still loving y'all,woke up still lo,,o,5.429,0.1178,1651588063,8.256000042
+3,2,11,2,text,woke up still loving y'all,woke up still lo,,o,5.429,0.1188,1651588066,2.80099988
+3,2,12,1,text,woke up still loving y'all,woke up still loo,,o,5.429,-0.0978,1651588069,2.817000151
+3,2,12,2,text,woke up still loving y'all,woke up still loo,,o,5.429,-0.0169,1651588077,8.085999966
+3,2,13,1,text,woke up still loving y'all,woke up still lo,,@,5.429,0.1178,1651588083,5.993000031
+3,2,13,2,text,woke up still loving y'all,woke up still lo,,@,5.429,0.1188,1651588085,1.78399992
+3,2,13,3,text,woke up still loving y'all,woke up still lo,,@,5.429,0.2854,1651588088,3.625
+3,2,13,4,text,woke up still loving y'all,woke up still lo,,@,5.429,-2.6346,1651588091,3.038000107
+3,2,13,5,text,woke up still loving y'all,woke up still lo,,@,5.429,-1.0698,1651588095,3.367999792
+3,2,13,6,text,woke up still loving y'all,woke up still lo,,@,5.429,-0.0968,1651588097,2.616000175
+3,2,14,1,text,woke up still loving y'all,woke up still lov,,v,5.429,-0.2484,1651588104,6.503999949
+3,2,14,2,text,woke up still loving y'all,woke up still lov,,v,5.429,-0.2165,1651588106,1.832000017
+3,2,14,3,text,woke up still loving y'all,woke up still lov,,v,5.429,-0.1507,1651588111,5.065999985
+3,2,14,4,text,woke up still loving y'all,woke up still lov,,v,5.429,0.0549,1651588114,2.76699996
+3,2,15,1,text,woke up still loving y'all,woke up still loving_,,loving_,5.429,-0.2904,1651588120,6.855999947
+3,2,15,2,text,woke up still loving y'all,woke up still loving_,,loving_,5.429,0.03,1651588122,1.080000162
+3,2,15,3,text,woke up still loving y'all,woke up still loving_,,loving_,5.429,-0.2414,1651588124,2.447999954
+3,2,16,1,text,woke up still loving y'all,woke up still loving y,,y,5.429,-0.2015,1651588129,4.839999914
+3,2,16,2,text,woke up still loving y'all,woke up still loving y,,y,5.429,-0.0259,1651588133,3.896000147
+3,2,16,3,text,woke up still loving y'all,woke up still loving y,,y,5.429,0.1508,1651588136,2.855999947
+3,2,17,1,text,woke up still loving y'all,woke up still loving y'all_,,y'all_,5.429,-0.1367,1651588142,6.672999859
+3,2,17,2,text,woke up still loving y'all,woke up still loving y'all_,,y'all_,5.429,-0.1058,1651588147,5.111000061
+3,2,17,3,text,woke up still loving y'all,woke up still loving y'all_,,y'all_,5.429,0.1418,1651588150,2.84800005
+3,2,18,1,text,woke up still loving y'all,woke up still loving y'all._,,.,5.429,0.0629,1651588155,4.776000023
+3,2,18,2,text,woke up still loving y'all,woke up still loving y'all._,,.,5.429,0.0459,1651588157,1.736000061
+3,2,18,3,text,woke up still loving y'all,woke up still loving y'all._,,.,5.429,0.03,1651588158,1.536000013
+3,2,18,4,text,woke up still loving y'all,woke up still loving y'all._,,.,5.429,0.1418,1651588161,2.551999807
+3,2,19,1,text,woke up still loving y'all,woke up still loving y'all.._,,.,5.429,-0.4011,1651588166,5.472000122
+3,2,19,2,text,woke up still loving y'all,woke up still loving y'all.._,,.,5.429,0.1188,1651588168,2.135999918
+3,2,19,3,text,woke up still loving y'all,woke up still loving y'all.._,,.,5.429,-0.2484,1651588174,5.167999983
+4,1,1,1,text,this rapper desiigner is terrible,this_,,this_,5.429,0.0479,1651588237,0
+4,1,1,2,text,this rapper desiigner is terrible,this_,,this_,5.429,0.2854,1651588240,2.996999979
+4,1,1,3,text,this rapper desiigner is terrible,this_,,this_,5.429,0.3134,1651588243,3.027999878
+4,1,2,1,text,this rapper desiigner is terrible,this r,,r,5.429,-0.0648,1651588252,8.503000021
+4,1,2,2,text,this rapper desiigner is terrible,this r,,r,5.429,0.033,1651588256,3.976000071
+4,1,2,3,text,this rapper desiigner is terrible,this r,,r,5.429,-0.0478,1651588258,2.639999866
+4,1,3,1,text,this rapper desiigner is terrible,this ra,,a,5.429,0.1917,1651588266,7.320000172
+4,1,3,2,text,this rapper desiigner is terrible,this ra,,a,5.429,0.0489,1651588268,2.735999823
+4,1,4,1,text,this rapper desiigner is terrible,this rap,,p,5.429,0.1598,1651588275,7.152000189
+4,1,4,2,text,this rapper desiigner is terrible,this rap,,p,5.429,-0.2155,1651588280,4.983999968
+4,1,4,3,text,this rapper desiigner is terrible,this rap,,p,5.429,-0.2634,1651588283,2.431999922
+4,1,5,1,text,this rapper desiigner is terrible,this rapp,,p,5.429,0.016,1651588289,5.880000114
+4,1,5,2,text,this rapper desiigner is terrible,this rapp,,p,5.429,-0.0628,1651588291,2.640999794
+4,1,6,1,text,this rapper desiigner is terrible,this rappe,,e,5.429,0.2076,1651588297,5.430999994
+4,1,6,2,text,this rapper desiigner is terrible,this rappe,,e,5.429,-0.48,1651588299,2.232000113
+4,1,6,3,text,this rapper desiigner is terrible,this rappe,,e,5.429,0.1428,1651588302,2.823999882
+4,1,7,1,text,this rapper desiigner is terrible,this rapper_,,rapper_,5.429,0.6777,1651588309,7.176000118
+4,1,7,2,text,this rapper desiigner is terrible,this rapper_,,rapper_,5.429,0.3184,1651588310,1.039999962
+4,1,7,3,text,this rapper desiigner is terrible,this rapper_,,rapper_,5.429,0.025,1651588315,5.225000143
+4,1,8,1,text,this rapper desiigner is terrible,this rapper d,,d,5.429,0.026,1651588325,9.559999943
+4,1,8,2,text,this rapper desiigner is terrible,this rapper d,,d,5.429,0.3364,1651588326,1.392999887
+4,1,8,3,text,this rapper desiigner is terrible,this rapper d,,d,5.429,-0.1267,1651588329,2.575000048
+4,1,9,1,text,this rapper desiigner is terrible,this rapper de,,e,5.429,-0.0069,1651588335,6.480000019
+4,1,9,2,text,this rapper desiigner is terrible,this rapper de,,e,5.429,-0.1347,1651588338,2.552000046
+4,1,10,1,text,this rapper desiigner is terrible,this rapper des,,s,5.429,-0.0159,1651588351,13.55900002
+4,1,10,2,text,this rapper desiigner is terrible,this rapper des,,s,5.429,0.0479,1651588354,2.743999958
+4,1,11,1,text,this rapper desiigner is terrible,this rapper desi,,i,5.429,-0.0698,1651588362,8.082000017
+4,1,11,2,text,this rapper desiigner is terrible,this rapper desi,,i,5.429,0.3034,1651588365,3.013999939
+4,1,12,1,text,this rapper desiigner is terrible,this rapper desii,,i,5.429,0.3284,1651588368,3.144000053
+4,1,12,2,text,this rapper desiigner is terrible,this rapper desii,,i,5.429,0.3444,1651588369,0.779000044
+4,1,12,3,text,this rapper desiigner is terrible,this rapper desii,,i,5.429,0.0838,1651588374,5.296999931
+4,1,13,1,text,this rapper desiigner is terrible,this rapper desiig,,g,5.429,-0.1108,1651588391,16.96399999
+4,1,13,2,text,this rapper desiigner is terrible,this rapper desiig,,g,5.429,0.024,1651588397,5.256000042
+4,1,14,1,text,this rapper desiigner is terrible,this rapper desiige,,e,5.429,-0.0069,1651588400,3.767999887
+4,1,14,2,text,this rapper desiigner is terrible,this rapper desiige,,e,5.429,-0.0159,1651588401,0.936000109
+4,1,14,3,text,this rapper desiigner is terrible,this rapper desiige,,e,5.429,0.1428,1651588404,2.144000053
+4,1,14,4,text,this rapper desiigner is terrible,this rapper desiige,,e,5.429,-0.1267,1651588406,2.711999893
+4,1,15,1,text,this rapper desiigner is terrible,this rapper desiig,,@,5.429,-0.1108,1651588411,4.752000093
+4,1,15,2,text,this rapper desiigner is terrible,this rapper desiig,,@,5.429,0.024,1651588412,0.815999985
+4,1,15,3,text,this rapper desiigner is terrible,this rapper desiig,,@,5.429,-0.0159,1651588413,0.839999914
+4,1,15,4,text,this rapper desiigner is terrible,this rapper desiig,,@,5.429,0.3364,1651588415,2.503999949
+4,1,16,1,text,this rapper desiigner is terrible,this rapper desiign,,n,5.429,0.2076,1651588420,4.472000122
+4,1,16,2,text,this rapper desiigner is terrible,this rapper desiign,,n,5.429,0.1438,1651588421,1.215999842
+4,1,16,3,text,this rapper desiigner is terrible,this rapper desiign,,n,5.429,0.1438,1651588424,2.840000153
+4,1,17,1,text,this rapper desiigner is terrible,this rapper desiigng,,g,5.429,0.0838,1651588432,8.711999893
+4,1,17,2,text,this rapper desiigner is terrible,this rapper desiigng,,g,5.429,0.3444,1651588435,2.616000175
+4,1,18,1,text,this rapper desiigner is terrible,this rapper desiign,,@,5.429,0.2076,1651588440,5.439999819
+4,1,18,2,text,this rapper desiigner is terrible,this rapper desiign,,@,5.429,0.1438,1651588446,5.320000172
+4,1,18,3,text,this rapper desiigner is terrible,this rapper desiign,,@,5.429,0.1438,1651588448,2.531999826
+4,1,19,1,text,this rapper desiigner is terrible,this rapper desiigne,,e,5.429,-0.3104,1651588455,6.844000101
+4,1,19,2,text,this rapper desiigner is terrible,this rapper desiigne,,e,5.429,0.0978,1651588457,1.809999943
+4,1,19,3,text,this rapper desiigner is terrible,this rapper desiigne,,e,5.429,-0.0938,1651588460,2.607000113
+4,1,20,1,text,this rapper desiigner is terrible,this rapper desiigner,,r,5.429,-0.1357,1651588465,5.078999996
+4,1,20,2,text,this rapper desiigner is terrible,this rapper desiigner,,r,5.429,-0.1906,1651588467,2.503999949
+4,1,21,1,text,this rapper desiigner is terrible,this rapper desiigneri,,i,5.429,-0.7325,1651588484,16.97799993
+4,1,21,2,text,this rapper desiigner is terrible,this rapper desiigneri,,i,5.429,1.007,1651588485,1.102999926
+4,1,21,3,text,this rapper desiigner is terrible,this rapper desiigneri,,i,5.429,0.4162,1651588486,1.168000221
+4,1,21,4,text,this rapper desiigner is terrible,this rapper desiigneri,,i,5.429,0.009,1651588488,1.710999966
+4,1,21,5,text,this rapper desiigner is terrible,this rapper desiigneri,,i,5.429,-0.1477,1651588493,5.082999945
+4,1,22,1,text,this rapper desiigner is terrible,this rapper desiigneris,,s,5.429,0.041,1651588501,7.549000025
+4,1,22,2,text,this rapper desiigner is terrible,this rapper desiigneris,,s,5.429,0.2894,1651588504,2.970000029
+4,1,23,1,text,this rapper desiigner is terrible,this rapper desiigneris_,,Space,5.429,-0.5509,1651588510,6.596999884
+4,1,23,2,text,this rapper desiigner is terrible,this rapper desiigneris_,,Space,5.429,-0.1188,1651588516,5.753000021
+4,1,23,3,text,this rapper desiigner is terrible,this rapper desiigneris_,,Space,5.429,0.039,1651588519,2.759000063
+4,1,24,1,text,this rapper desiigner is terrible,this rapper desiigneris t,,t,5.429,0.0559,1651588530,11.05599999
+4,1,24,2,text,this rapper desiigner is terrible,this rapper desiigneris t,,t,5.429,-0.0878,1651588532,2.615999937
+4,1,25,1,text,this rapper desiigner is terrible,this rapper desiigneris te,,e,5.429,-0.512,1651588537,4.21600008
+4,1,25,2,text,this rapper desiigner is terrible,this rapper desiigneris te,,e,5.429,-0.1357,1651588539,1.93599987
+4,1,25,3,text,this rapper desiigner is terrible,this rapper desiigneris te,,e,5.429,0.4082,1651588540,1.465000153
+4,1,25,4,text,this rapper desiigner is terrible,this rapper desiigneris te,,e,5.429,-0.0408,1651588543,2.671000004
+4,1,26,1,text,this rapper desiigner is terrible,this rapper desiigneris terrible_,,terrible_,5.429,-0.1437,1651588549,6.655999899
+4,1,26,2,text,this rapper desiigner is terrible,this rapper desiigneris terrible_,,terrible_,5.429,-0.0069,1651588550,1.056999922
+4,1,26,3,text,this rapper desiigner is terrible,this rapper desiigneris terrible_,,terrible_,5.429,-0.2794,1651588553,2.407000065
+4,1,27,1,text,this rapper desiigner is terrible,this rapper desiigneris terrible._,,.,5.429,0.041,1651588558,5.176000118
+4,1,27,2,text,this rapper desiigner is terrible,this rapper desiigneris terrible._,,.,5.429,-0.7325,1651588559,1.105000019
+4,1,27,3,text,this rapper desiigner is terrible,this rapper desiigneris terrible._,,.,5.429,-0.1357,1651588560,0.638999939
+4,1,27,4,text,this rapper desiigner is terrible,this rapper desiigneris terrible._,,.,5.429,-0.1906,1651588561,0.888999939
+4,1,27,5,text,this rapper desiigner is terrible,this rapper desiigneris terrible._,,.,5.429,0.009,1651588566,5.407000065
+4,1,28,1,text,this rapper desiigner is terrible,this rapper desiigneris terrible.._,,.,5.429,1.007,1651588568,2
+4,1,28,2,text,this rapper desiigner is terrible,this rapper desiigneris terrible.._,,.,5.429,0.0559,1651588570,1.657000065
+4,1,28,3,text,this rapper desiigner is terrible,this rapper desiigneris terrible.._,,.,5.429,0.2894,1651588573,3.745999813
+4,1,28,4,text,this rapper desiigner is terrible,this rapper desiigneris terrible.._,,.,5.429,-0.1437,1651588576,2.726999998
+4,2,3,1,text,part of me is missing,p,,p,5.429,0.015,1651588585,9.024000168
+4,2,3,2,text,part of me is missing,p,,p,5.429,1.2306,1651588590,5.102999926
+4,2,3,3,text,part of me is missing,p,,p,5.429,-2.4181,1651588593,2.631999969
+4,2,4,1,text,part of me is missing,part_,,part_,5.429,2.2356,1651588597,3.776000023
+4,2,4,2,text,part of me is missing,part_,,part_,5.429,1.3114,1651588599,2.433000088
+4,2,4,3,text,part of me is missing,part_,,part_,5.429,-0.0448,1651588603,3.40199995
+4,2,4,4,text,part of me is missing,part_,,part_,5.429,-0.5748,1651588607,4.309000015
+4,2,4,5,text,part of me is missing,part_,,part_,5.429,-0.1656,1651588611,4.40899992
+4,2,4,6,text,part of me is missing,part_,,part_,5.429,-0.1756,1651588612,0.871000051
+4,2,4,7,text,part of me is missing,part_,,part_,5.429,0.0649,1651588617,5.279999971
+4,2,5,1,text,part of me is missing,part of_,,of_,5.429,-0.0159,1651588628,10.6400001
+4,2,5,2,text,part of me is missing,part of_,,of_,5.429,-0.0319,1651588631,2.663999796
+4,2,6,1,text,part of me is missing,part of me_,,me_,5.429,0.2076,1651588638,7.200000048
+4,2,6,2,text,part of me is missing,part of me_,,me_,5.429,0.2715,1651588640,1.983999968
+4,2,6,3,text,part of me is missing,part of me_,,me_,5.429,-0.1287,1651588645,5.080000162
+4,2,6,4,text,part of me is missing,part of me_,,me_,5.429,-0.0079,1651588648,2.679999828
+4,2,7,1,text,part of me is missing,part of me is_,,is_,5.429,0.1038,1651588654,6.111999989
+4,2,7,2,text,part of me is missing,part of me is_,,is_,5.429,-0.0878,1651588659,5.128000021
+4,2,7,3,text,part of me is missing,part of me is_,,is_,5.429,0.008,1651588662,2.696000099
+4,2,8,1,text,part of me is missing,part of me is m,,m,5.429,0.511,1651588667,5.265000105
+4,2,8,2,text,part of me is missing,part of me is m,,m,5.429,0.024,1651588669,2.070999861
+4,2,8,3,text,part of me is missing,part of me is m,,m,5.429,-0.1038,1651588674,5.111999989
+4,2,8,4,text,part of me is missing,part of me is m,,m,5.429,0.1358,1651588677,2.840000153
+4,2,9,1,text,part of me is missing,part of me is missing_,,missing_,5.429,0.025,1651588679,2.40899992
+4,2,9,2,text,part of me is missing,part of me is missing_,,missing_,5.429,-0.0638,1651588682,2.631000042
+4,2,10,1,text,part of me is missing,part of me is missing._,,.,5.429,0.0559,1651588687,4.895999908
+4,2,10,2,text,part of me is missing,part of me is missing._,,.,5.429,0.3603,1651588693,5.743999958
+4,2,10,3,text,part of me is missing,part of me is missing._,,.,5.429,-0.439,1651588693,0.880000114
+4,2,10,4,text,part of me is missing,part of me is missing._,,.,5.429,1.1267,1651588695,1.128000021
+4,2,10,5,text,part of me is missing,part of me is missing._,,.,5.429,0.1757,1651588696,1.871999979
+4,2,10,6,text,part of me is missing,part of me is missing._,,.,5.429,-0.5738,1651588699,2.471999884
+4,2,10,7,text,part of me is missing,part of me is missing._,,.,5.429,0.0489,1651588702,2.736999989
+4,2,11,1,text,part of me is missing,part of me is missing.._,,.,5.429,-0.0159,1651588707,5.184000015
+4,2,11,2,text,part of me is missing,part of me is missing.._,,.,5.429,0.024,1651588711,4.263999939
+4,2,11,3,text,part of me is missing,part of me is missing.._,,.,5.429,0.025,1651588715,3.519000053
+4,2,11,4,text,part of me is missing,part of me is missing.._,,.,5.429,0.008,1651588720,5.072999954
+4,2,11,5,text,part of me is missing,part of me is missing.._,,.,5.429,-0.5748,1651588723,2.832000017
+4,3,3,1,text,ben is an emotional assassin,b,,b,5.429,1.3673,1651588728,5.463000059
+4,3,3,2,text,ben is an emotional assassin,b,,b,5.429,-1.923,1651588734,5.65899992
+4,3,3,3,text,ben is an emotional assassin,b,,b,5.429,1.5879,1651588736,2.646000147
+4,3,4,1,text,ben is an emotional assassin,be,,e,5.429,-0.1178,1651588741,5.096999884
+4,3,4,2,text,ben is an emotional assassin,be,,e,5.429,-2.3702,1651588742,0.342000008
+4,3,4,3,text,ben is an emotional assassin,be,,e,5.429,-0.0638,1651588746,3.871999979
+4,3,4,4,text,ben is an emotional assassin,be,,e,5.429,-0.1138,1651588754,8.029000044
+4,3,5,1,text,ben is an emotional assassin,ben_,,ben_,5.429,0.8862,1651588765,11.72300005
+4,3,5,2,text,ben is an emotional assassin,ben_,,ben_,5.429,-0.1517,1651588772,7.079999924
+4,3,5,3,text,ben is an emotional assassin,ben_,,ben_,5.429,0.3903,1651588776,3.384000063
+4,3,5,4,text,ben is an emotional assassin,ben_,,ben_,5.429,0.0888,1651588778,2.135999918
+4,3,5,5,text,ben is an emotional assassin,ben_,,ben_,5.429,0.4002,1651588779,1.473999977
+4,3,5,6,text,ben is an emotional assassin,ben_,,ben_,5.429,-0.3832,1651588782,2.334000111
+4,3,5,7,text,ben is an emotional assassin,ben_,,ben_,5.429,0.0479,1651588785,2.752000093
+4,3,6,1,text,ben is an emotional assassin,ben is_,,is_,5.429,0.1458,1651588787,2.856999874
+4,3,6,2,text,ben is an emotional assassin,ben is_,,is_,5.429,0.024,1651588793,5.24000001
+4,3,6,3,text,ben is an emotional assassin,ben is_,,is_,5.429,0.1757,1651588796,2.871000051
+4,3,7,1,text,ben is an emotional assassin,ben is an_,,an_,5.429,-0.1347,1651588799,3.167999983
+4,3,7,2,text,ben is an emotional assassin,ben is an_,,an_,5.429,-0.1976,1651588801,2.497999907
+4,3,7,3,text,ben is an emotional assassin,ben is an_,,an_,5.429,-0.1906,1651588804,2.526000023

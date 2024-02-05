@@ -1,0 +1,25 @@
+User ID,Session Num,Phrase Num,Total Experience (min),Clock Period (s),Click Dist SD (s),Click Dist p95 (s),Click Dist p99 (s),Phrase Text,Typed Text,Entry Rate (wpm),Click Load (clicks/character),Correction Rate (% of selections),Correction Time (s),Correction Click Load Contribution (%),Final Error Rate (%)
+77,1,1,0,4.445,0.1368,0.6112,0.7223,it's like evra signing for luton,it's like evra signing for luton.,2.091,1.273,0,0,0,0
+77,1,2,3.67,4.445,0.1376,0.5556,0.6668,i'm sorry these drivers are gladiators,im sorry these driver are gladiators.,1.496,1.865,12,13,13.043,5.6
+77,2,1,9.22,4.445,0.1476,0.6112,0.7779,weezer is still very relevant,weezer is still very relevant.,1.552,1.767,5.263,6,7.547,0
+77,2,2,13.08,4.445,0.1561,0.6112,0.8334,i can't be the only one,i can't be the only one.,2.969,1.208,0,0,0,0
+77,2,3,14.7,4.445,0.2924,1.2779,2.3336,but this love is ours,but this love is ours.,2.164,1.5,0,0,0,0
+77,2,4,16.73,4.445,0.3056,1.1668,2.2781,i used to like grigson,i used to like,1.806,1.929,12.5,6,14.815,0
+77,3,1,18.28,4.445,0.4087,1.5558,3.1671,today has been a terrible day,today has been a terrible day.,2.571,1.167,0,0,0,0
+77,3,2,20.62,4.445,0.2391,0.8334,1.6669,i guess patience will pay off,i guess patience will pay off.,2.105,1.433,0,0,0,0
+77,3,3,23.47,4.445,0.3243,1.2224,2.9448,thanks tricare for dropping the ball,thanks tricare for dr,1.648,1.905,0,0,0,0
+77,4,1,27.22,4.445,0.4018,1.9447,2.2781,still supporting the boys through everything,still supporting the boys through everything.,2.633,1.133,0,0,0,0
+77,4,2,30.93,4.445,0.1901,0.6112,1.778,i'm coming to the show,i'm coming to the show.,3,1.087,0,0,0,0
+77,4,3,32.47,4.445,0.3297,1.5558,1.8891,just did an undertale personality quiz,just did an undertale  per,1.517,2.038,0,0,0,4
+77,5,1,36.42,4.445,0.2201,0.7779,1.6669,but it happened this year,but it happened this year.,2.69,1.192,0,0,0,0
+77,5,2,38.35,4.445,0.197,0.7779,1.0557,how can he be so real,how can he be so real.,1.899,1.636,0,0,0,0
+77,5,3,40.67,4.445,0.1527,0.6112,0.889,this rapper desiigner is terrible,this rapper designer is terrible.,1.752,1.758,10,25,13.793,3.1
+77,6,1,44.43,4.445,0.2539,0.9446,1.6113,another day of pokemon catching,another day of pokemon catching.,2.176,1.469,0,0,0,0
+77,6,3,52.85,3.293,0.2589,1.0291,1.4818,try to learn something today,try to learn something t,4.174,1,0,0,0,0
+77,7,1,54,3.293,0.2424,1.1114,1.4407,nobody goes knapsacking across europe,nobody goes knapsacking across europe.,1.929,1.895,3.704,3,4.167,0
+77,7,2,58.22,3.293,0.1429,0.5351,0.7409,i'm so late to answer this,i'm so late to answer this.,2.4,1.741,0,0,0,0
+77,7,3,60.47,3.293,0.1944,0.7409,1.4818,he just can't move on,he just can't move on.,3.143,1.318,0,0,0,0
+77,7,4,61.87,3.293,0.4346,2.0581,2.5521,how can sevco be back,how can sevco,1.835,2.154,0,0,0,0
+77,8,1,63.28,3.293,0.4695,2.2639,2.9637,i sure do miss him,i sure do miss him.,1.824,2.053,0,0,0,0
+77,8,2,65.37,3.293,0.2853,1.1114,2.2639,this is not my cat,this is not my cat.,1.541,2.421,8.333,9,10.87,0
+77,8,3,68.2,3.293,0.2866,1.1525,2.4697,anderson paak is wildly talented,anderson paak is,1.422,2.25,0,0,0,0

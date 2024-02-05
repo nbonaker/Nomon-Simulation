@@ -1,0 +1,1259 @@
+Session Num,Phrase Num,Selection Num,Click Num,Phrase Text,Typed Text,Target,Selection,Clock Period (s),Click Time Relative (s),Click Time Absolute (s),Dead Time (s)
+1,2.0,1.0,1,take make sad big all_gone ,take ,take,48,4.445,0.2144,1638907964.498,0
+1,2.0,1.0,2,take make sad big all_gone ,take ,take,48,4.445,0.2064,1638907968.85,4.351999998092651
+1,2.0,2.0,1,take make sad big all_gone ,take make ,make,41,4.445,0.2711,1638907975.873,7.023000001907349
+1,2.0,2.0,2,take make sad big all_gone ,take make ,make,41,4.445,0.2531,1638907978.977,3.1040000915527344
+1,2.0,2.0,3,take make sad big all_gone ,take make ,make,41,4.445,0.1897,1638907981.393,2.4159998893737793
+1,2.0,3.0,1,take make sad big all_gone ,take make sad ,sad,59,4.445,0.2391,1638907985.521,4.128000020980835
+1,2.0,3.0,2,take make sad big all_gone ,take make sad ,sad,59,4.445,0.2064,1638907989.889,4.368000030517578
+1,2.0,4.0,1,take make sad big all_gone ,take make sad big ,big,34,4.445,0.1827,1638907994.065,4.176000118255615
+1,2.0,4.0,2,take make sad big all_gone ,take make sad big ,big,34,4.445,0.2451,1638907996.529,2.4639999866485596
+1,2.0,4.0,3,take make sad big all_gone ,take make sad big ,big,34,4.445,0.1194,1638907998.881,2.3519999980926514
+1,2.0,5.0,1,take make sad big all_gone ,take make sad big all_gone ,all_gone,25,4.445,-0.0317,1638908005.649,6.767999887466431
+1,2.0,5.0,2,take make sad big all_gone ,take make sad big all_gone ,all_gone,25,4.445,-0.0077,1638908007.553,1.9040000438690186
+1,2.0,5.0,3,take make sad big all_gone ,take make sad big all_gone ,all_gone,25,4.445,0.0627,1638908011.745,4.191999912261963
+1,2.0,6.0,1,take make sad big all_gone ,take make sad big all_gone .,.,.,4.445,0.1361,1638908014.258,2.513000011444092
+1,2.0,6.0,2,take make sad big all_gone ,take make sad big all_gone .,.,.,4.445,0.0954,1638908017.217,2.9590001106262207
+1,2.0,6.0,3,take make sad big all_gone ,take make sad big all_gone .,.,.,4.445,0.0797,1638908019.521,2.303999900817871
+1,2.0,7.0,1,take make sad big all_gone ,take make sad big all_gone ..,.,.,4.445,0.2144,1638908022.097,2.5759999752044678
+1,2.0,7.0,2,take make sad big all_gone ,take make sad big all_gone ..,.,.,4.445,0.1281,1638908026.369,4.272000074386597
+1,2.0,7.0,3,take make sad big all_gone ,take make sad big all_gone ..,.,.,4.445,0.2304,1638908028.833,2.4639999866485596
+2,1.0,1.0,1,stop sick soft soft help ,drink ,stop,29,4.445,-0.0594,1640877028.536,0
+2,1.0,1.0,2,stop sick soft soft help ,drink ,stop,29,4.445,0.0914,1640877032.128,3.5920000076293945
+2,1.0,2.0,1,stop sick soft soft help ,drink sick ,sick,66,4.445,-0.4136,1640877038.979,6.851000070571899
+2,1.0,2.0,2,stop sick soft soft help ,drink sick ,sick,66,4.445,0.1501,1640877043.107,4.128000020980835
+2,1.0,2.0,3,stop sick soft soft help ,drink sick ,sick,66,4.445,0.007,1640877044.683,1.5759999752044678
+2,1.0,2.0,4,stop sick soft soft help ,drink sick ,sick,66,4.445,-0.2825,1640877048.551,3.868000030517578
+2,1.0,3.0,1,stop sick soft soft help ,drink sick soft ,soft,54,4.445,-0.2301,1640877053.003,4.45199990272522
+2,1.0,3.0,2,stop sick soft soft help ,drink sick soft ,soft,54,4.445,-0.0811,1640877058.034,5.0309998989105225
+2,1.0,3.0,3,stop sick soft soft help ,drink sick soft ,soft,54,4.445,0.035,1640877062.191,4.1570000648498535
+2,1.0,4.0,1,stop sick soft soft help ,drink sick soft soft ,soft,54,4.445,0.2184,1640877067.096,4.9049999713897705
+2,1.0,4.0,2,stop sick soft soft help ,drink sick soft soft ,soft,54,4.445,0.2908,1640877069.608,2.51200008392334
+2,1.0,4.0,3,stop sick soft soft help ,drink sick soft soft ,soft,54,4.445,-0.0574,1640877071.778,2.1700000762939453
+2,1.0,5.0,1,stop sick soft soft help ,drink sick soft soft who ,help,12,4.445,-0.3392,1640877076.854,5.075999975204468
+2,1.0,5.0,2,stop sick soft soft help ,drink sick soft soft who ,help,12,4.445,-0.4346,1640877077.678,0.8239998817443848
+2,1.0,5.0,3,stop sick soft soft help ,drink sick soft soft who ,help,12,4.445,0.4079,1640877080.967,3.2890000343322754
+2,1.0,6.0,1,stop sick soft soft help ,drink sick soft soft who .,.,.,4.445,-0.0684,1640877087.767,6.799999952316284
+2,1.0,6.0,2,stop sick soft soft help ,drink sick soft soft who .,.,.,4.445,-0.2608,1640877092.613,4.8459999561309814
+2,1.0,6.0,3,stop sick soft soft help ,drink sick soft soft who .,.,.,4.445,0.2421,1640877093.799,1.186000108718872
+2,1.0,6.0,4,stop sick soft soft help ,drink sick soft soft who .,.,.,4.445,-0.0097,1640877096.025,2.2260000705718994
+2,1.0,7.0,1,stop sick soft soft help ,drink sick soft soft who ..,.,.,4.445,-0.1151,1640877102.759,6.733999967575073
+2,1.0,7.0,2,stop sick soft soft help ,drink sick soft soft who ..,.,.,4.445,0.2334,1640877106.831,4.072000026702881
+2,1.0,7.0,3,stop sick soft soft help ,drink sick soft soft who ..,.,.,4.445,0.3812,1640877111.339,4.507999897003174
+2,1.0,7.0,4,stop sick soft soft help ,drink sick soft soft who ..,.,.,4.445,-0.1207,1640877113.434,2.0950000286102295
+2,2.0,1.0,1,this happy i good soft ,this ,this,17,4.445,0.758,1640877121.16,7.726000070571899
+2,2.0,1.0,2,this happy i good soft ,this ,this,17,4.445,-0.1594,1640877125.634,4.473999977111816
+2,2.0,1.0,3,this happy i good soft ,this ,this,17,4.445,0.004,1640877130.399,4.764999866485596
+2,2.0,1.0,4,this happy i good soft ,this ,this,17,4.445,0.1511,1640877135.988,5.58899998664856
+2,2.0,2.0,1,this happy i good soft ,this happy ,happy,58,4.445,0.1144,1640877140.151,4.163000106811523
+2,2.0,2.0,2,this happy i good soft ,this happy ,happy,58,4.445,-0.0444,1640877144.23,4.078999996185303
+2,2.0,2.0,3,this happy i good soft ,this happy ,happy,58,4.445,-0.1217,1640877146.313,2.0829999446868896
+2,2.0,3.0,1,this happy i good soft ,this happy i ,i,10,4.445,-0.1337,1640877148.38,2.067000150680542
+2,2.0,3.0,2,this happy i good soft ,this happy i ,i,10,4.445,0.028,1640877151.903,3.5230000019073486
+2,2.0,3.0,3,this happy i good soft ,this happy i ,i,10,4.445,0.2324,1640877154.349,2.44599986076355
+2,2.0,3.0,4,this happy i good soft ,this happy i ,i,10,4.445,-0.0187,1640877156.537,2.187999963760376
+2,2.0,4.0,1,this happy i good soft ,this happy i good ,good,36,4.445,0.1687,1640877160.046,3.509000062942505
+2,2.0,4.0,2,this happy i good soft ,this happy i good ,good,36,4.445,-0.0464,1640877164.149,4.102999925613403
+2,2.0,4.0,3,this happy i good soft ,this happy i good ,good,36,4.445,-0.0604,1640877166.295,2.1460001468658447
+2,2.0,5.0,1,this happy i good soft ,this happy i good soft ,soft,54,4.445,-0.1151,1640877170.879,4.583999872207642
+2,2.0,5.0,2,this happy i good soft ,this happy i good soft ,soft,54,4.445,-0.1674,1640877175.507,4.628000020980835
+2,2.0,5.0,3,this happy i good soft ,this happy i good soft ,soft,54,4.445,0.1807,1640877177.898,2.3910000324249268
+2,2.0,6.0,1,this happy i good soft ,this happy i good soft .,.,.,4.445,0.1311,1640877184.888,6.990000009536743
+2,2.0,6.0,2,this happy i good soft ,this happy i good soft .,.,.,4.445,0.0497,1640877186.526,1.6380000114440918
+2,2.0,6.0,3,this happy i good soft ,this happy i good soft .,.,.,4.445,0.2014,1640877188.959,2.433000087738037
+2,2.0,6.0,4,this happy i good soft ,this happy i good soft .,.,.,4.445,0.1947,1640877191.392,2.432999849319458
+2,2.0,9.0,1,this happy i good soft ,this happy i good soft ..,.,.,4.445,0.024,1640877225.379,33.98699998855591
+2,2.0,9.0,2,this happy i good soft ,this happy i good soft ..,.,.,4.445,0.019,1640877230.175,4.796000003814697
+2,2.0,9.0,3,this happy i good soft ,this happy i good soft ..,.,.,4.445,-0.2211,1640877232.173,1.998000144958496
+2,2.0,9.0,4,this happy i good soft ,this happy i good soft ..,.,.,4.445,0.2334,1640877234.631,2.4579999446868896
+2,3.0,1.0,1,eat on in easy on ,finished ,eat,26,4.445,0.647,1640877237.327,2.69599986076355
+2,3.0,1.0,2,eat on in easy on ,finished ,eat,26,4.445,0.5559,1640877240.916,3.5889999866485596
+2,3.0,1.0,3,eat on in easy on ,finished ,eat,26,4.445,0.01,1640877242.166,1.25
+2,3.0,1.0,4,eat on in easy on ,finished ,eat,26,4.445,0.2374,1640877243.354,1.188000202178955
+2,3.0,2.0,1,eat on in easy on ,finished on ,on,61,4.445,0.3185,1640877251.717,8.36299991607666
+2,3.0,2.0,2,eat on in easy on ,finished on ,on,61,4.445,0.0884,1640877256.604,4.88700008392334
+2,3.0,2.0,3,eat on in easy on ,finished on ,on,61,4.445,-0.2201,1640877258.614,2.009999990463257
+2,3.0,3.0,1,eat on in easy on ,finished on okay ,in,24,4.445,0.647,1640877266.408,7.793999910354614
+2,3.0,3.0,2,eat on in easy on ,finished on okay ,in,24,4.445,-0.4662,1640877271.685,5.2769999504089355
+2,3.0,3.0,3,eat on in easy on ,finished on okay ,in,24,4.445,0.3565,1640877274.555,2.870000123977661
+2,3.0,3.0,4,eat on in easy on ,finished on okay ,in,24,4.445,0.8474,1640877280.809,6.253999948501587
+2,3.0,3.0,5,eat on in easy on ,finished on okay ,in,24,4.445,0.2691,1640877285.226,4.41700005531311
+2,3.0,4.0,1,eat on in easy on ,finished on okay easy ,easy,62,4.445,0.3722,1640877293.49,8.263999938964844
+2,3.0,4.0,2,eat on in easy on ,finished on okay easy ,easy,62,4.445,-0.0891,1640877296.905,3.4149999618530273
+2,3.0,4.0,3,eat on in easy on ,finished on okay easy ,easy,62,4.445,0.3582,1640877299.476,2.571000099182129
+2,3.0,4.0,4,eat on in easy on ,finished on okay easy ,easy,62,4.445,-0.0554,1640877301.658,2.181999921798706
+2,3.0,5.0,1,eat on in easy on ,finished on okay easy on ,on,61,4.445,-0.3879,1640877304.845,3.187000036239624
+2,3.0,5.0,2,eat on in easy on ,finished on okay easy on ,on,61,4.445,0.2818,1640877310.4,5.555000066757202
+2,3.0,5.0,3,eat on in easy on ,finished on okay easy on ,on,61,4.445,0.1114,1640877314.668,4.267999887466431
+2,3.0,5.0,4,eat on in easy on ,finished on okay easy on ,on,61,4.445,-0.1764,1640877316.697,2.0290000438690186
+2,3.0,6.0,1,eat on in easy on ,finished on okay easy on .,.,.,4.445,0.3205,1640877319.399,2.7019999027252197
+2,3.0,6.0,2,eat on in easy on ,finished on okay easy on .,.,.,4.445,-0.0347,1640877321.281,1.8819999694824219
+2,3.0,6.0,3,eat on in easy on ,finished on okay easy on .,.,.,4.445,-0.0604,1640877325.375,4.0940001010894775
+2,3.0,6.0,4,eat on in easy on ,finished on okay easy on .,.,.,4.445,0.1857,1640877327.782,2.4070000648498535
+2,3.0,7.0,1,eat on in easy on ,finished on okay easy on ..,.,.,4.445,0.1044,1640877334.74,6.95799994468689
+2,3.0,7.0,2,eat on in easy on ,finished on okay easy on ..,.,.,4.445,-0.0207,1640877338.214,3.4739999771118164
+2,3.0,7.0,3,eat on in easy on ,finished on okay easy on ..,.,.,4.445,0.2154,1640877340.654,2.440000057220459
+2,3.0,7.0,4,eat on in easy on ,finished on okay easy on ..,.,.,4.445,0.3435,1640877343.222,2.567999839782715
+2,4.0,1.0,1,all_gone on turn all_gone this ,all_gone ,all_gone,25,4.445,1.3467,1640877346.913,3.69100022315979
+2,4.0,1.0,2,all_gone on turn all_gone this ,all_gone ,all_gone,25,4.445,0.2391,1640877348.956,2.0429999828338623
+2,4.0,1.0,3,all_gone on turn all_gone this ,all_gone ,all_gone,25,4.445,0.2274,1640877354.465,5.508999824523926
+2,4.0,1.0,4,all_gone on turn all_gone this ,all_gone ,all_gone,25,4.445,0.5279,1640877361.968,7.503000020980835
+2,4.0,1.0,5,all_gone on turn all_gone this ,all_gone ,all_gone,25,4.445,0.2671,1640877367.665,5.697000026702881
+2,4.0,2.0,1,all_gone on turn all_gone this ,all_gone on ,on,61,4.445,0.0427,1640877371.279,3.614000082015991
+2,4.0,2.0,2,all_gone on turn all_gone this ,all_gone on ,on,61,4.445,-0.2925,1640877373.861,2.5820000171661377
+2,4.0,2.0,3,all_gone on turn all_gone this ,all_gone on ,on,61,4.445,0.2631,1640877375.061,1.2000000476837158
+2,4.0,2.0,4,all_gone on turn all_gone this ,all_gone on ,on,61,4.445,0.1054,1640877377.382,2.32099986076355
+2,4.0,3.0,1,all_gone on turn all_gone this ,all_gone on turn ,turn,49,4.445,-0.1724,1640877382.702,5.319999933242798
+2,4.0,3.0,2,all_gone on turn all_gone this ,all_gone on turn ,turn,49,4.445,0.1124,1640877384.708,2.00600004196167
+2,4.0,3.0,3,all_gone on turn all_gone this ,all_gone on turn ,turn,49,4.445,0.012,1640877385.648,0.940000057220459
+2,4.0,3.0,4,all_gone on turn all_gone this ,all_gone on turn ,turn,49,4.445,0.005,1640877387.881,2.2330000400543213
+2,4.0,4.0,1,all_gone on turn all_gone this ,all_gone on turn all_gone ,all_gone,25,4.445,0.2224,1640877390.46,2.5789999961853027
+2,4.0,4.0,2,all_gone on turn all_gone this ,all_gone on turn all_gone ,all_gone,25,4.445,0.1054,1640877392.782,2.322000026702881
+2,4.0,4.0,3,all_gone on turn all_gone this ,all_gone on turn all_gone ,all_gone,25,4.445,0.033,1640877395.028,2.246000051498413
+2,4.0,4.0,4,all_gone on turn all_gone this ,all_gone on turn all_gone ,all_gone,25,4.445,-0.8024,1640877396.426,1.3980000019073486
+2,4.0,4.0,5,all_gone on turn all_gone this ,all_gone on turn all_gone ,all_gone,25,4.445,0.5052,1640877401.705,5.2789998054504395
+2,4.0,4.0,6,all_gone on turn all_gone this ,all_gone on turn all_gone ,all_gone,25,4.445,0.1907,1640877402.828,1.123000144958496
+2,4.0,4.0,7,all_gone on turn all_gone this ,all_gone on turn all_gone ,all_gone,25,4.445,0.2551,1640877405.293,2.4649999141693115
+2,4.0,5.0,1,all_gone on turn all_gone this ,all_gone on turn all_gone this ,this,17,4.445,0.3078,1640877408.107,2.814000129699707
+2,4.0,5.0,2,all_gone on turn all_gone this ,all_gone on turn all_gone this ,this,17,4.445,-0.1734,1640877410.421,2.313999891281128
+2,4.0,5.0,3,all_gone on turn all_gone this ,all_gone on turn all_gone this ,this,17,4.445,0.014,1640877411.369,0.9479999542236328
+2,4.0,5.0,4,all_gone on turn all_gone this ,all_gone on turn all_gone this ,this,17,4.445,0.0834,1640877413.68,2.311000108718872
+2,4.0,6.0,1,all_gone on turn all_gone this ,all_gone on turn all_gone this .,.,.,4.445,0.3098,1640877416.388,2.7079999446868896
+2,4.0,6.0,2,all_gone on turn all_gone this ,all_gone on turn all_gone this .,.,.,4.445,-0.0257,1640877419.85,3.4619998931884766
+2,4.0,6.0,3,all_gone on turn all_gone this ,all_gone on turn all_gone this .,.,.,4.445,0.4606,1640877422.54,2.690000057220459
+2,4.0,6.0,4,all_gone on turn all_gone this ,all_gone on turn all_gone this .,.,.,4.445,0.1987,1640877424.956,2.4160001277923584
+2,4.0,7.0,1,all_gone on turn all_gone this ,all_gone on turn all_gone this ..,.,.,4.445,0.2024,1640877427.52,2.563999891281128
+2,4.0,7.0,2,all_gone on turn all_gone this ,all_gone on turn all_gone this ..,.,.,4.445,0.3078,1640877428.786,1.2660000324249268
+2,4.0,7.0,3,all_gone on turn all_gone this ,all_gone on turn all_gone this ..,.,.,4.445,0.2908,1640877431.289,2.503000020980835
+2,4.0,7.0,4,all_gone on turn all_gone this ,all_gone on turn all_gone this ..,.,.,4.445,0.5983,1640877434.119,2.8299999237060547
+2,4.0,7.0,5,all_gone on turn all_gone this ,all_gone on turn all_gone this ..,.,.,4.445,-0.0594,1640877436.296,2.177000045776367
+2,5.0,1.0,1,all_gone take again big finished ,all_gone ,all_gone,25,4.445,0.0854,1640877443.202,6.9059998989105225
+2,5.0,1.0,2,all_gone take again big finished ,all_gone ,all_gone,25,4.445,0.1777,1640877448.174,4.9720001220703125
+2,5.0,1.0,3,all_gone take again big finished ,all_gone ,all_gone,25,4.445,0.0954,1640877450.492,2.318000078201294
+2,5.0,1.0,4,all_gone take again big finished ,all_gone ,all_gone,25,4.445,0.1084,1640877452.826,2.3339998722076416
+2,5.0,2.0,1,all_gone take again big finished ,all_gone take ,take,48,4.445,0.2294,1640877458.707,5.88100004196167
+2,5.0,2.0,2,all_gone take again big finished ,all_gone take ,take,48,4.445,0.1064,1640877461.021,2.313999891281128
+2,5.0,2.0,3,all_gone take again big finished ,all_gone take ,take,48,4.445,0.5666,1640877463.807,2.7860000133514404
+2,5.0,2.0,4,all_gone take again big finished ,all_gone take ,take,48,4.445,0.1967,1640877466.233,2.4260001182556152
+2,5.0,3.0,1,all_gone take again big finished ,all_gone take again ,again,15,4.445,1.0519,1640877467.575,1.3420000076293945
+2,5.0,3.0,2,all_gone take again big finished ,all_gone take again ,again,15,4.445,0.1251,1640877469.521,1.9459998607635498
+2,5.0,3.0,3,all_gone take again big finished ,all_gone take again ,again,15,4.445,0.1767,1640877474.812,5.291000127792358
+2,5.0,3.0,4,all_gone take again big finished ,all_gone take again ,again,15,4.445,0.1857,1640877480.422,5.609999895095825
+2,5.0,3.0,5,all_gone take again big finished ,all_gone take again ,again,15,4.445,-0.2051,1640877482.429,2.006999969482422
+2,5.0,4.0,1,all_gone take again big finished ,all_gone take again big ,big,34,4.445,0.1717,1640877486.568,4.139000177383423
+2,5.0,4.0,2,all_gone take again big finished ,all_gone take again big ,big,34,4.445,0.3285,1640877489.127,2.559000015258789
+2,5.0,4.0,3,all_gone take again big finished ,all_gone take again big ,big,34,4.445,0.4626,1640877491.822,2.694999933242798
+2,5.0,4.0,4,all_gone take again big finished ,all_gone take again big ,big,34,4.445,0.5983,1640877494.638,2.815999984741211
+2,5.0,5.0,1,all_gone take again big finished ,all_gone take again big finished ,finished,26,4.445,-0.2568,1640877500.936,6.29800009727478
+2,5.0,5.0,2,all_gone take again big finished ,all_gone take again big finished ,finished,26,4.445,0.5706,1640877505.971,5.034999847412109
+2,5.0,5.0,3,all_gone take again big finished ,all_gone take again big finished ,finished,26,4.445,0.4436,1640877509.281,3.309999942779541
+2,5.0,5.0,4,all_gone take again big finished ,all_gone take again big finished ,finished,26,4.445,0.3058,1640877513.743,4.462000131607056
+2,5.0,6.0,1,all_gone take again big finished ,all_gone take again big finished .,.,.,4.445,0.2541,1640877516.372,2.628999948501587
+2,5.0,6.0,2,all_gone take again big finished ,all_gone take again big finished .,.,.,4.445,-0.0137,1640877517.301,0.9290001392364502
+2,5.0,6.0,3,all_gone take again big finished ,all_gone take again big finished .,.,.,4.445,0.1617,1640877519.679,2.377999782562256
+2,5.0,6.0,4,all_gone take again big finished ,all_gone take again big finished .,.,.,4.445,0.3265,1640877522.245,2.565999984741211
+2,5.0,7.0,1,all_gone take again big finished ,all_gone take again big finished ..,.,.,4.445,-0.2688,1640877528.844,6.5990002155303955
+2,5.0,7.0,2,all_gone take again big finished ,all_gone take again big finished ..,.,.,4.445,0.3118,1640877531.23,2.385999917984009
+2,5.0,7.0,3,all_gone take again big finished ,all_gone take again big finished ..,.,.,4.445,0.3932,1640877537.033,5.802999973297119
+2,5.0,7.0,4,all_gone take again big finished ,all_gone take again big finished ..,.,.,4.445,-0.0017,1640877539.234,2.2009999752044678
+2,5.0,7.0,5,all_gone take again big finished ,all_gone take again big finished ..,.,.,4.445,-0.5119,1640877540.919,1.684999942779541
+2,5.0,7.0,6,all_gone take again big finished ,all_gone take again big finished ..,.,.,4.445,0.0547,1640877543.211,2.2920000553131104
+2,6.0,1.0,1,something_different break like bad get ,something_different ,something_different,18,4.445,0.0777,1640877549.673,6.462000131607056
+2,6.0,1.0,2,something_different break like bad get ,something_different ,something_different,18,4.445,0.0637,1640877552.579,2.9059998989105225
+2,6.0,1.0,3,something_different break like bad get ,something_different ,something_different,18,4.445,0.2828,1640877555.081,2.502000093460083
+2,6.0,1.0,4,something_different break like bad get ,something_different ,something_different,18,4.445,-0.3542,1640877556.959,1.878000020980835
+2,6.0,1.0,5,something_different break like bad get ,something_different ,something_different,18,4.445,0.2701,1640877559.468,2.508999824523926
+2,6.0,2.0,1,something_different break like bad get ,something_different break ,break,56,4.445,0.1451,1640877563.983,4.515000104904175
+2,6.0,2.0,2,something_different break like bad get ,something_different break ,break,56,4.445,0.1837,1640877569.58,5.596999883651733
+2,6.0,2.0,3,something_different break like bad get ,something_different break ,break,56,4.445,0.3842,1640877572.183,2.6030001640319824
+2,6.0,2.0,4,something_different break like bad get ,something_different break ,break,56,4.445,-0.1337,1640877574.26,2.0769999027252197
+2,6.0,3.0,1,something_different break like bad get ,something_different break like ,like,39,4.445,0.3712,1640877577.21,2.950000047683716
+2,6.0,3.0,2,something_different break like bad get ,something_different break like ,like,39,4.445,-0.0007,1640877580.715,3.504999876022339
+2,6.0,3.0,3,something_different break like bad get ,something_different break like ,like,39,4.445,0.5172,1640877583.437,2.7220001220703125
+2,6.0,3.0,4,something_different break like bad get ,something_different break like ,like,39,4.445,0.032,1640877585.669,2.2319998741149902
+2,6.0,4.0,1,something_different break like bad get ,something_different break like with ,bad,70,4.445,0.6827,1640877588.803,3.134000062942505
+2,6.0,4.0,2,something_different break like bad get ,something_different break like with ,bad,70,4.445,-0.1754,1640877590.058,1.255000114440918
+2,6.0,4.0,3,something_different break like bad get ,something_different break like with ,bad,70,4.445,0.5112,1640877590.871,0.812999963760376
+2,6.0,4.0,4,something_different break like bad get ,something_different break like with ,bad,70,4.445,-0.1954,1640877594.799,3.927999973297119
+2,6.0,4.0,5,something_different break like bad get ,something_different break like with ,bad,70,4.445,-0.4839,1640877596.548,1.749000072479248
+2,6.0,4.0,6,something_different break like bad get ,something_different break like with ,bad,70,4.445,0.4842,1640877599.244,2.69599986076355
+3,1.0,1.0,1,finished less excited me there ,say ,finished,46,4.445,-0.598,1640878388.498,0
+3,1.0,1.0,2,finished less excited me there ,say ,finished,46,4.445,-0.1764,1640878398.684,10.186000108718872
+3,1.0,1.0,3,finished less excited me there ,say ,finished,46,4.445,-0.4482,1640878399.81,1.125999927520752
+3,1.0,1.0,4,finished less excited me there ,say ,finished,46,4.445,-0.4106,1640878404.808,4.998000144958496
+3,1.0,1.0,5,finished less excited me there ,say ,finished,46,4.445,0.4616,1640878407.487,2.678999900817871
+3,1.0,2.0,1,finished less excited me there ,say less ,less,44,4.445,-0.0187,1640878418.243,10.75600004196167
+3,1.0,2.0,2,finished less excited me there ,say less ,less,44,4.445,0.037,1640878420.778,2.5350000858306885
+3,1.0,2.0,3,finished less excited me there ,say less ,less,44,4.445,0.2244,1640878425.127,4.348999977111816
+3,1.0,2.0,4,finished less excited me there ,say less ,less,44,4.445,0.031,1640878427.373,2.245999813079834
+3,1.0,3.0,1,finished less excited me there ,say less excited ,excited,69,4.445,0.4436,1640878430.348,2.9750001430511475
+3,1.0,3.0,2,finished less excited me there ,say less excited ,excited,69,4.445,0.2334,1640878434.097,3.748999834060669
+3,1.0,3.0,3,finished less excited me there ,say less excited ,excited,69,4.445,0.3028,1640878436.606,2.509000062942505
+3,1.0,3.0,4,finished less excited me there ,say less excited ,excited,69,4.445,0.0964,1640878438.918,2.312000036239624
+3,1.0,3.0,5,finished less excited me there ,say less excited ,excited,69,4.445,0.2711,1640878441.416,2.497999906539917
+3,1.0,4.0,1,finished less excited me there ,say less excited me ,me,19,4.445,-0.1267,1640878447.013,5.5970001220703125
+3,1.0,4.0,2,finished less excited me there ,say less excited me ,me,19,4.445,0.016,1640878448.918,1.9049999713897705
+3,1.0,4.0,3,finished less excited me there ,say less excited me ,me,19,4.445,0.1897,1640878453.252,4.334000110626221
+3,1.0,4.0,4,finished less excited me there ,say less excited me ,me,19,4.445,-0.1307,1640878455.33,2.0779998302459717
+3,1.0,5.0,1,finished less excited me there ,say less excited me there ,there,52,4.445,-0.0734,1640878460.267,4.937000036239624
+3,1.0,5.0,2,finished less excited me there ,say less excited me there ,there,52,4.445,-0.0724,1640878462.708,2.440999984741211
+3,1.0,5.0,3,finished less excited me there ,say less excited me there ,there,52,4.445,0.2731,1640878468.418,5.710000038146973
+3,1.0,5.0,4,finished less excited me there ,say less excited me there ,there,52,4.445,-0.0644,1640878470.556,2.138000011444092
+3,1.0,6.0,1,finished less excited me there ,say less excited me there .,.,.,4.445,0.1697,1640878473.113,2.556999921798706
+3,1.0,6.0,2,finished less excited me there ,say less excited me there .,.,.,4.445,-0.0007,1640878477.261,4.148000001907349
+3,1.0,6.0,3,finished less excited me there ,say less excited me there .,.,.,4.445,0.1877,1640878479.651,2.390000104904175
+3,1.0,6.0,4,finished less excited me there ,say less excited me there .,.,.,4.445,-0.0444,1640878481.817,2.1659998893737793
+3,1.0,7.0,1,finished less excited me there ,say less excited me there ..,.,.,4.445,0.1827,1640878488.846,7.0290000438690186
+3,1.0,7.0,2,finished less excited me there ,say less excited me there ..,.,.,4.445,0.3038,1640878491.047,2.2009999752044678
+3,1.0,7.0,3,finished less excited me there ,say less excited me there ..,.,.,4.445,0.0517,1640878495.234,4.187000036239624
+3,1.0,7.0,4,finished less excited me there ,say less excited me there ..,.,.,4.445,0.0757,1640878497.538,2.30400013923645
+4,1.0,1.0,1,all_gone away away do hard ,all_gone ,all_gone,25,4.445,0.0737,1640970995.807,0
+4,1.0,1.0,2,all_gone away away do hard ,all_gone ,all_gone,25,4.445,0.0767,1640970998.091,2.2840001583099365
+4,1.0,1.0,3,all_gone away away do hard ,all_gone ,all_gone,25,4.445,0.1034,1640971000.397,2.305999994277954
+4,1.0,1.0,4,all_gone away away do hard ,all_gone ,all_gone,25,4.445,0.3732,1640971002.99,2.5929999351501465
+4,1.0,2.0,1,all_gone away away do hard ,all_gone away ,away,43,4.445,-0.2211,1640971009.23,6.240000009536743
+4,1.0,2.0,2,all_gone away away do hard ,all_gone away ,away,43,4.445,0.0637,1640971010.557,1.3269999027252197
+4,1.0,2.0,3,all_gone away away do hard ,all_gone away ,away,43,4.445,0.1717,1640971014.866,4.309000015258789
+4,1.0,3.0,1,all_gone away away do hard ,all_gone away away ,away,43,4.445,-0.1674,1640971021.163,6.297000169754028
+4,1.0,3.0,2,all_gone away away do hard ,all_gone away away ,away,43,4.445,-0.0177,1640971023.035,1.871999979019165
+4,1.0,3.0,3,all_gone away away do hard ,all_gone away away ,away,43,4.445,0.1381,1640971027.312,4.2769999504089355
+4,1.0,3.0,4,all_gone away away do hard ,all_gone away away ,away,43,4.445,0.2034,1640971029.738,2.425999879837036
+4,1.0,4.0,1,all_gone away away do hard ,all_gone away away do ,do,23,4.445,0.1251,1640971033.058,3.320000171661377
+4,1.0,4.0,2,all_gone away away do hard ,all_gone away away do ,do,23,4.445,0.1591,1640971035.453,2.3949999809265137
+4,1.0,4.0,3,all_gone away away do hard ,all_gone away away do ,do,23,4.445,0.0597,1640971037.713,2.259999990463257
+4,1.0,5.0,1,all_gone away away do hard ,all_gone away away do hard ,hard,53,4.445,0.0904,1640971042.664,4.950999975204468
+4,1.0,5.0,2,all_gone away away do hard ,all_gone away away do hard ,hard,53,4.445,0.1717,1640971045.066,2.4019999504089355
+4,1.0,5.0,3,all_gone away away do hard ,all_gone away away do hard ,hard,53,4.445,0.1084,1640971047.402,2.3359999656677246
+4,1.0,6.0,1,all_gone away away do hard ,all_gone away away do hard .,.,.,4.445,-0.0694,1640971054.183,6.781000137329102
+4,1.0,6.0,2,all_gone away away do hard ,all_gone away away do hard .,.,.,4.445,-0.0704,1640971059.221,5.037999868392944
+4,1.0,6.0,3,all_gone away away do hard ,all_gone away away do hard .,.,.,4.445,0.008,1640971063.381,4.1600000858306885
+4,1.0,7.0,1,all_gone away away do hard ,all_gone away away do hard ..,.,.,4.445,0.2284,1640971070.483,7.101999998092651
+4,1.0,7.0,2,all_gone away away do hard ,all_gone away away do hard ..,.,.,4.445,0.3772,1640971074.353,3.869999885559082
+4,1.0,7.0,3,all_gone away away do hard ,all_gone away away do hard ..,.,.,4.445,0.017,1640971078.51,4.1570000648498535
+4,2.0,1.0,1,where soft something_different give with ,where ,where,14,4.445,-0.0514,1640971084.521,6.010999917984009
+4,2.0,1.0,2,where soft something_different give with ,where ,where,14,4.445,0.0427,1640971087.416,2.8949999809265137
+4,2.0,1.0,3,where soft something_different give with ,where ,where,14,4.445,-0.1614,1640971089.49,2.074000120162964
+4,2.0,2.0,1,where soft something_different give with ,where soft ,soft,54,4.445,-0.1417,1640971094.03,4.539999961853027
+4,2.0,2.0,2,where soft something_different give with ,where soft ,soft,54,4.445,-0.1061,1640971097.425,3.3949999809265137
+4,2.0,2.0,3,where soft something_different give with ,where soft ,soft,54,4.445,0.1677,1640971099.822,2.3970000743865967
+4,2.0,3.0,1,where soft something_different give with ,where soft something_different ,something_different,18,4.445,-0.3709,1640971105.839,6.016999959945679
+4,2.0,3.0,2,where soft something_different give with ,where soft something_different ,something_different,18,4.445,-0.1257,1640971109.526,3.687000036239624
+4,2.0,3.0,3,where soft something_different give with ,where soft something_different ,something_different,18,4.445,0.1401,1640971110.595,1.069000005722046
+4,2.0,4.0,1,where soft something_different give with ,where soft something_different give ,give,32,4.445,-0.0901,1640971115.122,4.5269999504089355
+4,2.0,4.0,2,where soft something_different give with ,where soft something_different give ,give,32,4.445,-0.2011,1640971117.77,2.6480000019073486
+4,2.0,4.0,3,where soft something_different give with ,where soft something_different give ,give,32,4.445,-0.1714,1640971121.72,3.950000047683716
+4,2.0,5.0,1,where soft something_different give with ,where soft something_different give with ,with,70,4.445,0.0647,1640971128.718,6.997999906539917
+4,2.0,5.0,2,where soft something_different give with ,where soft something_different give with ,with,70,4.445,-0.1537,1640971132.698,3.9800000190734863
+4,2.0,5.0,3,where soft something_different give with ,where soft something_different give with ,with,70,4.445,0.1967,1640971135.131,2.433000087738037
+4,2.0,6.0,1,where soft something_different give with ,where soft something_different give with .,.,.,4.445,0.0657,1640971142.04,6.908999919891357
+4,2.0,6.0,2,where soft something_different give with ,where soft something_different give with .,.,.,4.445,0.0767,1640971143.05,1.0099999904632568
+4,2.0,6.0,3,where soft something_different give with ,where soft something_different give with .,.,.,4.445,0.2998,1640971145.556,2.50600004196167
+4,2.0,6.0,4,where soft something_different give with ,where soft something_different give with .,.,.,4.445,0.0557,1640971147.83,2.2739999294281006
+4,2.0,7.0,1,where soft something_different give with ,where soft something_different give with ..,.,.,4.445,0.1291,1640971150.343,2.513000011444092
+4,2.0,7.0,2,where soft something_different give with ,where soft something_different give with ..,.,.,4.445,0.1054,1640971153.319,2.9760000705718994
+4,2.0,7.0,3,where soft something_different give with ,where soft something_different give with ..,.,.,4.445,0.1737,1640971155.708,2.3889999389648438
+4,3.0,1.0,1,on feel i something_different scared ,on ,on,61,4.445,0.3732,1640971159.669,3.9609999656677246
+4,3.0,1.0,2,on feel i something_different scared ,on ,on,61,4.445,0.1897,1640971162.364,2.695000171661377
+4,3.0,1.0,3,on feel i something_different scared ,on ,on,61,4.445,0.1907,1640971166.685,4.32099986076355
+4,3.0,2.0,1,on feel i something_different scared ,on feel ,feel,57,4.445,-0.0217,1640971170.871,4.186000108718872
+4,3.0,2.0,2,on feel i something_different scared ,on feel ,feel,57,4.445,-0.2738,1640971173.456,2.5850000381469727
+4,3.0,2.0,3,on feel i something_different scared ,on feel ,feel,57,4.445,-0.0734,1640971174.339,0.8829998970031738
+4,3.0,3.0,1,on feel i something_different scared ,on feel i ,i,10,4.445,-0.0387,1640971176.534,2.194999933242798
+4,3.0,3.0,2,on feel i something_different scared ,on feel i ,i,10,4.445,-0.0347,1640971178.097,1.562999963760376
+4,3.0,3.0,3,on feel i something_different scared ,on feel i ,i,10,4.445,0.1597,1640971180.494,2.3970000743865967
+4,3.0,4.0,1,on feel i something_different scared ,on feel i something_different ,something_different,18,4.445,0.1581,1640971182.572,2.078000068664551
+4,3.0,4.0,2,on feel i something_different scared ,on feel i something_different ,something_different,18,4.445,0.1657,1640971184.94,2.368000030517578
+4,3.0,4.0,3,on feel i something_different scared ,on feel i something_different ,something_different,18,4.445,0.0964,1640971187.269,2.3289999961853027
+4,3.0,5.0,1,on feel i something_different scared ,on feel i something_different scared ,scared,68,4.445,-0.1834,1640971189.708,2.438999891281128
+4,3.0,5.0,2,on feel i something_different scared ,on feel i something_different scared ,scared,68,4.445,-0.0891,1640971192.803,3.0950000286102295
+4,3.0,5.0,3,on feel i something_different scared ,on feel i something_different scared ,scared,68,4.445,-0.1644,1640971196.767,3.9639999866485596
+4,3.0,6.0,1,on feel i something_different scared ,on feel i something_different scared .,.,.,4.445,0.0884,1640971199.222,2.4549999237060547
+4,3.0,6.0,2,on feel i something_different scared ,on feel i something_different scared .,.,.,4.445,-0.0644,1640971203.307,4.085000038146973
+4,3.0,6.0,3,on feel i something_different scared ,on feel i something_different scared .,.,.,4.445,0.1581,1640971205.692,2.384999990463257
+4,3.0,7.0,1,on feel i something_different scared ,on feel i something_different scared ..,.,.,4.445,0.2144,1640971208.269,2.577000141143799
+4,3.0,7.0,2,on feel i something_different scared ,on feel i something_different scared ..,.,.,4.445,0.036,1640971213.09,4.82099986076355
+4,3.0,7.0,3,on feel i something_different scared ,on feel i something_different scared ..,.,.,4.445,0.2074,1640971215.502,2.4120001792907715
+4,4.0,1.0,1,what little get me i ,what ,what,13,4.445,-0.5693,1640971217.799,2.296999931335449
+4,4.0,1.0,2,what little get me i ,what ,what,13,4.445,0.1737,1640971221.628,3.8289999961853027
+4,4.0,1.0,3,what little get me i ,what ,what,13,4.445,0.019,1640971224.512,2.884000062942505
+4,4.0,1.0,4,what little get me i ,what ,what,13,4.445,-0.1287,1640971228.523,4.010999917984009
+4,4.0,2.0,1,what little get me i ,what little ,little,35,4.445,-0.0057,1640971232.167,3.6440000534057617
+4,4.0,2.0,2,what little get me i ,what little ,little,35,4.445,0.2721,1640971237.848,5.680999994277954
+4,4.0,2.0,3,what little get me i ,what little ,little,35,4.445,0.2354,1640971240.291,2.442999839782715
+4,4.0,3.0,1,what little get me i ,what little get ,get,38,4.445,0.0834,1640971243.096,2.805000066757202
+4,4.0,3.0,2,what little get me i ,what little get ,get,38,4.445,0.4626,1640971249,5.9040000438690186
+4,4.0,3.0,3,what little get me i ,what little get ,get,38,4.445,0.1044,1640971254.519,5.519000053405762
+4,4.0,3.0,4,what little get me i ,what little get ,get,38,4.445,-0.0744,1640971256.658,2.1389999389648438
+4,4.0,4.0,1,what little get me i ,what little get me ,me,19,4.445,-0.3789,1640971262.032,5.374000072479248
+4,4.0,4.0,2,what little get me i ,what little get me ,me,19,4.445,-0.0097,1640971266.483,4.450999975204468
+4,4.0,4.0,3,what little get me i ,what little get me ,me,19,4.445,0.3305,1640971267.746,1.2630000114440918
+4,4.0,5.0,1,what little get me i ,what little get me excited ,i,69,4.445,-0.5206,1640971274.249,6.503000020980835
+4,4.0,5.0,2,what little get me i ,what little get me excited ,i,69,4.445,0.2681,1640971276.243,1.99399995803833
+4,4.0,5.0,3,what little get me i ,what little get me excited ,i,69,4.445,-0.0734,1640971277.74,1.496999979019165
+4,4.0,5.0,4,what little get me i ,what little get me excited ,i,69,4.445,0.0417,1640971284.495,6.754999876022339
+4,4.0,6.0,1,what little get me i ,what little get me excited .,.,.,4.445,0.2481,1640971291.624,7.129000186920166
+4,4.0,6.0,2,what little get me i ,what little get me excited .,.,.,4.445,-0.0764,1640971294.057,2.432999849319458
+4,4.0,6.0,3,what little get me i ,what little get me excited .,.,.,4.445,0.1231,1640971298.338,4.281000137329102
+4,4.0,6.0,4,what little get me i ,what little get me excited .,.,.,4.445,0.0717,1640971300.646,2.307999849319458
+4,4.0,7.0,1,what little get me i ,what little get me excited ..,.,.,4.445,-0.1944,1640971307.298,6.652000188827515
+4,4.0,7.0,2,what little get me i ,what little get me excited ..,.,.,4.445,0.0637,1640971311.838,4.539999961853027
+4,4.0,7.0,3,what little get me i ,what little get me excited ..,.,.,4.445,0.2701,1640971316.246,4.4079999923706055
+4,4.0,7.0,4,what little get me i ,what little get me excited ..,.,.,4.445,0.2978,1640971318.753,2.506999969482422
+4,5.0,1.0,1,break work say turn with ,break ,break,56,4.445,-0.0017,1640971323.132,4.378999948501587
+4,5.0,1.0,2,break work say turn with ,break ,break,56,4.445,-0.0387,1640971324.015,0.8830001354217529
+4,5.0,1.0,3,break work say turn with ,break ,break,56,4.445,0.1997,1640971326.453,2.437999963760376
+4,5.0,2.0,1,break work say turn with ,break stop ,work,47,4.445,0.1391,1640971327.914,1.4609999656677246
+4,5.0,2.0,2,break work say turn with ,break stop ,work,47,4.445,-0.1327,1640971329.999,2.0850000381469727
+4,5.0,2.0,3,break work say turn with ,break stop ,work,47,4.445,0.3555,1640971332.57,2.57099986076355
+4,5.0,2.0,4,break work say turn with ,break stop ,work,47,4.445,-0.3252,1640971334.445,1.875
+4,5.0,3.0,1,break work say turn with ,break stop say ,say,46,4.445,-0.0007,1640971340.413,5.968000173568726
+4,5.0,3.0,2,break work say turn with ,break stop say ,say,46,4.445,0.1371,1640971341.471,1.057999849319458
+4,5.0,3.0,3,break work say turn with ,break stop say ,say,46,4.445,0.2391,1640971343.935,2.4639999866485596
+4,5.0,4.0,1,break work say turn with ,break stop say turn ,turn,49,4.445,0.3732,1640971349.829,5.894000053405762
+4,5.0,4.0,2,break work say turn with ,break stop say turn ,turn,49,4.445,0.0884,1640971353.422,3.5929999351501465
+4,5.0,4.0,3,break work say turn with ,break stop say turn ,turn,49,4.445,0.0984,1640971355.753,2.3310000896453857
+4,5.0,5.0,1,break work say turn with ,break stop say turn with ,with,70,4.445,0.0427,1640971358.256,2.503000020980835
+4,5.0,5.0,2,break work say turn with ,break stop say turn with ,with,70,4.445,-0.0494,1640971363.003,4.746999979019165
+4,5.0,5.0,3,break work say turn with ,break stop say turn with ,with,70,4.445,0.1094,1640971365.322,2.319000005722046
+4,5.0,6.0,1,break work say turn with ,break stop say turn with .,.,.,4.445,0.0567,1640971367.751,2.428999900817871
+4,5.0,6.0,2,break work say turn with ,break stop say turn with .,.,.,4.445,0.0587,1640971373.232,5.481000185012817
+4,5.0,6.0,3,break work say turn with ,break stop say turn with .,.,.,4.445,0.034,1640971375.487,2.254999876022339
+4,5.0,7.0,1,break work say turn with ,break stop say turn with ..,.,.,4.445,0.1104,1640971382.444,6.957000017166138
+4,5.0,7.0,2,break work say turn with ,break stop say turn with ..,.,.,4.445,0.3425,1640971386.918,4.473999977111816
+4,5.0,7.0,3,break work say turn with ,break stop say turn with ..,.,.,4.445,0.0707,1640971391.124,4.206000089645386
+4,6.0,1.0,1,more where sad where where ,more ,more,45,4.445,0.1757,1640971392.95,1.8259999752044678
+4,6.0,1.0,2,more where sad where where ,more ,more,45,4.445,0.033,1640971393.927,0.9769999980926514
+4,6.0,1.0,3,more where sad where where ,more ,more,45,4.445,0.0727,1640971396.206,2.2790000438690186
+4,6.0,2.0,1,more where sad where where ,more where ,where,14,4.445,-0.1237,1640971402.128,5.921999931335449
+4,6.0,2.0,2,more where sad where where ,more where ,where,14,4.445,0.2014,1640971405.816,3.687999963760376
+4,6.0,2.0,3,more where sad where where ,more where ,where,14,4.445,0.1847,1640971408.239,2.4230000972747803
+4,6.0,3.0,1,more where sad where where ,more where sad ,sad,59,4.445,0.3038,1640971412.44,4.200999975204468
+4,6.0,3.0,2,more where sad where where ,more where sad ,sad,59,4.445,0.1867,1640971414.201,1.7609999179840088
+4,6.0,3.0,3,more where sad where where ,more where sad ,sad,59,4.445,0.1697,1640971416.584,2.383000135421753
+4,6.0,4.0,1,more where sad where where ,more where sad something_different ,where,18,4.445,-0.1267,1640971422.846,6.261999845504761
+4,6.0,4.0,2,more where sad where where ,more where sad something_different ,where,18,4.445,-0.4592,1640971425.87,3.0239999294281006
+4,6.0,4.0,3,more where sad where where ,more where sad something_different ,where,18,4.445,-0.2728,1640971427.178,1.308000087738037
+4,6.0,4.0,4,more where sad where where ,more where sad something_different ,where,18,4.445,-0.0851,1640971431.247,4.069000005722046
+4,6.0,5.0,1,more where sad where where ,more where sad something_different where ,where,14,4.445,0.2751,1640971437.571,6.324000120162964
+4,6.0,5.0,2,more where sad where where ,more where sad something_different where ,where,14,4.445,0.037,1640971447.49,9.918999910354614
+4,6.0,5.0,3,more where sad where where ,more where sad something_different where ,where,14,4.445,0.2998,1640971449.995,2.504999876022339
+4,6.0,6.0,1,more where sad where where ,more where sad something_different where .,.,.,4.445,0.3922,1640971452.767,2.7720000743865967
+4,6.0,6.0,2,more where sad where where ,more where sad something_different where .,.,.,4.445,-0.1974,1640971455.734,2.9670000076293945
+4,6.0,6.0,3,more where sad where where ,more where sad something_different where .,.,.,4.445,0.2641,1640971458.878,3.1440000534057617
+4,6.0,7.0,1,more where sad where where ,more where sad something_different where ..,.,.,4.445,-0.0037,1640971465.729,6.851000070571899
+4,6.0,7.0,2,more where sad where where ,more where sad something_different where ..,.,.,4.445,-0.0454,1640971466.926,1.1970000267028809
+4,6.0,7.0,3,more where sad where where ,more where sad something_different where ..,.,.,4.445,0.1451,1640971471.199,4.2729997634887695
+4,7.0,1.0,1,say it away okay feel ,say ,say,46,4.445,0.3168,1640971473.012,1.813000202178955
+4,7.0,1.0,2,say it away okay feel ,say ,say,46,4.445,0.2144,1640971476.069,3.056999921798706
+4,7.0,1.0,3,say it away okay feel ,say ,say,46,4.445,0.2521,1640971478.547,2.4779999256134033
+4,7.0,1.0,4,say it away okay feel ,say ,say,46,4.445,0.1637,1640971480.938,2.3910000324249268
+4,7.0,2.0,1,say it away okay feel ,say it ,it,11,4.445,0.3632,1640971485.459,4.521000146865845
+4,7.0,2.0,2,say it away okay feel ,say it ,it,11,4.445,0.1617,1640971490.416,4.956999778747559
+4,7.0,2.0,3,say it away okay feel ,say it ,it,11,4.445,0.0964,1640971492.749,2.3330001831054688
+4,7.0,3.0,1,say it away okay feel ,say it away ,away,43,4.445,0.1531,1640971494.887,2.138000011444092
+4,7.0,3.0,2,say it away okay feel ,say it away ,away,43,4.445,0.008,1640971499.021,4.133999824523926
+4,7.0,3.0,3,say it away okay feel ,say it away ,away,43,4.445,-0.2181,1640971501.033,2.01200008392334
+4,7.0,3.0,4,say it away okay feel ,say it away ,away,43,4.445,0.0517,1640971507.785,6.752000093460083
+4,7.0,4.0,1,say it away okay feel ,say it away okay ,okay,24,4.445,0.03,1640971510.483,2.697999954223633
+4,7.0,4.0,2,say it away okay feel ,say it away okay ,okay,24,4.445,0.0747,1640971513.048,2.565000057220459
+4,7.0,4.0,3,say it away okay feel ,say it away okay ,okay,24,4.445,-0.3065,1640971516.863,3.81499981880188
+4,7.0,4.0,4,say it away okay feel ,say it away okay ,okay,24,4.445,0.1677,1640971519.261,2.3980000019073486
+4,7.0,5.0,1,say it away okay feel ,say it away okay feel ,feel,57,4.445,0.2601,1640971523.755,4.494000196456909
+4,7.0,5.0,2,say it away okay feel ,say it away okay feel ,feel,57,4.445,-0.1684,1640971529.003,5.247999906539917
+4,7.0,5.0,3,say it away okay feel ,say it away okay feel ,feel,57,4.445,-0.0774,1640971531.134,2.13100004196167
+4,7.0,6.0,1,say it away okay feel ,say it away okay feel .,.,.,4.445,-0.1247,1640971533.407,2.2730000019073486
+4,7.0,6.0,2,say it away okay feel ,say it away okay feel .,.,.,4.445,0.039,1640971537.891,4.483999967575073
+4,7.0,6.0,3,say it away okay feel ,say it away okay feel .,.,.,4.445,0.2551,1640971542.269,4.378000020980835
+4,7.0,7.0,1,say it away okay feel ,say it away okay feel ..,.,.,4.445,0.1667,1640971549.3,7.0309998989105225
+4,7.0,7.0,2,say it away okay feel ,say it away okay feel ..,.,.,4.445,0.003,1640971554.736,5.436000108718872
+4,7.0,7.0,3,say it away okay feel ,say it away okay feel ..,.,.,4.445,-0.1894,1640971556.782,2.0460000038146973
+4,7.0,7.0,4,say it away okay feel ,say it away okay feel ..,.,.,4.445,0.1054,1640971559.119,2.3369998931884766
+4,8.0,1.0,1,take do soft make want ,say ,take,46,4.445,-0.1131,1640971564.978,5.858999967575073
+4,8.0,1.0,2,take do soft make want ,say ,take,46,4.445,-0.3312,1640971568.158,3.180000066757202
+4,8.0,1.0,3,take do soft make want ,say ,take,46,4.445,-0.0367,1640971572.256,4.0980000495910645
+5,1.0,1.0,1,see work feel do like ,see ,see,40,4.445,0.0727,1641314357.512,0
+5,1.0,1.0,2,see work feel do like ,see ,see,40,4.445,0.0717,1641314359.792,2.2799999713897705
+5,1.0,1.0,3,see work feel do like ,see ,see,40,4.445,0.3345,1641314362.337,2.544999837875366
+5,1.0,1.0,4,see work feel do like ,see ,see,40,4.445,0.0807,1641314364.64,2.3030002117156982
+5,1.0,2.0,1,see work feel do like ,see work ,work,55,4.445,0.0697,1641314369.231,4.5909998416900635
+5,1.0,2.0,2,see work feel do like ,see work ,work,55,4.445,0.1014,1641314371.542,2.311000108718872
+5,1.0,2.0,3,see work feel do like ,see work ,work,55,4.445,0.1647,1641314373.926,2.384000062942505
+5,1.0,3.0,1,see work feel do like ,see work feel ,feel,57,4.445,0.0864,1641314378.247,4.32099986076355
+5,1.0,3.0,2,see work feel do like ,see work feel ,feel,57,4.445,0.2481,1641314380.73,2.4830000400543213
+5,1.0,3.0,3,see work feel do like ,see work feel ,feel,57,4.445,0.3495,1641314383.312,2.5820000171661377
+5,1.0,4.0,1,see work feel do like ,see work feel do ,do,23,4.445,0.0964,1641314386.577,3.2649998664855957
+5,1.0,4.0,2,see work feel do like ,see work feel do ,do,23,4.445,-0.0127,1641314388.787,2.2100000381469727
+5,1.0,4.0,3,see work feel do like ,see work feel do ,do,23,4.445,0.2571,1641314391.26,2.4730000495910645
+5,1.0,5.0,1,see work feel do like ,see work feel do like ,like,39,4.445,0.1184,1641314393.96,2.700000047683716
+5,1.0,5.0,2,see work feel do like ,see work feel do like ,like,39,4.445,0.1857,1641314396.347,2.3869998455047607
+5,1.0,5.0,3,see work feel do like ,see work feel do like ,like,39,4.445,0.0677,1641314398.628,2.2810001373291016
+5,1.0,6.0,1,see work feel do like ,see work feel do like .,.,.,4.445,0.1947,1641314401.197,2.569000005722046
+5,1.0,6.0,2,see work feel do like ,see work feel do like .,.,.,4.445,0.2214,1641314404.264,3.066999912261963
+5,1.0,6.0,3,see work feel do like ,see work feel do like .,.,.,4.445,0.5826,1641314407.067,2.802999973297119
+5,1.0,6.0,4,see work feel do like ,see work feel do like .,.,.,4.445,0.2788,1641314411.481,4.414000034332275
+5,1.0,7.0,1,see work feel do like ,see work feel do like ..,.,.,4.445,-0.1227,1641314418.236,6.755000114440918
+5,1.0,7.0,2,see work feel do like ,see work feel do like ..,.,.,4.445,0.1094,1641314422.79,4.553999900817871
+5,1.0,7.0,3,see work feel do like ,see work feel do like ..,.,.,4.445,0.0497,1641314425.05,2.259999990463257
+5,2.0,1.0,1,give go where want eat ,give ,give,32,4.445,0.2781,1641314429.96,4.9100000858306885
+5,2.0,1.0,2,give go where want eat ,give ,give,32,4.445,0.0497,1641314432.851,2.8910000324249268
+5,2.0,1.0,3,give go where want eat ,give ,give,32,4.445,0.0974,1641314435.178,2.3269999027252197
+5,2.0,2.0,1,give go where want eat ,give go ,go,33,4.445,0.1064,1641314439.587,4.408999919891357
+5,2.0,2.0,2,give go where want eat ,give go ,go,33,4.445,0.0944,1641314443.816,4.229000091552734
+5,2.0,2.0,3,give go where want eat ,give go ,go,33,4.445,0.1084,1641314446.149,2.3329999446868896
+5,2.0,3.0,1,give go where want eat ,give go where ,where,14,4.445,0.0697,1641314447.791,1.6419999599456787
+5,2.0,3.0,2,give go where want eat ,give go where ,where,14,4.445,0.1321,1641314452.053,4.26200008392334
+5,2.0,3.0,3,give go where want eat ,give go where ,where,14,4.445,0.0407,1641314454.322,2.2690000534057617
+5,2.0,4.0,1,give go where want eat ,give go where want ,want,31,4.445,0.4239,1641314459.707,5.384999990463257
+5,2.0,4.0,2,give go where want eat ,give go where want ,want,31,4.445,-0.1041,1641314463.095,3.388000011444092
+5,2.0,4.0,3,give go where want eat ,give go where want ,want,31,4.445,0.1707,1641314465.493,2.3980000019073486
+5,2.0,5.0,1,give go where want eat ,give go where want eat ,eat,30,4.445,0.1897,1641314470.952,5.458999872207642
+5,2.0,5.0,2,give go where want eat ,give go where want eat ,eat,30,4.445,-0.0217,1641314475.058,4.106000185012817
+5,2.0,5.0,3,give go where want eat ,give go where want eat ,eat,30,4.445,-0.0861,1641314477.193,2.134999990463257
+5,2.0,6.0,1,give go where want eat ,give go where want eat .,.,.,4.445,-0.0971,1641314479.462,2.2689998149871826
+5,2.0,6.0,2,give go where want eat ,give go where want eat .,.,.,4.445,0.2788,1641314480.362,0.9000000953674316
+5,2.0,6.0,3,give go where want eat ,give go where want eat .,.,.,4.445,0.1114,1641314484.633,4.270999908447266
+5,2.0,7.0,1,give go where want eat ,give go where want eat ..,.,.,4.445,0.3832,1641314487.387,2.754000186920166
+5,2.0,7.0,2,give go where want eat ,give go where want eat ..,.,.,4.445,0.2521,1641314492.095,4.70799994468689
+5,2.0,7.0,3,give go where want eat ,give go where want eat ..,.,.,4.445,0.2581,1641314496.501,4.4059998989105225
+5,3.0,1.0,1,make help big little little ,make ,make,41,4.445,0.2968,1641314499.06,2.559000015258789
+5,3.0,1.0,2,make help big little little ,make ,make,41,4.445,-0.0117,1641314500.949,1.8889999389648438
+5,3.0,1.0,3,make help big little little ,make ,make,41,4.445,0.1927,1641314505.275,4.326000213623047
+5,3.0,2.0,1,make help big little little ,make help ,help,50,4.445,0.1687,1641314510.77,5.494999885559082
+5,3.0,2.0,2,make help big little little ,make help ,help,50,4.445,0.1817,1641314513.183,2.4130001068115234
+5,3.0,2.0,3,make help big little little ,make help ,help,50,4.445,0.1201,1641314515.522,2.3389999866485596
+5,3.0,3.0,1,make help big little little ,make help big ,big,34,4.445,0.1251,1641314519.647,4.125
+5,3.0,3.0,2,make help big little little ,make help big ,big,34,4.445,0.0767,1641314521.958,2.310999870300293
+5,3.0,3.0,3,make help big little little ,make help big ,big,34,4.445,0.1917,1641314524.354,2.3960001468658447
+5,3.0,4.0,1,make help big little little ,make help big little ,little,35,4.445,-0.1734,1641314527.825,3.4709999561309814
+5,3.0,4.0,2,make help big little little ,make help big little ,little,35,4.445,0.1697,1641314529.892,2.066999912261963
+5,3.0,4.0,3,make help big little little ,make help big little ,little,35,4.445,0.2481,1641314534.29,4.398000001907349
+5,3.0,5.0,1,make help big little little ,make help big little little ,little,35,4.445,0.028,1641314537.988,3.697999954223633
+5,3.0,5.0,2,make help big little little ,make help big little little ,little,35,4.445,0.0894,1641314540.93,2.942000150680542
+5,3.0,5.0,3,make help big little little ,make help big little little ,little,35,4.445,0.1977,1641314543.36,2.429999828338623
+5,3.0,6.0,1,make help big little little ,make help big little little .,.,.,4.445,0.3475,1641314546.071,2.7110002040863037
+5,3.0,6.0,2,make help big little little ,make help big little little .,.,.,4.445,0.1391,1641314547.46,1.3889999389648438
+5,3.0,6.0,3,make help big little little ,make help big little little .,.,.,4.445,0.1787,1641314549.861,2.4010000228881836
+5,3.0,7.0,1,make help big little little ,make help big little little ..,.,.,4.445,0.0637,1641314552.305,2.444000005722046
+5,3.0,7.0,2,make help big little little ,make help big little little ..,.,.,4.445,0.1907,1641314555.993,3.687999963760376
+5,3.0,7.0,3,make help big little little ,make help big little little ..,.,.,4.445,0.2601,1641314558.463,2.4700000286102295
+5,4.0,1.0,1,there where stop this finished ,there ,there,52,4.445,0.4636,1641314563.947,5.483999967575073
+5,4.0,1.0,2,there where stop this finished ,there ,there,52,4.445,0.2084,1641314566.651,2.7039999961853027
+5,4.0,1.0,3,there where stop this finished ,there ,there,52,4.445,0.3068,1641314569.19,2.5390000343322754
+5,4.0,2.0,1,there where stop this finished ,there where ,where,14,4.445,0.3445,1641314575.588,6.398000001907349
+5,4.0,2.0,2,there where stop this finished ,there where ,where,14,4.445,-0.0774,1641314577.083,1.494999885559082
+5,4.0,2.0,3,there where stop this finished ,there where ,where,14,4.445,-0.0297,1641314579.29,2.2070000171661377
+5,4.0,3.0,1,there where stop this finished ,there where stop ,stop,47,4.445,-0.0207,1641314585.1,5.809999942779541
+5,4.0,3.0,2,there where stop this finished ,there where stop ,stop,47,4.445,-0.0007,1641314589.88,4.78000020980835
+5,4.0,3.0,3,there where stop this finished ,there where stop ,stop,47,4.445,0.2054,1641314592.287,2.4069998264312744
+5,4.0,4.0,1,there where stop this finished ,there where stop this ,this,17,4.445,0.1867,1641314594.989,2.702000141143799
+5,4.0,4.0,2,there where stop this finished ,there where stop this ,this,17,4.445,0.2631,1641314597.465,2.4759998321533203
+5,4.0,4.0,3,there where stop this finished ,there where stop this ,this,17,4.445,0.3832,1641314600.067,2.6019999980926514
+5,4.0,5.0,1,there where stop this finished ,there where stop this finished ,finished,26,4.445,0.1124,1641314606.714,6.647000074386597
+5,4.0,5.0,2,there where stop this finished ,there where stop this finished ,finished,26,4.445,0.1717,1641314611.014,4.299999952316284
+5,4.0,5.0,3,there where stop this finished ,there where stop this finished ,finished,26,4.445,0.025,1641314613.265,2.251000165939331
+5,4.0,6.0,1,there where stop this finished ,there where stop this finished .,.,.,4.445,0.0417,1641314615.682,2.4169998168945312
+5,4.0,6.0,2,there where stop this finished ,there where stop this finished .,.,.,4.445,0.3008,1641314617.903,2.2210001945495605
+5,4.0,6.0,3,there where stop this finished ,there where stop this finished .,.,.,4.445,0.1717,1641314620.293,2.3899998664855957
+5,4.0,7.0,1,there where stop this finished ,there where stop this finished ..,.,.,4.445,0.0677,1641314627.228,6.934999942779541
+5,4.0,7.0,2,there where stop this finished ,there where stop this finished ..,.,.,4.445,0.1967,1641314630.918,3.690000057220459
+5,4.0,7.0,3,there where stop this finished ,there where stop this finished ..,.,.,4.445,0.2334,1641314633.355,2.437000036239624
+5,5.0,1.0,1,get hard mad soft good ,get ,get,38,4.445,0.2004,1641314636.282,2.927000045776367
+5,5.0,1.0,2,get hard mad soft good ,get ,get,38,4.445,0.0994,1641314638.621,2.3389999866485596
+5,5.0,1.0,3,get hard mad soft good ,get ,get,38,4.445,0.3892,1641314641.232,2.6110000610351562
+5,5.0,2.0,1,get hard mad soft good ,get hard ,hard,53,4.445,0.0767,1641314646.157,4.924999952316284
+5,5.0,2.0,2,get hard mad soft good ,get hard ,hard,53,4.445,0.0894,1641314647.171,1.0139999389648438
+5,5.0,2.0,3,get hard mad soft good ,get hard ,hard,53,4.445,0.1231,1641314649.524,2.3529999256134033
+5,5.0,3.0,1,get hard mad soft good ,get hard mad ,mad,67,4.445,0.1074,1641314652.349,2.825000047683716
+5,5.0,3.0,2,get hard mad soft good ,get hard mad ,mad,67,4.445,0.2124,1641314657.335,4.986000061035156
+5,5.0,3.0,3,get hard mad soft good ,get hard mad ,mad,67,4.445,0.2451,1641314659.808,2.4730000495910645
+5,5.0,4.0,1,get hard mad soft good ,get hard mad soft ,soft,54,4.445,-0.0137,1641314664.507,4.698999881744385
+5,5.0,4.0,2,get hard mad soft good ,get hard mad soft ,soft,54,4.445,0.1331,1641314669.413,4.906000137329102
+5,5.0,4.0,3,get hard mad soft good ,get hard mad soft ,soft,54,4.445,0.4676,1641314672.111,2.697999954223633
+5,5.0,5.0,1,get hard mad soft good ,get hard mad soft good ,good,36,4.445,0.3972,1641314675.84,3.7289998531341553
+5,5.0,5.0,2,get hard mad soft good ,get hard mad soft good ,good,36,4.445,0.1311,1641314680.732,4.892000198364258
+5,5.0,5.0,3,get hard mad soft good ,get hard mad soft good ,good,36,4.445,-0.0801,1641314682.879,2.1469998359680176
+5,5.0,6.0,1,get hard mad soft good ,get hard mad soft good .,.,.,4.445,0.2204,1641314685.463,2.5840001106262207
+5,5.0,6.0,2,get hard mad soft good ,get hard mad soft good .,.,.,4.445,0.3652,1641314689.968,4.504999876022339
+5,5.0,6.0,3,get hard mad soft good ,get hard mad soft good .,.,.,4.445,0.3128,1641314692.515,2.5470001697540283
+5,5.0,7.0,1,get hard mad soft good ,get hard mad soft good ..,.,.,4.445,-0.0574,1641314699.302,6.786999940872192
+5,5.0,7.0,2,get hard mad soft good ,get hard mad soft good ..,.,.,4.445,0.1064,1641314703.867,4.565000057220459
+5,5.0,7.0,3,get hard mad soft good ,get hard mad soft good ..,.,.,4.445,0.5269,1641314708.53,4.662999868392944
+5,6.0,1.0,1,this you away like excited ,this ,this,17,4.445,0.1461,1641314711.186,2.6560001373291016
+5,6.0,1.0,2,this you away like excited ,this ,this,17,4.445,0.0804,1641314714.121,2.934999942779541
+5,6.0,1.0,3,this you away like excited ,this ,this,17,4.445,0.2194,1641314716.58,2.4589998722076416
+5,6.0,3.0,1,this you away like excited ,this ,this,@,4.445,0.1461,1641314738.504,21.924000024795532
+5,6.0,3.0,2,this you away like excited ,this ,this,@,4.445,0.0804,1641314743.838,5.334000110626221
+5,6.0,3.0,3,this you away like excited ,this ,this,@,4.445,0.2194,1641314746.114,2.2760000228881836
+5,6.0,4.0,1,this you away like excited ,this you ,you,28,4.445,-0.0367,1641314751.964,5.849999904632568
+5,6.0,4.0,2,this you away like excited ,this you ,you,28,4.445,0.1361,1641314756.898,4.934000015258789
+5,6.0,4.0,3,this you away like excited ,this you ,you,28,4.445,0.0844,1641314759.205,2.306999921798706
+5,6.0,5.0,1,this you away like excited ,this you away ,away,43,4.445,0.039,1641314765.719,6.514000177383423
+5,6.0,5.0,2,this you away like excited ,this you away ,away,43,4.445,0.1797,1641314768.741,3.0219998359680176
+5,6.0,5.0,3,this you away like excited ,this you away ,away,43,4.445,0.1004,1641314771.062,2.321000099182129
+5,6.0,6.0,1,this you away like excited ,this you away like ,like,39,4.445,0.3722,1641314774.016,2.9539999961853027
+5,6.0,6.0,2,this you away like excited ,this you away like ,like,39,4.445,0.0677,1641314776.588,2.572000026702881
+5,6.0,6.0,3,this you away like excited ,this you away like ,like,39,4.445,0.4586,1641314781.181,4.5929999351501465
+5,6.0,7.0,1,this you away like excited ,this you away like excited ,excited,69,4.445,0.1054,1641314788.307,7.125999927520752
+5,6.0,7.0,2,this you away like excited ,this you away like excited ,excited,69,4.445,-0.0714,1641314791.088,2.7810001373291016
+5,6.0,7.0,3,this you away like excited ,this you away like excited ,excited,69,4.445,0.0537,1641314792.095,1.0069999694824219
+5,6.0,8.0,1,this you away like excited ,this you away like excited .,.,.,4.445,-0.0821,1641314794.398,2.302999973297119
+5,6.0,8.0,2,this you away like excited ,this you away like excited .,.,.,4.445,0.1054,1641314798.947,4.549000024795532
+5,6.0,8.0,3,this you away like excited ,this you away like excited .,.,.,4.445,0.2471,1641314803.329,4.381999969482422
+5,6.0,9.0,1,this you away like excited ,this you away like excited ..,.,.,4.445,-0.0137,1641314805.706,2.377000093460083
+5,6.0,9.0,2,this you away like excited ,this you away like excited ..,.,.,4.445,-0.2568,1641314806.7,0.9939999580383301
+5,6.0,9.0,3,this you away like excited ,this you away like excited ..,.,.,4.445,0.3972,1641314809.96,3.259999990463257
+5,7.0,1.0,1,like don8t less help break ,like ,like,39,4.445,-0.0464,1641314812.474,2.5139999389648438
+5,7.0,1.0,2,like don8t less help break ,like ,like,39,4.445,0.1887,1641314813.911,1.437000036239624
+5,7.0,1.0,3,like don8t less help break ,like ,like,39,4.445,0.3018,1641314816.425,2.5139999389648438
+5,7.0,2.0,1,like don8t less help break ,like don8t ,don8t,21,4.445,0.005,1641314820.886,4.460999965667725
+5,7.0,2.0,2,like don8t less help break ,like don8t ,don8t,21,4.445,0.3622,1641314822.205,1.319000005722046
+5,7.0,2.0,3,like don8t less help break ,like don8t ,don8t,21,4.445,0.2164,1641314824.658,2.453000068664551
+5,7.0,3.0,1,like don8t less help break ,like don8t less ,less,44,4.445,0.1491,1641314826.63,1.9720001220703125
+5,7.0,3.0,2,like don8t less help break ,like don8t less ,less,44,4.445,0.1004,1641314828.941,2.310999870300293
+5,7.0,3.0,3,like don8t less help break ,like don8t less ,less,44,4.445,0.3602,1641314831.523,2.5820000171661377
+5,7.0,4.0,1,like don8t less help break ,like don8t less help ,help,50,4.445,0.1787,1641314837.061,5.538000106811523
+5,7.0,4.0,2,like don8t less help break ,like don8t less help ,help,50,4.445,0.1591,1641314839.44,2.378999948501587
+5,7.0,4.0,3,like don8t less help break ,like don8t less help ,help,50,4.445,0.1797,1641314841.822,2.381999969482422
+5,7.0,5.0,1,like don8t less help break ,like don8t less help break ,break,56,4.445,0.3118,1641314846.514,4.691999912261963
+5,7.0,5.0,2,like don8t less help break ,like don8t less help break ,break,56,4.445,0.1461,1641314849.508,2.99399995803833
+5,7.0,5.0,3,like don8t less help break ,like don8t less help break ,break,56,4.445,0.0637,1641314851.784,2.2760000228881836
+5,7.0,6.0,1,like don8t less help break ,like don8t less help break .,.,.,4.445,0.0777,1641314854.239,2.455000162124634
+5,7.0,6.0,2,like don8t less help break ,like don8t less help break .,.,.,4.445,0.3018,1641314858.025,3.7860000133514404
+5,7.0,6.0,3,like don8t less help break ,like don8t less help break .,.,.,4.445,0.2114,1641314860.453,2.427999973297119
+5,7.0,7.0,1,like don8t less help break ,like don8t less help break ..,.,.,4.445,-0.0127,1641314862.827,2.373999834060669
+5,7.0,7.0,2,like don8t less help break ,like don8t less help break ..,.,.,4.445,0.2004,1641314863.642,0.815000057220459
+5,7.0,7.0,3,like don8t less help break ,like don8t less help break ..,.,.,4.445,0.1561,1641314866.037,2.3949999809265137
+5,8.0,1.0,1,with mad want take it ,with ,with,70,4.445,-0.3412,1641314868.137,2.1000001430511475
+5,8.0,1.0,2,with mad want take it ,with ,with,70,4.445,0.2234,1641314869.785,1.6480000019073486
+5,8.0,1.0,3,with mad want take it ,with ,with,70,4.445,0.013,1641314870.733,0.9479999542236328
+5,8.0,1.0,4,with mad want take it ,with ,with,70,4.445,0.2324,1641314873.194,2.4609999656677246
+5,8.0,2.0,1,with mad want take it ,with mad ,mad,67,4.445,0.2164,1641314876.098,2.9040000438690186
+5,8.0,2.0,2,with mad want take it ,with mad ,mad,67,4.445,0.2034,1641314880.445,4.346999883651733
+5,8.0,2.0,3,with mad want take it ,with mad ,mad,67,4.445,0.1627,1641314882.844,2.3990001678466797
+5,8.0,3.0,1,with mad want take it ,with mad want ,want,31,4.445,0.0974,1641314887.897,5.052999973297119
+5,8.0,3.0,2,with mad want take it ,with mad want ,want,31,4.445,0.0517,1641314888.892,0.994999885559082
+5,8.0,3.0,3,with mad want take it ,with mad want ,want,31,4.445,0.1677,1641314891.289,2.3970000743865967
+5,8.0,4.0,1,with mad want take it ,with mad want take ,take,48,4.445,-0.0584,1641314896.901,5.611999988555908
+5,8.0,4.0,2,with mad want take it ,with mad want take ,take,48,4.445,0.2908,1641314900.693,3.7920000553131104
+5,8.0,4.0,3,with mad want take it ,with mad want take ,take,48,4.445,0.2134,1641314903.135,2.441999912261963
+5,8.0,5.0,1,with mad want take it ,with mad want take it ,it,11,4.445,-0.0801,1641314911.68,8.545000076293945
+5,8.0,5.0,2,with mad want take it ,with mad want take it ,it,11,4.445,0.2481,1641314915.411,3.7309999465942383
+5,8.0,5.0,3,with mad want take it ,with mad want take it ,it,11,4.445,0.2431,1641314917.886,2.4749999046325684
+5,8.0,6.0,1,with mad want take it ,with mad want take it .,.,.,4.445,0.1064,1641314920.388,2.502000093460083
+5,8.0,6.0,2,with mad want take it ,with mad want take it .,.,.,4.445,0.2701,1641314924.152,3.7639999389648438
+5,8.0,6.0,3,with mad want take it ,with mad want take it .,.,.,4.445,0.1657,1641314926.527,2.375
+5,8.0,7.0,1,with mad want take it ,with mad want take it ..,.,.,4.445,0.0804,1641314929.001,2.4739999771118164
+5,8.0,7.0,2,with mad want take it ,with mad want take it ..,.,.,4.445,0.1231,1641314931.644,2.6430001258850098
+5,8.0,7.0,3,with mad want take it ,with mad want take it ..,.,.,4.445,0.014,1641314933.895,2.250999927520752
+6,1.0,1.0,1,help put little go it ,help ,help,50,4.445,0.2491,1641832842.42,0
+6,1.0,1.0,2,help put little go it ,help ,help,50,4.445,0.2294,1641832846.799,4.378999948501587
+6,1.0,2.0,1,help put little go it ,help put ,put,42,4.445,0.1747,1641832853.585,6.78600001335144
+6,1.0,2.0,2,help put little go it ,help put ,put,42,4.445,-0.1981,1641832855.608,2.0230000019073486
+6,1.0,2.0,3,help put little go it ,help put ,put,42,4.445,-0.0454,1641832856.482,0.874000072479248
+6,1.0,3.0,1,help put little go it ,help put little ,little,35,4.445,0.0657,1641832860.195,3.7129998207092285
+6,1.0,3.0,2,help put little go it ,help put little ,little,35,4.445,0.1201,1641832863.17,2.9750001430511475
+6,1.0,3.0,3,help put little go it ,help put little ,little,35,4.445,0.2194,1641832865.629,2.4589998722076416
+6,1.0,4.0,1,help put little go it ,help put little go ,go,33,4.445,0.038,1641832869.967,4.338000059127808
+6,1.0,4.0,2,help put little go it ,help put little go ,go,33,4.445,0.0904,1641832872.899,2.931999921798706
+6,1.0,4.0,3,help put little go it ,help put little go ,go,33,4.445,0.1054,1641832875.234,2.3350000381469727
+6,1.0,5.0,1,help put little go it ,help put little go it ,it,11,4.445,0.1341,1641832879.504,4.269999980926514
+6,1.0,5.0,2,help put little go it ,help put little go it ,it,11,4.445,0.1897,1641832883.839,4.335000038146973
+6,1.0,6.0,1,help put little go it ,help put little go it .,.,.,4.445,0.0844,1641832886.293,2.4539999961853027
+6,1.0,6.0,2,help put little go it ,help put little go it .,.,.,4.445,-0.0117,1641832891.076,4.7829999923706055
+6,1.0,6.0,3,help put little go it ,help put little go it .,.,.,4.445,0.1241,1641832893.413,2.3370001316070557
+6,1.0,7.0,1,help put little go it ,help put little go it ..,.,.,4.445,0.0657,1641832895.874,2.4609999656677246
+6,1.0,7.0,2,help put little go it ,help put little go it ..,.,.,4.445,0.2591,1641832899.629,3.754999876022339
+6,1.0,7.0,3,help put little go it ,help put little go it ..,.,.,4.445,0.1184,1641832901.968,2.3389999866485596
+6,2.0,1.0,1,finished work something_different sad me ,finished ,finished,26,4.445,-0.2201,1641832908.267,6.299000024795532
+6,2.0,1.0,2,finished work something_different sad me ,finished ,finished,26,4.445,0.1221,1641832910.292,2.0250000953674316
+6,2.0,1.0,3,finished work something_different sad me ,finished ,finished,26,4.445,0.018,1641832912.545,2.253000020980835
+6,2.0,2.0,1,finished work something_different sad me ,finished work ,work,55,4.445,0.1341,1641832917.224,4.678999900817871
+6,2.0,2.0,2,finished work something_different sad me ,finished work ,work,55,4.445,0.2511,1641832919.702,2.4779999256134033
+6,2.0,2.0,3,finished work something_different sad me ,finished work ,work,55,4.445,0.0547,1641832921.983,2.2810001373291016
+6,2.0,3.0,1,finished work something_different sad me ,finished work something_different ,something_different,18,4.445,0.0607,1641832923.95,1.9670000076293945
+6,2.0,3.0,2,finished work something_different sad me ,finished work something_different ,something_different,18,4.445,0.1281,1641832925.017,1.066999912261963
+6,2.0,3.0,3,finished work something_different sad me ,finished work something_different ,something_different,18,4.445,0.1401,1641832927.389,2.371999979019165
+6,2.0,4.0,1,finished work something_different sad me ,finished work something_different sad ,sad,59,4.445,0.1291,1641832931.418,4.0290000438690186
+6,2.0,4.0,2,finished work something_different sad me ,finished work something_different sad ,sad,59,4.445,0.2878,1641832933.938,2.5199999809265137
+6,2.0,4.0,3,finished work something_different sad me ,finished work something_different sad ,sad,59,4.445,-0.0277,1641832936.141,2.203000068664551
+6,2.0,5.0,1,finished work something_different sad me ,finished work something_different sad me ,me,19,4.445,0.2491,1641832937.66,1.5190000534057617
+6,2.0,5.0,2,finished work something_different sad me ,finished work something_different sad me ,me,19,4.445,0.2541,1641832938.865,1.2049999237060547
+6,2.0,5.0,3,finished work something_different sad me ,finished work something_different sad me ,me,19,4.445,0.1531,1641832941.242,2.377000093460083
+6,2.0,6.0,1,finished work something_different sad me ,finished work something_different sad me .,.,.,4.445,0.1361,1641832943.745,2.502999782562256
+6,2.0,6.0,2,finished work something_different sad me ,finished work something_different sad me .,.,.,4.445,0.1531,1641832946.122,2.377000093460083
+6,2.0,6.0,3,finished work something_different sad me ,finished work something_different sad me .,.,.,4.445,0.1707,1641832948.5,2.378000020980835
+6,2.0,7.0,1,finished work something_different sad me ,finished work something_different sad me ..,.,.,4.445,0.0517,1641832950.939,2.438999891281128
+6,2.0,7.0,2,finished work something_different sad me ,finished work something_different sad me ..,.,.,4.445,-0.1674,1641832953.279,2.3400001525878906
+6,2.0,7.0,3,finished work something_different sad me ,finished work something_different sad me ..,.,.,4.445,0.1917,1641832954.401,1.121999979019165
+6,3.0,2.0,1,break little there again bumpy ,,break,@,4.445,0.0517,1641832971.674,17.27300000190735
+6,3.0,2.0,2,break little there again bumpy ,,break,@,4.445,-0.1674,1641832974.681,3.006999969482422
+6,3.0,2.0,3,break little there again bumpy ,,break,@,4.445,0.1917,1641832976.92,2.239000082015991
+6,3.0,3.0,1,break little there again bumpy ,break ,break,56,4.445,0.1647,1641832981.453,4.5329999923706055
+6,3.0,3.0,2,break little there again bumpy ,break ,break,56,4.445,0.1351,1641832983.824,2.370999813079834
+6,3.0,3.0,3,break little there again bumpy ,break ,break,56,4.445,0.4566,1641832986.508,2.684000015258789
+6,3.0,4.0,1,break little there again bumpy ,break little ,little,35,4.445,0.2144,1641832990.384,3.876000165939331
+6,3.0,4.0,2,break little there again bumpy ,break little ,little,35,4.445,0.2491,1641832992.859,2.4749999046325684
+6,3.0,4.0,3,break little there again bumpy ,break little ,little,35,4.445,0.0824,1641832995.171,2.312000036239624
+6,3.0,5.0,1,break little there again bumpy ,break little there ,there,52,4.445,0.3168,1641833000.527,5.355999946594238
+6,3.0,5.0,2,break little there again bumpy ,break little there ,there,52,4.445,0.2104,1641833003.58,3.052999973297119
+6,3.0,5.0,3,break little there again bumpy ,break little there ,there,52,4.445,0.1807,1641833005.989,2.4090001583099365
+6,3.0,6.0,1,break little there again bumpy ,break little there again ,again,15,4.445,-0.1217,1641833010.645,4.6559998989105225
+6,3.0,6.0,2,break little there again bumpy ,break little there again ,again,15,4.445,0.035,1641833013.163,2.5180001258850098
+6,3.0,6.0,3,break little there again bumpy ,break little there again ,again,15,4.445,0.1637,1641833017.453,4.289999961853027
+6,3.0,7.0,1,break little there again bumpy ,break little there again bumpy ,bumpy,63,4.445,0.1281,1641833020.857,3.4040000438690186
+6,3.0,7.0,2,break little there again bumpy ,break little there again bumpy ,bumpy,63,4.445,0.1461,1641833025.155,4.297999858856201
+6,3.0,8.0,1,break little there again bumpy ,break little there again bumpy .,.,.,4.445,0.1591,1641833027.687,2.5320000648498535
+6,3.0,8.0,2,break little there again bumpy ,break little there again bumpy .,.,.,4.445,0.1401,1641833028.749,1.062000036239624
+6,3.0,8.0,3,break little there again bumpy ,break little there again bumpy .,.,.,4.445,0.2571,1641833031.227,2.4779999256134033
+6,3.0,9.0,1,break little there again bumpy ,break little there again bumpy ..,.,.,4.445,0.1461,1641833033.755,2.5280001163482666
+6,3.0,9.0,2,break little there again bumpy ,break little there again bumpy ..,.,.,4.445,0.2571,1641833038.146,4.390999794006348
+6,3.0,9.0,3,break little there again bumpy ,break little there again bumpy ..,.,.,4.445,0.1977,1641833040.567,2.4210000038146973
+6,4.0,1.0,1,easy is sick again go ,easy ,easy,62,4.445,0.2788,1641833044.249,3.682000160217285
+6,4.0,1.0,2,easy is sick again go ,easy ,easy,62,4.445,0.2641,1641833045.473,1.2239999771118164
+6,4.0,1.0,3,easy is sick again go ,easy ,easy,62,4.445,0.1777,1641833047.867,2.3940000534057617
+6,4.0,2.0,1,easy is sick again go ,easy is ,is,22,4.445,0.1361,1641833051.825,3.9579999446868896
+6,4.0,2.0,2,easy is sick again go ,easy is ,is,22,4.445,-0.2321,1641833055.734,3.9089999198913574
+6,4.0,2.0,3,easy is sick again go ,easy is ,is,22,4.445,0.2651,1641833058.235,2.500999927520752
+6,4.0,3.0,1,easy is sick again go ,easy is sick ,sick,66,4.445,0.0687,1641833065.556,7.321000099182129
+6,4.0,3.0,2,easy is sick again go ,easy is sick ,sick,66,4.445,0.1551,1641833069.203,3.6470000743865967
+6,4.0,3.0,3,easy is sick again go ,easy is sick ,sick,66,4.445,0.1371,1641833071.546,2.3429999351501465
+6,4.0,4.0,1,easy is sick again go ,easy is sick again ,again,15,4.445,0.2441,1641833076.575,5.0290000438690186
+6,4.0,4.0,2,easy is sick again go ,easy is sick again ,again,15,4.445,0.5856,1641833079.397,2.822000026702881
+6,4.0,4.0,3,easy is sick again go ,easy is sick again ,again,15,4.445,0.2581,1641833080.588,1.190999984741211
+6,4.0,5.0,1,easy is sick again go ,easy is sick again go ,go,33,4.445,0.2374,1641833085.127,4.539000034332275
+6,4.0,5.0,2,easy is sick again go ,easy is sick again go ,go,33,4.445,0.3255,1641833087.656,2.5289998054504395
+6,4.0,5.0,3,easy is sick again go ,easy is sick again go ,go,33,4.445,0.2818,1641833090.172,2.5160000324249268
+6,4.0,6.0,1,easy is sick again go ,easy is sick again go .,.,.,4.445,0.3078,1641833092.878,2.7060000896453857
+6,4.0,6.0,2,easy is sick again go ,easy is sick again go .,.,.,4.445,0.2481,1641833094.698,1.8199999332427979
+6,4.0,6.0,3,easy is sick again go ,easy is sick again go .,.,.,4.445,0.028,1641833096.956,2.258000135421753
+6,4.0,7.0,1,easy is sick again go ,easy is sick again go ..,.,.,4.445,0.1261,1641833099.454,2.497999906539917
+6,4.0,7.0,2,easy is sick again go ,easy is sick again go ..,.,.,4.445,0.2074,1641833102.537,3.0829999446868896
+6,4.0,7.0,3,easy is sick again go ,easy is sick again go ..,.,.,4.445,0.2998,1641833105.07,2.5329999923706055
+6,5.0,1.0,1,scared bad feel more break ,scared ,scared,68,4.445,0.1431,1641833107.832,2.76200008392334
+6,5.0,1.0,2,scared bad feel more break ,scared ,scared,68,4.445,0.1987,1641833109.607,1.7750000953674316
+6,5.0,1.0,3,scared bad feel more break ,scared ,scared,68,4.445,0.2374,1641833112.047,2.43999981880188
+6,5.0,2.0,1,scared bad feel more break ,scared bad ,bad,27,4.445,0.2441,1641833118.494,6.447000026702881
+6,5.0,2.0,2,scared bad feel more break ,scared bad ,bad,27,4.445,0.3535,1641833121.084,2.5900001525878906
+6,5.0,2.0,3,scared bad feel more break ,scared bad ,bad,27,4.445,0.2284,1641833123.518,2.43399977684021
+6,5.0,3.0,1,scared bad feel more break ,scared bad feel ,feel,57,4.445,0.021,1641833127.749,4.231000185012817
+6,5.0,3.0,2,scared bad feel more break ,scared bad feel ,feel,57,4.445,0.1301,1641833129.46,1.7109999656677246
+6,5.0,3.0,3,scared bad feel more break ,scared bad feel ,feel,57,4.445,0.5369,1641833132.229,2.7690000534057617
+6,5.0,3.0,4,scared bad feel more break ,scared bad feel ,feel,57,4.445,0.2374,1641833134.687,2.4579999446868896
+6,5.0,4.0,1,scared bad feel more break ,scared bad feel more ,more,45,4.445,0.1451,1641833140.953,6.266000032424927
+6,5.0,4.0,2,scared bad feel more break ,scared bad feel more ,more,45,4.445,0.018,1641833141.905,0.9519999027252197
+6,5.0,4.0,3,scared bad feel more break ,scared bad feel more ,more,45,4.445,0.2364,1641833144.366,2.4609999656677246
+6,5.0,5.0,1,scared bad feel more break ,scared bad feel more break ,break,56,4.445,0.2958,1641833149.026,4.6600000858306885
+6,5.0,5.0,2,scared bad feel more break ,scared bad feel more break ,break,56,4.445,0.0537,1641833153.221,4.194999933242798
+6,5.0,5.0,3,scared bad feel more break ,scared bad feel more break ,break,56,4.445,0.4149,1641833155.866,2.6449999809265137
+6,5.0,6.0,1,scared bad feel more break ,scared bad feel more break .,.,.,4.445,0.0667,1641833162.794,6.927999973297119
+6,5.0,6.0,2,scared bad feel more break ,scared bad feel more break .,.,.,4.445,0.1581,1641833165.447,2.6530001163482666
+6,5.0,6.0,3,scared bad feel more break ,scared bad feel more break .,.,.,4.445,0.1867,1641833167.835,2.388000011444092
+6,5.0,7.0,1,scared bad feel more break ,scared bad feel more break ..,.,.,4.445,0.1411,1641833170.35,2.5149998664855957
+6,5.0,7.0,2,scared bad feel more break ,scared bad feel more break ..,.,.,4.445,0.1271,1641833175.256,4.906000137329102
+6,5.0,7.0,3,scared bad feel more break ,scared bad feel more break ..,.,.,4.445,0.2234,1641833177.713,2.4570000171661377
+6,6.0,1.0,1,there in big good eat ,there ,there,52,4.445,-0.1557,1641833182.572,4.858999967575073
+6,6.0,1.0,2,there in big good eat ,there ,there,52,4.445,0.2501,1641833184.101,1.5290000438690186
+6,6.0,1.0,3,there in big good eat ,there ,there,52,4.445,0.2878,1641833188.538,4.437000036239624
+6,6.0,2.0,1,there in big good eat ,there in ,in,60,4.445,0.1311,1641833192.421,3.882999897003174
+6,6.0,2.0,2,there in big good eat ,there in ,in,60,4.445,0.2401,1641833196.81,4.388999938964844
+6,6.0,3.0,1,there in big good eat ,there in big ,big,34,4.445,0.2004,1641833205.49,8.680000066757202
+6,6.0,3.0,2,there in big good eat ,there in big ,big,34,4.445,0.2641,1641833207.995,2.504999876022339
+6,6.0,3.0,3,there in big good eat ,there in big ,big,34,4.445,0.1627,1641833210.372,2.377000093460083
+6,6.0,4.0,1,there in big good eat ,there in big good ,good,36,4.445,0.1531,1641833213.883,3.510999917984009
+6,6.0,4.0,2,there in big good eat ,there in big good ,good,36,4.445,0.1521,1641833214.961,1.0780000686645508
+6,6.0,4.0,3,there in big good eat ,there in big good ,good,36,4.445,0.1361,1641833217.305,2.3440001010894775
+6,6.0,5.0,1,there in big good eat ,there in big good eat ,eat,30,4.445,0.2084,1641833222.778,5.4730000495910645
+6,6.0,5.0,2,there in big good eat ,there in big good eat ,eat,30,4.445,0.2314,1641833225.242,2.4639999866485596
+6,6.0,5.0,3,there in big good eat ,there in big good eat ,eat,30,4.445,0.1897,1641833227.638,2.3959999084472656
+6,6.0,6.0,1,there in big good eat ,there in big good eat .,.,.,4.445,0.2124,1641833230.221,2.5829999446868896
+6,6.0,6.0,2,there in big good eat ,there in big good eat .,.,.,4.445,-0.1674,1641833234.199,3.9779999256134033
+6,6.0,6.0,3,there in big good eat ,there in big good eat .,.,.,4.445,0.1481,1641833235.278,1.0790002346038818
+6,6.0,7.0,1,there in big good eat ,there in big good eat ..,.,.,4.445,0.2124,1641833242.341,7.062999963760376
+6,6.0,7.0,2,there in big good eat ,there in big good eat ..,.,.,4.445,0.3138,1641833246.804,4.4629998207092285
+6,6.0,7.0,3,there in big good eat ,there in big good eat ..,.,.,4.445,0.0627,1641833249.071,2.267000198364258
+6,7.0,1.0,1,something_different where on me is ,something_different ,something_different,18,4.445,0.1381,1641833255.588,6.516999959945679
+6,7.0,1.0,2,something_different where on me is ,something_different ,something_different,18,4.445,0.1947,1641833259.925,4.336999893188477
+6,7.0,1.0,3,something_different where on me is ,something_different ,something_different,18,4.445,0.3148,1641833262.445,2.5199999809265137
+6,7.0,2.0,1,something_different where on me is ,something_different where ,where,14,4.445,0.3168,1641833264.327,1.8819999694824219
+6,7.0,2.0,2,something_different where on me is ,something_different where ,where,14,4.445,0.2798,1641833265.53,1.2030000686645508
+6,7.0,2.0,3,something_different where on me is ,something_different where ,where,14,4.445,0.1607,1641833267.931,2.4010000228881836
+6,7.0,3.0,1,something_different where on me is ,something_different where on ,on,61,4.445,0.2968,1641833271.828,3.8970000743865967
+6,7.0,3.0,2,something_different where on me is ,something_different where on ,on,61,4.445,0.1837,1641833272.954,1.125999927520752
+6,7.0,4.0,1,something_different where on me is ,something_different where on me ,me,19,4.445,0.3702,1641833274.581,1.627000093460083
+6,7.0,4.0,2,something_different where on me is ,something_different where on me ,me,19,4.445,0.2084,1641833277.659,3.0779998302459717
+6,7.0,5.0,1,something_different where on me is ,something_different where on me is ,is,22,4.445,0.1937,1641833281.683,4.02400016784668
+6,7.0,5.0,2,something_different where on me is ,something_different where on me is ,is,22,4.445,0.3525,1641833286.163,4.480000019073486
+6,7.0,6.0,1,something_different where on me is ,something_different where on me is .,.,.,4.445,0.3592,1641833288.89,2.7269999980926514
+6,7.0,6.0,2,something_different where on me is ,something_different where on me is .,.,.,4.445,0.2591,1641833292.67,3.7799999713897705
+6,7.0,6.0,3,something_different where on me is ,something_different where on me is .,.,.,4.445,0.2034,1641833295.092,2.421999931335449
+6,7.0,7.0,1,something_different where on me is ,something_different where on me is ..,.,.,4.445,0.1311,1641833297.619,2.5269999504089355
+6,7.0,7.0,2,something_different where on me is ,something_different where on me is ..,.,.,4.445,0.3008,1641833301.43,3.811000108718872
+6,7.0,7.0,3,something_different where on me is ,something_different where on me is ..,.,.,4.445,0.2314,1641833303.881,2.4509999752044678
+6,8.0,1.0,1,sick now stop again on ,sick ,sick,66,4.445,0.3158,1641833306.966,3.0850000381469727
+6,8.0,1.0,2,sick now stop again on ,sick ,sick,66,4.445,0.2711,1641833311.359,4.392999887466431
+6,8.0,1.0,3,sick now stop again on ,sick ,sick,66,4.445,0.3862,1641833313.957,2.5980000495910645
+6,8.0,2.0,1,sick now stop again on ,sick now ,now,16,4.445,0.1511,1641833317.6,3.6429998874664307
+6,8.0,2.0,2,sick now stop again on ,sick now ,now,16,4.445,0.2094,1641833318.739,1.1390001773834229
+6,8.0,3.0,1,sick now stop again on ,sick now stop ,stop,47,4.445,0.2928,1641833324.862,6.122999906539917
+6,8.0,3.0,2,sick now stop again on ,sick now stop ,stop,47,4.445,-0.0257,1641833327.062,2.200000047683716
+6,8.0,3.0,3,sick now stop again on ,sick now stop ,stop,47,4.445,0.1581,1641833329.447,2.384999990463257
+6,8.0,5.0,1,sick now stop again on ,sick now stop ,stop,@,4.445,0.2928,1641833344.308,14.861000061035156
+6,8.0,5.0,2,sick now stop again on ,sick now stop ,stop,@,4.445,-0.0257,1641833347.417,3.1089999675750732
+6,8.0,5.0,3,sick now stop again on ,sick now stop ,stop,@,4.445,0.1581,1641833350.063,2.6459999084472656
+6,8.0,6.0,1,sick now stop again on ,sick now stop again ,again,15,4.445,-0.2728,1641833354.573,4.509999990463257
+6,8.0,6.0,2,sick now stop again on ,sick now stop again ,again,15,4.445,0.3722,1641833359.422,4.848999977111816
+6,8.0,6.0,3,sick now stop again on ,sick now stop again ,again,15,4.445,0.0934,1641833363.662,4.240000009536743
+6,8.0,7.0,1,sick now stop again on ,sick now stop again on ,on,61,4.445,0.1847,1641833367.435,3.7730000019073486
+6,8.0,7.0,2,sick now stop again on ,sick now stop again on ,on,61,4.445,0.0497,1641833371.617,4.182000160217285
+6,8.0,7.0,3,sick now stop again on ,sick now stop again on ,on,61,4.445,0.1581,1641833374.007,2.3899998664855957
+6,8.0,8.0,1,sick now stop again on ,sick now stop again on .,.,.,4.445,0.2751,1641833376.645,2.638000011444092
+6,8.0,8.0,2,sick now stop again on ,sick now stop again on .,.,.,4.445,0.3962,1641833381.167,4.522000074386597
+6,8.0,8.0,3,sick now stop again on ,sick now stop again on .,.,.,4.445,0.0003,1641833383.368,2.2009999752044678
+6,8.0,9.0,1,sick now stop again on ,sick now stop again on ..,.,.,4.445,0.1627,1641833385.892,2.5239999294281006
+6,8.0,9.0,2,sick now stop again on ,sick now stop again on ..,.,.,4.445,0.4596,1641833389.87,3.9779999256134033
+6,8.0,9.0,3,sick now stop again on ,sick now stop again on ..,.,.,4.445,0.1657,1641833398.655,8.785000085830688
+6,9.0,1.0,1,again don8t do who help ,again ,again,15,4.445,0.2511,1641833403.702,5.046999931335449
+6,9.0,1.0,2,again don8t do who help ,again ,again,15,4.445,0.2998,1641833406.23,2.5280001163482666
+6,9.0,1.0,3,again don8t do who help ,again ,again,15,4.445,0.3702,1641833408.822,2.5920000076293945
+6,9.0,2.0,1,again don8t do who help ,again don8t ,don8t,21,4.445,0.4596,1641833413.752,4.930000066757202
+6,9.0,2.0,2,again don8t do who help ,again don8t ,don8t,21,4.445,0.3215,1641833418.852,5.099999904632568
+6,9.0,2.0,3,again don8t do who help ,again don8t ,don8t,21,4.445,-0.0357,1641833421.053,2.2009999752044678
+7,1.0,1.0,1,turn here i scared sad ,have ,turn,37,4.445,-0.1041,1645969833.026,0
+7,1.0,1.0,2,turn here i scared sad ,have ,turn,37,4.445,0.03,1645969845.841,12.815000057220459
+7,1.0,1.0,3,turn here i scared sad ,have ,turn,37,4.445,-0.0784,1645969849.892,4.050999879837036
+7,1.0,2.0,1,turn here i scared sad ,have here ,here,51,4.445,0.0777,1645969855.169,5.2769999504089355
+7,1.0,2.0,2,turn here i scared sad ,have here ,here,51,4.445,-0.0027,1645969858.008,2.8389999866485596
+7,1.0,2.0,3,turn here i scared sad ,have here ,here,51,4.445,0.2491,1645969860.462,2.4539999961853027
+7,1.0,3.0,1,turn here i scared sad ,have here i ,i,10,4.445,0.1411,1645969876.273,15.811000108718872
+7,1.0,3.0,2,turn here i scared sad ,have here i ,i,10,4.445,0.0757,1645969877.287,1.0139999389648438
+7,1.0,3.0,3,turn here i scared sad ,have here i ,i,10,4.445,0.1907,1645969879.683,2.3960001468658447
+7,1.0,4.0,1,turn here i scared sad ,have here i scared ,scared,68,4.445,0.1104,1645969882.402,2.7189998626708984
+7,1.0,4.0,2,turn here i scared sad ,have here i scared ,scared,68,4.445,0.021,1645969887.193,4.791000127792358
+7,1.0,4.0,3,turn here i scared sad ,have here i scared ,scared,68,4.445,0.2898,1645969889.704,2.510999917984009
+7,1.0,5.0,1,turn here i scared sad ,have here i scared sad ,sad,59,4.445,0.1957,1645969893.808,4.104000091552734
+7,1.0,5.0,2,turn here i scared sad ,have here i scared sad ,sad,59,4.445,0.1401,1645969896.152,2.3439998626708984
+7,1.0,5.0,3,turn here i scared sad ,have here i scared sad ,sad,59,4.445,-0.1267,1645969898.243,2.0910000801086426
+7,1.0,6.0,1,turn here i scared sad ,have here i scared sad .,.,.,4.445,0.014,1645969905.105,6.861999988555908
+7,1.0,6.0,2,turn here i scared sad ,have here i scared sad .,.,.,4.445,0.2264,1645969907.839,2.7339999675750732
+7,1.0,6.0,3,turn here i scared sad ,have here i scared sad .,.,.,4.445,0.1877,1645969910.241,2.4019999504089355
+7,1.0,7.0,1,turn here i scared sad ,have here i scared sad ..,.,.,4.445,0.2174,1645969912.831,2.5900001525878906
+7,1.0,7.0,2,turn here i scared sad ,have here i scared sad ..,.,.,4.445,0.0924,1645969917.064,4.232999801635742
+7,1.0,7.0,3,turn here i scared sad ,have here i scared sad ..,.,.,4.445,0.0944,1645969919.386,2.322000026702881
+7,2.0,1.0,1,take what eat okay little ,take ,take,48,4.445,0.3235,1645969925.377,5.991000175476074
+7,2.0,1.0,2,take what eat okay little ,take ,take,48,4.445,0.2711,1645969928.523,3.1459999084472656
+7,2.0,1.0,3,take what eat okay little ,take ,take,48,4.445,0.1281,1645969930.86,2.3369998931884766
+7,2.0,2.0,1,take what eat okay little ,take what ,what,13,4.445,0.2818,1645969934.015,3.1550002098083496
+7,2.0,2.0,2,take what eat okay little ,take what ,what,13,4.445,-0.0811,1645969939.369,5.353999853134155
+7,2.0,2.0,3,take what eat okay little ,take what ,what,13,4.445,0.1717,1645969941.744,2.375
+7,2.0,3.0,1,take what eat okay little ,take what eat ,eat,30,4.445,0.2471,1645969947.259,5.515000104904175
+7,2.0,3.0,2,take what eat okay little ,take what eat ,eat,30,4.445,0.0417,1645969951.452,4.192999839782715
+7,2.0,3.0,3,take what eat okay little ,take what eat ,eat,30,4.445,0.0984,1645969953.79,2.3380000591278076
+7,2.0,4.0,1,take what eat okay little ,take what eat okay ,okay,24,4.445,0.3078,1645969956.76,2.9700000286102295
+7,2.0,4.0,2,take what eat okay little ,take what eat okay ,okay,24,4.445,0.2294,1645969958.562,1.8020000457763672
+7,2.0,4.0,3,take what eat okay little ,take what eat okay ,okay,24,4.445,0.2334,1645969961.006,2.444000005722046
+7,2.0,5.0,1,take what eat okay little ,take what eat okay little ,little,35,4.445,0.2741,1645969964.927,3.9210000038146973
+7,2.0,5.0,2,take what eat okay little ,take what eat okay little ,little,35,4.445,0.3385,1645969966.191,1.2639999389648438
+7,2.0,5.0,3,take what eat okay little ,take what eat okay little ,little,35,4.445,0.1597,1645969968.572,2.38100004196167
+7,2.0,6.0,1,take what eat okay little ,take what eat okay little .,.,.,4.445,0.0964,1645969975.548,6.976000070571899
+7,2.0,6.0,2,take what eat okay little ,take what eat okay little .,.,.,4.445,0.012,1645969978.063,2.5149998664855957
+7,2.0,6.0,3,take what eat okay little ,take what eat okay little .,.,.,4.445,-0.4542,1645969986.233,8.170000076293945
+7,2.0,6.0,4,take what eat okay little ,take what eat okay little .,.,.,4.445,0.4516,1645969990.826,4.5929999351501465
+7,2.0,7.0,1,take what eat okay little ,take what eat okay little ..,.,.,4.445,-0.0444,1645969993.166,2.3399999141693115
+7,2.0,7.0,2,take what eat okay little ,take what eat okay little ..,.,.,4.445,0.4476,1645969998.702,5.53600001335144
+7,2.0,7.0,3,take what eat okay little ,take what eat okay little ..,.,.,4.445,0.3652,1645970003.218,4.516000032424927
+7,3.0,1.0,1,eat work stop say sick ,eat ,eat,30,4.445,-0.0367,1645970008.454,5.236000061035156
+7,3.0,1.0,2,eat work stop say sick ,eat ,eat,30,4.445,0.1937,1645970012.167,3.7130000591278076
+7,3.0,1.0,3,eat work stop say sick ,eat ,eat,30,4.445,0.2481,1645970014.622,2.4549999237060547
+7,3.0,2.0,1,eat work stop say sick ,eat work ,work,55,4.445,0.0537,1645970019.225,4.602999925613403
+7,3.0,2.0,2,eat work stop say sick ,eat work ,work,55,4.445,-0.0017,1645970020.809,1.5840001106262207
+7,3.0,2.0,3,eat work stop say sick ,eat work ,work,55,4.445,0.5002,1645970023.514,2.7049999237060547
+7,3.0,2.0,4,eat work stop say sick ,eat work ,work,55,4.445,0.0427,1645970025.774,2.259999990463257
+7,3.0,3.0,1,eat work stop say sick ,eat work stop ,stop,47,4.445,0.1994,1645970031.813,6.039000034332275
+7,3.0,3.0,2,eat work stop say sick ,eat work stop ,stop,47,4.445,0.1607,1645970034.213,2.4000000953674316
+7,3.0,3.0,3,eat work stop say sick ,eat work stop ,stop,47,4.445,0.1551,1645970036.607,2.3940000534057617
+7,3.0,4.0,1,eat work stop say sick ,eat work stop say ,say,46,4.445,0.1491,1645970042.72,6.11299991607666
+7,3.0,4.0,2,eat work stop say sick ,eat work stop say ,say,46,4.445,0.3178,1645970045.251,2.5309998989105225
+7,3.0,4.0,3,eat work stop say sick ,eat work stop say ,say,46,4.445,-0.1121,1645970047.338,2.0870001316070557
+7,3.0,4.0,4,eat work stop say sick ,eat work stop say ,say,46,4.445,0.0924,1645970049.663,2.325000047683716
+7,3.0,5.0,1,eat work stop say sick ,eat work stop say sick ,sick,66,4.445,0.2324,1645970052.684,3.0209999084472656
+7,3.0,5.0,2,eat work stop say sick ,eat work stop say sick ,sick,66,4.445,0.1937,1645970058.286,5.601999998092651
+7,3.0,5.0,3,eat work stop say sick ,eat work stop say sick ,sick,66,4.445,0.1994,1645970060.692,2.4059998989105225
+7,3.0,6.0,1,eat work stop say sick ,eat work stop say sick .,.,.,4.445,0.2374,1645970063.329,2.63700008392334
+7,3.0,6.0,2,eat work stop say sick ,eat work stop say sick .,.,.,4.445,0.3225,1645970065.216,1.8870000839233398
+7,3.0,6.0,3,eat work stop say sick ,eat work stop say sick .,.,.,4.445,0.0437,1645970067.495,2.2789998054504395
+7,3.0,7.0,1,eat work stop say sick ,eat work stop say sick ..,.,.,4.445,0.0667,1645970069.957,2.4620001316070557
+7,3.0,7.0,2,eat work stop say sick ,eat work stop say sick ..,.,.,4.445,-0.1031,1645970072.347,2.3899998664855957
+7,3.0,7.0,3,eat work stop say sick ,eat work stop say sick ..,.,.,4.445,0.2084,1645970076.701,4.354000091552734
+7,4.0,1.0,1,where turn like mad stop ,where ,where,14,4.445,0.007,1645970082.778,6.077000141143799
+7,4.0,1.0,2,where turn like mad stop ,where ,where,14,4.445,-0.0881,1645970084.282,1.503999948501587
+7,4.0,1.0,3,where turn like mad stop ,where ,where,14,4.445,-0.0057,1645970086.485,2.2029998302459717
+7,4.0,2.0,1,where turn like mad stop ,where turn ,turn,49,4.445,-0.1111,1645970091.858,5.373000144958496
+7,4.0,2.0,2,where turn like mad stop ,where turn ,turn,49,4.445,0.3852,1645970095.759,3.9010000228881836
+7,4.0,2.0,3,where turn like mad stop ,where turn ,turn,49,4.445,0.0527,1645970098.024,2.2649998664855957
+7,4.0,3.0,1,where turn like mad stop ,where turn like ,like,39,4.445,0.3495,1645970105.443,7.419000148773193
+7,4.0,3.0,2,where turn like mad stop ,where turn like ,like,39,4.445,0.1707,1645970108.103,2.6599998474121094
+7,4.0,3.0,3,where turn like mad stop ,where turn like ,like,39,4.445,0.2998,1645970110.633,2.5299999713897705
+7,4.0,4.0,1,where turn like mad stop ,where turn like mad ,mad,67,4.445,0.0707,1645970113.402,2.7690000534057617
+7,4.0,4.0,2,where turn like mad stop ,where turn like mad ,mad,67,4.445,0.3048,1645970116.558,3.1560001373291016
+7,4.0,4.0,3,where turn like mad stop ,where turn like mad ,mad,67,4.445,0.1114,1645970118.883,2.3249998092651367
+7,4.0,5.0,1,where turn like mad stop ,where turn like mad stop ,stop,47,4.445,0.2868,1645970120.5,1.6170001029968262
+7,4.0,5.0,2,where turn like mad stop ,where turn like mad stop ,stop,47,4.445,-0.0624,1645970121.388,0.8880000114440918
+7,4.0,5.0,3,where turn like mad stop ,where turn like mad stop ,stop,47,4.445,0.1381,1645970128.229,6.841000080108643
+7,4.0,6.0,1,where turn like mad stop ,where turn like mad stop .,.,.,4.445,0.3942,1645970131.007,2.7779998779296875
+7,4.0,6.0,2,where turn like mad stop ,where turn like mad stop .,.,.,4.445,0.2958,1645970135.749,4.742000102996826
+7,4.0,6.0,3,where turn like mad stop ,where turn like mad stop .,.,.,4.445,0.0984,1645970139.989,4.240000009536743
+7,4.0,7.0,1,where turn like mad stop ,where turn like mad stop ..,.,.,4.445,0.029,1645970142.4,2.4110000133514404
+7,4.0,7.0,2,where turn like mad stop ,where turn like mad stop ..,.,.,4.445,0.3385,1645970145.232,2.8320000171661377
+7,4.0,7.0,3,where turn like mad stop ,where turn like mad stop ..,.,.,4.445,-0.0404,1645970149.33,4.097999811172485
+7,5.0,1.0,1,all_gone finished feel something_different scared ,all_gone ,all_gone,25,4.445,0.0874,1645970151.739,2.4090001583099365
+7,5.0,1.0,2,all_gone finished feel something_different scared ,all_gone ,all_gone,25,4.445,0.1707,1645970155.423,3.684000015258789
+7,5.0,1.0,3,all_gone finished feel something_different scared ,all_gone ,all_gone,25,4.445,0.1807,1645970157.833,2.4099998474121094
+7,5.0,2.0,1,all_gone finished feel something_different scared ,all_gone finished ,finished,26,4.445,0.3772,1645970160.271,2.437999963760376
+7,5.0,2.0,2,all_gone finished feel something_different scared ,all_gone finished ,finished,26,4.445,0.1947,1645970161.726,1.4550001621246338
+7,5.0,2.0,3,all_gone finished feel something_different scared ,all_gone finished ,finished,26,4.445,-0.0037,1645970163.927,2.2009999752044678
+7,5.0,3.0,1,all_gone finished feel something_different scared ,all_gone finished feel ,feel,57,4.445,0.2441,1645970168.377,4.450000047683716
+7,5.0,3.0,2,all_gone finished feel something_different scared ,all_gone finished feel ,feel,57,4.445,0.1857,1645970172.718,4.3409998416900635
+7,5.0,4.0,1,all_gone finished feel something_different scared ,all_gone finished feel something_different ,something_different,18,4.445,0.2671,1645970174.88,2.1620001792907715
+7,5.0,4.0,2,all_gone finished feel something_different scared ,all_gone finished feel something_different ,something_different,18,4.445,0.025,1645970179.036,4.1559998989105225
+7,5.0,4.0,3,all_gone finished feel something_different scared ,all_gone finished feel something_different ,something_different,18,4.445,0.1124,1645970181.365,2.3289999961853027
+7,5.0,5.0,1,all_gone finished feel something_different scared ,all_gone finished feel something_different scared ,scared,68,4.445,0.2411,1645970184.214,2.8489999771118164
+7,5.0,5.0,2,all_gone finished feel something_different scared ,all_gone finished feel something_different scared ,scared,68,4.445,0.3215,1645970188.695,4.480999946594238
+7,5.0,5.0,3,all_gone finished feel something_different scared ,all_gone finished feel something_different scared ,scared,68,4.445,0.1617,1645970191.094,2.3990001678466797
+7,5.0,6.0,1,all_gone finished feel something_different scared ,all_gone finished feel something_different scared .,.,.,4.445,0.1211,1645970193.613,2.5189998149871826
+7,5.0,6.0,2,all_gone finished feel something_different scared ,all_gone finished feel something_different scared .,.,.,4.445,0.1767,1645970194.749,1.136000156402588
+7,5.0,6.0,3,all_gone finished feel something_different scared ,all_gone finished feel something_different scared .,.,.,4.445,0.1727,1645970197.145,2.3959999084472656
+7,5.0,7.0,1,all_gone finished feel something_different scared ,all_gone finished feel something_different scared ..,.,.,4.445,0.1184,1645970199.65,2.505000114440918
+7,5.0,7.0,2,all_gone finished feel something_different scared ,all_gone finished feel something_different scared ..,.,.,4.445,0.2204,1645970204.633,4.982999801635742
+7,5.0,7.0,3,all_gone finished feel something_different scared ,all_gone finished feel something_different scared ..,.,.,4.445,0.3128,1645970207.166,2.5329999923706055
+7,6.0,1.0,1,again put turn i here ,again ,again,15,4.445,0.1817,1645970212.114,4.948000192642212
+7,6.0,1.0,2,again put turn i here ,again ,again,15,4.445,0.1551,1645970214.488,2.373999834060669
+7,6.0,1.0,3,again put turn i here ,again ,again,15,4.445,0.3118,1645970217.005,2.517000198364258
+7,6.0,2.0,1,again put turn i here ,again put ,put,42,4.445,0.2681,1645970219.401,2.3959999084472656
+7,6.0,2.0,2,again put turn i here ,again put ,put,42,4.445,0.1431,1645970220.476,1.0750000476837158
+7,6.0,2.0,3,again put turn i here ,again put ,put,42,4.445,0.1104,1645970222.802,2.3259999752044678
+7,6.0,3.0,1,again put turn i here ,again put turn ,turn,49,4.445,0.1074,1645970228.399,5.596999883651733
+7,6.0,3.0,2,again put turn i here ,again put turn ,turn,49,4.445,-0.0614,1645970233.748,5.348999977111816
+7,6.0,3.0,3,again put turn i here ,again put turn ,turn,49,4.445,0.1471,1645970236.119,2.371000051498413
+7,6.0,4.0,1,again put turn i here ,again put turn i ,i,10,4.445,0.2681,1645970243.081,6.962000131607056
+7,6.0,4.0,2,again put turn i here ,again put turn i ,i,10,4.445,0.3215,1645970247.535,4.453999996185303
+7,6.0,4.0,3,again put turn i here ,again put turn i ,i,10,4.445,-0.0317,1645970249.74,2.2049999237060547
+7,6.0,5.0,1,again put turn i here ,again put turn i here ,here,51,4.445,0.035,1645970254.966,5.226000070571899
+7,6.0,5.0,2,again put turn i here ,again put turn i here ,here,51,4.445,0.0717,1645970256.604,1.6380000114440918
+7,6.0,5.0,3,again put turn i here ,again put turn i here ,here,51,4.445,0.1707,1645970258.983,2.378999948501587
+7,6.0,6.0,1,again put turn i here ,again put turn i here .,.,.,4.445,-0.0454,1645970261.325,2.3420000076293945
+7,6.0,6.0,2,again put turn i here ,again put turn i here .,.,.,4.445,0.3078,1645970266.721,5.395999908447266
+7,6.0,6.0,3,again put turn i here ,again put turn i here .,.,.,4.445,0.1697,1645970271.022,4.301000118255615
+7,6.0,7.0,1,again put turn i here ,again put turn i here ..,.,.,4.445,0.1967,1645970273.609,2.5869998931884766
+7,6.0,7.0,2,again put turn i here ,again put turn i here ..,.,.,4.445,-0.1217,1645970275.687,2.078000068664551
+7,6.0,7.0,3,again put turn i here ,again put turn i here ..,.,.,4.445,0.1481,1645970279.959,4.272000074386597
+7,7.0,1.0,1,feel something_different feel eat is ,feel ,feel,57,4.445,0.2828,1645970284.455,4.495999813079834
+7,7.0,1.0,2,feel something_different feel eat is ,feel ,feel,57,4.445,0.0944,1645970289.985,5.5299999713897705
+7,7.0,1.0,3,feel something_different feel eat is ,feel ,feel,57,4.445,-0.0841,1645970292.125,2.140000104904175
+7,7.0,2.0,1,feel something_different feel eat is ,feel something_different ,something_different,18,4.445,0.1241,1645970294.134,2.009000062942505
+7,7.0,2.0,2,feel something_different feel eat is ,feel something_different ,something_different,18,4.445,-0.0037,1645970298.285,4.151000022888184
+7,7.0,2.0,3,feel something_different feel eat is ,feel something_different ,something_different,18,4.445,0.2411,1645970300.733,2.447999954223633
+7,7.0,3.0,1,feel something_different feel eat is ,feel something_different feel ,feel,57,4.445,0.0814,1645970305.052,4.319000005722046
+7,7.0,3.0,2,feel something_different feel eat is ,feel something_different feel ,feel,57,4.445,0.039,1645970306.05,0.997999906539917
+7,7.0,3.0,3,feel something_different feel eat is ,feel something_different feel ,feel,57,4.445,0.001,1645970308.252,2.202000141143799
+7,7.0,5.0,1,feel something_different feel eat is ,feel something_different feel ,feel,@,4.445,0.0814,1645970322.914,14.661999940872192
+7,7.0,5.0,2,feel something_different feel eat is ,feel something_different feel ,feel,@,4.445,0.039,1645970324.666,1.751999855041504
+7,7.0,5.0,3,feel something_different feel eat is ,feel something_different feel ,feel,@,4.445,0.001,1645970327.144,2.4780001640319824
+7,7.0,6.0,1,feel something_different feel eat is ,feel something_different feel eat ,eat,30,4.445,0.2848,1645970332.697,5.552999973297119
+7,7.0,6.0,2,feel something_different feel eat is ,feel something_different feel eat ,eat,30,4.445,0.1501,1645970335.722,3.0249998569488525
+7,7.0,6.0,3,feel something_different feel eat is ,feel something_different feel eat ,eat,30,4.445,0.3872,1645970338.321,2.5990002155303955
+7,7.0,7.0,1,feel something_different feel eat is ,feel something_different feel eat is ,is,22,4.445,0.3158,1645970342.448,4.126999855041504
+7,7.0,7.0,2,feel something_different feel eat is ,feel something_different feel eat is ,is,22,4.445,0.2284,1645970345.52,3.072000026702881
+7,7.0,8.0,1,feel something_different feel eat is ,feel something_different feel eat is .,.,.,4.445,0.1431,1645970348.034,2.5139999389648438
+7,7.0,8.0,2,feel something_different feel eat is ,feel something_different feel eat is .,.,.,4.445,0.3792,1645970350.633,2.5989999771118164
+7,7.0,8.0,3,feel something_different feel eat is ,feel something_different feel eat is .,.,.,4.445,0.4792,1645970355.253,4.620000123977661
+7,7.0,8.0,4,feel something_different feel eat is ,feel something_different feel eat is .,.,.,4.445,0.1321,1645970357.624,2.371000051498413
+7,7.0,9.0,1,feel something_different feel eat is ,feel something_different feel eat is ..,.,.,4.445,0.1331,1645970360.145,2.5209999084472656
+7,7.0,9.0,2,feel something_different feel eat is ,feel something_different feel eat is ..,.,.,4.445,-0.0724,1645970361.018,0.872999906539917
+7,7.0,9.0,3,feel something_different feel eat is ,feel something_different feel eat is ..,.,.,4.445,0.0747,1645970365.245,4.226999998092651
+7,8.0,1.0,1,go now don8t you it ,go ,go,33,4.445,0.4792,1645970370.014,4.769000053405762
+7,8.0,1.0,2,go now don8t you it ,go ,go,33,4.445,0.2651,1645970373.798,3.7840001583099365
+7,8.0,1.0,3,go now don8t you it ,go ,go,33,4.445,0.0984,1645970376.109,2.310999870300293
+7,8.0,2.0,1,go now don8t you it ,go now ,now,16,4.445,0.0657,1645970384.156,8.04699993133545
+7,8.0,2.0,2,go now don8t you it ,go now ,now,16,4.445,-0.0584,1645970388.232,4.076000213623047
+7,8.0,2.0,3,go now don8t you it ,go now ,now,16,4.445,0.0003,1645970390.449,2.2169997692108154
+7,8.0,3.0,1,go now don8t you it ,go now don8t ,don8t,21,4.445,0.1571,1645970399.528,9.079000234603882
+7,8.0,3.0,2,go now don8t you it ,go now don8t ,don8t,21,4.445,-0.0057,1645970401.723,2.194999933242798
+7,8.0,3.0,3,go now don8t you it ,go now don8t ,don8t,21,4.445,0.1907,1645970404.123,2.3999998569488525
+7,8.0,4.0,1,go now don8t you it ,go now don8t you ,you,28,4.445,0.2751,1645970410.287,6.164000034332275
+7,8.0,4.0,2,go now don8t you it ,go now don8t you ,you,28,4.445,-0.0574,1645970413.072,2.7850000858306885
+7,8.0,4.0,3,go now don8t you it ,go now don8t you ,you,28,4.445,0.3265,1645970415.62,2.547999858856201
+8,1.0,1.0,1,sick it like turn big ,sick ,sick,66,4.445,-0.0674,1645991249.889,0
+8,1.0,1.0,2,sick it like turn big ,sick ,sick,66,4.445,-0.0237,1645991253.693,3.80400013923645
+8,1.0,1.0,3,sick it like turn big ,sick ,sick,66,4.445,0.0447,1645991257.883,4.18999981880188
+8,1.0,2.0,1,sick it like turn big ,sick it ,it,11,4.445,0.1441,1645991262.183,4.300000190734863
+8,1.0,2.0,2,sick it like turn big ,sick it ,it,11,4.445,0.0984,1645991264.494,2.310999870300293
+8,1.0,2.0,3,sick it like turn big ,sick it ,it,11,4.445,0.1391,1645991266.852,2.3580000400543213
+8,1.0,3.0,1,sick it like turn big ,sick it like ,like,39,4.445,0.1391,1645991269.578,2.7260000705718994
+8,1.0,3.0,2,sick it like turn big ,sick it like ,like,39,4.445,0.1361,1645991270.649,1.0709998607635498
+8,1.0,3.0,3,sick it like turn big ,sick it like ,like,39,4.445,0.1647,1645991273.044,2.3949999809265137
+8,1.0,4.0,1,sick it like turn big ,sick it like turn ,turn,49,4.445,0.1867,1645991278.744,5.700000047683716
+8,1.0,4.0,2,sick it like turn big ,sick it like turn ,turn,49,4.445,0.017,1645991282.906,4.161999940872192
+8,1.0,4.0,3,sick it like turn big ,sick it like turn ,turn,49,4.445,0.0854,1645991285.215,2.309000015258789
+8,1.0,5.0,1,sick it like turn big ,sick it like turn big ,big,34,4.445,0.1937,1645991289.398,4.183000087738037
+8,1.0,5.0,2,sick it like turn big ,sick it like turn big ,big,34,4.445,0.1637,1645991293.691,4.292999982833862
+8,1.0,6.0,1,sick it like turn big ,sick it like turn big .,.,.,4.445,0.1987,1645991300.765,7.074000120162964
+8,1.0,6.0,2,sick it like turn big ,sick it like turn big .,.,.,4.445,0.0934,1645991301.778,1.0130000114440918
+8,1.0,6.0,3,sick it like turn big ,sick it like turn big .,.,.,4.445,0.0964,1645991304.106,2.3279998302459717
+8,1.0,7.0,1,sick it like turn big ,sick it like turn big ..,.,.,4.445,0.2581,1645991311.229,7.123000144958496
+8,1.0,7.0,2,sick it like turn big ,sick it like turn big ..,.,.,4.445,0.2124,1645991316.224,4.994999885559082
+8,1.0,7.0,3,sick it like turn big ,sick it like turn big ..,.,.,4.445,0.1331,1645991318.578,2.3540000915527344
+8,2.0,1.0,1,in sick give play what ,in ,in,60,4.445,0.1657,1645991326.977,8.3989999294281
+8,2.0,1.0,2,in sick give play what ,in ,in,60,4.445,-0.0017,1645991329.202,2.2249999046325684
+8,2.0,1.0,3,in sick give play what ,in ,in,60,4.445,-0.0347,1645991331.375,2.1730000972747803
+8,2.0,2.0,1,in sick give play what ,in sick ,sick,66,4.445,0.1571,1645991334.324,2.9489998817443848
+8,2.0,2.0,2,in sick give play what ,in sick ,sick,66,4.445,0.1471,1645991336.673,2.3490002155303955
+8,2.0,2.0,3,in sick give play what ,in sick ,sick,66,4.445,0.021,1645991338.91,2.236999988555908
+8,2.0,3.0,1,in sick give play what ,in sick give ,give,32,4.445,0.1617,1645991343.69,4.7799999713897705
+8,2.0,3.0,2,in sick give play what ,in sick give ,give,32,4.445,0.1777,1645991346.11,2.419999837875366
+8,2.0,3.0,3,in sick give play what ,in sick give ,give,32,4.445,0.1501,1645991348.477,2.367000102996826
+8,2.0,4.0,1,in sick give play what ,in sick give play ,play,64,4.445,0.2034,1645991351.812,3.3350000381469727
+8,2.0,4.0,2,in sick give play what ,in sick give play ,play,64,4.445,0.2034,1645991356.176,4.364000082015991
+8,2.0,5.0,1,in sick give play what ,in sick give play what ,what,13,4.445,0.2838,1645991363.815,7.638999938964844
+8,2.0,5.0,2,in sick give play what ,in sick give play what ,what,13,4.445,0.027,1645991366.718,2.9029998779296875
+8,2.0,5.0,3,in sick give play what ,in sick give play what ,what,13,4.445,0.1114,1645991369.043,2.325000047683716
+8,2.0,6.0,1,in sick give play what ,in sick give play what .,.,.,4.445,0.2908,1645991371.743,2.700000047683716
+8,2.0,6.0,2,in sick give play what ,in sick give play what .,.,.,4.445,0.2324,1645991373.88,2.13700008392334
+8,2.0,6.0,3,in sick give play what ,in sick give play what .,.,.,4.445,0.2144,1645991376.304,2.423999786376953
+8,2.0,7.0,1,in sick give play what ,in sick give play what ..,.,.,4.445,0.1164,1645991383.283,6.979000091552734
+8,2.0,7.0,2,in sick give play what ,in sick give play what ..,.,.,4.445,0.015,1645991384.226,0.943000078201294
+8,2.0,7.0,3,in sick give play what ,in sick give play what ..,.,.,4.445,0.1391,1645991386.584,2.3580000400543213
+8,3.0,1.0,1,make there put good make ,make ,make,41,4.445,0.1887,1645991393.521,6.936999797821045
+8,3.0,1.0,2,make there put good make ,make ,make,41,4.445,0.0844,1645991395.816,2.2950000762939453
+8,3.0,1.0,3,make there put good make ,make ,make,41,4.445,0.0854,1645991398.135,2.319000005722046
+8,3.0,2.0,1,make there put good make ,make there ,there,52,4.445,0.1877,1645991403.358,5.2230000495910645
+8,3.0,2.0,2,make there put good make ,make there ,there,52,4.445,0.1627,1645991405.73,2.371999979019165
+8,3.0,2.0,3,make there put good make ,make there ,there,52,4.445,0.1837,1645991408.154,2.4240000247955322
+8,3.0,3.0,1,make there put good make ,make there put ,put,42,4.445,0.0904,1645991414.901,6.746999979019165
+8,3.0,3.0,2,make there put good make ,make there put ,put,42,4.445,0.1531,1645991416.004,1.1029999256134033
+8,3.0,3.0,3,make there put good make ,make there put ,put,42,4.445,0.1114,1645991418.322,2.318000078201294
+8,3.0,4.0,1,make there put good make ,make there put good ,good,36,4.445,-0.0247,1645991421.66,3.3380000591278076
+8,3.0,4.0,2,make there put good make ,make there put good ,good,36,4.445,0.0587,1645991426.507,4.846999883651733
+8,3.0,4.0,3,make there put good make ,make there put good ,good,36,4.445,0.1251,1645991428.852,2.3450000286102295
+8,3.0,5.0,1,make there put good make ,make there put good make ,make,41,4.445,0.1381,1645991431.265,2.4130001068115234
+8,3.0,5.0,2,make there put good make ,make there put good make ,make,41,4.445,0.1637,1645991434.295,3.0299999713897705
+8,3.0,5.0,3,make there put good make ,make there put good make ,make,41,4.445,0.1461,1645991436.673,2.378000020980835
+8,3.0,6.0,1,make there put good make ,make there put good make .,.,.,4.445,0.2264,1645991439.318,2.6449999809265137
+8,3.0,6.0,2,make there put good make ,make there put good make .,.,.,4.445,0.0914,1645991444.182,4.863999843597412
+8,3.0,6.0,3,make there put good make ,make there put good make .,.,.,4.445,0.0777,1645991446.484,2.302000045776367
+8,3.0,7.0,1,make there put good make ,make there put good make ..,.,.,4.445,0.1361,1645991449.027,2.5429999828338623
+8,3.0,7.0,2,make there put good make ,make there put good make ..,.,.,4.445,0.1907,1645991451.442,2.4149999618530273
+8,3.0,7.0,3,make there put good make ,make there put good make ..,.,.,4.445,0.1174,1645991453.767,2.325000047683716
+8,4.0,1.0,1,in where me put with ,in ,in,60,4.445,0.2324,1645991457.763,3.996000051498413
+8,4.0,1.0,2,in where me put with ,in ,in,60,4.445,-0.0544,1645991458.63,0.8670001029968262
+8,4.0,1.0,3,in where me put with ,in ,in,60,4.445,0.1291,1645991460.974,2.3439998626708984
+8,4.0,2.0,1,in where me put with ,in where ,where,14,4.445,0.2184,1645991467.267,6.292999982833862
+8,4.0,2.0,2,in where me put with ,in where ,where,14,4.445,0.0447,1645991471.452,4.184999942779541
+8,4.0,3.0,1,in where me put with ,in where me ,me,19,4.445,0.1351,1645991477.346,5.894000053405762
+8,4.0,3.0,2,in where me put with ,in where me ,me,19,4.445,0.1281,1645991479.7,2.3540000915527344
+8,4.0,4.0,1,in where me put with ,in where me put ,put,42,4.445,0.1677,1645991482.02,2.319999933242798
+8,4.0,4.0,2,in where me put with ,in where me put ,put,42,4.445,0.1687,1645991486.34,4.319999933242798
+8,4.0,4.0,3,in where me put with ,in where me put ,put,42,4.445,0.0597,1645991488.631,2.2910001277923584
+8,4.0,5.0,1,in where me put with ,in where me put with ,with,70,4.445,0.1094,1645991491.2,2.569000005722046
+8,4.0,5.0,2,in where me put with ,in where me put with ,with,70,4.445,0.1421,1645991494.192,2.991999864578247
+8,4.0,5.0,3,in where me put with ,in where me put with ,with,70,4.445,0.0697,1645991496.477,2.2850000858306885
+8,4.0,6.0,1,in where me put with ,in where me put with .,.,.,4.445,0.0727,1645991498.963,2.4860000610351562
+8,4.0,6.0,2,in where me put with ,in where me put with .,.,.,4.445,0.0787,1645991501.886,2.922999858856201
+8,4.0,6.0,3,in where me put with ,in where me put with .,.,.,4.445,0.1251,1645991504.217,2.3310000896453857
+8,4.0,7.0,1,in where me put with ,in where me put with ..,.,.,4.445,0.0607,1645991506.668,2.4509999752044678
+8,4.0,7.0,2,in where me put with ,in where me put with ..,.,.,4.445,0.0537,1645991511.505,4.837000131607056
+8,4.0,7.0,3,in where me put with ,in where me put with ..,.,.,4.445,0.2114,1645991513.943,2.437999963760376
+8,5.0,1.0,1,turn excited feel see where ,turn ,turn,49,4.445,0.1431,1645991519.595,5.6519999504089355
+8,5.0,1.0,2,turn excited feel see where ,turn ,turn,49,4.445,0.0824,1645991521.894,2.2990000247955322
+8,5.0,2.0,1,turn excited feel see where ,turn excited ,excited,69,4.445,0.0517,1645991528.984,7.0899999141693115
+8,5.0,2.0,2,turn excited feel see where ,turn excited ,excited,69,4.445,0.2114,1645991532.704,3.7200000286102295
+8,5.0,2.0,3,turn excited feel see where ,turn excited ,excited,69,4.445,0.2751,1645991535.203,2.499000072479248
+8,5.0,3.0,1,turn excited feel see where ,turn excited feel ,feel,57,4.445,0.1391,1645991539.591,4.388000011444092
+8,5.0,3.0,2,turn excited feel see where ,turn excited feel ,feel,57,4.445,0.1361,1645991541.948,2.3569998741149902
+8,5.0,4.0,1,turn excited feel see where ,turn excited feel see ,see,40,4.445,0.0657,1645991544.437,2.489000082015991
+8,5.0,4.0,2,turn excited feel see where ,turn excited feel see ,see,40,4.445,0.0904,1645991545.459,1.0220000743865967
+8,5.0,4.0,3,turn excited feel see where ,turn excited feel see ,see,40,4.445,0.1271,1645991547.82,2.360999822616577
+8,5.0,5.0,1,turn excited feel see where ,turn excited feel see where ,where,14,4.445,0.1321,1645991549.544,1.7239999771118164
+8,5.0,5.0,2,turn excited feel see where ,turn excited feel see where ,where,14,4.445,0.1817,1645991551.954,2.4100000858306885
+8,5.0,6.0,1,turn excited feel see where ,turn excited feel see where .,.,.,4.445,0.0854,1645991554.454,2.5
+8,5.0,6.0,2,turn excited feel see where ,turn excited feel see where .,.,.,4.445,0.021,1645991557.352,2.8980000019073486
+8,5.0,6.0,3,turn excited feel see where ,turn excited feel see where .,.,.,4.445,0.0627,1645991559.634,2.2820000648498535
+8,5.0,7.0,1,turn excited feel see where ,turn excited feel see where ..,.,.,4.445,-0.0694,1645991561.941,2.306999921798706
+8,5.0,7.0,2,turn excited feel see where ,turn excited feel see where ..,.,.,4.445,0.0457,1645991567.097,5.1559998989105225
+8,5.0,7.0,3,turn excited feel see where ,turn excited feel see where ..,.,.,4.445,0.1727,1645991571.425,4.328000068664551
+8,6.0,1.0,1,take on hard see have ,take ,take,48,4.445,0.1234,1645991577.209,5.7840001583099365
+8,6.0,1.0,2,take on hard see have ,take ,take,48,4.445,0.0447,1645991579.453,2.24399995803833
+8,6.0,2.0,1,take on hard see have ,take on ,on,61,4.445,0.0547,1645991583.106,3.6529998779296875
+8,6.0,2.0,2,take on hard see have ,take on ,on,61,4.445,0.027,1645991584.075,0.9690001010894775
+8,6.0,3.0,1,take on hard see have ,take on hard ,hard,53,4.445,0.1481,1645991589.077,5.001999855041504
+8,6.0,3.0,2,take on hard see have ,take on hard ,hard,53,4.445,0.0874,1645991591.379,2.302000045776367
+8,6.0,4.0,1,take on hard see have ,take on hard see ,see,40,4.445,0.0807,1645991593.889,2.509999990463257
+8,6.0,4.0,2,take on hard see have ,take on hard see ,see,40,4.445,0.0874,1645991594.899,1.0099999904632568
+8,6.0,4.0,3,take on hard see have ,take on hard see ,see,40,4.445,0.0847,1645991597.21,2.311000108718872
+8,6.0,5.0,1,take on hard see have ,take on hard see have ,have,37,4.445,0.0617,1645991600.314,3.1039998531341553
+8,6.0,5.0,2,take on hard see have ,take on hard see have ,have,37,4.445,0.0944,1645991604.546,4.232000112533569
+8,6.0,6.0,1,take on hard see have ,take on hard see have .,.,.,4.445,0.1571,1645991607.086,2.5399999618530273
+8,6.0,6.0,2,take on hard see have ,take on hard see have .,.,.,4.445,0.1401,1645991611.352,4.266000032424927
+8,6.0,7.0,1,take on hard see have ,take on hard see have ..,.,.,4.445,0.1331,1645991613.862,2.509999990463257
+8,6.0,7.0,2,take on hard see have ,take on hard see have ..,.,.,4.445,0.037,1645991616.121,2.259000062942505
+8,6.0,7.0,3,take on hard see have ,take on hard see have ..,.,.,4.445,0.1251,1645991618.454,2.3329999446868896
+8,7.0,1.0,1,stop give in scared good ,stop ,stop,47,4.445,0.2591,1645991620.07,1.6159999370574951
+8,7.0,1.0,2,stop give in scared good ,stop ,stop,47,4.445,0.1847,1645991623.124,3.05400013923645
+8,7.0,2.0,1,stop give in scared good ,stop give ,give,32,4.445,0.019,1645991627.784,4.659999847412109
+8,7.0,2.0,2,stop give in scared good ,stop give ,give,32,4.445,-0.1131,1645991628.617,0.8330001831054688
+8,7.0,2.0,3,stop give in scared good ,stop give ,give,32,4.445,0.0844,1645991630.937,2.319999933242798
+8,7.0,3.0,1,stop give in scared good ,stop give in ,in,60,4.445,0.0924,1645991634.778,3.8410000801086426
+8,7.0,3.0,2,stop give in scared good ,stop give in ,in,60,4.445,0.0447,1645991637.054,2.2759997844696045
+8,7.0,4.0,1,stop give in scared good ,stop give in scared ,scared,68,4.445,0.1184,1645991639.804,2.75
+8,7.0,4.0,2,stop give in scared good ,stop give in scared ,scared,68,4.445,0.1164,1645991644.048,4.244000196456909
+8,7.0,5.0,1,stop give in scared good ,stop give in scared good ,good,36,4.445,-0.0791,1645991647.325,3.2769999504089355
+8,7.0,5.0,2,stop give in scared good ,stop give in scared good ,good,36,4.445,0.018,1645991652.109,4.783999919891357
+8,7.0,6.0,1,stop give in scared good ,stop give in scared good .,.,.,4.445,0.1647,1645991654.655,2.5460000038146973
+8,7.0,6.0,2,stop give in scared good ,stop give in scared good .,.,.,4.445,0.0447,1645991658.854,4.199000120162964
+8,7.0,6.0,3,stop give in scared good ,stop give in scared good .,.,.,4.445,0.1637,1645991661.254,2.3999998569488525
+8,7.0,7.0,1,stop give in scared good ,stop give in scared good ..,.,.,4.445,0.2044,1645991668.337,7.08299994468689
+8,7.0,7.0,2,stop give in scared good ,stop give in scared good ..,.,.,4.445,0.0687,1645991671.278,2.94100022315979
+8,7.0,7.0,3,stop give in scared good ,stop give in scared good ..,.,.,4.445,0.1431,1645991673.635,2.3569998741149902
+8,8.0,1.0,1,something_different again eat want good ,something_different ,something_different,18,4.445,0.0834,1645991680.135,6.5
+8,8.0,1.0,2,something_different again eat want good ,something_different ,something_different,18,4.445,0.0904,1645991684.376,4.240999937057495
+8,8.0,2.0,1,something_different again eat want good ,something_different again ,again,15,4.445,0.0687,1645991689.238,4.861999988555908
+8,8.0,2.0,2,something_different again eat want good ,something_different again ,again,15,4.445,0.2074,1645991693.574,4.335999965667725
+8,8.0,3.0,1,something_different again eat want good ,something_different again eat ,eat,30,4.445,0.2007,1645991699.049,5.4750001430511475
+8,8.0,3.0,2,something_different again eat want good ,something_different again eat ,eat,30,4.445,0.0557,1645991703.227,4.177999973297119
+8,8.0,4.0,1,something_different again eat want good ,something_different again eat want ,want,31,4.445,0.0607,1645991708.232,5.005000114440918
+8,8.0,4.0,2,something_different again eat want good ,something_different again eat want ,want,31,4.445,0.0844,1645991712.454,4.221999883651733
+8,8.0,5.0,1,something_different again eat want good ,something_different again eat want good ,good,36,4.445,0.1261,1645991715.938,3.4839999675750732
+8,8.0,5.0,2,something_different again eat want good ,something_different again eat want good ,good,36,4.445,0.1717,1645991718.344,2.4060001373291016
+8,8.0,5.0,3,something_different again eat want good ,something_different again eat want good ,good,36,4.445,0.2194,1645991720.786,2.441999912261963
+8,8.0,6.0,1,something_different again eat want good ,something_different again eat want good .,.,.,4.445,0.1837,1645991723.356,2.569999933242798
+8,8.0,6.0,2,something_different again eat want good ,something_different again eat want good .,.,.,4.445,0.1044,1645991726.316,2.9600000381469727
+8,8.0,6.0,3,something_different again eat want good ,something_different again eat want good .,.,.,4.445,0.1241,1645991728.654,2.3380000591278076
+8,8.0,7.0,1,something_different again eat want good ,something_different again eat want good ..,.,.,4.445,0.1351,1645991731.181,2.5269999504089355
+8,8.0,7.0,2,something_different again eat want good ,something_different again eat want good ..,.,.,4.445,0.0507,1645991733.46,2.2790000438690186
+8,8.0,7.0,3,something_different again eat want good ,something_different again eat want good ..,.,.,4.445,0.1381,1645991735.83,2.369999885559082
+8,9.0,1.0,1,is who make drink finished ,is ,is,22,4.445,0.0864,1645991739.773,3.943000078201294
+8,9.0,1.0,2,is who make drink finished ,is ,is,22,4.445,0.0954,1645991744.027,4.253999948501587
+8,9.0,2.0,1,is who make drink finished ,is who ,who,12,4.445,0.1421,1645991749.589,5.562000036239624
+8,9.0,2.0,2,is who make drink finished ,is who ,who,12,4.445,0.1937,1645991752,2.4110000133514404
+8,9.0,3.0,1,is who make drink finished ,is who make ,make,41,4.445,0.1014,1645991754.388,2.388000011444092
+8,9.0,3.0,2,is who make drink finished ,is who make ,make,41,4.445,0.2034,1645991756.171,1.7829999923706055
+8,9.0,3.0,3,is who make drink finished ,is who make ,make,41,4.445,0.033,1645991758.444,2.2730000019073486
+8,9.0,4.0,1,is who make drink finished ,is who make drink ,drink,29,4.445,0.1441,1645991764.196,5.752000093460083
+8,9.0,4.0,2,is who make drink finished ,is who make drink ,drink,29,4.445,0.2074,1645991766.617,2.4210000038146973
+8,9.0,5.0,1,is who make drink finished ,is who make drink finished ,finished,26,4.445,0.1797,1645991768.87,2.252999782562256
+8,9.0,5.0,2,is who make drink finished ,is who make drink finished ,finished,26,4.445,0.1767,1645991771.267,2.3970000743865967
+8,9.0,5.0,3,is who make drink finished ,is who make drink finished ,finished,26,4.445,0.1341,1645991773.626,2.3589999675750732
+8,9.0,6.0,1,is who make drink finished ,is who make drink finished .,.,.,4.445,0.2194,1645991776.232,2.6060001850128174
+8,9.0,6.0,2,is who make drink finished ,is who make drink finished .,.,.,4.445,-0.0157,1645991777.155,0.9229998588562012
+8,9.0,6.0,3,is who make drink finished ,is who make drink finished .,.,.,4.445,0.0777,1645991779.449,2.2939999103546143
+8,9.0,7.0,1,is who make drink finished ,is who make drink finished ..,.,.,4.445,0.0627,1645991781.908,2.4590001106262207
+8,9.0,7.0,2,is who make drink finished ,is who make drink finished ..,.,.,4.445,0.1174,1645991786.804,4.895999908447266
+8,9.0,7.0,3,is who make drink finished ,is who make drink finished ..,.,.,4.445,0.2037,1645991789.21,2.4060001373291016
+8,10.0,1.0,1,go feel easy bad go ,go ,go,33,4.445,0.2037,1645991793.694,4.483999967575073
+8,10.0,1.0,2,go feel easy bad go ,go ,go,33,4.445,0.1481,1645991797.96,4.266000032424927
+8,10.0,2.0,1,go feel easy bad go ,go feel ,feel,57,4.445,0.1431,1645991802.355,4.394999980926514
+8,10.0,2.0,2,go feel easy bad go ,go feel ,feel,57,4.445,0.0874,1645991804.657,2.302000045776367
+8,10.0,3.0,1,go feel easy bad go ,go feel easy ,easy,62,4.445,0.2224,1645991808.31,3.6529998779296875
+8,10.0,3.0,2,go feel easy bad go ,go feel easy ,easy,62,4.445,0.0827,1645991809.328,1.0180001258850098
+8,10.0,4.0,1,go feel easy bad go ,go feel easy bad ,bad,27,4.445,0.1251,1645991811.217,1.8889999389648438
+8,10.0,4.0,2,go feel easy bad go ,go feel easy bad ,bad,27,4.445,0.0637,1645991813.515,2.2980000972747803
+8,10.0,5.0,1,go feel easy bad go ,go feel easy bad go ,go,33,4.445,0.0877,1645991817.897,4.381999969482422
+8,10.0,5.0,2,go feel easy bad go ,go feel easy bad go ,go,33,4.445,0.1331,1645991822.138,4.240999937057495
+8,10.0,6.0,1,go feel easy bad go ,go feel easy bad go .,.,.,4.445,0.1471,1645991824.677,2.5390000343322754
+8,10.0,6.0,2,go feel easy bad go ,go feel easy bad go .,.,.,4.445,0.0864,1645991826.972,2.294999837875366
+8,10.0,6.0,3,go feel easy bad go ,go feel easy bad go .,.,.,4.445,0.0974,1645991829.308,2.3360002040863037
+9,1.0,1.0,1,get put excited away hard ,get ,get,38,4.445,0.0717,1646260650.941,0
+9,1.0,1.0,2,get put excited away hard ,get ,get,38,4.445,-0.0007,1646260653.788,2.8470001220703125
+9,1.0,1.0,3,get put excited away hard ,get ,get,38,4.445,0.0547,1646260656.043,2.254999876022339
+9,1.0,2.0,1,get put excited away hard ,get put ,put,42,4.445,0.0667,1646260658.256,2.2130000591278076
+9,1.0,2.0,2,get put excited away hard ,get put ,put,42,4.445,-0.0227,1646260662.366,4.109999895095825
+9,1.0,2.0,3,get put excited away hard ,get put ,put,42,4.445,0.03,1646260664.619,2.253000020980835
+9,1.0,3.0,1,get put excited away hard ,get put excited ,excited,69,4.445,0.0894,1646260671.718,7.098999977111816
+9,1.0,3.0,2,get put excited away hard ,get put excited ,excited,69,4.445,0.1371,1646260674.727,3.009000062942505
+9,1.0,3.0,3,get put excited away hard ,get put excited ,excited,69,4.445,0.0497,1646260676.999,2.2720000743865967
+9,1.0,4.0,1,get put excited away hard ,get put excited away ,away,43,4.445,-0.0067,1646260678.982,1.9830000400543213
+9,1.0,4.0,2,get put excited away hard ,get put excited away ,away,43,4.445,0.1114,1646260681.941,2.9589998722076416
+9,1.0,5.0,1,get put excited away hard ,get put excited away hard ,hard,53,4.445,-0.0067,1646260686.782,4.841000080108643
+9,1.0,5.0,2,get put excited away hard ,get put excited away hard ,hard,53,4.445,0.0834,1646260689.713,2.930999994277954
+9,1.0,6.0,1,get put excited away hard ,get put excited away hard .,.,.,4.445,0.1461,1646260692.256,2.5429999828338623
+9,1.0,6.0,2,get put excited away hard ,get put excited away hard .,.,.,4.445,0.0884,1646260694.557,2.300999879837036
+9,1.0,6.0,3,get put excited away hard ,get put excited away hard .,.,.,4.445,0.0707,1646260696.859,2.302000045776367
+9,1.0,7.0,1,get put excited away hard ,get put excited away hard ..,.,.,4.445,0.0437,1646260699.273,2.4140000343322754
+9,1.0,7.0,2,get put excited away hard ,get put excited away hard ..,.,.,4.445,0.0527,1646260702.841,3.568000078201294
+9,1.0,7.0,3,get put excited away hard ,get put excited away hard ..,.,.,4.445,0.1401,1646260705.209,2.368000030517578
+9,2.0,1.0,1,bumpy sick it help mine ,bumpy ,bumpy,63,4.445,0.1381,1646260708.609,3.3999998569488525
+9,2.0,1.0,2,bumpy sick it help mine ,bumpy ,bumpy,63,4.445,0.2838,1646260711.116,2.506999969482422
+9,2.0,1.0,3,bumpy sick it help mine ,bumpy ,bumpy,63,4.445,0.0834,1646260713.432,2.315999984741211
+9,2.0,2.0,1,bumpy sick it help mine ,bumpy sick ,sick,66,4.445,0.0507,1646260716.279,2.8470001220703125
+9,2.0,2.0,2,bumpy sick it help mine ,bumpy sick ,sick,66,4.445,0.1241,1646260717.993,1.7139999866485596
+9,2.0,2.0,3,bumpy sick it help mine ,bumpy sick ,sick,66,4.445,0.0647,1646260720.294,2.300999879837036
+9,2.0,3.0,1,bumpy sick it help mine ,bumpy sick it ,it,11,4.445,0.1251,1646260724.555,4.261000156402588
+9,2.0,3.0,2,bumpy sick it help mine ,bumpy sick it ,it,11,4.445,-0.0057,1646260726.783,2.2279999256134033
+9,2.0,3.0,3,bumpy sick it help mine ,bumpy sick it ,it,11,4.445,0.017,1646260729.006,2.2230000495910645
+9,2.0,4.0,1,bumpy sick it help mine ,bumpy sick it help ,help,50,4.445,0.0757,1646260734.424,5.417999982833862
+9,2.0,4.0,2,bumpy sick it help mine ,bumpy sick it help ,help,50,4.445,0.1371,1646260738.686,4.26200008392334
+9,2.0,5.0,1,bumpy sick it help mine ,bumpy sick it help mine ,mine,20,4.445,0.0954,1646260743.885,5.198999881744385
+9,2.0,5.0,2,bumpy sick it help mine ,bumpy sick it help mine ,mine,20,4.445,0.1847,1646260746.295,2.4100000858306885
+9,2.0,5.0,3,bumpy sick it help mine ,bumpy sick it help mine ,mine,20,4.445,0.1707,1646260748.68,2.384999990463257
+9,2.0,6.0,1,bumpy sick it help mine ,bumpy sick it help mine .,.,.,4.445,0.2344,1646260751.305,2.625
+9,2.0,6.0,2,bumpy sick it help mine ,bumpy sick it help mine .,.,.,4.445,0.1647,1646260754.954,3.6489999294281006
+9,2.0,6.0,3,bumpy sick it help mine ,bumpy sick it help mine .,.,.,4.445,0.0854,1646260757.275,2.321000099182129
+9,2.0,7.0,1,bumpy sick it help mine ,bumpy sick it help mine ..,.,.,4.445,0.1351,1646260759.805,2.5299999713897705
+9,2.0,7.0,2,bumpy sick it help mine ,bumpy sick it help mine ..,.,.,4.445,0.1927,1646260762.223,2.4179999828338623
+9,2.0,7.0,3,bumpy sick it help mine ,bumpy sick it help mine ..,.,.,4.445,0.1311,1646260764.561,2.3380000591278076
+9,3.0,1.0,1,feel work work read something_different ,feel ,feel,57,4.445,0.1501,1646260768.939,4.377999782562256
+9,3.0,1.0,2,feel work work read something_different ,feel ,feel,57,4.445,0.2304,1646260771.38,2.44100022315979
+9,3.0,1.0,3,feel work work read something_different ,feel ,feel,57,4.445,0.1867,1646260773.776,2.3959999084472656
+9,3.0,2.0,1,feel work work read something_different ,feel work ,work,55,4.445,0.1777,1646260778.488,4.711999893188477
+9,3.0,2.0,2,feel work work read something_different ,feel work ,work,55,4.445,0.2314,1646260782.862,4.374000072479248
+9,3.0,3.0,1,feel work work read something_different ,feel work work ,work,55,4.445,0.1044,1646260787.494,4.631999969482422
+9,3.0,3.0,2,feel work work read something_different ,feel work work ,work,55,4.445,0.1241,1646260791.754,4.259999990463257
+9,3.0,4.0,1,feel work work read something_different ,feel work work read ,read,65,4.445,0.1817,1646260794.892,3.138000011444092
+9,3.0,4.0,2,feel work work read something_different ,feel work work read ,read,65,4.445,0.1491,1646260797.259,2.367000102996826
+9,3.0,5.0,1,feel work work read something_different ,feel work work read something_different ,something_different,18,4.445,0.2274,1646260799.378,2.11899995803833
+9,3.0,5.0,2,feel work work read something_different ,feel work work read something_different ,something_different,18,4.445,-0.0147,1646260800.294,0.9159998893737793
+9,3.0,5.0,3,feel work work read something_different ,feel work work read something_different ,something_different,18,4.445,0.1044,1646260802.614,2.320000171661377
+9,3.0,6.0,1,feel work work read something_different ,feel work work read something_different .,.,.,4.445,0.0757,1646260805.064,2.4499998092651367
+9,3.0,6.0,2,feel work work read something_different ,feel work work read something_different .,.,.,4.445,0.0547,1646260807.964,2.9000000953674316
+9,3.0,6.0,3,feel work work read something_different ,feel work work read something_different .,.,.,4.445,0.003,1646260810.192,2.2279999256134033
+9,3.0,7.0,1,feel work work read something_different ,feel work work read something_different ..,.,.,4.445,0.1241,1646260812.714,2.5220000743865967
+9,3.0,7.0,2,feel work work read something_different ,feel work work read something_different ..,.,.,4.445,0.1281,1646260816.998,4.283999919891357
+9,4.0,1.0,1,here in make do in ,here ,here,51,4.445,0.1391,1646260822.329,5.331000089645386
+9,4.0,1.0,2,here in make do in ,here ,here,51,4.445,0.2354,1646260824.786,2.4570000171661377
+9,4.0,1.0,3,here in make do in ,here ,here,51,4.445,0.2144,1646260827.205,2.4189999103546143
+9,4.0,2.0,1,here in make do in ,here in ,in,60,4.445,0.2064,1646260831.157,3.952000141143799
+9,4.0,2.0,2,here in make do in ,here in ,in,60,4.445,0.1271,1646260835.436,4.2790000438690186
+9,4.0,3.0,1,here in make do in ,here in make ,make,41,4.445,0.2878,1646260837.999,2.562999963760376
+9,4.0,3.0,2,here in make do in ,here in make ,make,41,4.445,0.2204,1646260840.131,2.131999969482422
+9,4.0,3.0,3,here in make do in ,here in make ,make,41,4.445,0.1807,1646260842.531,2.3999998569488525
+9,4.0,4.0,1,here in make do in ,here in make do ,do,23,4.445,0.1561,1646260845.865,3.3340001106262207
+9,4.0,4.0,2,here in make do in ,here in make do ,do,23,4.445,0.1014,1646260848.171,2.305999994277954
+9,4.0,5.0,1,here in make do in ,here in make do in ,in,60,4.445,0.0697,1646260851.979,3.808000087738037
+9,4.0,5.0,2,here in make do in ,here in make do in ,in,60,4.445,0.0914,1646260853.001,1.0219998359680176
+9,4.0,6.0,1,here in make do in ,here in make do in .,.,.,4.445,0.2044,1646260855.594,2.5930001735687256
+9,4.0,6.0,2,here in make do in ,here in make do in .,.,.,4.445,0.0647,1646260857.894,2.299999952316284
+9,4.0,6.0,3,here in make do in ,here in make do in .,.,.,4.445,0.1727,1646260860.283,2.3889999389648438
+9,4.0,7.0,1,here in make do in ,here in make do in ..,.,.,4.445,0.1491,1646260862.818,2.5350000858306885
+9,4.0,7.0,2,here in make do in ,here in make do in ..,.,.,4.445,0.1331,1646260865.162,2.3439998626708984
+9,4.0,7.0,3,here in make do in ,here in make do in ..,.,.,4.445,0.008,1646260867.396,2.2339999675750732
+9,5.0,1.0,1,easy all_gone little more soft ,easy ,easy,62,4.445,0.0797,1646260870.908,3.51200008392334
+9,5.0,1.0,2,easy all_gone little more soft ,easy ,easy,62,4.445,0.1471,1646260875.176,4.26800012588501
+9,5.0,2.0,1,easy all_gone little more soft ,easy all_gone ,all_gone,25,4.445,0.1541,1646260877.663,2.486999988555908
+9,5.0,2.0,2,easy all_gone little more soft ,easy all_gone ,all_gone,25,4.445,0.0994,1646260879.969,2.305999994277954
+9,5.0,2.0,3,easy all_gone little more soft ,easy all_gone ,all_gone,25,4.445,0.1637,1646260882.353,2.383999824523926
+9,5.0,3.0,1,easy all_gone little more soft ,easy all_gone little ,little,35,4.445,0.2481,1646260886.278,3.9250001907348633
+9,5.0,3.0,2,easy all_gone little more soft ,easy all_gone little ,little,35,4.445,0.1221,1646260887.352,1.0739998817443848
+9,5.0,4.0,1,easy all_gone little more soft ,easy all_gone little more ,more,45,4.445,0.1757,1646260893.685,6.33299994468689
+9,5.0,4.0,2,easy all_gone little more soft ,easy all_gone little more ,more,45,4.445,0.1707,1646260896.08,2.3949999809265137
+9,5.0,5.0,1,easy all_gone little more soft ,easy all_gone little more soft ,soft,54,4.445,0.1987,1646260900.988,4.9079999923706055
+9,5.0,5.0,2,easy all_gone little more soft ,easy all_gone little more soft ,soft,54,4.445,0.0487,1646260905.157,4.169000148773193
+9,5.0,6.0,1,easy all_gone little more soft ,easy all_gone little more soft .,.,.,4.445,0.0597,1646260907.608,2.4509999752044678
+9,5.0,6.0,2,easy all_gone little more soft ,easy all_gone little more soft .,.,.,4.445,0.0787,1646260911.187,3.5789999961853027
+9,5.0,7.0,1,easy all_gone little more soft ,easy all_gone little more soft ..,.,.,4.445,0.0874,1646260913.635,2.447999954223633
+9,5.0,7.0,2,easy all_gone little more soft ,easy all_gone little more soft ..,.,.,4.445,0.1301,1646260918.559,4.924000024795532
+9,6.0,1.0,1,sick sick good now good ,sick ,sick,66,4.445,0.1481,1646260921.497,2.937999963760376
+9,6.0,1.0,2,sick sick good now good ,sick ,sick,66,4.445,0.0934,1646260923.802,2.305000066757202
+9,6.0,1.0,3,sick sick good now good ,sick ,sick,66,4.445,0.1044,1646260926.133,2.3309998512268066
+9,6.0,2.0,1,sick sick good now good ,sick sick ,sick,66,4.445,0.0924,1646260929,2.867000102996826
+9,6.0,2.0,2,sick sick good now good ,sick sick ,sick,66,4.445,0.1511,1646260932.021,3.0209999084472656
+9,6.0,3.0,1,sick sick good now good ,sick sick good ,good,36,4.445,0.1667,1646260935.516,3.495000123977661
+9,6.0,3.0,2,sick sick good now good ,sick sick good ,good,36,4.445,0.1637,1646260937.913,2.3970000743865967
+9,6.0,4.0,1,sick sick good now good ,sick sick good now ,now,16,4.445,0.1607,1646260941.59,3.676999807357788
+9,6.0,4.0,2,sick sick good now good ,sick sick good now ,now,16,4.445,0.1301,1646260943.959,2.369000196456909
+9,6.0,5.0,1,sick sick good now good ,sick sick good now good ,good,36,4.445,0.2878,1646260947.599,3.6399998664855957
+9,6.0,5.0,2,sick sick good now good ,sick sick good now good ,good,36,4.445,0.2014,1646260950.671,3.072000026702881
+9,6.0,6.0,1,sick sick good now good ,sick sick good now good .,.,.,4.445,0.2114,1646260953.281,2.609999895095825
+9,6.0,6.0,2,sick sick good now good ,sick sick good now good .,.,.,4.445,0.018,1646260954.247,0.9660000801086426
+9,6.0,6.0,3,sick sick good now good ,sick sick good now good .,.,.,4.445,0.0894,1646260956.559,2.312000036239624
+9,6.0,7.0,1,sick sick good now good ,sick sick good now good ..,.,.,4.445,0.1481,1646260959.097,2.5379998683929443
+9,6.0,7.0,2,sick sick good now good ,sick sick good now good ..,.,.,4.445,0.1351,1646260961.445,2.3480000495910645
+9,6.0,7.0,3,sick sick good now good ,sick sick good now good ..,.,.,4.445,0.1241,1646260963.794,2.3489999771118164
+9,7.0,1.0,1,bumpy like it mad put ,bumpy ,bumpy,63,4.445,0.1837,1646260967.253,3.4590001106262207
+9,7.0,1.0,2,bumpy like it mad put ,bumpy ,bumpy,63,4.445,0.0657,1646260969.535,2.2820000648498535
+9,7.0,2.0,1,bumpy like it mad put ,bumpy like ,like,39,4.445,0.2234,1646260976.813,7.2779998779296875
+9,7.0,2.0,2,bumpy like it mad put ,bumpy like ,like,39,4.445,0.1034,1646260978.493,1.6800000667572021
+9,7.0,2.0,3,bumpy like it mad put ,bumpy like ,like,39,4.445,0.014,1646260980.722,2.2289998531341553
+9,7.0,3.0,1,bumpy like it mad put ,bumpy like it ,it,11,4.445,0.1331,1646260985.002,4.28000020980835
+9,7.0,3.0,2,bumpy like it mad put ,bumpy like it ,it,11,4.445,0.1014,1646260987.331,2.3289999961853027
+9,7.0,4.0,1,bumpy like it mad put ,bumpy like it mad ,mad,67,4.445,0.1074,1646260990.137,2.805999994277954
+9,7.0,4.0,2,bumpy like it mad put ,bumpy like it mad ,mad,67,4.445,0.1241,1646260993.114,2.9769999980926514
+9,7.0,4.0,3,bumpy like it mad put ,bumpy like it mad ,mad,67,4.445,0.0567,1646260995.406,2.2919998168945312
+9,7.0,5.0,1,bumpy like it mad put ,bumpy like it mad put ,put,42,4.445,0.0457,1646260997.595,2.189000129699707
+9,7.0,5.0,2,bumpy like it mad put ,bumpy like it mad put ,put,42,4.445,0.1281,1646260998.678,1.0829999446868896
+9,7.0,6.0,1,bumpy like it mad put ,bumpy like it mad put .,.,.,4.445,0.1211,1646261001.191,2.513000011444092
+9,7.0,6.0,2,bumpy like it mad put ,bumpy like it mad put .,.,.,4.445,0.0934,1646261005.443,4.252000093460083
+9,7.0,6.0,3,bumpy like it mad put ,bumpy like it mad put .,.,.,4.445,0.0874,1646261007.757,2.313999891281128
+9,7.0,7.0,1,bumpy like it mad put ,bumpy like it mad put ..,.,.,4.445,0.0994,1646261010.248,2.490999937057495
+9,7.0,7.0,2,bumpy like it mad put ,bumpy like it mad put ..,.,.,4.445,0.021,1646261011.85,1.6019999980926514
+9,7.0,7.0,3,bumpy like it mad put ,bumpy like it mad put ..,.,.,4.445,0.0727,1646261014.143,2.2929999828338623
+9,8.0,1.0,1,i soft make read sad ,i ,i,10,4.445,0.1104,1646261016.459,2.31600022315979
+9,8.0,1.0,2,i soft make read sad ,i ,i,10,4.445,0.1114,1646261017.501,1.0419998168945312
+9,8.0,1.0,3,i soft make read sad ,i ,i,10,4.445,0.0924,1646261019.802,2.3010001182556152
+9,8.0,2.0,1,i soft make read sad ,i soft ,soft,54,4.445,0.1501,1646261024.66,4.858000040054321
+9,8.0,2.0,2,i soft make read sad ,i soft ,soft,54,4.445,0.2364,1646261027.107,2.447000026702881
+9,8.0,2.0,3,i soft make read sad ,i soft ,soft,54,4.445,-0.0047,1646261029.303,2.19599986076355
+9,8.0,3.0,1,i soft make read sad ,i soft make ,make,41,4.445,0.1094,1646261031.659,2.3559999465942383
+9,8.0,3.0,2,i soft make read sad ,i soft make ,make,41,4.445,-0.0971,1646261032.491,0.8320000171661377
+9,8.0,3.0,3,i soft make read sad ,i soft make ,make,41,4.445,0.035,1646261036.664,4.17300009727478
+9,8.0,4.0,1,i soft make read sad ,i soft make read ,read,65,4.445,0.3872,1646261039.979,3.315000057220459
+9,8.0,4.0,2,i soft make read sad ,i soft make read ,read,65,4.445,0.1797,1646261044.93,4.950999975204468
+9,8.0,5.0,1,i soft make read sad ,i soft make read sad ,sad,59,4.445,0.037,1646261048.866,3.935999870300293
+9,8.0,5.0,2,i soft make read sad ,i soft make read sad ,sad,59,4.445,0.0437,1646261049.832,0.9660000801086426
+9,8.0,6.0,1,i soft make read sad ,i soft make read sad .,.,.,4.445,0.1174,1646261052.347,2.5149998664855957
+9,8.0,6.0,2,i soft make read sad ,i soft make read sad .,.,.,4.445,0.0577,1646261056.527,4.180000066757202
+9,8.0,6.0,3,i soft make read sad ,i soft make read sad .,.,.,4.445,0.1094,1646261058.858,2.3310000896453857
+9,8.0,7.0,1,i soft make read sad ,i soft make read sad ..,.,.,4.445,0.1044,1646261061.334,2.4760000705718994
+9,8.0,7.0,2,i soft make read sad ,i soft make read sad ..,.,.,4.445,0.03,1646261062.299,0.9649999141693115
+9,8.0,7.0,3,i soft make read sad ,i soft make read sad ..,.,.,4.445,0.1154,1646261064.625,2.3259999752044678
+9,9.0,1.0,1,sad read eat mine mad ,sad ,sad,59,4.445,0.1401,1646261068.651,4.026000022888184
+9,9.0,1.0,2,sad read eat mine mad ,sad ,sad,59,4.445,0.0537,1646261070.923,2.2720000743865967
+9,9.0,2.0,1,sad read eat mine mad ,sad read ,read,65,4.445,0.1727,1646261074.043,3.119999885559082
+9,9.0,2.0,2,sad read eat mine mad ,sad read ,read,65,4.445,0.1054,1646261078.295,4.252000093460083
+9,9.0,3.0,1,sad read eat mine mad ,sad read eat ,eat,30,4.445,0.1451,1646261083.695,5.3999998569488525
+9,9.0,3.0,2,sad read eat mine mad ,sad read eat ,eat,30,4.445,0.1004,1646261086.01,2.315000057220459
+9,9.0,4.0,1,sad read eat mine mad ,sad read eat mine ,mine,20,4.445,0.1311,1646261091.241,5.230999946594238
+9,9.0,4.0,2,sad read eat mine mad ,sad read eat mine ,mine,20,4.445,0.1461,1646261093.616,2.375
+9,9.0,5.0,1,sad read eat mine mad ,sad read eat mine mad ,mad,67,4.445,0.1541,1646261096.464,2.8480000495910645
+9,9.0,5.0,2,sad read eat mine mad ,sad read eat mine mad ,mad,67,4.445,0.1241,1646261100.714,4.25
+9,9.0,6.0,1,sad read eat mine mad ,sad read eat mine mad .,.,.,4.445,0.2064,1646261103.317,2.6029999256134033
+9,9.0,6.0,2,sad read eat mine mad ,sad read eat mine mad .,.,.,4.445,0.0854,1646261106.276,2.9590001106262207
+9,9.0,6.0,3,sad read eat mine mad ,sad read eat mine mad .,.,.,4.445,0.1471,1646261108.657,2.38100004196167
+9,9.0,7.0,1,sad read eat mine mad ,sad read eat mine mad ..,.,.,4.445,-0.1141,1646261110.913,2.25600004196167
+9,9.0,7.0,2,sad read eat mine mad ,sad read eat mine mad ..,.,.,4.445,0.0944,1646261114.843,3.929999828338623
+9,9.0,7.0,3,sad read eat mine mad ,sad read eat mine mad ..,.,.,4.445,0.2501,1646261117.322,2.4790000915527344
+9,10.0,1.0,1,feel bad on again give ,feel ,feel,57,4.445,0.1411,1646261121.691,4.36899995803833
+9,10.0,1.0,2,feel bad on again give ,feel ,feel,57,4.445,0.2184,1646261124.129,2.437999963760376
+9,10.0,2.0,1,feel bad on again give ,feel bad ,bad,27,4.445,0.0904,1646261130.44,6.311000108718872
+9,10.0,2.0,2,feel bad on again give ,feel bad ,bad,27,4.445,0.2344,1646261134.825,4.384999990463257
+9,10.0,3.0,1,feel bad on again give ,feel bad on ,on,61,4.445,0.036,1646261138.425,3.5999999046325684
+9,10.0,3.0,2,feel bad on again give ,feel bad on ,on,61,4.445,0.1697,1646261141.44,3.015000104904175
+9,10.0,4.0,1,feel bad on again give ,feel bad on again ,again,15,4.445,0.1847,1646261146.415,4.974999904632568
+9,10.0,4.0,2,feel bad on again give ,feel bad on again ,again,15,4.445,0.1184,1646261148.748,2.3329999446868896
+9,10.0,5.0,1,feel bad on again give ,feel bad on again give ,give,32,4.445,0.1967,1646261153.547,4.799000024795532
+9,10.0,5.0,2,feel bad on again give ,feel bad on again give ,give,32,4.445,0.1737,1646261157.844,4.297000169754028
+9,10.0,6.0,1,feel bad on again give ,feel bad on again give .,.,.,4.445,0.038,1646261160.267,2.422999858856201
+9,10.0,6.0,2,feel bad on again give ,feel bad on again give .,.,.,4.445,0.1341,1646261162.884,2.617000102996826
+9,10.0,6.0,3,feel bad on again give ,feel bad on again give .,.,.,4.445,0.0697,1646261165.179,2.294999837875366
+9,10.0,7.0,1,feel bad on again give ,feel bad on again give ..,.,.,4.445,0.0964,1646261167.646,2.4670000076293945
+9,10.0,7.0,2,feel bad on again give ,feel bad on again give ..,.,.,4.445,0.1421,1646261169.372,1.7260000705718994
+9,10.0,7.0,3,feel bad on again give ,feel bad on again give ..,.,.,4.445,-0.0137,1646261171.575,2.203000068664551
+9,11.0,1.0,1,work stop bad something_different soft ,work ,work,55,4.445,0.1571,1646261176.267,4.691999912261963
+9,11.0,1.0,2,work stop bad something_different soft ,work ,work,55,4.445,0.0814,1646261178.55,2.2829999923706055
+9,11.0,2.0,1,work stop bad something_different soft ,work stop ,stop,47,4.445,0.1877,1646261180.098,1.5480000972747803
+9,11.0,2.0,2,work stop bad something_different soft ,work stop ,stop,47,4.445,0.1627,1646261182.473,2.375
+9,11.0,3.0,1,work stop bad something_different soft ,work stop bad ,bad,27,4.445,0.0934,1646261184.323,1.8499999046325684
+9,11.0,3.0,2,work stop bad something_different soft ,work stop bad ,bad,27,4.445,0.1371,1646261188.607,4.2840001583099365
+9,11.0,4.0,1,work stop bad something_different soft ,work stop bad something_different ,something_different,18,4.445,0.1094,1646261190.619,2.0119998455047607
+9,11.0,4.0,2,work stop bad something_different soft ,work stop bad something_different ,something_different,18,4.445,0.2344,1646261194.985,4.365999937057495
+9,11.0,5.0,1,work stop bad something_different soft ,work stop bad something_different soft ,soft,54,4.445,0.1967,1646261199.866,4.88100004196167
+9,11.0,5.0,2,work stop bad something_different soft ,work stop bad something_different soft ,soft,54,4.445,0.1521,1646261204.142,4.276000022888184
+9,11.0,6.0,1,work stop bad something_different soft ,work stop bad something_different soft .,.,.,4.445,0.0437,1646261206.553,2.4110000133514404
+9,11.0,6.0,2,work stop bad something_different soft ,work stop bad something_different soft .,.,.,4.445,0.0894,1646261209.159,2.6059999465942383
+9,11.0,6.0,3,work stop bad something_different soft ,work stop bad something_different soft .,.,.,4.445,0.0587,1646261211.448,2.2890000343322754
+9,11.0,7.0,1,work stop bad something_different soft ,work stop bad something_different soft ..,.,.,4.445,0.1164,1646261213.946,2.498000144958496
+9,11.0,7.0,2,work stop bad something_different soft ,work stop bad something_different soft ..,.,.,4.445,0.1561,1646261218.226,4.2799999713897705
+9,11.0,7.0,3,work stop bad something_different soft ,work stop bad something_different soft ..,.,.,4.445,0.1231,1646261220.553,2.3269999027252197
+9,12.0,1.0,1,take where scared turn work ,take ,take,48,4.445,0.2084,1646261226.439,5.885999917984009
+9,12.0,1.0,2,take where scared turn work ,take ,take,48,4.445,0.0904,1646261230.68,4.241000175476074
+9,12.0,2.0,1,take where scared turn work ,take where ,where,14,4.445,0.0003,1646261232.269,1.5889999866485596
+9,12.0,2.0,2,take where scared turn work ,take where ,where,14,4.445,0.0497,1646261235.159,2.8899998664855957
+9,12.0,2.0,3,take where scared turn work ,take where ,where,14,4.445,0.1717,1646261237.561,2.4020001888275146

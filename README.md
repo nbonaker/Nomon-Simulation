@@ -24,13 +24,31 @@ Nomon-Core
 - **`ClockUtil.py`** -- Manages the movement and position of clock hands.
 - **`Config.py`** -- Hyperparameters controlling the core selection mechanism behind Nomon.
 
+Nomon-Symbol
+================
+- **`Keyboard.py`** -- Controls the interface of the Nomon symbol keyboard. Manges the layout of the clocks/symbol pictures and keeps track of the typed text.
+- **`KConfig.py`** -- Hyperparameters controlling the keyboard interface and it's layout.
+- **`/resources`** -- contains the emoji characters used to initialize the symbol keyboard layout.
+
+Nomon-Text
+================
+- **`Keyboard.py`** -- Controls the interface of the Nomon symbol keyboard. Manges the layout of the clocks/characters/word completions and keeps track of the typed text.
+- **`KConfig.py`** -- Hyperparameters controlling the keyboard interface and it's layout.
+- **`phrase_manager.py`** -- Contains the `Phrases` class used to load and mix the iv and oov phrase sets.
+- **`/kenlm`**
+    - **`kenlm_lm.py`** -- Interfaces with the kenlm models to format word and character probabilities for use in Nomon.
+    - **`predictor.py`** -- Contains the `WordPredictor` class that handles queries for the word language model.
+    - **`char_predictor.py`** -- Contains the `CharacterPredictor` class that handles queries for the character language model.
+- **`/resources`** -- contains the kenlm files for the language models and phrase datasets for the text-entry simulation targets.
+
 Nomon-Simulation
 ================
 Main Files:
-- **`Keyboard.py`** -- Controls the interface of the Nomon keyboard. Manges the layout of the clocks/words/characters and keeps track of the typed text.
-- **`SimulatedUser.py`** -- Interacts with the main `Keyboard` class to simulate user interactions. Controls which clocks are targeted, when switch-press events occur, and saves entry data from the simulation.
+- **`Simulated_user_symbol.py`** -- Interacts with the main `Keyboard` class in the `Nomon-Symbol` module to simulate user interactions. Controls which clocks are targeted, when switch-press events occur, and saves entry data from the simulation.
+- **`Simulated_user_text.py`** -- Interacts with the main `Keyboard` class in the `Nomon-Text` module to simulate user interactions. Controls which clocks are targeted, when switch-press events occur, and saves entry data from the simulation.
 - **`SimConfig.py`** -- Hyperparameters controlling the behavior of the `SimulatedUser`
-- **`KConfig.py`** -- Hyperparameters controlling the keyboard interface and it's layout.
+- **`run_parallel.py`** -- Allows multiple simulation instances to run concurrently on multiple cores (if available). Similar to running multiple jobs on a distributed system.
+- **`SimulationUtil`** -- Simulations are managed by a `SimulationUtil` class. These classes are unique to each simulation and control the varied parameters that are fed into the `SimulatedUser` and `keyboard` instances. They also manage the saving of data into the simulation's subdirectory. The `SimulationUtil` class also contains code to split parameter searches (multiple, longitudinal simulations) into jobs that can be executed concurrently on multiple CPU cores. 
 
 Simulations Directory: 
 
@@ -40,8 +58,6 @@ Simulations Directory:
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; sim.py -- contains the SimulationUtil class \
 &emsp;&emsp;&emsp;&emsp;&emsp; simulation2/ \
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ...* 
-
-- **SimulationUtil** -- Simulations are managed by a SimulationUtil class. These classes are unique to each simulation and control the varied parameters that are fed into the SimulatedUser and keyboard instances. They also manage the saving of data into the simulation's subdirectory. The SimulationUtil class also contains code to split parameter searches (multiple, longitudinal simulations) into jobs that can be executed concurrently on multiple CPU cores. 
 
 Nomon-User-Data
 ================

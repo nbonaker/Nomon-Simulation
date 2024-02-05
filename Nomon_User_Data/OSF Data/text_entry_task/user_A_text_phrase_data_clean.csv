@@ -1,0 +1,35 @@
+User ID,Session Num,Phrase Num,Total Experience (min),Clock Period (s),Click Dist SD (s),Click Dist p95 (s),Click Dist p99 (s),Phrase Text,Typed Text,Entry Rate (wpm),Click Load (clicks/character),Correction Rate (% of selections),Correction Time (s),Correction Click Load Contribution (%),Final Error Rate (%)
+84,1,1,0,2.207,0.1091,0.469,0.6621,another little dog named bourre,another little dog named bourre.,2.058,2.219,8.696,8,9.859,0
+84,1,2,6.93,2.207,0.104,0.5793,0.6345,try to learn something today,try to learn something today.,3.824,1.345,0,0,0,0
+84,1,3,8.45,2.207,0.1426,0.4966,1.3794,i'm so late to answer this,i'm so late to answer this.,2.551,1.704,0,0,0,0
+84,2,1,10.57,2.207,0.1154,0.3862,1.0759,that was actually a question,that was actually a question.,3.324,1.31,0,0,0,0
+84,2,2,12.6,2.207,0.0869,0.3311,0.4966,this has given me the fear,this has given me the fear.,2.678,1.481,0,0,0,0
+84,2,3,14.62,2.207,0.0796,0.2759,0.6069,thanks tricare for dropping the ball,thanks tricare for dropping the ball.,3,1.73,0,0,0,0
+84,2,4,17.08,2.207,0.0733,0.2759,0.4414,scam before you get scammed,scam before you get sc,2.901,1.682,0,0,0,0
+84,3,1,18.6,2.207,0.1523,0.5242,1.6277,i love the tony awards,i love the tony awards.,2.788,1.652,0,0,0,0
+84,3,2,20.25,2.207,0.1,0.3586,0.5242,just did an undertale personality quiz,just did an undertale personality quiz.,2.218,2.282,0,0,0,0
+84,3,3,23.77,2.207,0.1236,0.469,1.269,he just can't move on,he just can't move on.,3.771,1.545,0,0,0,0
+84,3,4,24.93,2.207,0.1713,0.6345,1.3794,bring back the gold girls,bring back the gold girls.,3.319,1.731,0,0,0,0
+84,3,5,26.5,2.207,0.1975,0.8828,1.5173,finally a drama for eunjung,finally a drama for e,2.831,2.238,8.333,11,17.021,0
+84,4,1,27.98,2.207,0.2284,1.1863,1.8484,i can't be the only one,i can't be the only one.,4.299,1.667,8.333,2,10,0
+84,4,2,29.1,2.207,0.1266,0.4966,1.1863,no one broke the world record,no one broke the world record.,4,1.667,0,0,0,0
+84,4,3,30.6,2.207,0.1413,0.6069,1.2966,vin scully's last game today,vin scully's last game today.,2.522,2.069,0,0,0,0
+84,4,4,32.9,2.207,0.1,0.4138,0.6897,ben is an emotional assassin,ben is an emotional assassin.,3.283,1.966,0,0,0,0
+84,4,5,34.67,2.207,0.1506,0.5242,1.407,i'll reply in the morning then,i'll reply in the morning.,5.571,1.231,0,0,0,0
+84,4,6,35.6,2.207,0.1297,0.469,0.9104,tabinof is not a good coaster,tabinof is not a good coaster,3.164,1.966,0,0,0,0
+84,5,1,37.43,2.207,0.1805,0.6621,1.5725,this is not my cat,this is not my cat.,5.302,1.368,0,0,0,0
+84,5,2,38.15,2.207,0.1159,0.4138,0.8828,i'll need to try that,i'll need to try that.,4.714,1.455,0,0,0,0
+84,5,3,39.08,2.207,0.1747,0.6621,1.407,just went on an unfollowing spree,just went on an unfollowing spree.,2.757,1.882,4.762,5,6.25,0
+84,5,4,41.55,2.207,0.0828,0.3035,0.5518,i'm so ready to give up,i'm so ready to give up.,5.143,1.333,0,0,0,0
+84,5,5,42.48,2.207,0.0725,0.3035,0.3862,i've had flowers that lasted months,i've had flowers that lasted months.,4.408,1.417,0,0,0,0
+84,5,6,44.12,2.207,0.1406,0.4966,1.4897,anderson paak is wildly talented,anderson paak is wildly talented.,2.87,2.242,4.762,5,6.757,0
+84,6,1,46.42,2.207,0.145,0.6345,0.9104,i can't find that registration button,i can't find that registration button.,4.222,1.474,0,0,0,0
+84,6,2,48.22,2.207,0.1211,0.4414,1.269,when is the auchinleck prom,when is the auchinleck prom.,2.366,2.714,0,0,0,0
+84,6,3,50.58,2.207,0.2083,1.1035,1.3794,this debate calls for vodka,this debate calls for vodka.,3.862,1.679,7.143,6,10.638,0
+84,6,4,52.03,2.207,0.1361,0.5518,1.2139,that is how you do it,that is how you do it.,3.429,1.864,0,0,0,0
+84,6,5,53.32,2.207,0.1864,0.6621,1.6828,use an elgato video capture connector,use an elgato video capture connect,2.515,2.171,0,0,0,0
+84,7,1,56.37,2.207,0.1571,0.5518,1.6001,are you a twitter veteran,are you a twitter veteran.,3.628,1.577,0,0,0,0
+84,7,2,57.8,2.207,0.1207,0.4138,1.0207,i do recommend your book,i do recommend your book.,3.587,1.72,0,0,0,0
+84,7,3,63.27,2.207,0.22,1.1863,1.407,nobody goes knapsacking across europe,nobody goes knapsacking across europe.,2.853,1.895,4.545,8,6.944,0
+84,7,4,67.25,2.207,0.1022,0.3586,0.7449,everyday something new to test me,everyday something new to test me.,3.778,1.353,0,0,0,0
+84,7,5,69.05,2.207,0.1343,0.6069,1.2139,i'm on the right track,i'm on the right track.,4.246,1.435,0,0,0,0

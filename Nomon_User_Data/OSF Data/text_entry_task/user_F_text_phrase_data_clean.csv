@@ -1,0 +1,9 @@
+User ID,Session Num,Phrase Num,Total Experience (min),Clock Period (s),Click Dist SD (s),Click Dist p95 (s),Click Dist p99 (s),Phrase Text,Typed Text,Entry Rate (wpm),Click Load (clicks/character),Correction Rate (% of selections),Correction Time (s),Correction Click Load Contribution (%),Final Error Rate (%)
+91,1,1,0,2.98,0.153,0.6333,0.7823,everyone at chopt knows me,everyone at chopt knows me.,1.209,2.815,11.538,12,11.842,0
+91,1,2,4.47,2.98,0.1234,0.4843,0.6333,and don't fake your smile,and don't fake your smile.,3,1.5,0,0,0,0
+91,1,3,6.2,2.98,0.3081,1.7508,2.0115,i have the best coworkers ever,i have the best coworkers ever.,3.612,1.452,0,0,0,0
+91,1,4,7.92,2.98,0.3547,1.937,2.5703,i should have hashtagged that,i should have hasht,2.682,1.684,0,0,0,0
+91,2,1,9.33,2.98,0.3825,1.9743,2.682,i cling to the little moments,i cling to the little moments.,2.432,1.767,0,0,0,0
+91,2,2,11.8,2.98,0.238,0.7823,1.9743,but this love is ours,but this love is ours.,1.956,2.091,7.143,5,8.696,0
+91,2,3,14.05,2.98,0.192,0.7078,1.3038,tyson gay's beard gives me life,tyson gay's beard gives me life.,1.761,2.375,4.348,6,5.263,0
+91,2,4,17.68,2.98,0.1655,0.7077,1.0802,he just can't move on,he just can't m,2.903,1.4,11.111,5,19.048,0

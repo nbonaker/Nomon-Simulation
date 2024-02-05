@@ -1,0 +1,12 @@
+User ID,Session Num,Phrase Num,Total Experience (min),Clock Period (s),Click Dist SD (s),Click Dist p95 (s),Click Dist p99 (s),Phrase Text,Typed Text,Entry Rate (wpm),Click Load (clicks/character),Correction Rate (% of selections),Correction Time (s),Correction Click Load Contribution (%),Final Error Rate (%)
+85.0,1.0,1.0,0.0,5.429,0.4338,1.493,3.5288,i love it out here,i love it out here.,1.689,1.579,0.0,0,0.0,0.0
+85.0,1.0,2.0,2.25,5.429,0.4806,1.7644,3.7324,i'm coming to the show,im coming to the show.,2.422,1.409,0.0,0,0.0,4.8
+85.0,1.0,3.0,4.07,5.429,0.6793,3.3253,5.0218,the corner of the old gallowgate,the corner of the old galloway.,1.992,1.677,0.0,0,0.0,10.0
+85.0,1.0,4.0,7.45,5.429,0.5494,3.0538,4.1396,that is how you do it,this is how you do it,2.681,1.0,0.0,0,0.0,9.5
+85.0,2.0,1.0,9.02,5.429,0.411,1.493,3.6646,i do recommend your book,i do recommend your book.,2.021,1.48,0.0,0,0.0,0.0
+85.0,2.0,2.0,11.78,5.429,0.2933,1.0179,1.5608,wait until you get to haast,wait until you get to haast.,1.474,2.286,0.0,0,0.0,0.0
+85.0,2.0,3.0,15.58,5.429,0.6736,3.1217,4.7504,but this love is ours,but this love is ours.,1.848,1.773,0.0,0,0.0,0.0
+85.0,3.0,1.0,18.23,5.429,0.533,1.968,4.5468,conte's blue and white army,conte's blue and white army.,0.994,2.714,11.538,23,11.842,0.0
+85.0,3.0,2.0,24.17,5.429,0.255,0.9501,1.2894,woke up still loving y'all,woke up still loving y'all.,1.514,1.926,5.263,14,11.538,0.0
+85.0,4.0,1.0,27.73,5.429,0.4758,1.6966,3.6646,this rapper desiigner is terrible,this rapper desiigneris terrible.,1.298,2.485,7.143,12,8.537,3.1
+85.0,4.0,2.0,33.38,5.429,0.3864,1.7644,2.1716,part of me is missing,part of me is missing.,1.913,1.682,0.0,0,0.0,0.0

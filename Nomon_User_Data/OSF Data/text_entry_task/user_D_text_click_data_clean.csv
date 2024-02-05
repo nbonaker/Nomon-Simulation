@@ -1,0 +1,597 @@
+Session Num,Phrase Num,Selection Num,Click Num,Task,Phrase Text,Typed Text,Target,Selection,Clock Period (s),Click Time Relative (s),Click Time Absolute (s),Dead Time (s)
+1,1,1,1,text,that was actually a question,t,,t,2.98,-0.0793,1655818472,0.0
+1,1,1,2,text,that was actually a question,t,,t,2.98,-0.097,1655818476,3.321000099
+1,1,1,3,text,that was actually a question,t,,t,2.98,-0.0466,1655818477,1.444000006
+1,1,2,1,text,that was actually a question,th,,h,2.98,-0.1488,1655818491,13.63199997
+1,1,2,2,text,that was actually a question,th,,h,2.98,-0.0206,1655818492,1.483999968
+1,1,3,1,text,that was actually a question,that_,,that_,2.98,-0.0029,1655818498,5.48300004
+1,1,3,2,text,that was actually a question,that_,,that_,2.98,-0.0206,1655818499,1.489000082
+1,1,4,1,text,that was actually a question,that was_,,was_,2.98,-0.0099,1655818507,8.210999966
+1,1,4,2,text,that was actually a question,that was_,,was_,2.98,-0.0346,1655818509,1.481999874
+1,1,5,1,text,that was actually a question,that was a,,a,2.98,-0.0169,1655818515,5.817000151
+1,1,5,2,text,that was actually a question,that was a,,a,2.98,-0.0169,1655818516,1.50999999
+1,1,6,1,text,that was actually a question,that was actually_,,actually_,2.98,0.0509,1655818522,5.75
+1,1,6,2,text,that was actually a question,that was actually_,,actually_,2.98,-0.0216,1655818523,1.474999905
+1,1,7,1,text,that was actually a question,that was actually a,,a,2.98,-0.1528,1655818527,3.33100009
+1,1,7,2,text,that was actually a question,that was actually a,,a,2.98,0.0051,1655818529,1.791999817
+1,1,7,3,text,that was actually a question,that was actually a,,a,2.98,0.0121,1655818530,1.514000177
+1,1,8,1,text,that was actually a question,that was actually aq,,q,2.98,0.0051,1655818536,5.869999886
+1,1,8,2,text,that was actually a question,that was actually aq,,q,2.98,-0.1528,1655818539,2.753000021
+1,1,8,3,text,that was actually a question,that was actually aq,,q,2.98,0.0509,1655818541,2.086999893
+1,1,8,4,text,that was actually a question,that was actually aq,,q,2.98,-0.1488,1655818542,1.482000113
+1,1,9,1,text,that was actually a question,that was actually a,,@,2.98,-0.1528,1655818551,9.16899991
+1,1,9,2,text,that was actually a question,that was actually a,,@,2.98,0.0051,1655818555,3.342000008
+1,1,9,3,text,that was actually a question,that was actually a,,@,2.98,0.0121,1655818558,3.067000151
+1,1,9,4,text,that was actually a question,that was actually a,,@,2.98,-0.0099,1655818561,2.684000015
+1,1,9,5,text,that was actually a question,that was actually a,,@,2.98,0.0509,1655818562,1.475999832
+1,1,10,1,text,that was actually a question,that was actually a_,,Space,2.98,-0.0099,1655818568,5.700999975
+1,1,10,2,text,that was actually a question,that was actually a_,,Space,2.98,-0.0366,1655818570,2.743000031
+1,1,10,3,text,that was actually a question,that was actually a_,,Space,2.98,0.0161,1655818572,1.519000053
+1,1,11,1,text,that was actually a question,that was actually a q,,q,2.98,0.0656,1655818578,6.398999929
+1,1,11,2,text,that was actually a question,that was actually a q,,q,2.98,-0.0396,1655818582,3.578999996
+1,1,11,3,text,that was actually a question,that was actually a q,,q,2.98,-0.0506,1655818585,2.717000008
+1,1,11,4,text,that was actually a question,that was actually a q,,q,2.98,-0.0556,1655818586,1.46600008
+1,1,12,1,text,that was actually a question,that was actually a question_,,question_,2.98,-0.0733,1655818589,2.713000059
+1,1,12,2,text,that was actually a question,that was actually a question_,,question_,2.98,-0.0573,1655818590,1.441999912
+1,1,13,1,text,that was actually a question,that was actually a question._,,.,2.98,0.0051,1655818596,5.696000099
+1,1,13,2,text,that was actually a question,that was actually a question._,,.,2.98,-0.0733,1655818599,3.299999952
+1,1,13,3,text,that was actually a question,that was actually a question._,,.,2.98,-0.0169,1655818603,3.499000072
+1,1,14,1,text,that was actually a question,that was actually a question.._,,.,2.98,0.0051,1655818605,2.406999826
+1,1,14,2,text,that was actually a question,that was actually a question.._,,.,2.98,-0.0216,1655818609,3.434000015
+1,1,14,3,text,that was actually a question,that was actually a question.._,,.,2.98,-0.0206,1655818610,1.532000065
+1,2,1,1,text,what was your experience with it,what_,,what_,2.98,-0.6782,1655818620,9.972000122
+1,2,1,2,text,what was your experience with it,what_,,what_,2.98,1.038,1655818622,1.557999849
+1,2,1,3,text,what was your experience with it,what_,,what_,2.98,0.8184,1655818623,1.567000151
+1,2,2,1,text,what was your experience with it,what was_,,was_,2.98,0.0686,1655818629,5.728999853
+1,2,2,2,text,what was your experience with it,what was_,,was_,2.98,-0.0176,1655818632,2.775000095
+1,2,2,3,text,what was your experience with it,what was_,,was_,2.98,-0.0536,1655818633,1.434000015
+1,2,3,1,text,what was your experience with it,what was y,,y,2.98,-0.0623,1655818639,6.236999989
+1,2,3,2,text,what was your experience with it,what was y,,y,2.98,-0.0763,1655818642,3.010999918
+1,2,3,3,text,what was your experience with it,what was y,,y,2.98,-0.0099,1655818644,1.49000001
+1,2,3,4,text,what was your experience with it,what was y,,y,2.98,-0.0099,1655818645,1.512000084
+1,2,4,1,text,what was your experience with it,what was your_,,your_,2.98,0.1043,1655818654,9.013000011
+1,2,4,2,text,what was your experience with it,what was your_,,your_,2.98,0.0201,1655818656,1.54399991
+1,2,5,1,text,what was your experience with it,what was your e,,e,2.98,0.0239,1655818661,4.637000084
+1,2,5,2,text,what was your experience with it,what was your e,,e,2.98,-0.0196,1655818664,3.428999901
+1,2,5,3,text,what was your experience with it,what was your e,,e,2.98,-0.0853,1655818666,1.411000013
+1,2,6,1,text,what was your experience with it,what was your experience_,,experience_,2.98,0.0389,1655818669,3.805000067
+1,2,6,2,text,what was your experience with it,what was your experience_,,experience_,2.98,-0.0763,1655818671,1.427000046
+1,2,6,3,text,what was your experience with it,what was your experience_,,experience_,2.98,0.0419,1655818672,1.546999931
+1,2,7,1,text,what was your experience with it,what was your experience with_,,with_,2.98,0.0101,1655818678,5.684999943
+1,2,7,2,text,what was your experience with it,what was your experience with_,,with_,2.98,-0.0159,1655818679,1.486999989
+1,2,7,3,text,what was your experience with it,what was your experience with_,,with_,2.98,-0.0486,1655818681,1.477999926
+1,2,8,1,text,what was your experience with it,what was your experience with it_,,it_,2.98,0.0626,1655818688,7.545000076
+1,2,8,2,text,what was your experience with it,what was your experience with it_,,it_,2.98,-0.111,1655818691,2.674999952
+1,2,8,3,text,what was your experience with it,what was your experience with it_,,it_,2.98,-0.1438,1655818693,1.363000154
+1,2,9,1,text,what was your experience with it,what was your experience with it._,,.,2.98,-0.0943,1655818698,5.69299984
+1,2,9,2,text,what was your experience with it,what was your experience with it._,,.,2.98,0.0111,1655818701,2.605000019
+1,2,9,3,text,what was your experience with it,what was your experience with it._,,.,2.98,0.0726,1655818703,2.095999956
+1,2,9,4,text,what was your experience with it,what was your experience with it._,,.,2.98,0.0499,1655818704,1.572000027
+1,2,10,1,text,what was your experience with it,what was your experience with it.._,,.,2.98,0.0201,1655818707,2.943000078
+1,2,10,2,text,what was your experience with it,what was your experience with it.._,,.,2.98,0.0389,1655818709,1.90899992
+1,2,10,3,text,what was your experience with it,what was your experience with it.._,,.,2.98,-0.0099,1655818713,3.43200016
+1,2,10,4,text,what was your experience with it,what was your experience with it.._,,.,2.98,-0.0099,1655818714,1.437000036
+1,3,1,1,text,delmon young would have a case,d,,d,2.98,-0.2502,1655818721,6.899999857
+1,3,1,2,text,delmon young would have a case,d,,d,2.98,-0.5323,1655818724,2.72300005
+1,3,1,3,text,delmon young would have a case,d,,d,2.98,0.144,1655818725,1.411999941
+1,3,2,1,text,delmon young would have a case,de,,e,2.98,-0.0029,1655818730,5.194999933
+1,3,2,2,text,delmon young would have a case,de,,e,2.98,0.0081,1655818732,1.522000074
+1,3,3,1,text,delmon young would have a case,del,,l,2.98,-0.6098,1655818734,1.989000082
+1,3,3,2,text,delmon young would have a case,del,,l,2.98,-0.0089,1655818739,5.358999968
+1,3,3,3,text,delmon young would have a case,del,,l,2.98,-0.0456,1655818743,3.394999981
+1,3,3,4,text,delmon young would have a case,del,,l,2.98,-0.0159,1655818744,1.494999886
+1,3,4,1,text,delmon young would have a case,delm,,m,2.98,0.0081,1655818749,4.521000147
+1,3,4,2,text,delmon young would have a case,delm,,m,2.98,-0.0376,1655818752,3.387000084
+1,3,4,3,text,delmon young would have a case,delm,,m,2.98,-0.0039,1655818754,1.500999928
+1,3,5,1,text,delmon young would have a case,delmo,,o,2.98,-0.0943,1655818759,5.424999952
+1,3,5,2,text,delmon young would have a case,delmo,,o,2.98,-0.0913,1655818760,1.430000067
+1,3,5,3,text,delmon young would have a case,delmo,,o,2.98,-0.0276,1655818762,1.49000001
+1,3,6,1,text,delmon young would have a case,delmon,,n,2.98,0.0489,1655818765,2.806999922
+1,3,6,2,text,delmon young would have a case,delmon,,n,2.98,-0.0623,1655818766,1.430999994
+1,3,7,1,text,delmon young would have a case,delmon_,,Space,2.98,-0.0426,1655818772,5.762000084
+1,3,7,2,text,delmon young would have a case,delmon_,,Space,2.98,-0.0603,1655818773,1.447999954
+1,3,8,1,text,delmon young would have a case,delmon y,,y,2.98,0.0181,1655818779,5.634000063
+1,3,8,2,text,delmon young would have a case,delmon y,,y,2.98,-0.0159,1655818782,3.403999805
+1,3,8,3,text,delmon young would have a case,delmon y,,y,2.98,0.0181,1655818784,1.546000004
+1,3,9,1,text,delmon young would have a case,delmon yo,,o,2.98,-0.0376,1655818788,4.513000011
+1,3,9,2,text,delmon young would have a case,delmon yo,,o,2.98,-0.0129,1655818790,1.501000166
+1,3,10,1,text,delmon young would have a case,delmon you,,u,2.98,0.0429,1655818798,7.697000027
+1,3,10,2,text,delmon young would have a case,delmon you,,u,2.98,-0.0743,1655818799,1.426999807
+1,3,11,1,text,delmon young would have a case,delmon young_,,young_,2.98,-0.0149,1655818806,7.291000128
+1,3,11,2,text,delmon young would have a case,delmon young_,,young_,2.98,-0.0486,1655818808,1.470999956
+1,3,12,1,text,delmon young would have a case,delmon young w,,w,2.98,-0.0643,1655818811,3.282000065
+1,3,12,2,text,delmon young would have a case,delmon young w,,w,2.98,0.0061,1655818814,2.76699996
+1,3,12,3,text,delmon young would have a case,delmon young w,,w,2.98,0.0339,1655818815,1.542000055
+1,3,13,1,text,delmon young would have a case,delmon young would_,,would_,2.98,-0.0476,1655818821,5.641000032
+1,3,13,2,text,delmon young would have a case,delmon young would_,,would_,2.98,-0.2115,1655818822,1.296999931
+1,3,13,3,text,delmon young would have a case,delmon young would_,,would_,2.98,0.0161,1655818824,1.542999983
+1,3,14,1,text,delmon young would have a case,delmon young would have_,,have_,2.98,-0.0406,1655818830,6.450999975
+1,3,14,2,text,delmon young would have a case,delmon young would have_,,have_,2.98,0.1103,1655818832,1.615999937
+1,3,14,3,text,delmon young would have a case,delmon young would have_,,have_,2.98,0.0121,1655818834,1.532000065
+1,3,15,1,text,delmon young would have a case,delmon young would have a_,,a_,2.98,0.0549,1655818836,2.819000006
+1,3,15,2,text,delmon young would have a case,delmon young would have a_,,a_,2.98,-0.0179,1655818838,1.480999947
+1,3,16,1,text,delmon young would have a case,delmon young would have a c,,c,2.98,0.148,1655818841,3.457000017
+1,3,16,2,text,delmon young would have a case,delmon young would have a c,,c,2.98,-0.0873,1655818843,2.041000128
+1,3,16,3,text,delmon young would have a case,delmon young would have a c,,c,2.98,-0.0753,1655818845,1.438999891
+1,3,17,1,text,delmon young would have a case,delmon young would have a case_,,case_,2.98,-0.0216,1655818850,5.329999924
+1,3,17,2,text,delmon young would have a case,delmon young would have a case_,,case_,2.98,0.0141,1655818852,1.517000198
+1,3,18,1,text,delmon young would have a case,delmon young would have a case._,,.,2.98,0.0509,1655818857,5.625
+1,3,18,2,text,delmon young would have a case,delmon young would have a case._,,.,2.98,0.0609,1655818859,1.893999815
+1,3,18,3,text,delmon young would have a case,delmon young would have a case._,,.,2.98,-0.0883,1655818863,3.380000114
+1,3,18,4,text,delmon young would have a case,delmon young would have a case._,,.,2.98,-0.0169,1655818864,1.394000053
+1,3,18,1,text,delmon young would have a case,delmon young would have a case.._,,.,2.98,-0.0396,1655818867,3.006999969
+1,3,18,2,text,delmon young would have a case,delmon young would have a case.._,,.,2.98,0.0636,1655818870,3.236999989
+1,3,18,3,text,delmon young would have a case,delmon young would have a case.._,,.,2.98,-1.3198,1655818874,3.453000069
+1,3,18,4,text,delmon young would have a case,delmon young would have a case.._,,.,2.98,-0.0516,1655818875,1.457999945
+1,4,1,1,text,no one broke the world record,n,,n,2.98,0.2702,1655818881,5.89199996
+1,4,1,2,text,no one broke the world record,n,,n,2.98,1.3936,1655818884,3.39199996
+1,4,1,3,text,no one broke the world record,n,,n,2.98,0.2932,1655818886,1.552000046
+1,4,2,1,text,no one broke the world record,no_,,no_,2.98,0.0589,1655818889,3.506000042
+1,4,2,2,text,no one broke the world record,no_,,no_,2.98,-0.0576,1655818891,1.431999922
+1,4,3,1,text,no one broke the world record,no one_,,one_,2.98,0.0031,1655818892,1.535000086
+1,4,3,2,text,no one broke the world record,no one_,,one_,2.98,-0.0486,1655818897,4.516000032
+1,4,4,1,text,no one broke the world record,no one b,,b,2.98,0.0489,1655818902,5.001999855
+1,4,4,2,text,no one broke the world record,no one b,,b,2.98,0.0239,1655818905,3.43900013
+1,4,4,3,text,no one broke the world record,no one b,,b,2.98,0.0656,1655818907,1.593999863
+1,4,5,1,text,no one broke the world record,no one br,,r,2.98,0.0171,1655818910,2.982000113
+1,4,5,2,text,no one broke the world record,no one br,,r,2.98,-0.0276,1655818911,1.470000029
+1,4,5,3,text,no one broke the world record,no one br,,r,2.98,-0.0546,1655818916,4.507999897
+1,4,6,1,text,no one broke the world record,no one bro,,o,2.98,-0.0336,1655818924,7.625
+1,4,6,2,text,no one broke the world record,no one bro,,o,2.98,-0.0129,1655818925,1.496000051
+1,4,7,1,text,no one broke the world record,no one broo,,o,2.98,-0.0603,1655818929,3.708999872
+1,4,7,2,text,no one broke the world record,no one broo,,o,2.98,-0.0733,1655818931,2.686000109
+1,4,7,3,text,no one broke the world record,no one broo,,o,2.98,-0.1438,1655818933,1.438999891
+1,4,8,1,text,no one broke the world record,no one bro,,@,2.98,-0.0336,1655818943,9.975000143
+1,4,8,2,text,no one broke the world record,no one bro,,@,2.98,-0.0129,1655818946,2.799999952
+1,4,8,3,text,no one broke the world record,no one bro,,@,2.98,-0.0593,1655818947,1.51699996
+1,4,9,1,text,no one broke the world record,no one broke_,,broke_,2.98,0.0529,1655818952,4.753000021
+1,4,9,2,text,no one broke the world record,no one broke_,,broke_,2.98,0.0519,1655818955,2.816999912
+1,4,9,3,text,no one broke the world record,no one broke_,,broke_,2.98,0.0101,1655818956,1.507000208
+1,4,10,1,text,no one broke the world record,no one broke the_,,the_,2.98,-0.098,1655818961,5.0849998
+1,4,10,2,text,no one broke the world record,no one broke the_,,the_,2.98,-0.0336,1655818964,2.723999977
+1,4,10,3,text,no one broke the world record,no one broke the_,,the_,2.98,0.0141,1655818966,1.514000177
+1,4,11,1,text,no one broke the world record,no one broke the w,,w,2.98,0.0249,1655818969,3.190999985
+1,4,11,2,text,no one broke the world record,no one broke the w,,w,2.98,0.0946,1655818972,3.536000013
+1,4,11,3,text,no one broke the world record,no one broke the w,,w,2.98,0.0201,1655818974,1.546000004
+1,4,12,1,text,no one broke the world record,no one broke the world_,,world_,2.98,0.0369,1655818979,5.526000023
+1,4,12,2,text,no one broke the world record,no one broke the world_,,world_,2.98,0.0229,1655818981,1.549999952
+1,4,13,1,text,no one broke the world record,no one broke the world r,,r,2.98,0.2595,1655818989,7.957000017
+1,4,13,2,text,no one broke the world record,no one broke the world r,,r,2.98,0.0519,1655818991,2.485999823
+1,4,13,3,text,no one broke the world record,no one broke the world r,,r,2.98,0.0856,1655818993,1.600000143
+1,4,14,1,text,no one broke the world record,no one broke the world re,,e,2.98,0.0081,1655818998,4.592999935
+1,4,14,2,text,no one broke the world record,no one broke the world re,,e,2.98,-0.0603,1655818999,1.440999985
+1,4,15,1,text,no one broke the world record,no one broke the world record_,,record_,2.98,0.0161,1655819004,5.019000053
+1,4,15,2,text,no one broke the world record,no one broke the world record_,,record_,2.98,-0.0526,1655819005,1.440999985
+1,4,15,3,text,no one broke the world record,no one broke the world record_,,record_,2.98,-0.0069,1655819007,1.518000126
+1,4,16,1,text,no one broke the world record,no one broke the world record._,,.,2.98,-0.0346,1655819013,5.898999929
+1,4,16,2,text,no one broke the world record,no one broke the world record._,,.,2.98,-0.104,1655819016,3.052999973
+1,4,16,3,text,no one broke the world record,no one broke the world record._,,.,2.98,0.3547,1655819019,3.470000029
+1,4,17,1,text,no one broke the world record,no one broke the world record.._,,.,2.98,0.0946,1655819022,2.978999853
+1,4,17,2,text,no one broke the world record,no one broke the world record.._,,.,2.98,0.0519,1655819025,2.903000116
+1,4,17,3,text,no one broke the world record,no one broke the world record.._,,.,2.98,0.0161,1655819029,3.582000017
+1,4,17,4,text,no one broke the world record,no one broke the world record.._,,.,2.98,-0.0069,1655819030,1.501999855
+1,5,1,1,text,i'm sorry these drivers are gladiators,i'm_,,i'm_,2.98,0.3447,1655819038,7.845000029
+1,5,1,2,text,i'm sorry these drivers are gladiators,i'm_,,i'm_,2.98,1.0708,1655819040,1.587000132
+1,5,2,1,text,i'm sorry these drivers are gladiators,i'm s,,s,2.98,0.0001,1655819046,6.187000036
+1,5,2,2,text,i'm sorry these drivers are gladiators,i'm s,,s,2.98,-0.106,1655819047,1.405999899
+1,5,2,3,text,i'm sorry these drivers are gladiators,i'm s,,s,2.98,-0.131,1655819049,1.365999937
+2,1,1,1,text,tabinof is not a good coaster,t,,t,2.98,0.0579,1655819697,0.0
+2,1,1,2,text,tabinof is not a good coaster,t,,t,2.98,0.0339,1655819698,1.542999983
+2,1,1,3,text,tabinof is not a good coaster,t,,t,2.98,-0.0486,1655819700,1.467000008
+2,1,2,1,text,tabinof is not a good coaster,ta,,a,2.98,-0.0179,1655819702,1.954999924
+2,1,2,2,text,tabinof is not a good coaster,ta,,a,2.98,0.0269,1655819703,1.551000118
+2,1,2,3,text,tabinof is not a good coaster,ta,,a,2.98,0.0041,1655819705,1.518999815
+2,1,3,1,text,tabinof is not a good coaster,tab,,b,2.98,-0.0049,1655819708,2.685000181
+2,1,3,2,text,tabinof is not a good coaster,tab,,b,2.98,0.0666,1655819711,3.498999834
+2,1,3,3,text,tabinof is not a good coaster,tab,,b,2.98,0.0636,1655819713,1.590000153
+2,1,4,1,text,tabinof is not a good coaster,tabi,,i,2.98,0.0569,1655819716,3.174000025
+2,1,4,2,text,tabinof is not a good coaster,tabi,,i,2.98,-0.0236,1655819717,1.476999998
+2,1,4,3,text,tabinof is not a good coaster,tabi,,i,2.98,0.0299,1655819719,1.532999992
+2,1,5,1,text,tabinof is not a good coaster,tabin,,n,2.98,0.0696,1655819722,3.674999952
+2,1,5,2,text,tabinof is not a good coaster,tabin,,n,2.98,-0.0159,1655819725,2.77699995
+2,1,5,3,text,tabinof is not a good coaster,tabin,,n,2.98,-0.1448,1655819727,1.388000011
+2,1,6,1,text,tabinof is not a good coaster,tabino,,o,2.98,0.0001,1655819730,3.101000071
+2,1,6,2,text,tabinof is not a good coaster,tabino,,o,2.98,-0.118,1655819731,1.38499999
+2,1,6,3,text,tabinof is not a good coaster,tabino,,o,2.98,-0.0593,1655819733,1.447000027
+2,1,7,1,text,tabinof is not a good coaster,tabinof,,f,2.98,-0.1875,1655819736,3.868000031
+2,1,7,2,text,tabinof is not a good coaster,tabinof,,f,2.98,-0.117,1655819738,2.0
+2,1,7,3,text,tabinof is not a good coaster,tabinof,,f,2.98,-0.0813,1655819741,2.681999922
+2,1,7,4,text,tabinof is not a good coaster,tabinof,,f,2.98,0.0101,1655819743,1.51699996
+2,1,8,1,text,tabinof is not a good coaster,tabinof_,,Space,2.98,-0.0623,1655819748,5.785000086
+2,1,8,2,text,tabinof is not a good coaster,tabinof_,,Space,2.98,-0.1588,1655819750,1.340999842
+2,1,9,1,text,tabinof is not a good coaster,tabinof i,,i,2.98,0.0509,1655819756,6.267000198
+2,1,9,2,text,tabinof is not a good coaster,tabinof i,,i,2.98,-0.0506,1655819759,2.731999874
+2,1,9,3,text,tabinof is not a good coaster,tabinof i,,i,2.98,-0.0683,1655819760,1.451999903
+2,1,10,1,text,tabinof is not a good coaster,tabinof is_,,is_,2.98,0.0616,1655819763,3.167000055
+2,1,10,2,text,tabinof is not a good coaster,tabinof is_,,is_,2.98,0.0279,1655819765,1.555000067
+2,1,10,3,text,tabinof is not a good coaster,tabinof is_,,is_,2.98,0.1003,1655819767,1.625
+2,1,11,1,text,tabinof is not a good coaster,tabinof is not_,,not_,2.98,0.0579,1655819772,5.915999889
+2,1,11,2,text,tabinof is not a good coaster,tabinof is not_,,not_,2.98,0.0529,1655819774,1.55700016
+2,1,11,3,text,tabinof is not a good coaster,tabinof is not_,,not_,2.98,0.0636,1655819776,1.569999933
+2,1,12,1,text,tabinof is not a good coaster,tabinof is not a_,,a_,2.98,0.602,1655819778,2.144000053
+2,1,12,2,text,tabinof is not a good coaster,tabinof is not a_,,a_,2.98,-0.0346,1655819781,3.147000074
+2,1,12,3,text,tabinof is not a good coaster,tabinof is not a_,,a_,2.98,0.0289,1655819783,2.473999977
+2,1,12,4,text,tabinof is not a good coaster,tabinof is not a_,,a_,2.98,0.0579,1655819787,3.493999958
+2,1,13,1,text,tabinof is not a good coaster,tabinof is not a good_,,good_,2.98,0.0656,1655819791,4.618000031
+2,1,13,2,text,tabinof is not a good coaster,tabinof is not a good_,,good_,2.98,-0.0366,1655819793,1.483999968
+2,1,14,1,text,tabinof is not a good coaster,tabinof is not a good c,,c,2.98,0.0826,1655819798,5.026000023
+2,1,14,2,text,tabinof is not a good coaster,tabinof is not a good c,,c,2.98,-0.0376,1655819801,2.725999832
+2,1,14,3,text,tabinof is not a good coaster,tabinof is not a good c,,c,2.98,0.0191,1655819802,1.532000065
+2,1,15,1,text,tabinof is not a good coaster,tabinof is not a good co,,o,2.98,0.0419,1655819807,4.60800004
+2,1,15,2,text,tabinof is not a good coaster,tabinof is not a good co,,o,2.98,0.0239,1655819808,1.53399992
+2,1,16,1,text,tabinof is not a good coaster,tabinof is not a good coa,,a,2.98,0.0569,1655819811,2.924000025
+2,1,16,2,text,tabinof is not a good coaster,tabinof is not a good coa,,a,2.98,0.0619,1655819815,3.488000154
+2,1,16,3,text,tabinof is not a good coaster,tabinof is not a good coa,,a,2.98,-0.0663,1655819816,1.41899991
+2,1,17,1,text,tabinof is not a good coaster,tabinof is not a good coaster_,,coaster_,2.98,-0.0923,1655819819,2.53399992
+2,1,17,2,text,tabinof is not a good coaster,tabinof is not a good coaster_,,coaster_,2.98,0.0021,1655819822,2.787000179
+2,1,17,3,text,tabinof is not a good coaster,tabinof is not a good coaster_,,coaster_,2.98,0.0399,1655819823,1.545999765
+2,1,18,1,text,tabinof is not a good coaster,tabinof is not a good coaster._,,.,2.98,0.0239,1655819826,2.721000195
+2,1,18,2,text,tabinof is not a good coaster,tabinof is not a good coaster._,,.,2.98,0.0191,1655819829,2.89199996
+2,1,18,3,text,tabinof is not a good coaster,tabinof is not a good coaster._,,.,2.98,0.0619,1655819832,3.381999969
+2,1,18,4,text,tabinof is not a good coaster,tabinof is not a good coaster._,,.,2.98,-0.0346,1655819834,1.496999979
+2,1,19,1,text,tabinof is not a good coaster,tabinof is not a good coaster.._,,.,2.98,0.0826,1655819837,3.148999929
+2,1,19,2,text,tabinof is not a good coaster,tabinof is not a good coaster.._,,.,2.98,0.0399,1655819839,2.594000101
+2,1,19,3,text,tabinof is not a good coaster,tabinof is not a good coaster.._,,.,2.98,0.1003,1655819843,3.444000006
+2,1,19,4,text,tabinof is not a good coaster,tabinof is not a good coaster.._,,.,2.98,-0.0506,1655819844,1.542000055
+2,2,1,1,text,this has given me the fear,this_,,this_,2.98,0.6538,1655819848,3.605999947
+2,2,1,2,text,this has given me the fear,this_,,this_,2.98,-0.6562,1655819851,3.339999914
+2,2,1,3,text,this has given me the fear,this_,,this_,2.98,0.578,1655819853,1.488000154
+2,2,2,1,text,this has given me the fear,this has_,,has_,2.98,0.0936,1655819856,3.698999882
+2,2,2,2,text,this has given me the fear,this has_,,has_,2.98,0.0201,1655819858,1.525000095
+2,2,2,3,text,this has given me the fear,this has_,,has_,2.98,0.0846,1655819860,1.575999975
+2,2,3,1,text,this has given me the fear,this has g,,g,2.98,0.0646,1655819862,2.592000008
+2,2,3,2,text,this has given me the fear,this has g,,g,2.98,0.0141,1655819866,3.467999935
+2,2,3,3,text,this has given me the fear,this has g,,g,2.98,-0.0099,1655819867,1.497999907
+2,2,4,1,text,this has given me the fear,this has given_,,given_,2.98,0.0181,1655819870,3.301000118
+2,2,4,2,text,this has given me the fear,this has given_,,given_,2.98,-0.0266,1655819872,1.474999905
+2,2,4,3,text,this has given me the fear,this has given_,,given_,2.98,0.0636,1655819873,1.575000048
+2,2,5,1,text,this has given me the fear,this has given m,,m,2.98,0.161,1655819877,3.194999933
+2,2,5,2,text,this has given me the fear,this has given m,,m,2.98,-0.0276,1655819879,2.09100008
+2,2,5,3,text,this has given me the fear,this has given m,,m,2.98,-0.1865,1655819880,1.305999994
+2,2,5,4,text,this has given me the fear,this has given m,,m,2.98,0.0916,1655819882,1.595999956
+2,2,6,1,text,this has given me the fear,this has given me_,,me_,2.98,-0.1618,1655819885,3.75999999
+2,2,6,2,text,this has given me the fear,this has given me_,,me_,2.98,-0.105,1655819889,3.319000006
+2,2,6,3,text,this has given me the fear,this has given me_,,me_,2.98,-0.0703,1655819890,1.426000118
+2,2,7,1,text,this has given me the fear,this has given me the_,,the_,2.98,-0.0099,1655819896,6.000999928
+2,2,7,2,text,this has given me the fear,this has given me the_,,the_,2.98,0.0151,1655819898,1.538000107
+2,2,7,3,text,this has given me the fear,this has given me the_,,the_,2.98,-0.105,1655819899,1.391000032
+2,2,8,1,text,this has given me the fear,this has given me the f,,f,2.98,-0.116,1655819902,2.741999865
+2,2,8,2,text,this has given me the fear,this has given me the f,,f,2.98,-0.0316,1655819904,2.084000111
+2,2,8,3,text,this has given me the fear,this has given me the f,,f,2.98,0.0489,1655819905,1.553999901
+2,2,9,1,text,this has given me the fear,this has given me the fe,,e,2.98,-0.13,1655819908,2.316999912
+2,2,9,2,text,this has given me the fear,this has given me the fe,,e,2.98,-0.0566,1655819910,2.729000092
+2,2,9,3,text,this has given me the fear,this has given me the fe,,e,2.98,-0.0366,1655819912,1.486000061
+2,2,10,1,text,this has given me the fear,this has given me the fear_,,fear_,2.98,-0.0763,1655819915,3.520999908
+2,2,10,2,text,this has given me the fear,this has given me the fear_,,fear_,2.98,0.0131,1655819919,3.444000006
+2,2,10,3,text,this has given me the fear,this has given me the fear_,,fear_,2.98,0.0439,1655819920,1.545000076
+2,2,11,1,text,this has given me the fear,this has given me the fear._,,.,2.98,-0.0109,1655819923,2.753999949
+2,2,11,2,text,this has given me the fear,this has given me the fear._,,.,2.98,-0.0623,1655819926,2.582999945
+2,2,11,3,text,this has given me the fear,this has given me the fear._,,.,2.98,-0.0536,1655819929,3.427999973
+2,2,11,4,text,this has given me the fear,this has given me the fear._,,.,2.98,-0.0246,1655819931,1.475000143
+2,2,12,1,text,this has given me the fear,this has given me the fear.._,,.,2.98,0.4929,1655819934,3.171999931
+2,2,12,2,text,this has given me the fear,this has given me the fear.._,,.,2.98,0.1373,1655819936,1.605999947
+2,2,12,3,text,this has given me the fear,this has given me the fear.._,,.,2.98,-0.0753,1655819939,3.391000032
+2,2,12,4,text,this has given me the fear,this has given me the fear.._,,.,2.98,-0.0179,1655819940,1.426000118
+2,3,1,1,text,i have the best coworkers ever,i,,i,2.98,-0.6165,1655819944,3.277999878
+2,3,1,2,text,i have the best coworkers ever,i,,i,2.98,0.5753,1655819945,1.486999989
+2,3,1,3,text,i have the best coworkers ever,i,,i,2.98,0.1403,1655819947,1.512000084
+2,3,2,1,text,i have the best coworkers ever,i_,,Space,2.98,0.0299,1655819951,4.611000061
+2,3,2,2,text,i have the best coworkers ever,i_,,Space,2.98,-0.0119,1655819953,1.508999825
+2,3,3,1,text,i have the best coworkers ever,i have_,,have_,2.98,0.0141,1655819959,6.186000109
+2,3,3,2,text,i have the best coworkers ever,i have_,,have_,2.98,-0.0226,1655819960,1.486999989
+2,3,3,3,text,i have the best coworkers ever,i have_,,have_,2.98,0.0619,1655819962,1.559999943
+2,3,4,1,text,i have the best coworkers ever,i have t,,t,2.98,-0.0793,1655819968,5.73300004
+2,3,4,2,text,i have the best coworkers ever,i have t,,t,2.98,-0.0169,1655819969,1.493000031
+2,3,4,3,text,i have the best coworkers ever,i have t,,t,2.98,-0.0216,1655819971,1.503999949
+2,3,5,1,text,i have the best coworkers ever,i have the_,,the_,2.98,-0.0119,1655819973,2.094000101
+2,3,5,2,text,i have the best coworkers ever,i have the_,,the_,2.98,0.0071,1655819974,1.529000044
+2,3,6,1,text,i have the best coworkers ever,i have the best_,,best_,2.98,0.0559,1655819979,4.636999846
+2,3,6,2,text,i have the best coworkers ever,i have the best_,,best_,2.98,-0.1488,1655819980,1.351000071
+2,3,6,3,text,i have the best coworkers ever,i have the best_,,best_,2.98,-0.0903,1655819982,1.407000065
+2,3,7,1,text,i have the best coworkers ever,i have the best c,,c,2.98,0.0419,1655819984,2.5849998
+2,3,7,2,text,i have the best coworkers ever,i have the best c,,c,2.98,-0.0576,1655819987,2.71600008
+2,3,7,3,text,i have the best coworkers ever,i have the best c,,c,2.98,-0.0216,1655819989,1.509000063
+2,3,8,1,text,i have the best coworkers ever,i have the best co,,o,2.98,0.0219,1655819993,4.582999945
+2,3,8,2,text,i have the best coworkers ever,i have the best co,,o,2.98,-0.0306,1655819995,1.493000031
+2,3,9,1,text,i have the best coworkers ever,i have the best cow,,w,2.98,0.0696,1655819999,4.075999975
+2,3,9,2,text,i have the best coworkers ever,i have the best cow,,w,2.98,0.0756,1655820001,2.210999966
+2,3,9,3,text,i have the best coworkers ever,i have the best cow,,w,2.98,-0.0099,1655820002,1.5
+2,3,10,1,text,i have the best coworkers ever,i have the best coworkers_,,coworkers_,2.98,0.0061,1655820005,2.943000078
+2,3,10,2,text,i have the best coworkers ever,i have the best coworkers_,,coworkers_,2.98,-0.2125,1655820007,1.280999899
+2,3,10,3,text,i have the best coworkers ever,i have the best coworkers_,,coworkers_,2.98,-0.0556,1655820008,1.460999966
+2,3,11,1,text,i have the best coworkers ever,i have the best coworkers e,,e,2.98,0.0081,1655820015,6.641000032
+2,3,11,2,text,i have the best coworkers ever,i have the best coworkers e,,e,2.98,-0.0663,1655820017,2.05700016
+2,3,11,3,text,i have the best coworkers ever,i have the best coworkers e,,e,2.98,-0.0643,1655820018,1.431999922
+2,3,12,1,text,i have the best coworkers ever,i have the best coworkers ever_,,ever_,2.98,0.0459,1655820022,3.958999872
+2,3,12,2,text,i have the best coworkers ever,i have the best coworkers ever_,,ever_,2.98,0.0031,1655820024,1.510000229
+2,3,13,1,text,i have the best coworkers ever,i have the best coworkers ever._,,.,2.98,0.0171,1655820026,2.732999802
+2,3,13,2,text,i have the best coworkers ever,i have the best coworkers ever._,,.,2.98,-0.0186,1655820030,3.598999977
+2,3,13,3,text,i have the best coworkers ever,i have the best coworkers ever._,,.,2.98,0.0151,1655820033,2.762000084
+2,3,13,4,text,i have the best coworkers ever,i have the best coworkers ever._,,.,2.98,-0.0246,1655820034,1.480999947
+2,3,14,1,text,i have the best coworkers ever,i have the best coworkers ever.._,,.,2.98,1.051,1655820037,2.970000029
+2,3,14,2,text,i have the best coworkers ever,i have the best coworkers ever.._,,.,2.98,0.0289,1655820041,3.605999947
+2,3,14,3,text,i have the best coworkers ever,i have the best coworkers ever.._,,.,2.98,-0.0386,1655820043,2.694000006
+2,3,14,4,text,i have the best coworkers ever,i have the best coworkers ever.._,,.,2.98,0.0001,1655820045,1.532000065
+2,4,1,1,text,everyone at chopt knows me,e,,e,2.98,0.9009,1655820052,7.107000113
+2,4,1,2,text,everyone at chopt knows me,e,,e,2.98,-0.568,1655820054,2.116999865
+2,4,1,3,text,everyone at chopt knows me,e,,e,2.98,0.2972,1655820056,1.536000013
+2,4,2,1,text,everyone at chopt knows me,everyone_,,everyone_,2.98,0.0986,1655820061,5.305999994
+2,4,2,2,text,everyone at chopt knows me,everyone_,,everyone_,2.98,0.0429,1655820063,1.535000086
+2,4,3,1,text,everyone at chopt knows me,everyone at_,,at_,2.98,-0.104,1655820066,3.648999929
+2,4,3,2,text,everyone at chopt knows me,everyone at_,,at_,2.98,0.1043,1655820069,2.871999979
+2,4,3,3,text,everyone at chopt knows me,everyone at_,,at_,2.98,-0.0883,1655820071,1.433000088
+2,4,4,1,text,everyone at chopt knows me,everyone at c,,c,2.98,0.0081,1655820073,2.39199996
+2,4,4,2,text,everyone at chopt knows me,everyone at c,,c,2.98,-0.0653,1655820076,3.354000092
+2,4,4,3,text,everyone at chopt knows me,everyone at c,,c,2.98,0.0419,1655820078,1.549999952
+2,4,5,1,text,everyone at chopt knows me,everyone at ch,,h,2.98,-0.0029,1655820081,3.424999952
+2,4,5,2,text,everyone at chopt knows me,everyone at ch,,h,2.98,0.0696,1655820083,1.582999945
+2,4,5,3,text,everyone at chopt knows me,everyone at ch,,h,2.98,-0.0286,1655820084,1.493000031
+2,4,6,1,text,everyone at chopt knows me,everyone at cho,,o,2.98,0.175,1655820087,2.302000046
+2,4,6,2,text,everyone at chopt knows me,everyone at cho,,o,2.98,-0.1628,1655820089,2.594000101
+2,4,6,3,text,everyone at chopt knows me,everyone at cho,,o,2.98,-0.0793,1655820091,1.43599987
+2,4,7,1,text,everyone at chopt knows me,everyone at chop,,p,2.98,-0.1628,1655820097,5.842000008
+2,4,7,2,text,everyone at chopt knows me,everyone at chop,,p,2.98,-0.0179,1655820100,3.914999962
+2,4,7,3,text,everyone at chopt knows me,everyone at chop,,p,2.98,-0.0743,1655820102,1.457000017
+2,4,8,1,text,everyone at chopt knows me,everyone at chopt,,t,2.98,-0.0793,1655820104,2.532000065
+2,4,8,2,text,everyone at chopt knows me,everyone at chopt,,t,2.98,-0.0556,1655820107,2.718999863
+2,4,8,3,text,everyone at chopt knows me,everyone at chopt,,t,2.98,-0.0953,1655820109,1.425000191
+2,4,9,1,text,everyone at chopt knows me,everyone at chopt_,,Space,2.98,0.0906,1655820112,3.541999817
+2,4,9,2,text,everyone at chopt knows me,everyone at chopt_,,Space,2.98,0.0499,1655820114,1.555000067
+2,4,10,1,text,everyone at chopt knows me,everyone at chopt k,,k,2.98,-0.0059,1655820120,6.551000118
+2,4,10,2,text,everyone at chopt knows me,everyone at chopt k,,k,2.98,-0.0803,1655820124,4.176999807
+2,4,10,3,text,everyone at chopt knows me,everyone at chopt k,,k,2.98,-0.0186,1655820127,2.756000042
+2,4,11,1,text,everyone at chopt knows me,everyone at chopt knows_,,knows_,2.98,-0.0853,1655820131,4.144000053
+2,4,11,2,text,everyone at chopt knows me,everyone at chopt knows_,,knows_,2.98,0.0131,1655820133,1.526000023
+2,4,12,1,text,everyone at chopt knows me,everyone at chopt knows me_,,me_,2.98,0.0389,1655820139,6.45600009
+2,4,12,2,text,everyone at chopt knows me,everyone at chopt knows me_,,me_,2.98,-0.136,1655820142,2.642999887
+2,4,12,3,text,everyone at chopt knows me,everyone at chopt knows me_,,me_,2.98,-0.0526,1655820143,1.472000122
+2,4,13,1,text,everyone at chopt knows me,everyone at chopt knows me._,,.,2.98,0.0001,1655820149,5.841999769
+2,4,13,2,text,everyone at chopt knows me,everyone at chopt knows me._,,.,2.98,0.0131,1655820152,2.920000076
+2,4,13,3,text,everyone at chopt knows me,everyone at chopt knows me._,,.,2.98,-0.0266,1655820156,3.407999992
+2,4,13,4,text,everyone at chopt knows me,everyone at chopt knows me._,,.,2.98,-0.0226,1655820157,1.506000042
+2,4,14,1,text,everyone at chopt knows me,everyone at chopt knows me.._,,.,2.98,-0.0793,1655820161,3.744999886
+2,4,14,2,text,everyone at chopt knows me,everyone at chopt knows me.._,,.,2.98,0.0101,1655820164,2.925000191
+2,4,14,3,text,everyone at chopt knows me,everyone at chopt knows me.._,,.,2.98,0.0081,1655820167,3.449999809
+2,4,14,4,text,everyone at chopt knows me,everyone at chopt knows me.._,,.,2.98,0.0359,1655820169,1.507000208
+2,5,1,1,text,still supporting the boys through everything,s,,s,2.98,0.7419,1655820172,3.648999929
+2,5,1,2,text,still supporting the boys through everything,s,,s,2.98,0.3687,1655820175,2.638999939
+2,5,1,3,text,still supporting the boys through everything,s,,s,2.98,-0.9226,1655820176,1.460999966
+2,5,2,1,text,still supporting the boys through everything,still_,,still_,2.98,0.0309,1655820179,2.953000069
+2,5,2,2,text,still supporting the boys through everything,still_,,still_,2.98,-0.0276,1655820181,1.489000082
+2,5,3,1,text,still supporting the boys through everything,still s,,s,2.98,0.0696,1655820187,5.840999842
+2,5,3,2,text,still supporting the boys through everything,still s,,s,2.98,-0.1448,1655820189,2.631999969
+2,5,3,3,text,still supporting the boys through everything,still s,,s,2.98,-0.0603,1655820191,1.434000015
+2,5,4,1,text,still supporting the boys through everything,still support_,,support_,2.98,0.0636,1655820194,3.391000032
+2,5,4,2,text,still supporting the boys through everything,still support_,,support_,2.98,-0.1378,1655820197,2.644999981
+2,5,4,3,text,still supporting the boys through everything,still support_,,support_,2.98,0.0001,1655820198,1.493000031
+2,5,5,1,text,still supporting the boys through everything,still support a,,a,2.98,0.0449,1655820200,1.398000002
+2,5,5,2,text,still supporting the boys through everything,still support a,,a,2.98,0.0001,1655820203,3.394000053
+2,5,5,3,text,still supporting the boys through everything,still support a,,a,2.98,-0.0186,1655820208,4.530999899
+2,5,5,4,text,still supporting the boys through everything,still support a,,a,2.98,-0.136,1655820213,5.800000191
+2,5,5,5,text,still supporting the boys through everything,still support a,,a,2.98,0.0131,1655820217,3.234999895
+2,5,5,6,text,still supporting the boys through everything,still support a,,a,2.98,0.0696,1655820220,3.572000027
+2,5,5,7,text,still supporting the boys through everything,still support a,,a,2.98,-0.1378,1655820223,2.233999968
+2,5,5,8,text,still supporting the boys through everything,still support a,,a,2.98,-0.5243,1655820226,3.101999998
+2,5,5,9,text,still supporting the boys through everything,still support a,,a,2.98,0.0636,1655820228,2.513999939
+2,5,5,10,text,still supporting the boys through everything,still support a,,a,2.98,-0.0089,1655820230,1.667000055
+2,5,6,1,text,still supporting the boys through everything,still support_,,@,2.98,0.0636,1655820237,7.347000122
+2,5,6,2,text,still supporting the boys through everything,still support_,,@,2.98,-0.1378,1655820239,2.144999981
+2,5,6,3,text,still supporting the boys through everything,still support_,,@,2.98,0.0001,1655820241,1.531999826
+2,5,6,4,text,still supporting the boys through everything,still support_,,@,2.98,0.0289,1655820242,1.398000002
+2,5,7,1,text,still supporting the boys through everything,still support i,,i,2.98,-0.0743,1655820246,4.011000156
+2,5,7,2,text,still supporting the boys through everything,still support i,,i,2.98,0.0459,1655820249,2.809000015
+2,5,7,3,text,still supporting the boys through everything,still support i,,i,2.98,0.0211,1655820251,1.523000002
+2,5,8,1,text,still supporting the boys through everything,still support in,,n,2.98,0.0201,1655820255,4.572999954
+2,5,8,2,text,still supporting the boys through everything,still support in,,n,2.98,0.0229,1655820257,1.513999939
+2,5,9,1,text,still supporting the boys through everything,still support ing,,g,2.98,0.0946,1655820261,4.279999971
+2,5,9,2,text,still supporting the boys through everything,still support ing,,g,2.98,0.0201,1655820264,3.133000135
+2,5,9,3,text,still supporting the boys through everything,still support ing,,g,2.98,-0.0923,1655820265,1.392999887
+2,5,10,1,text,still supporting the boys through everything,still support ing_,,Space,2.98,-0.0266,1655820271,5.15899992
+2,5,10,2,text,still supporting the boys through everything,still support ing_,,Space,2.98,-0.0516,1655820272,1.448000193
+2,5,11,1,text,still supporting the boys through everything,still support ing the_,,the_,2.98,0.2245,1655820276,3.710999966
+2,5,11,2,text,still supporting the boys through everything,still support ing the_,,the_,2.98,0.0796,1655820279,3.197000027
+2,5,11,3,text,still supporting the boys through everything,still support ing the_,,the_,2.98,0.0081,1655820281,1.524999857
+3,1,1,1,text,no such thing as job security,n,,n,2.98,-0.0733,1663667091,0.0
+3,1,1,2,text,no such thing as job security,n,,n,2.98,0.0289,1663667094,3.444000006
+3,1,1,3,text,no such thing as job security,n,,n,2.98,0.0379,1663667096,1.562000036
+3,1,2,1,text,no such thing as job security,no_,,no_,2.98,0.0369,1663667099,3.473999977
+3,1,2,2,text,no such thing as job security,no_,,no_,2.98,0.0229,1663667101,1.529999971
+3,1,3,1,text,no such thing as job security,no s,,s,2.98,-0.3841,1663667103,1.579999924
+3,1,3,2,text,no such thing as job security,no s,,s,2.98,0.1073,1663667105,2.377000093
+3,1,3,3,text,no such thing as job security,no s,,s,2.98,-0.1785,1663667109,3.740999937
+3,1,3,4,text,no such thing as job security,no s,,s,2.98,0.0001,1663667110,1.490999937
+3,1,4,1,text,no such thing as job security,no su,,u,2.98,0.0021,1663667115,4.57400012
+3,1,4,2,text,no such thing as job security,no su,,u,2.98,0.0349,1663667116,1.542000055
+3,1,5,1,text,no such thing as job security,no suc,,c,2.98,-0.0406,1663667121,4.532999992
+3,1,5,2,text,no such thing as job security,no suc,,c,2.98,-0.0019,1663667122,1.504999876
+3,1,6,1,text,no such thing as job security,no such_,,such_,2.98,-0.0466,1663667126,3.389000177
+3,1,6,2,text,no such thing as job security,no such_,,such_,2.98,-0.0059,1663667127,1.508999825
+3,1,7,1,text,no such thing as job security,no such t,,t,2.98,0.0976,1663667132,4.508000135
+3,1,7,2,text,no such thing as job security,no such t,,t,2.98,-0.0176,1663667135,2.75
+3,1,7,3,text,no such thing as job security,no such t,,t,2.98,0.0329,1663667136,1.526000023
+3,1,8,1,text,no such thing as job security,no such th,,h,2.98,0.1103,1663667141,4.688999891
+3,1,8,2,text,no such thing as job security,no such th,,h,2.98,-0.0376,1663667142,1.479000092
+3,1,9,1,text,no such thing as job security,no such thing_,,thing_,2.98,0.0369,1663667148,5.549999952
+3,1,9,2,text,no such thing as job security,no such thing_,,thing_,2.98,0.0369,1663667149,1.545000076
+3,1,10,1,text,no such thing as job security,no such thing as_,,as_,2.98,0.0746,1663667154,4.650999784
+3,1,10,2,text,no such thing as job security,no such thing as_,,as_,2.98,0.0609,1663667156,1.570000172
+3,1,11,1,text,no such thing as job security,no such thing as j,,j,2.98,0.0221,1663667162,6.373999834
+3,1,11,2,text,no such thing as job security,no such thing as j,,j,2.98,-0.0079,1663667165,3.067000151
+3,1,11,3,text,no such thing as job security,no such thing as j,,j,2.98,0.0299,1663667167,1.547999859
+3,1,12,1,text,no such thing as job security,no such thing as jo,,o,2.98,0.1053,1663667173,6.594000101
+3,1,12,2,text,no such thing as job security,no such thing as jo,,o,2.98,-0.0009,1663667175,1.525000095
+3,1,13,1,text,no such thing as job security,no such thing as job_,,job_,2.98,0.0001,1663667180,5.510999918
+3,1,13,2,text,no such thing as job security,no such thing as job_,,job_,2.98,0.0279,1663667182,1.535000086
+3,1,14,1,text,no such thing as job security,no such thing as job s,,s,2.98,0.0269,1663667185,3.230000019
+3,1,14,2,text,no such thing as job security,no such thing as job s,,s,2.98,-0.101,1663667188,2.680999994
+3,1,14,3,text,no such thing as job security,no such thing as job s,,s,2.98,0.0279,1663667189,1.525999784
+3,1,15,1,text,no such thing as job security,no such thing as job se,,e,2.98,0.0209,1663667192,2.81400013
+3,1,15,2,text,no such thing as job security,no such thing as job se,,e,2.98,-0.0556,1663667193,1.467000008
+3,1,16,1,text,no such thing as job security,no such thing as job security_,,security_,2.98,-0.0029,1663667197,3.368999958
+3,1,16,2,text,no such thing as job security,no such thing as job security_,,security_,2.98,0.0559,1663667200,3.483999968
+3,1,16,3,text,no such thing as job security,no such thing as job security_,,security_,2.98,0.0011,1663667202,1.508000135
+3,1,17,1,text,no such thing as job security,no such thing as job security._,,.,2.98,-0.0376,1663667208,5.80099988
+3,1,17,2,text,no such thing as job security,no such thing as job security._,,.,2.98,0.0299,1663667211,3.529000044
+3,1,17,3,text,no such thing as job security,no such thing as job security._,,.,2.98,0.0369,1663667214,2.835000038
+3,1,18,1,text,no such thing as job security,no such thing as job security.._,,.,2.98,0.0299,1663667217,3.57799983
+3,1,18,2,text,no such thing as job security,no such thing as job security.._,,.,2.98,0.0001,1663667220,2.770000219
+3,1,18,3,text,no such thing as job security,no such thing as job security.._,,.,2.98,0.0329,1663667223,2.852999926
+3,1,18,4,text,no such thing as job security,no such thing as job security.._,,.,2.98,-0.0176,1663667225,1.542000055
+3,2,1,1,text,how can sevco be back,how_,,how_,2.98,0.0,1663667227,2.381999969
+3,2,1,2,text,how can sevco be back,how_,,how_,2.98,0.0,1663667230,2.723999977
+3,2,2,1,text,how can sevco be back,how o,,o,2.98,0.0151,1663667235,4.76699996
+3,2,2,2,text,how can sevco be back,how o,,o,2.98,-0.0486,1663667238,3.546000004
+3,2,2,3,text,how can sevco be back,how o,,o,2.98,0.0539,1663667240,1.528000116
+3,2,3,1,text,how can sevco be back,how_,,@,2.98,0.0,1663667244,4.744999886
+3,2,3,2,text,how can sevco be back,how_,,@,2.98,0.0,1663667246,2.094000101
+3,2,3,3,text,how can sevco be back,how_,,@,2.98,0.0,1663667248,1.54399991
+3,2,4,1,text,how can sevco be back,how can_,,can_,2.98,0.0309,1663667251,3.15199995
+3,2,4,2,text,how can sevco be back,how can_,,can_,2.98,-0.0703,1663667253,1.444000006
+3,2,4,3,text,how can sevco be back,how can_,,can_,2.98,0.0211,1663667254,1.521000147
+3,2,5,1,text,how can sevco be back,how can s,,s,2.98,-0.0436,1663667258,3.525999784
+3,2,5,2,text,how can sevco be back,how can s,,s,2.98,-0.0336,1663667261,3.393000126
+3,2,5,3,text,how can sevco be back,how can s,,s,2.98,0.0101,1663667263,1.506999969
+3,2,6,1,text,how can sevco be back,how can se,,e,2.98,-0.0316,1663667267,4.532000065
+3,2,6,2,text,how can sevco be back,how can se,,e,2.98,-0.0863,1663667268,1.411999941
+3,2,7,1,text,how can sevco be back,how can sev,,v,2.98,0.0269,1663667274,5.950000048
+3,2,7,2,text,how can sevco be back,how can sev,,v,2.98,0.0011,1663667277,2.784999847
+3,2,8,1,text,how can sevco be back,how can sevc,,c,2.98,-0.0226,1663667279,2.263000011
+3,2,8,2,text,how can sevco be back,how can sevc,,c,2.98,-0.0813,1663667282,2.673000097
+3,2,9,1,text,how can sevco be back,how can sevco,,o,2.98,0.0389,1663667287,4.612999916
+3,2,9,2,text,how can sevco be back,how can sevco,,o,2.98,0.0606,1663667288,1.570000172
+3,2,10,1,text,how can sevco be back,how can sevco_,,Space,2.98,-0.0456,1663667293,4.534999847
+3,2,10,2,text,how can sevco be back,how can sevco_,,Space,2.98,0.0071,1663667294,1.51699996
+3,2,11,1,text,how can sevco be back,how can sevco be_,,be_,2.98,0.0676,1663667298,3.857000113
+3,2,11,2,text,how can sevco be back,how can sevco be_,,be_,2.98,0.0339,1663667300,1.561000109
+3,2,11,3,text,how can sevco be back,how can sevco be_,,be_,2.98,0.0549,1663667301,1.571999788
+3,2,12,1,text,how can sevco be back,how can sevco be back_,,back_,2.98,-0.0176,1663667306,4.652000189
+3,2,12,2,text,how can sevco be back,how can sevco be back_,,back_,2.98,-0.0386,1663667309,2.715999842
+3,2,13,1,text,how can sevco be back,how can sevco be back._,,.,2.98,0.0,1663667312,2.942000151
+3,2,13,2,text,how can sevco be back,how can sevco be back._,,.,2.98,0.0,1663667314,1.970000029
+3,2,13,3,text,how can sevco be back,how can sevco be back._,,.,2.98,0.0211,1663667317,3.427999973
+3,2,14,1,text,how can sevco be back,how can sevco be back.._,,.,2.98,-0.0246,1663667319,2.309999943
+3,2,14,2,text,how can sevco be back,how can sevco be back.._,,.,2.98,0.0,1663667322,2.243999958
+3,2,14,3,text,how can sevco be back,how can sevco be back.._,,.,2.98,0.0211,1663667323,1.588999987
+3,3,1,1,text,i'm so late to answer this,i'm_,,i'm_,2.98,-0.2105,1663667328,5.120000124
+3,3,1,2,text,i'm so late to answer this,i'm_,,i'm_,2.98,-0.8451,1663667330,1.523999929
+3,3,2,1,text,i'm so late to answer this,i'm s,,s,2.98,-0.0316,1663667333,2.747999907
+3,3,2,2,text,i'm so late to answer this,i'm s,,s,2.98,0.0559,1663667334,1.559000015
+3,3,3,1,text,i'm so late to answer this,i'm so_,,so_,2.98,0.0499,1663667340,6.210000038
+3,3,3,2,text,i'm so late to answer this,i'm so_,,so_,2.98,-0.0129,1663667342,1.489000082
+3,3,4,1,text,i'm so late to answer this,i'm so l,,l,2.98,0.0499,1663667344,1.944999933
+3,3,4,2,text,i'm so late to answer this,i'm so l,,l,2.98,0.1113,1663667347,3.532999992
+3,3,4,3,text,i'm so late to answer this,i'm so l,,l,2.98,0.0846,1663667349,1.598999977
+3,3,5,1,text,i'm so late to answer this,i'm so late_,,late_,2.98,0.0359,1663667355,5.707000017
+3,3,5,2,text,i'm so late to answer this,i'm so late_,,late_,2.98,0.0806,1663667356,1.594000101
+3,3,6,1,text,i'm so late to answer this,i'm so late to_,,to_,2.98,0.0479,1663667361,4.621999979
+3,3,6,2,text,i'm so late to answer this,i'm so late to_,,to_,2.98,-0.0159,1663667362,1.484999895
+3,3,7,1,text,i'm so late to answer this,i'm so late to a,,a,2.98,0.0559,1663667365,2.931999922
+3,3,7,2,text,i'm so late to answer this,i'm so late to a,,a,2.98,0.0231,1663667369,3.436000109
+3,3,7,3,text,i'm so late to answer this,i'm so late to a,,a,2.98,0.0549,1663667370,1.546999931
+3,3,8,1,text,i'm so late to answer this,i'm so late to an,,n,2.98,-0.2312,1663667373,2.519999981
+3,3,8,2,text,i'm so late to answer this,i'm so late to an,,n,2.98,-0.0426,1663667378,5.458000183
+3,3,8,3,text,i'm so late to answer this,i'm so late to an,,n,2.98,-0.0356,1663667380,1.473999977
+3,3,9,1,text,i'm so late to answer this,i'm so late to answer_,,answer_,2.98,0.0041,1663667385,5.5
+3,3,9,2,text,i'm so late to answer this,i'm so late to answer_,,answer_,2.98,-0.0663,1663667387,1.432999849
+3,3,10,1,text,i'm so late to answer this,i'm so late to answer t,,t,2.98,0.2692,1663667392,4.848999977
+3,3,10,2,text,i'm so late to answer this,i'm so late to answer t,,t,2.98,0.0856,1663667395,3.19900012
+3,3,10,3,text,i'm so late to answer this,i'm so late to answer t,,t,2.98,-0.0069,1663667396,1.494999886
+3,3,11,1,text,i'm so late to answer this,i'm so late to answer th,,h,2.98,-0.0416,1663667399,2.73300004
+3,3,11,2,text,i'm so late to answer this,i'm so late to answer th,,h,2.98,0.0061,1663667400,1.518000126
+3,3,12,1,text,i'm so late to answer this,i'm so late to answer this_,,this_,2.98,-0.0863,1663667403,2.353999853
+3,3,12,2,text,i'm so late to answer this,i'm so late to answer this_,,this_,2.98,0.0399,1663667406,2.819000006
+3,3,13,1,text,i'm so late to answer this,i'm so late to answer this._,,.,2.98,-0.0246,1663667408,2.804000139
+3,3,13,2,text,i'm so late to answer this,i'm so late to answer this._,,.,2.98,0.1928,1663667411,2.646999836
+3,3,13,3,text,i'm so late to answer this,i'm so late to answer this._,,.,2.98,0.0071,1663667415,3.498000145
+3,3,13,4,text,i'm so late to answer this,i'm so late to answer this._,,.,2.98,0.0011,1663667416,1.516000032
+3,3,14,1,text,i'm so late to answer this,i'm so late to answer this.._,,.,2.98,0.0856,1663667419,3.365999937
+3,3,14,2,text,i'm so late to answer this,i'm so late to answer this.._,,.,2.98,0.0499,1663667422,2.944000006
+3,3,14,3,text,i'm so late to answer this,i'm so late to answer this.._,,.,2.98,-0.0663,1663667426,3.490999937
+3,3,14,4,text,i'm so late to answer this,i'm so late to answer this.._,,.,2.98,-0.0356,1663667427,1.473999977
+3,4,1,1,text,i'll need to try that,i,,i,2.98,0.0589,1663667431,3.479000092
+3,4,1,2,text,i'll need to try that,i,,i,2.98,0.178,1663667432,1.463000059
+3,4,1,3,text,i'll need to try that,i,,i,2.98,-1.0418,1663667434,1.482999802
+3,4,2,1,text,i'll need to try that,i'll_,,i'll_,2.98,0.0866,1663667442,8.484000206
+3,4,2,2,text,i'll need to try that,i'll_,,i'll_,2.98,0.0151,1663667445,2.777999878
+3,4,3,1,text,i'll need to try that,i'll need_,,need_,2.98,-0.0059,1663667452,6.782999992
+3,4,3,2,text,i'll need to try that,i'll need_,,need_,2.98,0.0529,1663667453,1.572000027
+3,4,3,3,text,i'll need to try that,i'll need_,,need_,2.98,0.0081,1663667455,1.509000063
+3,4,4,1,text,i'll need to try that,i'll need to_,,to_,2.98,0.0786,1663667461,5.894999981
+3,4,4,2,text,i'll need to try that,i'll need to_,,to_,2.98,0.0171,1663667462,1.523000002
+3,4,4,3,text,i'll need to try that,i'll need to_,,to_,2.98,-0.0266,1663667464,1.474999905
+3,4,5,1,text,i'll need to try that,i'll need to t,,t,2.98,-0.0613,1663667467,3.034000158
+3,4,5,2,text,i'll need to try that,i'll need to t,,t,2.98,-0.0196,1663667470,3.389999866
+3,4,5,3,text,i'll need to try that,i'll need to t,,t,2.98,0.15,1663667472,1.648999929
+3,4,6,1,text,i'll need to try that,i'll need to try_,,try_,2.98,0.0646,1663667479,7.38499999
+3,4,6,2,text,i'll need to try that,i'll need to try_,,try_,2.98,-0.0196,1663667481,1.509000063
+3,4,6,3,text,i'll need to try that,i'll need to try_,,try_,2.98,-0.0526,1663667482,1.43200016
+3,4,7,1,text,i'll need to try that,i'll need to try t,,t,2.98,0.0856,1663667487,4.673999786
+3,4,7,2,text,i'll need to try that,i'll need to try t,,t,2.98,0.0666,1663667488,1.570000172
+3,4,7,3,text,i'll need to try that,i'll need to try t,,t,2.98,-0.117,1663667490,1.395999908
+3,4,8,1,text,i'll need to try that,i'll need to try that_,,that_,2.98,0.0686,1663667493,3.174000025
+3,4,8,2,text,i'll need to try that,i'll need to try that_,,that_,2.98,0.0259,1663667495,1.54399991
+3,4,9,1,text,i'll need to try that,i'll need to try that._,,.,2.98,-0.8431,1663667497,2.857000113
+3,4,9,2,text,i'll need to try that,i'll need to try that._,,.,2.98,0.0509,1663667500,2.236000061
+3,4,9,3,text,i'll need to try that,i'll need to try that._,,.,2.98,0.0131,1663667502,2.782999992
+3,4,9,4,text,i'll need to try that,i'll need to try that._,,.,2.98,0.0686,1663667504,1.540999889
+3,4,10,1,text,i'll need to try that,i'll need to try that.._,,.,2.98,0.0239,1663667507,3.23300004
+3,4,10,2,text,i'll need to try that,i'll need to try that.._,,.,2.98,0.0529,1663667511,3.325999975
+3,4,10,3,text,i'll need to try that,i'll need to try that.._,,.,2.98,0.0101,1663667514,3.440000057
+3,4,10,4,text,i'll need to try that,i'll need to try that.._,,.,2.98,-1.2721,1663667515,1.465999842
+3,5,1,1,text,use an elgato video capture connector,u,,u,2.98,-0.6355,1663667520,4.079000235
+3,5,1,2,text,use an elgato video capture connector,u,,u,2.98,-0.9703,1663667522,2.421999931
+3,5,1,3,text,use an elgato video capture connector,u,,u,2.98,0.8751,1663667523,1.476000071
+3,5,2,1,text,use an elgato video capture connector,use_,,use_,2.98,-0.0733,1663667527,3.325999975
+3,5,2,2,text,use an elgato video capture connector,use_,,use_,2.98,0.1043,1663667528,1.607999802
+3,5,2,3,text,use an elgato video capture connector,use_,,use_,2.98,0.1063,1663667530,1.627000093
+3,5,3,1,text,use an elgato video capture connector,use an_,,an_,2.98,0.0846,1663667533,3.436000109
+3,5,3,2,text,use an elgato video capture connector,use an_,,an_,2.98,-0.0139,1663667536,2.750999928
+3,5,3,3,text,use an elgato video capture connector,use an_,,an_,2.98,0.0061,1663667538,1.529999971
+3,5,4,1,text,use an elgato video capture connector,use an e,,e,2.98,-0.0853,1663667540,2.687999964
+3,5,4,2,text,use an elgato video capture connector,use an e,,e,2.98,0.0836,1663667543,2.86500001
+3,5,4,3,text,use an elgato video capture connector,use an e,,e,2.98,-0.0526,1663667545,1.447000027
+3,5,5,1,text,use an elgato video capture connector,use an el,,l,2.98,0.0151,1663667548,3.203999996
+3,5,5,2,text,use an elgato video capture connector,use an el,,l,2.98,0.0549,1663667551,3.467999935
+3,5,5,3,text,use an elgato video capture connector,use an el,,l,2.98,0.0001,1663667553,1.499000072
+3,5,6,1,text,use an elgato video capture connector,use an elg,,g,2.98,0.0319,1663667557,4.354000092
+3,5,6,2,text,use an elgato video capture connector,use an elg,,g,2.98,0.1006,1663667559,2.228999853
+3,5,6,3,text,use an elgato video capture connector,use an elg,,g,2.98,0.1163,1663667561,1.611999989
+3,5,7,1,text,use an elgato video capture connector,use an elga,,a,2.98,-0.0903,1663667563,2.031000137
+3,5,7,2,text,use an elgato video capture connector,use an elga,,a,2.98,0.0876,1663667565,1.606999874
+3,5,8,1,text,use an elgato video capture connector,use an elgat,,t,2.98,-0.0556,1663667574,9.486999989
+3,5,8,2,text,use an elgato video capture connector,use an elgat,,t,2.98,-0.0446,1663667576,1.476000071
+3,5,9,1,text,use an elgato video capture connector,use an elgato,,o,2.98,-0.0226,1663667578,2.104000092
+3,5,9,2,text,use an elgato video capture connector,use an elgato,,o,2.98,0.0579,1663667579,1.554999828
+3,5,10,1,text,use an elgato video capture connector,use an elgatov,,v,2.98,-0.7774,1663667582,2.380000114
+3,5,10,2,text,use an elgato video capture connector,use an elgatov,,v,2.98,0.1053,1663667587,5.677999973
+3,5,10,3,text,use an elgato video capture connector,use an elgatov,,v,2.98,0.0629,1663667591,3.174999952
+3,5,10,4,text,use an elgato video capture connector,use an elgatov,,v,2.98,-0.0306,1663667592,1.454999924
+3,5,11,1,text,use an elgato video capture connector,use an elgato,,#,2.98,0.0309,1663667595,3.118000031
+3,5,11,2,text,use an elgato video capture connector,use an elgato,,#,2.98,-0.0226,1663667597,1.491000175
+3,5,11,3,text,use an elgato video capture connector,use an elgato,,#,2.98,-0.0099,1663667598,1.492999792
+3,5,12,1,text,use an elgato video capture connector,use an elgato_,,Space,2.98,0.0219,1663667601,3.291000128
+3,5,12,2,text,use an elgato video capture connector,use an elgato_,,Space,2.98,-0.1,1663667603,1.423000097
+3,5,12,3,text,use an elgato video capture connector,use an elgato_,,Space,2.98,0.0706,1663667604,1.558999777
+3,5,13,1,text,use an elgato video capture connector,use an elgato v,,v,2.98,0.0479,1663667609,4.136000156
+3,5,13,2,text,use an elgato video capture connector,use an elgato v,,v,2.98,0.0459,1663667611,2.481999874
+3,5,13,3,text,use an elgato video capture connector,use an elgato v,,v,2.98,-0.0196,1663667612,1.482000113
+3,5,14,1,text,use an elgato video capture connector,use an elgato vi,,i,2.98,0.0936,1663667618,5.911000013
+3,5,14,2,text,use an elgato video capture connector,use an elgato vi,,i,2.98,0.0459,1663667620,1.546999931
+3,5,15,1,text,use an elgato video capture connector,use an elgato video_,,video_,2.98,-0.0953,1663667625,4.76699996
+3,5,15,2,text,use an elgato video capture connector,use an elgato video_,,video_,2.98,0.0349,1663667628,3.46600008
+3,5,15,3,text,use an elgato video capture connector,use an elgato video_,,video_,2.98,-0.0386,1663667630,1.470000029
+3,5,16,1,text,use an elgato video capture connector,use an elgato video c,,c,2.98,-0.0316,1663667633,3.389999866
+3,5,16,2,text,use an elgato video capture connector,use an elgato video c,,c,2.98,-0.0149,1663667635,1.485000134
+3,5,16,3,text,use an elgato video capture connector,use an elgato video c,,c,2.98,0.0449,1663667636,1.56799984
+3,5,17,1,text,use an elgato video capture connector,use an elgato video ca,,a,2.98,-0.0276,1663667639,2.738000154
+3,5,17,2,text,use an elgato video capture connector,use an elgato video ca,,a,2.98,0.1113,1663667640,1.611000061
+3,5,18,1,text,use an elgato video capture connector,use an elgato video cap,,p,2.98,0.1133,1663667648,7.179999828
+3,5,18,2,text,use an elgato video capture connector,use an elgato video cap,,p,2.98,0.1163,1663667649,0.978000164
+3,5,18,3,text,use an elgato video capture connector,use an elgato video cap,,p,2.98,0.0916,1663667650,1.601999998
+3,5,19,1,text,use an elgato video capture connector,use an elgato video capture_,,capture_,2.98,0.0131,1663667656,5.528999805
+3,5,19,2,text,use an elgato video capture connector,use an elgato video capture_,,capture_,2.98,0.0111,1663667657,1.509000063
+3,5,20,1,text,use an elgato video capture connector,use an elgato video capture c,,c,2.98,0.1343,1663667660,2.835000038
+3,5,20,2,text,use an elgato video capture connector,use an elgato video capture c,,c,2.98,-0.0039,1663667662,2.101000071
+3,5,20,3,text,use an elgato video capture connector,use an elgato video capture c,,c,2.98,-0.0476,1663667664,1.462999821
+3,5,21,1,text,use an elgato video capture connector,use an elgato video capture co,,o,2.98,0.0041,1663667666,2.784000158
+3,5,23,2,text,use an elgato video capture connector,use an elgato video capture co,,o,2.98,-0.0496,1663667668,1.450000048
