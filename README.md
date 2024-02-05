@@ -3,6 +3,8 @@ Nomon Simulated User Overview
 This repository contains a framework for simulating the use of nomon with data collected from real single-switch users. The repository is divided into three sections:
 - **Nomon-Core** --- Contains the core backend attributes that facilitate the Nomon selection mechanism
 - **Nomon-Simulation** --- Contains a framework that simulates user interactions with a running instance of the Nomon keyboard.
+- **Nomon-Symbol** --- Contains the frontend attributes needed to simulate a picture/symbol selection version of Nomon.
+- **Nomon-Text** --- Contains the frontend attributes needed to simualte a full-text keyboard version of Nomon.
 - **Nomon-User-Data** --- Contains detailed data tables on how switch users interacted with the Nomon keyboard as they learned to use it. This data is used as an input to the Nomon-Simulation framework above.
 
 ***Note -- This repository contains code for a python-based implementation of the Nomon selection mechanism. We are no longer actively developing or supporting a python based application for Nomon, but a legacy application can be found [here](https://github.com/tbroderick/Nomon). We recommended checking out our [web based application](https://github.com/nbonaker/NomonWeb) (JS/HTML/PHP) if you wish to see or adapt the code for purposes beyond user simulation.*** 
