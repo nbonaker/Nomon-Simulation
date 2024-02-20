@@ -28,8 +28,8 @@ class SimulationUtil():
     def __init__(self):
         # specify where to save results
         now = datetime.now()
-        date_time_str = now.strftime("%m_%d_%Y-%H_%M")
-        self.output_dir = currentdir + "/results/sim-" + date_time_str + "/"
+        self.date_time_str = now.strftime("%m_%d_%Y-%H_%M")
+        self.output_dir = currentdir + "/results/sim-" + self.date_time_str + "/"
 
     def save_results(self, result_df, my_task_id, job):
 
@@ -75,7 +75,7 @@ class SimulationUtil():
         for pair in lm_crosses:
             parameters_li.append({"char_lm": pair[0], "word_lm": pair[1]})
 
-        parameters_li = [{"char_lm": "huge", "word_lm": "huge"}]
+        parameters_li = [{"char_lm": "dec19", "word_lm": "dec19"}]
 
         # for lm_type in lm_types:
         #     parameters_li.append({"char_lm": lm_type, "word_lm": lm_type})
@@ -98,21 +98,28 @@ class SimulationUtil():
                 char_lm_path = os.path.join(os.path.join(maindir, 'Nomon_Text/resources'), 'lm_char_medium.kenlm')
             elif job_char_lm == "huge":
                 char_lm_path = os.path.join(os.path.join(maindir, 'Nomon_Text/resources'), 'lm_char_large.kenlm')
+            elif job_word_lm == "dec19":
+                char_lm_path = os.path.join(os.path.join(maindir, 'Nomon_Text/resources'), 'lm_char_dec19.kenlm')
 
             if job_word_lm == "tiny":
                 word_lm_path = os.path.join(os.path.join(maindir, 'Nomon_Text/resources'), 'lm_word_tiny.kenlm')
             elif job_word_lm == "medium":
                 word_lm_path = os.path.join(os.path.join(maindir, 'Nomon_Text/resources'), 'lm_word_medium.kenlm')
             elif job_word_lm == "huge":
-                word_lm_path = os.path.join(os.path.join(maindir, 'Nomon_Text/resources'),
-                                            'mix4_opt_min_lower_100k_4gram_2.5e-9_prob8_bo4_compress255.kenlm')
+                word_lm_path = os.path.join(os.path.join(maindir, 'Nomon_Text/resources'), 'lm_word_huge.kenlm')
+            elif job_word_lm == "dec19":
+                word_lm_path = os.path.join(os.path.join(maindir, 'Nomon_Text/resources'), 'lm_word_dec19.kenlm')
 
             vocab_path = os.path.join(os.path.join(maindir, 'Nomon_Text/resources'), 'vocab_lower_100k.txt')
             char_path = os.path.join(os.path.join(maindir, 'Nomon_Text/resources'), 'char_set.txt')
 
             user_id = "A"
 
-            params = {"click_df": self.load_user_click_data(user_id),
+            click_df = self.load_user_click_data(user_id)
+            click_df = click_df[np.abs(click_df["Click Time Relative (s)"]) < 0.26]
+            click_df = click_df[click_df["Dead Time (s)"] < 15]
+
+            params = {"click_df": click_df,
                       "phrase_shuffle_seed": lambda trial: ord(user_id) + trial,
                       "lm_files": [word_lm_path, char_lm_path, vocab_path, char_path]}
 
@@ -123,7 +130,13 @@ class SimulationUtil():
             sim.result_df["user_id"] = user_id
             sim.result_df["char_lm_type"] = job_char_lm
             sim.result_df["word_lm_type"] = job_word_lm
+            sim.result_df["phrase_set"] = "watch"
+            sim.result_df["win_diff"] = 27.5
             self.save_results(sim.result_df, my_task_id, job_num)
+
+            click_entropy_df = pd.DataFrame(sim.cumulative_cscores)
+            self.output_dir = currentdir + "/click_results/sim-" + self.date_time_str + "/"
+            self.save_results(click_entropy_df, my_task_id, job_num)
 
             # free up memory by deleting old sim
             del sim

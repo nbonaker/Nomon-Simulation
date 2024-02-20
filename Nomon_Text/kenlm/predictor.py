@@ -156,8 +156,7 @@ class WordPredictor:
         context = '<s> ' + self.format_context(context, vocab_id)
         context_words = context.split()
         for w in context_words:
-            # print('Context', '{0}\t{1}'.format(model.BaseScore(state_in, w.lower(), state_out), w.lower()))
-            '{0}\t{1}'.format(model.BaseScore(state_in, w, state_out), w)
+            model.BaseScore(state_in, w, state_out)
             state_in = state_out
             state_out = kenlm.State()
 
@@ -246,8 +245,8 @@ class WordPredictor:
 
 
 def main():
-    lm_filename = 'resources/lm_word_medium.kenlm'
-    vocab_filename = 'resources/vocab_100k'
+    lm_filename = '../resources/lm_word_dec19.kenlm'
+    vocab_filename = '../resources/vocab_lower_100k.txt'
     word_predictor = WordPredictor(lm_filename, vocab_filename)
 
     # print(predictor.create_char_list_from_vocab(vocab_filename))

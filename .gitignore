@@ -1,7 +1,12 @@
 venv_s/
 .idea/
 results/
+click_results/
+old_results/
 figures/
 ajay_data/
 __pycache__/
 *.pyc
+*_dec19.kenlm
+*_large.kenlm
+*_huge.kenlm

@@ -79,7 +79,7 @@ class Phrases:
 
 
 def main():
-    phrases = Phrases("resources/watch-iv.txt", "resources/watch-oov.txt")
+    phrases = Phrases("resources/lm_likely_phrases.txt", "resources/lm_unlikely_phrases.txt")
     print(json.dumps(phrases.phrases))
 
 

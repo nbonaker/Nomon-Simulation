@@ -47,6 +47,7 @@ class LanguageModel():
         self.vocab_id = ''
 
     def get_words(self, context, prefix, keys_li, num_words_total=kconfig.num_words_total):
+        # num_words_total = 0
         if self.parent is not None:
             self.num_predictions = self.parent.N_pred
             self.prob_thres = self.parent.prob_thres
@@ -90,16 +91,19 @@ class LanguageModel():
             word_probs += [key_word_probs]
 
 
-        key_probs = self.get_char_probs(context, prefix, keys_li)
+        key_probs = np.array(self.get_char_probs(context, prefix, keys_li))
 
         word_probs = np.array(word_probs)
+
+        # key_probs = np.log(np.ones(key_probs.shape)/key_probs.shape[0])
+        # key_probs = -np.ones(key_probs.shape)
+        # word_probs = np.where(word_probs != -float("inf"), -1, -float("inf"))
 
         joint_normalize_factor = lognormalize_factor(np.hstack([key_probs.flatten(), word_probs.flatten()]))
 
         key_probs = key_probs - joint_normalize_factor
         word_probs = word_probs - joint_normalize_factor
 
-        # nth_min_log_prob = np.partition(word_probs.flatten(), num_words_total)[num_words_total]
         #
         # word_probs = np.where(word_probs >= nth_min_log_prob, word_probs, -float("inf"))
         word_preds = np.where(word_probs != -float("inf"), word_preds, "")
@@ -112,8 +116,8 @@ class LanguageModel():
         key_results[kconfig.space_char] = key_results[" "]
         del key_results[" "]
 
-        # key_probs = np.array([max(key_results[key], np.log(1/30)) if key in key_results else -float("inf") for key in keys_li])
-        key_probs = np.array([key_results[key] if key in key_results else -float("inf") for key in keys_li])
+        key_probs = np.array([max(key_results[key], np.log(1/50)) if key in key_results else -float("inf") for key in keys_li])
+        # key_probs = np.array([key_results[key] if key in key_results else -float("inf") for key in keys_li])
 
         return key_probs
 
@@ -121,13 +125,13 @@ class LanguageModel():
 def main():
     cwd = os.getcwd()
     word_lm_path = os.path.join(os.path.join(cwd, '../resources'),
-                                'mix4_opt_min_lower_100k_4gram_2.5e-9_prob8_bo4_compress255.kenlm')
-    char_lm_path = os.path.join(os.path.join(cwd, '../resources'), 'lm_char_large.kenlm')
+                                'lm_word_dec19.kenlm')
+    char_lm_path = os.path.join(os.path.join(cwd, '../resources'), 'lm_char_dec19.kenlm')
     vocab_path = os.path.join(os.path.join(cwd, '../resources'), 'vocab_lower_100k.txt')
     char_path = os.path.join(os.path.join(cwd, '../resources'), 'char_set.txt')
 
     LM = LanguageModel(word_lm_path, char_lm_path, vocab_path, char_path)
-    print(LM.get_words("", "n", list("abcdefghijklmnopqrstuvwxyz' ")))
+    print(LM.get_words("united states of ", "amer", list("abcdefghijklmnopqrstuvwxyz'_")))
 
 
 

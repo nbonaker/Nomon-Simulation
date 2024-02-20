@@ -48,7 +48,7 @@ class CharacterPredictor:
         context = '<s> ' + context
         context_words = context.split()
         for w in context_words:
-            # print('Context', '{0}\t{1}'.format(model.BaseScore(state_in, w, state_out), w))
+            model.BaseScore(state_in, w, state_out)
             state_in = state_out
             state_out = kenlm.State()
 
@@ -123,7 +123,7 @@ class CharacterPredictor:
 
 
 def main():
-    lm_filename = '../resources/lm_char_large.kenlm'
+    lm_filename = '../resources/lm_char_dec19.kenlm'
 
     character_filename = '../resources/char_set.txt'
 

@@ -16,7 +16,6 @@ class BroderClocks:
         self.is_win = self.clock_inf.is_winner()
         self.is_start = False
 
-
         self.latest_time = self.parent.sim_time.time()
         self.last_press_time = self.parent.sim_time.time()
 
@@ -43,6 +42,7 @@ class BroderClocks:
 
         # proceed based on whether there was a winner
         if (self.clock_inf.is_winner()):
+
             if self.parent.is_simulation:
 
                 self.parent.winner = True

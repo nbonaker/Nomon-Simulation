@@ -6,15 +6,20 @@ from Nomon_Text import kconfig
 from Nomon_Simulation import sim_config
 from Nomon_Text.text_stats import calc_MSD
 from Nomon_Text.phrase_manager import Phrases
+from Nomon_Text.kenlm.kenlm_lm import lognormalize_factor
 
 import pandas as pd
 import numpy as np
+from scipy.stats import entropy
+from matplotlib import pyplot as plt
 import sys
 import os
 
 
 class ClickUtil:
-    def __init__(self, click_df, type):
+    def __init__(self, parent, click_df, calibration_clicks, type):
+        self.parent = parent
+        self.calibration_clicks = calibration_clicks
         self.click_df = click_df
         self.shuffle_indices = np.array([])
         self.playthrough_index = 0
@@ -30,7 +35,7 @@ class ClickUtil:
     def sample(self):
         if self.type == "playthrough":
             if self.playthrough_index < self.click_df.shape[0]:
-                cur_click = self.click_df[self.playthrough_index]
+                cur_click = self.click_df.iloc[self.playthrough_index]
                 self.playthrough_index += 1
                 self.clicks_remaining -= 1
                 return cur_click
@@ -42,9 +47,24 @@ class ClickUtil:
             sample_index, self.shuffle_indices = self.shuffle_indices[0], self.shuffle_indices[1:]
             return self.click_df.loc[sample_index]
 
+        if self.type == "loop":
+            if self.playthrough_index == self.click_df.shape[0]:
+                self.playthrough_index = 0
+
+                # prime kde with calibration data before the first session
+                self.parent.keyboard.bc.clock_inf.clock_util.clock_inf.kde.initialize_dens()
+                for yin in self.calibration_clicks:
+                    self.parent.keyboard.bc.clock_inf.clock_util.clock_inf.kde.add_point(float(yin))
+
+            if self.playthrough_index < self.click_df.shape[0]:
+                cur_click = self.click_df.iloc[self.playthrough_index]
+                self.playthrough_index += 1
+                # self.clicks_remaining -= 1
+                return cur_click
+
 
 class SimulatedUser:
-    def __init__(self, cwd=os.getcwd(), job_num=None, custom_keys=None, num_jobs=0):
+    def __init__(self, cwd=os.getcwd(), job_num=None, num_jobs=0):
         # used for tracking overall progressbar
         self.job_num = job_num
         self.num_jobs = num_jobs
@@ -56,6 +76,12 @@ class SimulatedUser:
         print("Initializing Keyboard with the following layout:")
         for row in kconfig.alpha_target_layout:
             print(row)
+
+        self.track_entropy = False
+        self.click_entropy = []
+
+        self.cur_selection_cscores = []
+        self.cumulative_cscores = []
 
     def get_session_clicks(self):
         session_click_df = self.click_df[self.click_df["Session Num"] == self.session_num]
@@ -78,7 +104,7 @@ class SimulatedUser:
 
         # initialize the click time samples
         click_df = parameters["click_df"]
-        self.calibration_clicks = click_df[click_df["Session Num"].isna()][["Click Time Relative (s)"]].to_numpy().T[0]
+        self.calibration_clicks = click_df[click_df["Session Num"].isna()][["Click Time Rlative (s)"]].to_numpy().T[0]
         self.click_df = click_df[click_df["Session Num"].notna()]
         # used in progress bar to track simulation progress
         self.num_clicks_loaded = len(self.click_df["Click Time Relative (s)"])
@@ -93,15 +119,17 @@ class SimulatedUser:
 
         for trial in range(trials):
 
+            self.click_util = ClickUtil(self, self.click_df, self.calibration_clicks, "playthrough")
+
             # reinitialize the keyboard for each trial
-            self.keyboard = Keyboard(parameters=parameters)
+            self.keyboard = Keyboard(self, parameters=parameters)
 
             # initialize the phrases
             # check if phrases are to be shuffled consistently with seed
             if "phrase_shuffle_seed" in parameters:
                 phrase_shuffle_seed = parameters["phrase_shuffle_seed"]
 
-                # if function of trail number, compute seed from fn
+                # if function of trial number, compute seed from fn
                 if callable(phrase_shuffle_seed):
                     cur_seed = phrase_shuffle_seed(trial)
                 # if integer supplied, use it
@@ -137,7 +165,7 @@ class SimulatedUser:
                 self.get_session_clicks()
                 num_session_clicks = len(self.session_click_times)
 
-                phrase_num = 0
+                self.phrase_num = 0
 
                 # type phrases until all clicks are used
                 while len(self.session_click_times) > 0:
@@ -153,7 +181,7 @@ class SimulatedUser:
 
                     self.clear_sim_tracking()
 
-                    phrase_num += 1
+                    self.phrase_num += 1
 
                     # type the target phrase, verbose=True will show targets and selections
                     self.type_phrase(target_phrase, verbose=verbose)
@@ -163,45 +191,16 @@ class SimulatedUser:
                     # only save simulation data from phrases more than halfway finished
                     if len(self.keyboard.typed) > len(target_phrase) // 2 and self.num_selections_phrase > 0:
 
-                        # calculate error rate (ignore differences in periods and spaces at end of phrase)
-                        typed_no_periods = self.keyboard.typed.replace("..", "")
-                        target_no_periods = target_phrase[:len(self.keyboard.typed)].replace("..", "")
-                        num_errors, error_rate_phrase = calc_MSD(typed_no_periods, target_no_periods)
-
-                        phrase_results["Session Num"] = int(session_num)
+                        phrase_results = self.calculate_phrase_results(target_phrase, phrase_type)
+                        phrase_results["Session Num"] = int(self.session_num)
                         phrase_results["Trial Num"] = int(trial)
-                        phrase_results["Phrase Num"] = int(phrase_num)
-
-                        phrase_results["Target Phrase"] = target_phrase
-                        phrase_results["Phrase Type"] = phrase_type
-                        phrase_results["Typed Text"] = self.keyboard.typed
-
-                        phrase_results["Click Load (clicks/character)"] = \
-                            round(self.num_clicks_phrase / len(self.keyboard.typed), sim_config.data_save_precision)
-                        phrase_results["Click Load (clicks/selection)"] = \
-                            round(self.num_clicks_phrase / self.num_selections_phrase, sim_config.data_save_precision)
-
-                        phrase_results["Entry Rate (cpm)"] = \
-                            round(len(self.keyboard.typed) / (self.keyboard.sim_time.time() - self.start_time) * 60,
-                                  sim_config.data_save_precision)
-                        phrase_results["Entry Rate (wpm)"] = \
-                            round(len(self.keyboard.typed) / (self.keyboard.sim_time.time() - self.start_time) * 60 / 5,
-                                  sim_config.data_save_precision)
-
-                        phrase_results["Correction Rate (%)"] = \
-                            round(self.num_corrections_phrase / self.num_selections_phrase * 100,
-                                  sim_config.data_save_precision)
-
-                        phrase_results["Error Rate (%)"] = round(error_rate_phrase, sim_config.data_save_precision)
-
-                        phrase_results["Word Prediction Usage (%)"] = round(
-                            self.num_word_selections_phrase / self.num_selections_phrase * 100,
-                            sim_config.data_save_precision)
+                        phrase_results["Phrase Num"] = int(self.phrase_num)
 
                         full_results.append(phrase_results)
-
                     self.keyboard.typed = ""  # reset tracking and context for lm -- new sentence
-                    self.update_progress_bar(trial, trials, self.num_clicks_total, self.num_clicks_loaded)
+
+                    cur_progress = int((trial + self.num_clicks_total / self.num_clicks_loaded) / trials * 100)
+                    self.update_progress_bar(cur_progress)
 
                 # reset keyboard and clock scores for next session
                 (self.keyboard.bc.clock_inf.clocks_on, self.keyboard.bc.clock_inf.clocks_off, clock_score_prior,
@@ -267,10 +266,10 @@ class SimulatedUser:
 
         for trial in range(trials):
 
-            self.click_util = ClickUtil(self.click_df, "shuffle")
+            self.click_util = ClickUtil(self, self.click_df, self.calibration_clicks, "loop")
 
             # reinitialize the keyboard for each trial
-            self.keyboard = Keyboard(parameters=parameters)
+            self.keyboard = Keyboard(self, parameters=parameters)
 
             self.session_num = 1
 
@@ -279,7 +278,7 @@ class SimulatedUser:
             if "phrase_shuffle_seed" in parameters:
                 phrase_shuffle_seed = parameters["phrase_shuffle_seed"]
 
-                # if function of trail number, compute seed from fn
+                # if function of trial number, compute seed from fn
                 if callable(phrase_shuffle_seed):
                     cur_seed = phrase_shuffle_seed(trial)
                 # if integer supplied, use it
@@ -295,6 +294,8 @@ class SimulatedUser:
 
             self.phrase_util = Phrases('../Nomon_Text/resources/watch-iv.txt', '../Nomon_Text/resources/watch-oov.txt',
                                        cur_seed)
+            # self.phrase_util = Phrases("../Nomon_Text/resources/lm_likely_phrases.txt", "../Nomon_Text/resources/lm_unlikely_phrases.txt", cur_seed)
+
             # overwrite phrase queue if specified in simulation parameters
             if "phrase_df" in parameters:
                 phrase_df = parameters["phrase_df"]
@@ -307,7 +308,7 @@ class SimulatedUser:
 
             self.num_phrases_total = len(self.phrase_util.phrases)
 
-            phrase_num = 0
+            self.phrase_num = 0
 
             # type phrases until all phrases are done
             while len(self.phrase_util.phrases) > 0:
@@ -317,7 +318,7 @@ class SimulatedUser:
 
                 self.clear_sim_tracking()
 
-                phrase_num += 1
+                self.phrase_num += 1
 
                 # type the target phrase, verbose=True will show targets and selections
                 self.type_phrase(target_phrase, verbose=verbose)
@@ -326,13 +327,13 @@ class SimulatedUser:
                     phrase_results = self.calculate_phrase_results(target_phrase, phrase_type)
                     phrase_results["Session Num"] = int(self.session_num)
                     phrase_results["Trial Num"] = int(trial)
-                    phrase_results["Phrase Num"] = int(phrase_num)
+                    phrase_results["Phrase Num"] = int(self.phrase_num)
 
                     full_results.append(phrase_results)
 
                 self.keyboard.typed = ""  # reset tracking and context for lm -- new sentence
 
-                cur_progress = int((trial+phrase_num/self.num_phrases_total)/trials*100)
+                cur_progress = int((trial+self.phrase_num/self.num_phrases_total)/trials*100)
                 self.update_progress_bar(cur_progress)
 
             # reset keyboard and clock scores for next session
@@ -354,10 +355,18 @@ class SimulatedUser:
 
     def type_phrase(self, target_phrase, verbose=False):
         if verbose:
-            print("\nPhrase: ", target_phrase)
+            print("\nPhrase: ", target_phrase, self.click_util.clicks_remaining)
+
+        # cur_clicks = self.click_df["Click Time Relative (s)"].values[:self.click_util.playthrough_index]
+        # cur_weights = np.power(0.96, np.arange(0, len(cur_clicks)))[::-1]
+        # plt.hist(cur_clicks, weights=cur_weights, bins=40, density=True)
+        # plt.plot(self.keyboard.bc.clock_inf.kde.x_li, np.array(self.keyboard.bc.clock_inf.kde.dens_li)/self.keyboard.bc.clock_inf.kde.Z*10)
+        # plt.show()
 
         # start with first target in phrase
         target_clock, cur_target_phrase = self.next_target(target_phrase)
+
+        self.target_clock = target_clock
 
         # type phrase while clicks are available (playthrough click_util mode)
         while self.click_util.clicks_remaining > 0:
@@ -376,6 +385,7 @@ class SimulatedUser:
                 # if phrase not finished, move to next target
                 if len(cur_target_phrase) > 0:
                     target_clock, cur_target_phrase = self.next_target(cur_target_phrase)
+                    self.target_clock = target_clock
 
                 # terminate phrase when everything has been typed
                 else:
@@ -383,10 +393,12 @@ class SimulatedUser:
 
             # incorrect clock selected, need to undo
             else:
+
                 undo_depth = 1
                 while 0 < undo_depth <= sim_config.max_undo_depth:
                     undo_clock = self.keyboard.keys_li.index(kconfig.mybad_char) * (
                             self.keyboard.N_pred + 1) + self.keyboard.N_pred
+                    self.target_clock = undo_clock
                     if verbose:
                         tab = "-----" * undo_depth
                         print(tab + "Target: Undo")
@@ -404,6 +416,7 @@ class SimulatedUser:
                     # incorrect clock selected, need to undo
                     else:
                         undo_depth += 1
+                self.target_clock = target_clock
 
     def select_clock(self, target_clock, verbose=False, undo_depth=0):
 
@@ -458,6 +471,9 @@ class SimulatedUser:
             self.keyboard.sim_time.set_time(self.keyboard.sim_time.time() + time_delta)
             self.keyboard.increment_clocks()
 
+            # save clock scores before click if entropy tracking is on
+            if self.track_entropy:
+                self.save_clock_cscores(i)
             # simulate a keypress at the new time
             self.keyboard.on_press()
             self.num_clicks_phrase += 1
@@ -510,6 +526,90 @@ class SimulatedUser:
         if target_letter == " ":
             target_letter = "_"
         return self.keyboard.keys_li.index(target_letter) * (self.keyboard.N_pred + 1) + self.keyboard.N_pred, text[1:]
+
+    def clock_ind_to_object(self, index):
+        object_name = ""
+
+        # if index is a key char
+        if (index - self.keyboard.N_pred) % (self.keyboard.N_pred + 1) == 0:
+            object_name = self.keyboard.keys_li[self.keyboard.index_to_wk[index]]
+        # if index is a word
+        else:
+            key = self.keyboard.index_to_wk[index] // self.keyboard.N_pred
+            pred = self.keyboard.index_to_wk[index] % self.keyboard.N_pred
+            object_name = self.keyboard.words_li[key][pred]
+
+        object_name = object_name.replace(" ", "_")
+        object_name = object_name.replace(kconfig.back_char, "BACKSPACE")
+        object_name = object_name.replace(kconfig.mybad_char, "UNDO")
+
+        return object_name
+
+    def save_clock_cscores(self, click_num):
+        sorted_inds = self.keyboard.bc.clock_inf.sorted_inds
+        obj_names = [self.clock_ind_to_object(index) for index in sorted_inds]
+
+        valid_cscores = [self.keyboard.bc.clock_inf.cscores[i] for i in self.keyboard.bc.clock_inf.sorted_inds]
+        # normalize cscores for plot
+        valid_cscores = np.array(valid_cscores)
+        #
+        if np.sum(valid_cscores) == 0:
+            valid_cscores = -np.ones(valid_cscores.shape)
+        valid_cscores -= lognormalize_factor(valid_cscores)
+
+        cur_click_cscores = {
+            "phrase_num": self.phrase_num,
+            "click_num": click_num,
+            "selection_num": self.num_selections_phrase,
+            "target_clock_ind": self.target_clock,
+            "target_clock_text": self.clock_ind_to_object(self.target_clock),
+            "is_post_undo": self.keyboard.bc.is_undo,
+            "num_clocks_on": len(sorted_inds),
+            "cscore_entropy": entropy(np.exp(valid_cscores), base=2)
+        }
+
+        word_pred_num = 0
+        for index in self.keyboard.words_on:
+            obj_name = self.clock_ind_to_object(index)
+            cscore = valid_cscores[sorted_inds.index(index)]
+
+            # if index is a key char
+            if (index - self.keyboard.N_pred) % (self.keyboard.N_pred + 1) == 0:
+                cur_click_cscores[obj_name] = cscore
+            else:
+                cur_click_cscores["word_"+str(word_pred_num)+"_cscore"] = cscore
+                cur_click_cscores["word_" + str(word_pred_num)+"_text"] = obj_name
+                word_pred_num += 1
+
+        for i in range(word_pred_num, kconfig.num_words_total):
+            cur_click_cscores["word_" + str(i) + "_cscore"] = -float("inf")
+            cur_click_cscores["word_" + str(i) + "_text"] = ""
+
+        self.cur_selection_cscores += [cur_click_cscores]
+
+        # if last click that leads to selection
+        if click_num == -1:
+            if len(self.cur_selection_cscores) > 1:
+                sel_num_clicks = self.cur_selection_cscores[-2]["click_num"]+1
+            else:
+                sel_num_clicks = 1
+            self.cur_selection_cscores[-1]["click_num"] = sel_num_clicks
+
+            for previous_cscores in self.cur_selection_cscores:
+                previous_cscores["num_clicks_selection"] = sel_num_clicks
+                previous_cscores["selected_clock_ind"] = self.keyboard.previous_winner
+                previous_cscores["selected_clock_text"] = self.clock_ind_to_object(self.keyboard.previous_winner)
+                previous_cscores["is_correct_selection"] = self.keyboard.previous_winner == self.target_clock
+
+            self.cumulative_cscores += self.cur_selection_cscores
+            self.cur_selection_cscores = []
+
+        # fig, ax = plt.subplots(1, figsize=(7, 8))
+        # fig.tight_layout()
+        # plt.subplots_adjust(left=0.15)
+        # ax.barh(obj_names[::-1], valid_cscores[::-1])
+        # ax.invert_xaxis()
+        # plt.show()
 
     def update_progress_bar(self, progress):
         sys.stdout.write('\r')

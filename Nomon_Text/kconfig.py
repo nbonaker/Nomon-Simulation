@@ -27,6 +27,8 @@ mybad_char = '@'
 # yourbad_char = 'Yours'
 yourbad_char = 'Undo+'
 break_chars = ['.', ',', '?', '!']
+break_chars = ['.']
+
 back_char = '#'
 clear_char = '$'
 
@@ -39,7 +41,7 @@ num_words_total = 17
 main_chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
                    'u', 'v', 'w', 'x', 'y', 'z', '\'']
 key_chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
-                   'u', 'v', 'w', 'x', 'y', 'z', '\'', '.', ',', '?', '!', '#', '$', '@', '_',]
+                   'u', 'v', 'w', 'x', 'y', 'z', '\'', '.', '#', '$', '@', '_',]
 
 alpha_target_layout = [['a', 'b', 'c', 'd', 'e'],
                  ['f', 'g', 'h', 'i', 'j'],

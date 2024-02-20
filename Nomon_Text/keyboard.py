@@ -8,6 +8,8 @@ from Nomon_Text import kconfig
 from Nomon_Text.kenlm.kenlm_lm import LanguageModel
 from matplotlib import pyplot as plt
 
+from scipy.stats import entropy
+
 def plot_priors(words_on, word_score_prior, keys_li, N_pred, words_li, index_to_wk):
     items = []
     priors = []
@@ -47,7 +49,9 @@ class SimTime:
 
 
 class Keyboard:
-    def __init__(self, cwd=os.getcwd(), job_num=None, sub_call=False, parameters={}, num_jobs=0):
+    def __init__(self, parent, cwd=os.getcwd(), job_num=None, sub_call=False, parameters={}, num_jobs=0):
+
+        self.parent = parent
 
         self.sim_time = SimTime()
         self.is_simulation = True
@@ -87,8 +91,8 @@ class Keyboard:
             cwd = os.getcwd()
             cwd = os.path.dirname(cwd)
             word_lm_path = os.path.join(os.path.join(cwd, 'Nomon_Text/resources'),
-                                        'mix4_opt_min_lower_100k_4gram_2.5e-9_prob8_bo4_compress255.kenlm')
-            char_lm_path = os.path.join(os.path.join(cwd, 'Nomon_Text/resources'), 'lm_char_large.kenlm')
+                                        'lm_word_dec19.kenlm')
+            char_lm_path = os.path.join(os.path.join(cwd, 'Nomon_Text/resources'), 'lm_char_dec19.kenlm')
             vocab_path = os.path.join(os.path.join(cwd, 'Nomon_Text/resources'), 'vocab_lower_100k.txt')
             char_path = os.path.join(os.path.join(cwd, 'Nomon_Text/resources'), 'char_set.txt')
 
@@ -135,7 +139,7 @@ class Keyboard:
                         self.N_alpha_keys = self.N_alpha_keys + 1
                     elif self.key_chars[row][col] == kconfig.space_char and (len(self.key_chars[row][col]) == 1):
                         self.N_alpha_keys = self.N_alpha_keys + 1
-                    elif self.key_chars[row][col] == kconfig.break_chars[1] and (
+                    elif self.key_chars[row][col] == kconfig.break_chars[0] and (
                             len(self.key_chars[row][col]) == 1):
                         self.N_alpha_keys = self.N_alpha_keys + 1
 
@@ -256,14 +260,11 @@ class Keyboard:
                 if word_str == '':
                     self.words_off.append(index)
                 else:
-                    # turn word prediciton off
-                    if self.word_pred_on == 0:
-                        self.words_off.append(index)
-                    # word prediction completely on
-                    elif self.word_pred_on == 2:
+                    # word predictions on
+                    if self.word_pred_on:
                         self.words_on.append(index)
-                    # word prediction turned on but reduced
-                    # rank words frequency and display only three
+                    else:
+                        self.words_off.append(index)
 
                 windex += 1
                 word += 1
@@ -383,12 +384,17 @@ class Keyboard:
         self.bc.select()
 
     def make_choice(self, index):
+
         is_undo = False
         is_equalize = False
 
         # highlight winner
         self.previous_winner = index
         # self.highlight_winner(index)
+
+        # save clock score distribution entropy before new BC round begins
+        if self.parent.track_entropy:
+            self.parent.save_clock_cscores(-1)
 
         # initialize talk string
         talk_string = ""

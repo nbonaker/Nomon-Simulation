@@ -11,6 +11,52 @@ import sys
 import os
 
 
+class ClickUtil:
+    def __init__(self, parent, click_df, calibration_clicks, type):
+        self.parent = parent
+        self.calibration_clicks = calibration_clicks
+        self.click_df = click_df
+        self.shuffle_indices = np.array([])
+        self.playthrough_index = 0
+        self.clicks_remaining = self.click_df.shape[0]
+        self.reshuffle()
+
+        self.type = type
+
+    def reshuffle(self):
+        self.shuffle_indices = np.arange(self.click_df.shape[0])
+        np.random.shuffle(self.shuffle_indices)
+
+    def sample(self):
+        if self.type == "playthrough":
+            if self.playthrough_index < self.click_df.shape[0]:
+                cur_click = self.click_df.iloc[self.playthrough_index]
+                self.playthrough_index += 1
+                self.clicks_remaining -= 1
+                return cur_click
+
+        elif self.type == "shuffle":
+            if len(self.shuffle_indices) == 0:
+                self.reshuffle()
+
+            sample_index, self.shuffle_indices = self.shuffle_indices[0], self.shuffle_indices[1:]
+            return self.click_df.loc[sample_index]
+
+        if self.type == "loop":
+            if self.playthrough_index == self.click_df.shape[0]:
+                self.playthrough_index = 0
+
+                # prime kde with calibration data before the first session
+                self.parent.keyboard.bc.clock_inf.clock_util.clock_inf.kde.initialize_dens()
+                for yin in self.calibration_clicks:
+                    self.parent.keyboard.bc.clock_inf.clock_util.clock_inf.kde.add_point(float(yin))
+
+            if self.playthrough_index < self.click_df.shape[0]:
+                cur_click = self.click_df.iloc[self.playthrough_index]
+                self.playthrough_index += 1
+                # self.clicks_remaining -= 1
+                return cur_click
+
 class SimulatedUser:
     def __init__(self, cwd=os.getcwd(), job_num=None, custom_keys=None, num_jobs=0):
         # used for tracking overall progressbar
@@ -55,12 +101,16 @@ class SimulatedUser:
     def parameter_metrics(self, parameters, trials=1, verbose=False):
         self.init_sim_data()
 
-        # initialize the click time samples
         click_df = parameters["click_df"]
         self.calibration_clicks = click_df[click_df["Session Num"].isna()][["Click Time Relative (s)"]].to_numpy().T[0]
         self.click_df = click_df[click_df["Session Num"].notna()]
+        # used in progress bar to track simulation progress
+        self.num_clicks_loaded = len(self.click_df["Click Time Relative (s)"])
+        self.num_clicks_total = 0
 
-        self.num_sessions = int(click_df["Session Num"].max())
+        # get session numbers from click data frame
+        self.sessions_li = pd.unique(self.click_df["Session Num"])
+        self.num_sessions = int(self.sessions_li.max()) - int(self.sessions_li.min())
 
         # list to store sim results
         full_results = []
