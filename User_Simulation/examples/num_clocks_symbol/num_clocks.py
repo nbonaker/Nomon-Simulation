@@ -9,7 +9,7 @@ parentdir = os.path.dirname(parentdir)
 sys.path.insert(0, parentdir)
 os.chdir(parentdir)
 
-from simulated_user_symbol import SimulatedUser
+from User_Simulation.simulated_user_symbol import SimulatedUser
 from matplotlib import pyplot as plt
 
 try:

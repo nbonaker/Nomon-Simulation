@@ -12,7 +12,7 @@ maindir = os.path.dirname(parentdir)
 sys.path.insert(0, parentdir)
 os.chdir(parentdir)
 
-from Nomon_Simulation.simulated_user_text import SimulatedUser
+from User_Simulation.simulated_user_text import SimulatedUser
 
 ### code used for distributed computing
 # my_task_id specifies the task (virtual cpu) running the current simulation

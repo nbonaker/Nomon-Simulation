@@ -32,7 +32,7 @@
 import multiprocessing as mp
 
 # from simulations.num_clocks.num_clocks import simulationUtil
-from Nomon_Simulation.simulations.ajay_data.eyegaze_known import simulationUtil
+from User_Simulation.simulations.ajay_data.eyegaze_known import simulationUtil
 
 
 def submission_fun(task_id):
