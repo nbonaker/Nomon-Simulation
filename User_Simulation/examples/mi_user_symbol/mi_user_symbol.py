@@ -46,9 +46,6 @@ class SimulationUtil():
         if os.path.exists(symbol_data_fname):
             symbol_click_df = pd.read_csv(symbol_data_fname, usecols=["Session Num", "Clock Period (s)",
                                                                 "Click Time Relative (s)", "Dead Time (s)"])
-            # remove session num from clicks to specify as calibration data
-            symbol_click_df['Session Num'] = np.nan
-            symbol_click_df['Dead Time (s)'] = np.nan
         else:
             symbol_click_df = pd.DataFrame(columns=["Session Num", "Clock Period (s)",
                                                                 "Click Time Relative (s)", "Dead Time (s)"])
