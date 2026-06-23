@@ -116,7 +116,9 @@ class SimulationUtil():
 
             params = {"click_df": click_df,
                       "phrase_shuffle_seed": lambda trial: ord(user_id) + trial,
-                      "lm_files": [word_lm_path, char_lm_path, vocab_path, char_path]}
+                      "lm_config": {"backend": "ngram",
+                                    "lm_path": char_lm_path,
+                                    "character_set_path": os.path.join(maindir, "Nomon_Text/resources/char_set.txt")}}
 
             # run simulation with job parameters for specified number of trials
             sim.simulate_phrases(params, trials=1, verbose=False)
