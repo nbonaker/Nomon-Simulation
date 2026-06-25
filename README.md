@@ -19,12 +19,29 @@ This repository contains a framework for simulating the use of nomon with data c
 
 - **Nomon-Core** (Helper Package) -- Contains the core backend attributes that facilitate the Nomon selection mechanism
 - **Nomon-Symbol** (Helper Package) -- Contains the frontend attributes needed to simulate a picture/symbol selection version of Nomon.
-- **Nomon-Text** (Helper Package) -- Contains the frontend attributes needed to simualte a full-text keyboard version of Nomon. Also contains the kenlm language models used for word and character predictions in the full-text keyboard.
+- **Nomon-Text** (Helper Package) -- Contains the frontend attributes needed to simualte a full-text keyboard version of Nomon. Character and word predictions are provided by [TextSlinger](https://github.com/kdv123/textslinger), which is the default backend (`textslinger_lm.py`); the legacy kenlm path (`/kenlm`) is retained for baseline comparison and references. See `probe_textslinger_vs_kenlm.py` for a side-by-side reference of the two backends.
 - **Nomon-User-Data** (Helper Package) -- Contains detailed data tables on how switch users interacted with the Nomon keyboard as they learned to use it. This data is used as an input to the Nomon-Simulation package above.
 
 ![Alt text](readme_flowchart.png?raw=true "Package Flowchart")
 
 >***Note -- This repository contains code for a python-based implementation of the Nomon selection mechanism. We are no longer actively developing or supporting a python based application for Nomon, but a legacy application can be found [here](https://github.com/tbroderick/Nomon). We recommended checking out our [web based application](https://github.com/nbonaker/NomonWeb) (JS/HTML/PHP) if you wish to see or adapt the code for purposes beyond user simulation.*** 
+
+Setup / Installation
+===================
+This repository requires **Python 3.10** (TextSlinger declares `requires-python = ">=3.10,<3.11"`).
+
+1. Create and activate a virtual environment:
+   ```
+   python3.10 -m venv venv
+   source venv/bin/activate
+   ```
+2. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+   This installs [TextSlinger](https://github.com/kdv123/textslinger), which is the default language-model backend for the text keyboard. TextSlinger pulls in its own transitive dependencies (torch, transformers, datasets, etc.) automatically.
+
+>***Note on kenlm -- The character LM files in `Nomon_Text/resources/` (`lm_char_*.kenlm`) are 12-gram models. The kenlm package on PyPI is compiled with `KENLM_MAX_ORDER=6` by default and will raise a `FormatLoadException` when loading them. To use either the legacy kenlm path or the TextSlinger n-gram backend, build kenlm from source with a raised max order, e.g. `cmake -DKENLM_MAX_ORDER=12 ..` (see the [kenlm build docs](https://github.com/kpu/kenlm)). This is required for both `/kenlm` baseline runs and the default TextSlinger backend.***
 
 Main Package
 ===============
@@ -51,6 +68,14 @@ User_Simulation
 ### Running an Example Simulation:
 _Simulations must be run as a python module._ For example, execute the following command from the root directory to run the "language_model_compression" simulation file: \
 **`python -m User_Simulation.examples.language_model_compression.run_sim`**
+
+#### Language Model Configuration
+The text keyboard's language model is selected via the `parameters` dict passed to `simulate_phrases`:
+- **`lm_config`** (current default) -- a dict consumed by `TextSlingerLM` (see `Nomon_Text/textslinger_lm.py`). The example sims use `{"backend": "ngram", "lm_path": <char_lm_path>, "character_set_path": <char_set_path>}`.
+- **`lm_files`** (legacy) -- a 4-tuple `[word_lm_path, char_lm_path, vocab_path, char_path]` selecting the old kenlm `LanguageModel` in `Nomon_Text/kenlm/kenlm_lm.py`. Retained for A/B baseline comparison.
+- If neither key is present, the keyboard falls back to a default TextSlinger n-gram backend using `Nomon_Text/resources/lm_char_tiny.kenlm`.
+
+>***Behavior change vs the kenlm baseline -- With `lm_config`, word predictions come from a character-model beam search rather than the kenlm trie enumeration. Predicted "words" are therefore character fragments rather than dictionary words, so expect lower word-prediction usage and higher click load than the kenlm baseline until a word-level path is restored. Character predictions match the old code (log base aside). See `Nomon_Text/probe_textslinger_vs_kenlm.py` for a reference comparison.***
 
 ### Working with Simulation Results:
 
@@ -156,8 +181,10 @@ Nomon_Text
 - **`Keyboard.py`** -- Controls the interface of the Nomon symbol keyboard. Manges the layout of the clocks/characters/word completions and keeps track of the typed text.
 - **`KConfig.py`** -- Hyperparameters controlling the keyboard interface and it's layout.
 - **`phrase_manager.py`** -- Contains the `Phrases` class used to load and mix the iv and oov phrase sets.
-- **`/kenlm`**
-    - **`kenlm_lm.py`** -- Interfaces with the kenlm models to format word and character probabilities for use in Nomon.
+- **`textslinger_lm.py`** -- Adapter (`TextSlingerLM`) between the TextSlinger language model API and Nomon's keyboard contract. Exposes the same `get_words()` signature the keyboard expects, delegating to TextSlinger backends internally. Also re-exports `lognormalize_factor` for downstream modules. This is the default backend selected when `parameters` contains an `lm_config` dict.
+- **`probe_textslinger_vs_kenlm.py`** -- Reference probe comparing the old kenlm `LanguageModel.get_words()` against the TextSlinger `NGramLanguageModel` (character distributions, word-prediction mechanisms, space/underscore mapping). Run with `python -m Nomon_Text.probe_textslinger_vs_kenlm`.
+- **`/kenlm`** -- Legacy baseline path, retained for comparison and references.
+    - **`kenlm_lm.py`** -- Interfaces with the kenlm models to format word and character probabilities for use in Nomon. Selected when `parameters` contains the legacy `lm_files` key.
     - **`predictor.py`** -- Contains the `WordPredictor` class that handles queries for the word language model.
     - **`char_predictor.py`** -- Contains the `CharacterPredictor` class that handles queries for the character language model.
 - **`/resources`** -- contains the kenlm files for the language models and phrase datasets for the text-entry simulation targets.

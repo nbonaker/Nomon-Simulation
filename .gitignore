@@ -1,4 +1,7 @@
 venv_s/
+venv/
+.DS_Store
+.python-version
 .idea/
 results/
 click_results/

@@ -5,7 +5,9 @@ import os
 from Nomon_Core import config
 from Nomon_Core.broderclocks import BroderClocks
 from Nomon_Text import kconfig
-from Nomon_Text.kenlm.kenlm_lm import LanguageModel
+# Phase 2: TextSlinger adapter is the default backend. The legacy KenLM
+# LanguageModel is imported lazily inside the `lm_files` branch below.
+from Nomon_Text.textslinger_lm import TextSlingerLM
 from matplotlib import pyplot as plt
 
 from scipy.stats import entropy
@@ -85,18 +87,23 @@ class Keyboard:
         self.last_add_li = [0]
 
         # initialize the language model if in parameters
-        if "lm_files" in parameters:
+        if "lm_config" in parameters:
+            self.lm = TextSlingerLM(parameters["lm_config"])
+        elif "lm_files" in parameters:
+            # Legacy A/B path: old KenLM LanguageModel.
+            from Nomon_Text.kenlm.kenlm_lm import LanguageModel
             word_lm_path, char_lm_path, vocab_path, char_path = parameters["lm_files"]
+            self.lm = LanguageModel(word_lm_path, char_lm_path, vocab_path, char_path)
         else:
             cwd = os.getcwd()
             cwd = os.path.dirname(cwd)
-            word_lm_path = os.path.join(os.path.join(cwd, 'Nomon_Text/resources'),
-                                        'lm_word_dec19.kenlm')
-            char_lm_path = os.path.join(os.path.join(cwd, 'Nomon_Text/resources'), 'lm_char_dec19.kenlm')
-            vocab_path = os.path.join(os.path.join(cwd, 'Nomon_Text/resources'), 'vocab_lower_100k.txt')
-            char_path = os.path.join(os.path.join(cwd, 'Nomon_Text/resources'), 'char_set.txt')
-
-        self.lm = LanguageModel(word_lm_path, char_lm_path, vocab_path, char_path)
+            char_set_path = os.path.join(os.path.join(cwd, 'Nomon_Text/resources'), 'char_set.txt')
+            char_lm_path = os.path.join(os.path.join(cwd, 'Nomon_Text/resources'), 'lm_char_tiny.kenlm')
+            self.lm = TextSlingerLM({
+                "backend": "ngram",
+                "lm_path": char_lm_path,
+                "character_set_path": char_set_path,
+            })
 
         self.init_words()
 

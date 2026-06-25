@@ -6,7 +6,7 @@ from Nomon_Text import kconfig
 from User_Simulation import sim_config
 from Nomon_Text.text_stats import calc_MSD
 from Nomon_Text.phrase_manager import Phrases
-from Nomon_Text.kenlm.kenlm_lm import lognormalize_factor
+from Nomon_Text.textslinger_lm import lognormalize_factor
 
 import pandas as pd
 import numpy as np

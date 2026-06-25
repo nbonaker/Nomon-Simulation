@@ -68,18 +68,12 @@ class SimulationUtil():
         return full_click_df
 
     def run_job(self, my_task_id, num_tasks):
-        lm_types = ["tiny", "medium", "huge"]
+        lm_types = ["tiny", "medium"]
         lm_crosses = [(char, word) for char in lm_types for word in lm_types]
 
         parameters_li = []
         for pair in lm_crosses:
             parameters_li.append({"char_lm": pair[0], "word_lm": pair[1]})
-
-        parameters_li = [{"char_lm": "dec19", "word_lm": "dec19"}]
-
-        # for lm_type in lm_types:
-        #     parameters_li.append({"char_lm": lm_type, "word_lm": lm_type})
-
 
         task_jobs = np.array_split(parameters_li, num_tasks)[my_task_id - 1]
 
@@ -121,7 +115,9 @@ class SimulationUtil():
 
             params = {"click_df": click_df,
                       "phrase_shuffle_seed": lambda trial: ord(user_id) + trial,
-                      "lm_files": [word_lm_path, char_lm_path, vocab_path, char_path]}
+                      "lm_config": {"backend": "ngram",
+                                    "lm_path": char_lm_path,
+                                    "character_set_path": os.path.join(maindir, "Nomon_Text/resources/char_set.txt")}}
 
             # run simulation with job parameters for specified number of trials
             sim.simulate_phrases(params, trials=1, verbose=False)
