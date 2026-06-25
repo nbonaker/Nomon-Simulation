@@ -104,7 +104,7 @@ class SimulatedUser:
 
         # initialize the click time samples
         click_df = parameters["click_df"]
-        self.calibration_clicks = click_df[click_df["Session Num"].isna()][["Click Time Relative (s)"]].to_numpy().T[0]
+        self.calibration_clicks = click_df[click_df["Session Num"].isna()][["Click Time Rlative (s)"]].to_numpy().T[0]
         self.click_df = click_df[click_df["Session Num"].notna()]
         # used in progress bar to track simulation progress
         self.num_clicks_loaded = len(self.click_df["Click Time Relative (s)"])
@@ -153,11 +153,18 @@ class SimulatedUser:
             # run through each session in the user data
             for rel_session_num, session_num in enumerate(self.sessions_li):
 
+                self.phrase_metadata = []
+
                 # overwrite phrase queue if specified in simulation parameters
                 if "phrase_df" in parameters:
                     phrase_df = parameters["phrase_df"]
-                    session_phrases = phrase_df[phrase_df["Session Num"] == session_num]["Phrase Text"].values
-                    self.phrase_util.phrases = [[phrase, "?"] for phrase in session_phrases]
+                    session_phrase_df = phrase_df[phrase_df["Session Num"] == session_num].sort_values("Phrase Num")
+                    session_phrase_rows = session_phrase_df[["Phrase Num", "Phrase Text"]].to_dict("records")
+                    self.phrase_util.phrases = [[row["Phrase Text"], "?"] for row in reversed(session_phrase_rows)]
+                    self.phrase_metadata = [
+                        {"Original Phrase Num": int(row["Phrase Num"])}
+                        for row in reversed(session_phrase_rows)
+                    ]
 
                 self.session_num = session_num
 
@@ -170,6 +177,7 @@ class SimulatedUser:
                 # type phrases until all clicks are used
                 while len(self.session_click_times) > 0:
                     target_phrase, phrase_type = self.phrase_util.sample()
+                    phrase_metadata = self.phrase_metadata.pop() if self.phrase_metadata else {}
 
                     # stop trial when run out of phrases
                     if target_phrase is None:
@@ -195,6 +203,8 @@ class SimulatedUser:
                         phrase_results["Session Num"] = int(self.session_num)
                         phrase_results["Trial Num"] = int(trial)
                         phrase_results["Phrase Num"] = int(self.phrase_num)
+                        if "Original Phrase Num" in phrase_metadata:
+                            phrase_results["Original Phrase Num"] = phrase_metadata["Original Phrase Num"]
 
                         full_results.append(phrase_results)
                     self.keyboard.typed = ""  # reset tracking and context for lm -- new sentence

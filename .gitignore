@@ -10,3 +10,6 @@ __pycache__/
 *_dec19.kenlm
 *_large.kenlm
 *_huge.kenlm
+.venv/
+.DS_Store
+User_Simulation/evaluation/outputs/
