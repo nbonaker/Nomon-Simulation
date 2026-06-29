@@ -113,19 +113,30 @@ class TextSlingerLM:
         ``logaddexp.reduce(hstack([key_probs, word_probs])) ≈ 0``.
         """
         # TextSlinger expects real spaces. Nomon uses kconfig.space_char ('_').
-        ts_context = (left_context + prefix).replace(kconfig.space_char, " ")
+        # for reference, check textslinger/tests/test_ngram_predict_words.py on various paramaters
+        ts_left_context = (left_context).replace(kconfig.space_char, " ") # for word predictions / _get_word_probs()
+        ts_input_sequence = [[(c, 0.0)] for c in prefix]  if prefix else None
+        ts_end_characters = [" ", "!", "?", ".", ","]
+
+        ts_full_context = ts_left_context + prefix # for char predictions / _get_char_probs()
 
         # --- Character path -------------------------------------------------
-        key_probs = self._get_char_probs(ts_context, keys_li)
+        key_probs = self._get_char_probs(ts_full_context, keys_li)
 
         # --- Word path ------------------------------------------------------
         word_preds, word_probs = self._get_word_preds(
-            ts_context, prefix, keys_li, num_words_total
+            ts_left_context, ts_input_sequence, prefix, keys_li, num_words_total, ts_end_characters
         )
 
         # --- Joint normalization -------------------------------------------
         key_probs = np.asarray(key_probs, dtype=np.float64)
         word_probs = np.asarray(word_probs, dtype=np.float64)
+
+        # condition word priors on the typed prefix: P(word|context) - logP(prefix|context) = P(suffix| context +prefix)
+        constant = self.lm.score_item(ts_full_context) - self.lm.score_item(ts_left_context)
+
+        # subtract this extra constant
+        word_probs = word_probs - constant
 
         normalize_factor = lognormalize_factor(
             np.hstack([key_probs.flatten(), word_probs.flatten()])
@@ -166,7 +177,7 @@ class TextSlingerLM:
                 key_probs.append(-float("inf"))
         return np.array(key_probs, dtype=np.float64)
 
-    def _get_word_preds(self, ts_context, prefix, keys_li, num_words_total):
+    def _get_word_preds(self, ts_left_context, ts_input_sequence, prefix, keys_li, num_words_total, ts_end_characters):
         """Return (word_preds, word_probs) grid of shape len(keys_li) x N_pred.
 
         Words are bucketed by the character that immediately follows the prefix.
@@ -179,7 +190,9 @@ class TextSlingerLM:
         request_n = max(num_words_total * 4, 64)
 
         preds = self.lm.predict_words(
-            left_context=ts_context,
+            left_context=ts_left_context,
+            end_characters=ts_end_characters,
+            input_sequence=ts_input_sequence,
             config=self._predict_words_config,
             nbest=request_n,
             predict_lower=True,
