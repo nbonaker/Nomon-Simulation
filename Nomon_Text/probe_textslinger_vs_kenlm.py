@@ -82,7 +82,7 @@ def run_probe(context: str, prefix: str, num_words_total: int = 17):
 
     # --- NEW API: Characters ---
     char_res = ts_lm.predict_characters(
-        context + prefix, unnormalized_logprobs=True
+        context + prefix, normalize_logprobs=False
     )
     char_d = dict(char_res)
 

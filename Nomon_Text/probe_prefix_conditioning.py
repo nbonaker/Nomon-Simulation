@@ -33,7 +33,7 @@ lm = NGramLanguageModel(character_set=chars, lm_path="Nomon_Text/resources/lm_ch
 
 
 def char_probs(ctx):
-    preds = lm.predict_characters(ctx, config=ConfigPredictCharactersNGram(), unnormalized_logprobs=True)
+    preds = lm.predict_characters(ctx, config=ConfigPredictCharactersNGram(), normalize_logprobs=False)
     d = {c: lp for c, lp in preds}
     out = []
     for k in KEYS:
