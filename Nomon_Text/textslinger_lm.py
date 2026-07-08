@@ -160,7 +160,7 @@ class TextSlingerLM:
         preds = self.lm.predict_characters(
             ts_context,
             config=ConfigPredictCharactersNGram(),
-            unnormalized_logprobs=True,
+            normalize_logprobs=False,
         )
         # TextSlinger returns predictions in descending log-prob order over its
         # character_set (which includes " "). Build a lookup.
@@ -197,6 +197,11 @@ class TextSlingerLM:
             nbest=request_n,
             predict_lower=True,
             return_log_probs=True,
+            # Opt out of TextSlinger's rescale-to-sum-to-1 over the finished
+            # hypotheses: Nomon needs the model-driven absolute word mass so
+            # word clocks compete with char clocks in one joint space (the C
+            # subtraction below handles the prefix conditioning).
+            normalize_logprobs=False,
         )
 
         prefix_len = len(prefix)
