@@ -9,7 +9,7 @@ Demonstrates that:
 
 Run with:
     cd ~/Nomon-Simulation && source venv/bin/activate
-    python -m Nomon_Text.probe_textslinger_vs_kenlm
+    python -m Nomon_Text.probes.probe_textslinger_vs_kenlm
 """
 
 import os
@@ -17,7 +17,7 @@ import sys
 import numpy as np
 from collections import defaultdict
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 char_lm_path = os.path.join(BASE_DIR, "Nomon_Text/resources/lm_char_tiny.kenlm")
 word_lm_path = os.path.join(BASE_DIR, "Nomon_Text/resources/lm_word_tiny.kenlm")
@@ -83,7 +83,7 @@ def run_probe(context: str, prefix: str, num_words_total: int = 17):
     # --- NEW API: Characters ---
     char_res = ts_lm.predict_characters(
         context + prefix, normalize_logprobs=False
-    )
+    ).predictions
     char_d = dict(char_res)
 
     key_probs_ts = np.array(
@@ -122,9 +122,8 @@ def run_probe(context: str, prefix: str, num_words_total: int = 17):
     word_res = ts_lm.predict_words(
         left_context=context + prefix,
         nbest=num_words_total,
-        return_log_probs=True,
         predict_lower=True,
-    )
+    ).predictions
 
     print("\n--- NEW API: Words (TextSlinger beam search, log_e) ---")
     print(f"Num words returned: {len(word_res)}")

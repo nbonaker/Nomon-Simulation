@@ -13,3 +13,4 @@ __pycache__/
 *_dec19.kenlm
 *_large.kenlm
 *_huge.kenlm
+Nomon_Text/probes/screen_words_*.jsonl

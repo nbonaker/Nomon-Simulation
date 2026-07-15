@@ -33,7 +33,7 @@ lm = NGramLanguageModel(character_set=chars, lm_path="Nomon_Text/resources/lm_ch
 
 
 def char_probs(ctx):
-    preds = lm.predict_characters(ctx, config=ConfigPredictCharactersNGram(), normalize_logprobs=False)
+    preds = lm.predict_characters(ctx, config=ConfigPredictCharactersNGram(), normalize_logprobs=False).predictions
     d = {c: lp for c, lp in preds}
     out = []
     for k in KEYS:
@@ -57,7 +57,7 @@ def fix_a(context, prefix):
     ctx = context + prefix
     cfg = ConfigPredictWordsNGram()
     preds = lm.predict_words(left_context=ctx, config=cfg, nbest=64, predict_lower=True,
-                             return_log_probs=True, end_characters=END_CHARS)
+                             end_characters=END_CHARS).predictions
     wd = {}
     for suf, lp in preds:
         if not suf:
@@ -71,8 +71,8 @@ def fix_b(context, prefix):
     cfg = ConfigPredictWordsNGram()  # default has ins_penalty_after_input=0.0 -> auto-complete
     input_sequence = [[(c, 0.0)] for c in prefix]
     preds = lm.predict_words(left_context=context, input_sequence=input_sequence, config=cfg,
-                             nbest=64, predict_lower=True, return_log_probs=True,
-                             end_characters=END_CHARS)
+                             nbest=64, predict_lower=True,
+                             end_characters=END_CHARS).predictions
     pl = len(prefix)
     wd = {}
     for word, lp in preds:
