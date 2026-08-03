@@ -1,4 +1,7 @@
 from __future__ import division
+from dataclasses import dataclass
+import math
+
 from numpy import ceil
 
 from OneClick_Core import config
@@ -20,6 +23,21 @@ def _argmax(row):
     return max(range(len(row)), key=lambda i: row[i])
 
 
+@dataclass
+class WordAttemptSnapshot:
+    """Deep-copied state needed to retry a decoded word after correction."""
+
+    observations: list
+    words_by_letter: dict
+    best_words: list
+    argmax_word: str
+    valid_word_indices: list
+    word_clock_phases: dict
+    typed: str
+    context: str
+    typed_versions: list
+
+
 class SimTime:
     def __init__(self):
         self.cur_time = 0.0
@@ -33,8 +51,11 @@ class SimTime:
 
 class WordClockUtil:
 
-    def __init__(self, time_rotate):
+    def __init__(self, time_rotate, delay_model):
         self.time_rotate = time_rotate
+        # Space and Enter use the same physical switch, so word-clock selection
+        # must use the same calibrated click-delay model as letter observations.
+        self.delay_model = delay_model
         self.num_divs_time = int(ceil(time_rotate / config.ideal_wait_s))
         self.spaced = SpacedArray(self.num_divs_time)
         self.hl = HourLocs(self.num_divs_time)
@@ -64,10 +85,10 @@ class WordClockUtil:
 
     def select_word(self, time_diff_in, valid_indices):
         """
-        Based on clock_inference_engine_word.js select_word(). use_click_offset is off
-        (config.use_click_offset is False), so offset = 0 ******
+        Based on clock_inference_engine_word.js select_word(). Compensate for the
+        user's learned switch delay before comparing word-clock distances.
         """
-        offset = 0.0
+        offset = self.delay_model.get_offset()
         best_idx = valid_indices[0] if valid_indices else kconfig.undo_word_index
         best_dist = float('inf')
         best_loc = 0.0
@@ -95,9 +116,54 @@ class Keyboard:
         self.sim_time = SimTime()
         self.is_simulation = True
 
-        # Clock period
-        self.rotate_index = config.default_rotate_ind
-        self.time_rotate = config.period_li[self.rotate_index]
+        # Clock periods. The legacy fixed period applies to both selection
+        # stages; the specialized parameters must always be supplied together.
+        legacy_period = parameters.get("fixed_clock_period_s")
+        fixed_space_period = parameters.get("fixed_space_clock_period_s")
+        fixed_enter_period = parameters.get("fixed_enter_clock_period_s")
+        has_specialized_period = (
+            fixed_space_period is not None or fixed_enter_period is not None
+        )
+        if legacy_period is not None and has_specialized_period:
+            raise ValueError(
+                "fixed_clock_period_s cannot be combined with specialized "
+                "Space/Enter clock periods"
+            )
+        if (fixed_space_period is None) != (fixed_enter_period is None):
+            raise ValueError(
+                "fixed_space_clock_period_s and fixed_enter_clock_period_s "
+                "must be supplied together"
+            )
+        if legacy_period is not None:
+            fixed_space_period = legacy_period
+            fixed_enter_period = legacy_period
+
+        if fixed_space_period is None:
+            self.rotate_index = config.default_rotate_ind
+            self.time_rotate = float(config.period_li[self.rotate_index])
+            word_time_rotate = self.time_rotate
+        else:
+            fixed_space_period = float(fixed_space_period)
+            fixed_enter_period = float(fixed_enter_period)
+            if (
+                not math.isfinite(fixed_space_period)
+                or fixed_space_period <= 0
+                or not math.isfinite(fixed_enter_period)
+                or fixed_enter_period <= 0
+            ):
+                raise ValueError(
+                    "fixed Space/Enter clock periods must be positive finite values"
+                )
+            self.rotate_index = int(
+                min(
+                    range(len(config.period_li)),
+                    key=lambda index: abs(
+                        float(config.period_li[index]) - fixed_space_period
+                    ),
+                )
+            )
+            self.time_rotate = fixed_space_period
+            word_time_rotate = fixed_enter_period
 
         # Letter clocks: one per key char (27 total)
         self.clock_centers = list(range(len(kconfig.key_chars)))
@@ -108,7 +174,7 @@ class Keyboard:
         self.context = ""            # left context for the language model
 
         # Language model
-        self.lm = LanguageModel()
+        self.lm = LanguageModel(parameters.get("oneclick_lm_config"))
 
         # Word-clock content for the current click prefix (rebuilt each API call):
         self.words_by_letter = {}    # next-letter -> [prefix completion text, ...] (<= n_pred)
@@ -122,10 +188,14 @@ class Keyboard:
         self.place_letter_clocks()
 
         # Word clock utility (Enter-level selection)
-        self.word_clock_util = WordClockUtil(self.time_rotate)
+        self.word_clock_util = WordClockUtil(
+            word_time_rotate,
+            self.bc.clock_inf.delay_model,
+        )
         self.word_clock_util.init_round([])
 
         self._last_enter_time_in = None
+        self._last_commit_updated_delay = False
 
     # ------------------------------------------------------------------
     # Letter-clock placement (LM letter prior, once per word — matches Nomon)
@@ -300,16 +370,68 @@ class Keyboard:
         return self.clock_to_word(selected_index), selected_index
 
     # ------------------------------------------------------------------
+    # Word-attempt state preservation
+    # ------------------------------------------------------------------
+
+    def capture_word_attempt_state(self):
+        """Capture an independent snapshot of the decoded pre-Enter state."""
+        return WordAttemptSnapshot(
+            observations=[list(row) for row in self.bc.clock_inf.observations],
+            words_by_letter={
+                letter: list(words) for letter, words in self.words_by_letter.items()
+            },
+            best_words=list(self.best_words),
+            argmax_word=self.argmax_word,
+            valid_word_indices=list(self.valid_word_indices),
+            word_clock_phases=dict(self.word_clock_util.cur_hours),
+            typed=self.typed,
+            context=self.context,
+            typed_versions=list(self.typed_versions),
+        )
+
+    def restore_word_attempt_state(self, snapshot):
+        """Restore a pre-Enter snapshot without replaying elapsed correction time."""
+        self.bc.clock_inf.observations = [list(row) for row in snapshot.observations]
+        self.words_by_letter = {
+            letter: list(words) for letter, words in snapshot.words_by_letter.items()
+        }
+        self.best_words = list(snapshot.best_words)
+        self.argmax_word = snapshot.argmax_word
+        self.valid_word_indices = list(snapshot.valid_word_indices)
+        self.word_clock_util.cur_hours = dict(snapshot.word_clock_phases)
+        self.word_clock_util.latest_time = self.sim_time.time()
+        self.typed = snapshot.typed
+        self.context = snapshot.context
+        self.typed_versions = list(snapshot.typed_versions)
+        self._last_enter_time_in = None
+        self._last_commit_updated_delay = False
+
+    def prepare_undo_round(self, undo_only=False):
+        """Build either the protected competing or Undo-only correction display."""
+        if not undo_only:
+            self.update_word_list()
+            return
+        self.words_by_letter = {}
+        self.best_words = []
+        self.argmax_word = ""
+        self.valid_word_indices = [kconfig.undo_word_index]
+        self.word_clock_util.init_round(self.valid_word_indices)
+        self.word_clock_util.latest_time = self.sim_time.time()
+
+    # ------------------------------------------------------------------
     # Committing / undoing
     # ------------------------------------------------------------------
 
-    def commit_word(self, text):
-        """Commit a word: append to typed, update context, train delay model, reset."""
+    def commit_word(self, text, confirmed_correct=False):
+        """Commit a word and train timing only when the target is confirmed correct."""
         self.typed_versions.append(self.typed)
         self.typed += text + " "
         self.context = self.typed
 
-        if self._last_enter_time_in is not None:
+        self._last_commit_updated_delay = bool(
+            confirmed_correct and self._last_enter_time_in is not None
+        )
+        if self._last_commit_updated_delay:
             self.bc.clock_inf.delay_model.update(self._last_enter_time_in)
         self._last_enter_time_in = None
 
@@ -320,7 +442,11 @@ class Keyboard:
         if self.typed_versions:
             self.typed = self.typed_versions.pop()
             self.context = self.typed
-        self.bc.clock_inf.delay_model.rollback()
+        # Wrong/unconfirmed commits do not update the delay model, so undoing one
+        # must not roll back the most recent valid calibration sample.
+        if getattr(self, "_last_commit_updated_delay", False):
+            self.bc.clock_inf.delay_model.rollback()
+        self._last_commit_updated_delay = False
         self._reset_letter_round()
 
     def _reset_letter_round(self):

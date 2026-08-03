@@ -15,6 +15,10 @@ class UserDelayModel:
         self.last_update = None   # snapshot for rollback
 
     def update(self, dt):
+        """
+        Update the Gaussian model with a new click delay dt.
+        Uses exponential decay to weight recent samples more heavily.
+        """
         self.last_update = (self.mu, self.sigma2, self.n_samples)
         mu_old = self.mu
         self.mu = config.lambda_decay * self.mu + (1 - config.lambda_decay) * dt
@@ -24,6 +28,9 @@ class UserDelayModel:
         self.n_samples += 1
 
     def rollback(self):
+        """
+        Roll back the last update to the Gaussian model.
+        """
         if self.last_update is not None:
             self.mu, self.sigma2, self.n_samples = self.last_update
             self.last_update = None

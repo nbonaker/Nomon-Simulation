@@ -1,6 +1,7 @@
 from __future__ import division
 import os
 import sys
+import math
 import numpy as np
 import pandas as pd
 
@@ -10,6 +11,22 @@ from OneClick_Text import kconfig
 from OneClick_Simulation import sim_config
 from Nomon_Text.text_stats import calc_MSD
 from Nomon_Text.phrase_manager import Phrases
+
+
+FAILURE_STAGES = {
+    "click_stream_exhausted_between_words": "between_words",
+    "click_stream_exhausted_letters": "letters",
+    "click_stream_exhausted_target_enter": "target_enter",
+    "click_stream_exhausted_undo": "undo",
+    "word_click_budget_between_attempts": "between_attempts",
+    "word_click_budget_letters": "letters",
+    "word_click_budget_target_enter": "target_enter",
+    "undo_click_budget_exhausted": "undo",
+    "target_not_displayed": "word_prediction",
+    "target_enter_retries_exhausted": "target_enter",
+    "word_attempts_exhausted": "word_attempts",
+    "final_text_mismatch": "phrase_validation",
+}
 
 
 class ClickUtil:
@@ -90,6 +107,66 @@ class SimulatedUser:
         self.click_df = click_df[click_df["Session Num"].notna()]
         self.sessions_li = pd.unique(self.click_df["Session Num"])
         self.num_clicks_loaded = len(self.click_df)
+        self.record_attempted_phrases = bool(parameters.get("record_attempted_phrases", False))
+        self.max_word_attempts = int(
+            parameters.get("max_word_attempts", sim_config.max_word_attempts)
+        )
+        self.max_clicks_per_word = int(
+            parameters.get("max_clicks_per_word", sim_config.max_clicks_per_word)
+        )
+        self.max_enter_attempts = int(
+            parameters.get("max_enter_attempts", sim_config.max_enter_attempts)
+        )
+        if self.max_enter_attempts < 1:
+            raise ValueError("max_enter_attempts must be at least 1")
+        self.undo_mode = str(parameters.get("undo_mode", "protected"))
+        # Preserve compatibility with saved callers while replacing the old
+        # cascading behavior with protected correction semantics.
+        if self.undo_mode == "competing":
+            self.undo_mode = "protected"
+        if self.undo_mode not in {"protected", "undo_only"}:
+            raise ValueError("undo_mode must be 'protected' or 'undo_only'")
+        self.stop_phrase_on_failed_word = bool(
+            parameters.get("stop_phrase_on_failed_word", False)
+        )
+        self.perfect_letter_observations = bool(
+            parameters.get("perfect_letter_observations", False)
+        )
+        fixed_clock_period = parameters.get("fixed_clock_period_s")
+        fixed_space_period = parameters.get("fixed_space_clock_period_s")
+        fixed_enter_period = parameters.get("fixed_enter_clock_period_s")
+        has_specialized_period = (
+            fixed_space_period is not None or fixed_enter_period is not None
+        )
+        if fixed_clock_period is not None and has_specialized_period:
+            raise ValueError(
+                "fixed_clock_period_s cannot be combined with specialized "
+                "Space/Enter clock periods"
+            )
+        if (fixed_space_period is None) != (fixed_enter_period is None):
+            raise ValueError(
+                "fixed_space_clock_period_s and fixed_enter_clock_period_s "
+                "must be supplied together"
+            )
+        self.fixed_clock_period_s = (
+            None if fixed_clock_period is None else float(fixed_clock_period)
+        )
+        if self.fixed_clock_period_s is not None:
+            fixed_space_period = self.fixed_clock_period_s
+            fixed_enter_period = self.fixed_clock_period_s
+        self.fixed_space_clock_period_s = (
+            None if fixed_space_period is None else float(fixed_space_period)
+        )
+        self.fixed_enter_clock_period_s = (
+            None if fixed_enter_period is None else float(fixed_enter_period)
+        )
+        for name, value in [
+            ("fixed_clock_period_s", self.fixed_clock_period_s),
+            ("fixed_space_clock_period_s", self.fixed_space_clock_period_s),
+            ("fixed_enter_clock_period_s", self.fixed_enter_clock_period_s),
+        ]:
+            if value is not None and (not math.isfinite(value) or value <= 0):
+                raise ValueError(f"{name} must be a positive finite value")
 
         full_results = []
 
@@ -119,13 +196,42 @@ class SimulatedUser:
 
                 if "phrase_df" in parameters:
                     phrase_df = parameters["phrase_df"]
-                    session_phrases = phrase_df[phrase_df["Session Num"] == session_num]["Phrase Text"].values
-                    self.phrase_util.phrases = [[p, "?"] for p in session_phrases]
+                    session_phrase_df = phrase_df[
+                        phrase_df["Session Num"] == session_num
+                    ].copy()
+                    if "Phrase Num" not in session_phrase_df:
+                        session_phrase_df["Phrase Num"] = np.arange(
+                            1, len(session_phrase_df) + 1
+                        )
+                    session_phrase_df = session_phrase_df.sort_values("Phrase Num")
+                    metadata_columns = [
+                        column
+                        for column in ["Phrase Num", "Phrase Text", "Comparison Phrase ID"]
+                        if column in session_phrase_df
+                    ]
+                    session_phrase_rows = session_phrase_df[metadata_columns].to_dict("records")
+                    self.phrase_util.phrases = [
+                        [row["Phrase Text"], "?"] for row in reversed(session_phrase_rows)
+                    ]
+                    self.phrase_metadata = [
+                        {
+                            "Original Phrase Num": int(row["Phrase Num"]),
+                            **(
+                                {"Comparison Phrase ID": row["Comparison Phrase ID"]}
+                                if "Comparison Phrase ID" in row
+                                else {}
+                            ),
+                        }
+                        for row in reversed(session_phrase_rows)
+                    ]
+                else:
+                    self.phrase_metadata = []
 
                 self.phrase_num = 0
 
                 while self.click_util.clicks_remaining > 0:
                     target_phrase, phrase_type = self.phrase_util.sample()
+                    phrase_metadata = self.phrase_metadata.pop() if self.phrase_metadata else {}
                     if target_phrase is None:
                         break
 
@@ -134,12 +240,22 @@ class SimulatedUser:
 
                     self.type_phrase(target_phrase, verbose=verbose)
 
-                    if (len(self.keyboard.typed) > len(target_phrase) // 2
-                            and self.num_selections_phrase > 0):
+                    should_record = (
+                        self.record_attempted_phrases
+                        or (
+                            len(self.keyboard.typed) > len(target_phrase) // 2
+                            and self.num_selections_phrase > 0
+                        )
+                    )
+                    if should_record:
                         results = self._calculate_phrase_results(target_phrase, phrase_type)
                         results["Session Num"] = int(session_num)
                         results["Trial Num"] = int(trial)
                         results["Phrase Num"] = int(self.phrase_num)
+                        if "Original Phrase Num" in phrase_metadata:
+                            results["Original Phrase Num"] = phrase_metadata["Original Phrase Num"]
+                        if "Comparison Phrase ID" in phrase_metadata:
+                            results["Comparison Phrase ID"] = phrase_metadata["Comparison Phrase ID"]
                         full_results.append(results)
 
                     # reset text/context for the next phrase
@@ -160,93 +276,260 @@ class SimulatedUser:
         if verbose:
             print("\nPhrase:", target_phrase)
 
-        for target_word in words:
+        for word_position, target_word in enumerate(words, start=1):
             if self.click_util.clicks_remaining <= 0:
-                break
+                self._last_attempt_target_displayed = False
+                self._record_phrase_failure(
+                    "click_stream_exhausted_between_words",
+                    target_word,
+                    word_position,
+                    attempts_for_word=0,
+                    word_start_metrics=self._word_start_metrics(),
+                    failure_limit="click_stream",
+                )
+                return
 
-            undo_depth = 0
-            while undo_depth <= sim_config.max_undo_depth:
-                outcome = self._attempt_word(target_word, verbose=verbose, undo_depth=undo_depth)
-                if outcome == "ok":
+            self.num_target_words_phrase += 1
+            completed = False
+            attempts_for_word = 0
+            word_start_clicks = self.num_clicks_phrase
+            word_start_metrics = self._word_start_metrics()
+            terminal_reason = None
+            last_retry_reason = None
+            failure_guard = ""
+            failure_limit = ""
+            while attempts_for_word < self.max_word_attempts:
+                if self.num_clicks_phrase - word_start_clicks >= self.max_clicks_per_word:
+                    failure_guard = "word_click_budget_between_attempts"
+                    terminal_reason = last_retry_reason or failure_guard
+                    failure_limit = "max_clicks_per_word"
+                    if verbose:
+                        print(
+                            f"  [Word failed] '{target_word}' after "
+                            f"{self.max_clicks_per_word} word-clicks"
+                        )
                     break
-                if outcome is None:        # out of clicks
+                outcome = self._attempt_word(
+                    target_word,
+                    verbose=verbose,
+                    undo_depth=attempts_for_word,
+                    word_start_clicks=word_start_clicks,
+                )
+                attempts_for_word += 1
+                self.num_word_attempts_phrase += 1
+                if outcome == "ok":
+                    self.num_completed_words_phrase += 1
+                    completed = True
+                    break
+                terminal_reason = outcome
+                if outcome.startswith("click_stream_exhausted"):
+                    failure_guard = outcome
+                    failure_limit = "click_stream"
+                    break
+                if outcome.startswith("word_click_budget") or outcome == "undo_click_budget_exhausted":
+                    failure_guard = outcome
+                    failure_limit = "max_clicks_per_word"
+                    break
+                # Target display/selection retries start a fresh letter-entry
+                # attempt while retaining their exact cause for terminal telemetry.
+                last_retry_reason = outcome
+                self.keyboard._reset_letter_round()
+            if not completed:
+                if terminal_reason is None:
+                    terminal_reason = last_retry_reason or "word_attempts_exhausted"
+                if not failure_limit:
+                    failure_limit = "max_word_attempts"
+                if not failure_guard:
+                    failure_guard = "word_attempts_exhausted"
+                if verbose:
+                    print(
+                        f"  [Word failed] '{target_word}' after "
+                        f"{attempts_for_word} attempts"
+                    )
+                self.num_failed_words_phrase += 1
+                self._record_phrase_failure(
+                    terminal_reason,
+                    target_word,
+                    word_position,
+                    attempts_for_word,
+                    word_start_metrics,
+                    failure_limit,
+                    failure_guard,
+                )
+                self.keyboard._reset_letter_round()
+                if self.stop_phrase_on_failed_word or terminal_reason.startswith(
+                    "click_stream_exhausted"
+                ):
                     return
-                # outcome in {"wrong_committed", "miss"} -> a correction is needed
-                self.num_corrections_phrase += 1
-                if outcome == "wrong_committed":
-                    if not self._undo_via_clock(verbose=verbose):
-                        return             # out of clicks during undo
-                undo_depth += 1
-                # if we've exhausted the undo budget, give up on this word
 
-    def _attempt_word(self, target_word, verbose=False, undo_depth=0):
+    def _word_start_metrics(self):
+        return {
+            "clicks": self.num_clicks_phrase,
+            "letters": self.num_letter_presses_phrase,
+            "target_enters": self.num_target_enter_attempts_phrase,
+            "undos": self.num_undo_attempts_phrase,
+        }
+
+    def _record_phrase_failure(
+        self,
+        reason,
+        target_word,
+        word_position,
+        attempts_for_word,
+        word_start_metrics,
+        failure_limit,
+        failure_guard="",
+    ):
+        """Persist the first terminal word failure with stage-level diagnostics."""
+        if self.phrase_failure_reason:
+            return
+        self.phrase_failure_reason = reason
+        self.phrase_failure_stage = FAILURE_STAGES.get(reason, "unknown")
+        self.phrase_failure_limit = failure_limit
+        self.phrase_failure_guard = failure_guard or reason
+        self.failed_target_word = target_word
+        self.failed_word_position = int(word_position)
+        self.failed_word_attempt = int(attempts_for_word)
+        self.failed_target_was_displayed = bool(self._last_attempt_target_displayed)
+        self.failure_word_click_count = int(
+            self.num_clicks_phrase - word_start_metrics["clicks"]
+        )
+        self.failure_letter_press_count = int(
+            self.num_letter_presses_phrase - word_start_metrics["letters"]
+        )
+        self.failure_target_enter_attempt_count = int(
+            self.num_target_enter_attempts_phrase - word_start_metrics["target_enters"]
+        )
+        self.failure_undo_attempt_count = int(
+            self.num_undo_attempts_phrase - word_start_metrics["undos"]
+        )
+
+    def _attempt_word(self, target_word, verbose=False, undo_depth=0, word_start_clicks=0):
         """
-        One fresh attempt at a word. Returns:
-          "ok"              committed the target word
-          "wrong_committed" committed a different word (must be undone via the undo clock)
-          "miss"            Enter landed on undo/empty (nothing committed; observations reset)
-          None              ran out of clicks
+        One fresh attempt at a word. Returns "ok" or an exact retry/failure
+        reason suitable for terminal phrase telemetry.
         """
+        self._last_attempt_target_displayed = False
         # --- Space presses: one per letter, querying the API after each ---
         for letter in target_word:
             if self.click_util.clicks_remaining <= 0:
-                return None
+                return "click_stream_exhausted_letters"
+            if self.num_clicks_phrase - word_start_clicks >= self.max_clicks_per_word:
+                return "word_click_budget_letters"
             letter_index = self._letter_index(letter)
             if self._press_letter(letter_index) is None:
-                return None
+                return "click_stream_exhausted_letters"
+            if self.perfect_letter_observations:
+                self._replace_latest_observation_with_perfect_letter(letter_index)
             self.keyboard.update_word_list()
             if self.keyboard.word_clock_index(target_word) != kconfig.undo_word_index:
                 break   # target word now in an active clock -> commit early
 
-        # --- choose the word clock to target ---
+        # --- choose the word clock to target and preserve the decoded state ---
         target_idx = self.keyboard.word_clock_index(target_word)
-        if target_idx == kconfig.undo_word_index:
+        target_is_displayed = target_idx != kconfig.undo_word_index
+        self._last_attempt_target_displayed = target_is_displayed
+        if not target_is_displayed:
             # target not typeable as-is; best-effort commit of the literal argmax decode
             target_idx = kconfig.argmax_word_index
+        snapshot = self.keyboard.capture_word_attempt_state()
 
-        # --- Enter press ---
-        res = self._press_enter(target_idx)
-        if res is None:
-            return None
-        word, selected_index = res
-        self.num_selections_phrase += 1
+        # --- Enter presses: retry the same decoded state after timing errors ---
+        for enter_attempt in range(self.max_enter_attempts):
+            if self.num_clicks_phrase - word_start_clicks >= self.max_clicks_per_word:
+                return "word_click_budget_target_enter"
+            if enter_attempt > 0:
+                self.num_enter_retries_phrase += 1
 
-        if word is not None and word.lower() == target_word.lower():
-            self.keyboard.commit_word(word)
-            self.num_word_selections_phrase += 1
+            res = self._press_enter(target_idx)
+            if res is None:
+                return "click_stream_exhausted_target_enter"
+            self.num_target_enter_attempts_phrase += 1
+            word, selected_index = res
+            self.num_selections_phrase += 1
+
+            if word is not None and word.lower() == target_word.lower():
+                # The simulator knows the intended target, so this successful
+                # selection is safe to use as a timing-calibration sample.
+                self.keyboard.commit_word(word, confirmed_correct=True)
+                self.num_word_selections_phrase += 1
+                if verbose:
+                    print("  " * undo_depth + f"  [Enter] committed '{word}'")
+                return "ok"
+
+            self.num_corrections_phrase += 1
+            if word is None:
+                # Undo/empty was selected, but no text changed. Keep the current
+                # observations, predictions, and clock phases for another Enter.
+                if verbose:
+                    print("  " * undo_depth + "  [Enter] miss (undo/empty); retrying")
+                continue
+
+            # A real wrong commit clears the live word round. Undo every erroneous
+            # commit, then restore the pre-Enter candidate state.
+            self.num_wrong_word_commits_phrase += 1
+            self.keyboard.commit_word(word, confirmed_correct=False)
             if verbose:
-                print("  " * undo_depth + f"  [Enter] committed '{word}'")
-            return "ok"
+                print("  " * undo_depth + f"  [Enter] wrong: got '{word}', wanted '{target_word}'")
+            undo_outcome = self._undo_via_clock(
+                word_start_clicks=word_start_clicks,
+                verbose=verbose,
+            )
+            if undo_outcome != "ok":
+                return undo_outcome
 
-        if word is None:
-            # undo/empty clock selected by timing noise; nothing committed
-            if verbose:
-                print("  " * undo_depth + "  [Enter] miss (undo/empty)")
-            self.keyboard._reset_letter_round()
-            return "miss"
+            self.keyboard.restore_word_attempt_state(snapshot)
+            self.num_restored_states_phrase += 1
+            if not target_is_displayed:
+                # Repeating Enter cannot make an absent target appear; acquire a
+                # fresh set of noisy letter observations instead.
+                return "target_not_displayed"
 
-        # wrong word committed
-        self.keyboard.commit_word(word)
-        if verbose:
-            print("  " * undo_depth + f"  [Enter] wrong: got '{word}', wanted '{target_word}'")
-        return "wrong_committed"
+        if target_is_displayed:
+            return "target_enter_retries_exhausted"
+        return "target_not_displayed"
 
-    def _undo_via_clock(self, verbose=False):
+    def _undo_via_clock(self, word_start_clicks, verbose=False):
         """
-        Revert the last (wrong) commit by selecting the undo clock with a real Enter
-        press (ASSUMES THIS IS EASY TO HIT ACCURATLEY). Returns False if we run out of clicks.
+        Remove one wrong commit through a protected correction round.
+
+        Prediction clocks still compete in protected mode, but a non-Undo winner
+        is treated as a correction miss rather than another commit. Returns True
+        only after Undo wins; otherwise it returns an exact failure reason.
         """
-        self.keyboard.update_word_list()        # obs_len 0 -> valid = [undo_word_index]
-        res = self._press_enter(kconfig.undo_word_index)
-        if res is None:
-            return False
-        _, selected_index = res
-        self.num_selections_phrase += 1
-        if selected_index == kconfig.undo_word_index:
-            self.keyboard.undo_word()
+        if self.undo_mode == "undo_only":
+            # Correction-focused upper bound: only the Undo clock is active.
+            self.keyboard.prepare_undo_round(undo_only=True)
+        else:
+            # Protected interface variant: prediction clocks remain visible and
+            # compete, but their selection is suppressed while correction is latched.
+            self.keyboard.prepare_undo_round(undo_only=False)
+
+        while True:
+            if self.num_clicks_phrase - word_start_clicks >= self.max_clicks_per_word:
+                self.num_undo_failures_phrase += 1
+                return "undo_click_budget_exhausted"
+
+            res = self._press_enter(kconfig.undo_word_index, action_kind="undo")
+            if res is None:
+                self.num_undo_failures_phrase += 1
+                return "click_stream_exhausted_undo"
+            word, selected_index = res
+            self.num_selections_phrase += 1
+            self.num_undo_attempts_phrase += 1
+
+            if selected_index == kconfig.undo_word_index:
+                self.keyboard.undo_word()
+                if verbose:
+                    print("  [Enter] undo clock selected -> reverted")
+                return "ok"
+
+            # Correction remains latched: a competing prediction can win the timed
+            # selection, but it cannot mutate text or language-model context.
+            self.num_corrections_phrase += 1
             if verbose:
-                print("  [Enter] undo clock selected -> reverted")
-        return True
+                selected = "empty" if word is None else repr(word)
+                print(f"  [Enter] protected undo miss selected {selected}; retrying")
 
     # ------------------------------------------------------------------
     # Timed presses (select_clock-style core: move target clock to noon, sample a real
@@ -259,38 +542,70 @@ class SimulatedUser:
         if cur_click is None:
             return None
 
-        ndt = self.keyboard.bc.clock_inf.clock_util.num_divs_time
         self._apply_period(cur_click)
-        click_offset, full_rotations = self._click_components(cur_click)
+        period_s = float(self.keyboard.time_rotate)
+        ndt = self.keyboard.bc.clock_inf.clock_util.num_divs_time
+        click_offset, full_rotations = self._click_components(
+            cur_click,
+            period_s,
+        )
 
         cur_hour = self.keyboard.bc.clock_inf.clock_util.cur_hours[target_letter_index]
-        time_delta = self._time_to_noon(cur_hour, ndt) * self.keyboard.time_rotate + full_rotations + click_offset
+        time_delta = (
+            self._press_time_delta(
+                cur_hour,
+                ndt,
+                period_s,
+                click_offset,
+            )
+            + full_rotations
+        )
 
         self.keyboard.sim_time.set_time(self.keyboard.sim_time.time() + time_delta)
         self.keyboard.increment_clocks()
         self.keyboard.on_press()
         self.num_clicks_phrase += 1
+        self.num_letter_presses_phrase += 1
+        self.letter_clock_time_s += time_delta
         return True
 
-    def _press_enter(self, target_word_index):
+    def _press_enter(self, target_word_index, action_kind="target_enter"):
         """
         One Enter press targeting a word clock. Returns (committed_or_None, selected_index)
         or None (out of clicks).
         """
+        if action_kind not in {"target_enter", "undo"}:
+            raise ValueError("action_kind must be 'target_enter' or 'undo'")
         cur_click = self.click_util.sample()
         if cur_click is None:
             return None
 
-        ndt = self.keyboard.word_clock_util.num_divs_time
         self._apply_period(cur_click)
-        click_offset, full_rotations = self._click_components(cur_click)
+        period_s = float(self.keyboard.word_clock_util.time_rotate)
+        ndt = self.keyboard.word_clock_util.num_divs_time
+        click_offset, full_rotations = self._click_components(
+            cur_click,
+            period_s,
+        )
 
         cur_hour = self.keyboard.word_clock_util.cur_hours.get(target_word_index, 0)
-        time_delta = self._time_to_noon(cur_hour, ndt) * self.keyboard.time_rotate + full_rotations + click_offset
+        time_delta = (
+            self._press_time_delta(
+                cur_hour,
+                ndt,
+                period_s,
+                click_offset,
+            )
+            + full_rotations
+        )
 
         self.keyboard.sim_time.set_time(self.keyboard.sim_time.time() + time_delta)
         self.keyboard.increment_word_clocks()
         self.num_clicks_phrase += 1
+        if action_kind == "undo":
+            self.undo_clock_time_s += time_delta
+        else:
+            self.target_enter_clock_time_s += time_delta
         return self.keyboard.on_enter()
 
     # ------------------------------------------------------------------
@@ -303,18 +618,57 @@ class SimulatedUser:
             return (ndt * 3 / 2 - cur_hour) / ndt
         return (ndt / 2 - cur_hour) / ndt
 
+    @staticmethod
+    def _press_time_delta(cur_hour, ndt, period_s, click_offset_s):
+        """
+        Clock-controlled time until a click targeting the next noon.
+
+        Positive offsets are late and extend the nominal wait. If an early
+        negative offset would place the click before the current simulation
+        time, target the corresponding early phase before the following noon.
+        """
+        ndt = float(ndt)
+        period_s = float(period_s)
+        click_offset_s = float(click_offset_s)
+        cur_hour = float(cur_hour)
+        if (
+            not all(
+                math.isfinite(value)
+                for value in (ndt, period_s, click_offset_s, cur_hour)
+            )
+            or ndt <= 0
+            or period_s <= 0
+        ):
+            raise ValueError("clock phase, period, and click offset must be finite")
+
+        current_phase = (cur_hour / ndt) % 1.0
+        remaining_fraction = (0.5 - current_phase) % 1.0
+        time_delta = remaining_fraction * period_s + click_offset_s
+        if time_delta < -1e-12:
+            time_delta += math.ceil(-time_delta / period_s) * period_s
+        if time_delta < 0:
+            time_delta = 0.0
+        if not math.isfinite(time_delta):
+            raise ValueError("calculated press time must be finite")
+        return time_delta
+
     def _apply_period(self, cur_click):
+        if (
+            getattr(self, "fixed_space_clock_period_s", None) is not None
+            or getattr(self, "fixed_clock_period_s", None) is not None
+        ):
+            return
         time_rotate = float(cur_click["Clock Period (s)"])
         if self.keyboard.time_rotate != time_rotate:
             self.keyboard.rotate_index = int(np.argmin(np.abs(config.period_li - time_rotate)))
             self.keyboard.time_rotate = time_rotate
             self.keyboard.change_speed()
 
-    def _click_components(self, cur_click):
+    def _click_components(self, cur_click, active_period_s):
         click_offset = float(cur_click["Click Time Relative (s)"])
         dead_time = float(cur_click["Dead Time (s)"]) if not np.isnan(cur_click["Dead Time (s)"]) else 0.0
-        time_rotate = self.keyboard.time_rotate
-        full_rotations = (dead_time // time_rotate) * time_rotate
+        active_period_s = float(active_period_s)
+        full_rotations = (dead_time // active_period_s) * active_period_s
         return click_offset, full_rotations
 
     def _letter_index(self, letter):
@@ -322,6 +676,14 @@ class SimulatedUser:
         if letter_lower not in kconfig.key_chars:
             letter_lower = "'"
         return kconfig.key_chars.index(letter_lower)
+
+    def _replace_latest_observation_with_perfect_letter(self, letter_index):
+        if not self.keyboard.bc.clock_inf.observations:
+            return
+        low_logprob = np.log(0.01 / max(len(kconfig.key_chars) - 1, 1))
+        row = [low_logprob] * len(kconfig.key_chars)
+        row[letter_index] = np.log(0.99)
+        self.keyboard.bc.clock_inf.observations[-1] = row
 
     # NOTE: _time_to_noon returns a fraction of one rotation; callers scale by time_rotate.
     # (kept separate from period scaling so the same helper serves letter & word clocks)
@@ -335,16 +697,63 @@ class SimulatedUser:
         self.num_corrections_phrase = 0
         self.num_selections_phrase = 0
         self.num_word_selections_phrase = 0
+        self.num_target_words_phrase = 0
+        self.num_completed_words_phrase = 0
+        self.num_failed_words_phrase = 0
+        self.num_word_attempts_phrase = 0
+        self.num_enter_retries_phrase = 0
+        self.num_wrong_word_commits_phrase = 0
+        self.num_undo_attempts_phrase = 0
+        self.num_undo_failures_phrase = 0
+        self.num_restored_states_phrase = 0
+        self.num_letter_presses_phrase = 0
+        self.num_target_enter_attempts_phrase = 0
+        self.letter_clock_time_s = 0.0
+        self.target_enter_clock_time_s = 0.0
+        self.undo_clock_time_s = 0.0
+        self.phrase_failure_reason = ""
+        self.phrase_failure_stage = ""
+        self.phrase_failure_limit = ""
+        self.phrase_failure_guard = ""
+        self.failed_target_word = ""
+        self.failed_word_position = 0
+        self.failed_word_attempt = 0
+        self.failed_target_was_displayed = False
+        self.failure_word_click_count = 0
+        self.failure_letter_press_count = 0
+        self.failure_target_enter_attempt_count = 0
+        self.failure_undo_attempt_count = 0
+        self._last_attempt_target_displayed = False
         self.start_time = self.keyboard.sim_time.time()
 
     def _calculate_phrase_results(self, target_phrase, phrase_type):
         typed_clean = self.keyboard.typed.rstrip()
         target_clean = target_phrase[:len(typed_clean)]
-        _, error_rate = calc_MSD(typed_clean, target_clean)
+        if typed_clean:
+            _, error_rate = calc_MSD(typed_clean, target_clean)
+        else:
+            error_rate = 100.0 if target_phrase else 0.0
 
         elapsed = self.keyboard.sim_time.time() - self.start_time
         n_chars = max(len(self.keyboard.typed), 1)
         n_sel = max(self.num_selections_phrase, 1)
+        phrase_completed = bool(typed_clean == target_phrase.rstrip())
+        accounted_time = (
+            self.letter_clock_time_s
+            + self.target_enter_clock_time_s
+            + self.undo_clock_time_s
+        )
+        accounting_error = elapsed - accounted_time
+        if abs(accounting_error) > 1e-8:
+            raise RuntimeError(
+                "simulated phrase time does not equal the sum of press-stage times: "
+                f"elapsed={elapsed}, accounted={accounted_time}"
+            )
+        if not phrase_completed and not self.phrase_failure_reason:
+            self.phrase_failure_reason = "final_text_mismatch"
+            self.phrase_failure_stage = FAILURE_STAGES["final_text_mismatch"]
+            self.phrase_failure_limit = "phrase_validation"
+            self.phrase_failure_guard = "final_text_mismatch"
 
         return {
             "Target Phrase": target_phrase,
@@ -361,6 +770,52 @@ class SimulatedUser:
             "Error Rate (%)": round(error_rate, sim_config.data_save_precision),
             "Word Prediction Usage (%)": round(self.num_word_selections_phrase / n_sel * 100,
                                                sim_config.data_save_precision),
+            "Num Clicks": int(self.num_clicks_phrase),
+            "Num Corrections": int(self.num_corrections_phrase),
+            "Num Selections": int(self.num_selections_phrase),
+            "Num Word Prediction Selections": int(self.num_word_selections_phrase),
+            "Target Word Count": int(self.num_target_words_phrase),
+            "Completed Word Count": int(self.num_completed_words_phrase),
+            "Failed Word Count": int(self.num_failed_words_phrase),
+            "Word Attempt Count": int(self.num_word_attempts_phrase),
+            "Enter Retry Count": int(self.num_enter_retries_phrase),
+            "Wrong Word Commit Count": int(self.num_wrong_word_commits_phrase),
+            "Undo Attempt Count": int(self.num_undo_attempts_phrase),
+            "Undo Failure Count": int(self.num_undo_failures_phrase),
+            "Restored State Count": int(self.num_restored_states_phrase),
+            "Letter Press Count": int(self.num_letter_presses_phrase),
+            "Target Enter Attempt Count": int(self.num_target_enter_attempts_phrase),
+            "Simulated Attempt Time (s)": float(elapsed),
+            "Simulated Completion Time (s)": (
+                float(elapsed) if phrase_completed else np.nan
+            ),
+            "Letter Clock Time (s)": float(self.letter_clock_time_s),
+            "Target Enter Clock Time (s)": float(self.target_enter_clock_time_s),
+            "Undo Clock Time (s)": float(self.undo_clock_time_s),
+            "Simulated Time Accounting Error (s)": float(accounting_error),
+            "Phrase Failure Reason": self.phrase_failure_reason,
+            "Phrase Failure Stage": self.phrase_failure_stage,
+            "Phrase Failure Limit": self.phrase_failure_limit,
+            "Phrase Failure Guard": self.phrase_failure_guard,
+            "Failed Target Word": self.failed_target_word,
+            "Failed Word Position": int(self.failed_word_position),
+            "Failed Word Attempt": int(self.failed_word_attempt),
+            "Failed Target Was Displayed": bool(self.failed_target_was_displayed),
+            "Failure Word Click Count": int(self.failure_word_click_count),
+            "Failure Letter Press Count": int(self.failure_letter_press_count),
+            "Failure Target Enter Attempt Count": int(
+                self.failure_target_enter_attempt_count
+            ),
+            "Failure Undo Attempt Count": int(self.failure_undo_attempt_count),
+            "Word Completion Rate (%)": round(
+                self.num_completed_words_phrase / max(self.num_target_words_phrase, 1) * 100,
+                sim_config.data_save_precision,
+            ),
+            "Completion Fraction": round(
+                min(len(self.keyboard.typed) / max(len(target_phrase), 1), 1.0),
+                sim_config.data_save_precision,
+            ),
+            "Phrase Completed": phrase_completed,
         }
 
     def update_progress_bar(self, progress):
