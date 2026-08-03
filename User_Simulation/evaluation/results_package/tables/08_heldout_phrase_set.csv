@@ -1,0 +1,21 @@
+Comparison Phrase ID,phrase_id,phrase_text,source_user_ids,num_words,phrase_status,all_words_prediction_reachable,all_words_overall_reachable,prediction_reachable_word_count,target_character_count,characters_saved_at_first_reachability,full_word_required_count,fallback_only_word_count,unreachable_word_count,audit_error_word_count,fallback_only_words,unreachable_words,Session Num,Phrase Num,Phrase Text
+heldout_phrase_01,real_029,i love it out here,"B,G",5,prediction_reachable,True,True,5,14,9,1,0,0,0,,,1,1,i love it out here
+heldout_phrase_02,real_034,i'll need to try that,"A,B,D",5,prediction_reachable,True,True,5,17,12,0,0,0,0,,,2,1,i'll need to try that
+heldout_phrase_03,real_039,i'm on the right track,"A,B",5,prediction_reachable,True,True,5,18,13,0,0,0,0,,,3,1,i'm on the right track
+heldout_phrase_04,real_001,and don't fake your smile,"B,F",5,prediction_reachable,True,True,5,21,14,0,0,0,0,,,4,1,and don't fake your smile
+heldout_phrase_05,real_040,i'm so late to answer this,"A,B,C,D",6,prediction_reachable,True,True,6,21,15,0,0,0,0,,,5,1,i'm so late to answer this
+heldout_phrase_06,real_079,we have that at my counter,B,6,prediction_reachable,True,True,6,21,12,0,0,0,0,,,6,1,we have that at my counter
+heldout_phrase_07,real_057,scam before you get scammed,A,5,prediction_reachable,True,True,5,23,13,0,0,0,0,,,7,1,scam before you get scammed
+heldout_phrase_08,real_068,this debate calls for vodka,"A,B",5,prediction_reachable,True,True,5,23,15,0,0,0,0,,,8,1,this debate calls for vodka
+heldout_phrase_09,real_049,no one broke the world record,"A,B,D",6,prediction_reachable,True,True,6,24,17,0,0,0,0,,,9,1,no one broke the world record
+heldout_phrase_10,real_072,today has been a terrible day,"B,C",6,prediction_reachable,True,True,6,24,18,1,0,0,0,,,10,1,today has been a terrible day
+heldout_phrase_11,real_028,i have the best coworkers ever,"B,D,F",6,prediction_reachable,True,True,6,25,17,1,0,0,0,,,11,1,i have the best coworkers ever
+heldout_phrase_12,real_035,i'll reply in the morning then,A,6,prediction_reachable,True,True,6,25,17,0,0,0,0,,,12,1,i'll reply in the morning then
+heldout_phrase_13,real_003,another day of pokemon catching,"B,C",5,prediction_reachable,True,True,5,27,18,0,0,0,0,,,13,1,another day of pokemon catching
+heldout_phrase_14,real_065,the corner of the old gallowgate,"B,G",6,prediction_reachable,True,True,6,27,10,1,0,0,0,,,14,1,the corner of the old gallowgate
+heldout_phrase_15,real_018,gotta invest in yourself anyways,B,5,prediction_reachable,True,True,5,28,19,0,0,0,0,,,15,1,gotta invest in yourself anyways
+heldout_phrase_16,real_066,the difference between me and you,B,6,prediction_reachable,True,True,6,28,22,0,0,0,0,,,16,1,the difference between me and you
+heldout_phrase_17,real_081,what emotions will your film evoke,B,6,prediction_reachable,True,True,6,29,19,0,0,0,0,,,17,1,what emotions will your film evoke
+heldout_phrase_18,real_012,can't wait for sunday night football,B,6,prediction_reachable,True,True,6,31,25,0,0,0,0,,,18,1,can't wait for sunday night football
+heldout_phrase_19,real_075,use an elgato video capture connector,"A,D",6,prediction_reachable,True,True,6,32,14,1,0,0,0,,,19,1,use an elgato video capture connector
+heldout_phrase_20,real_051,nobody expects the spanish inquisition,B,5,prediction_reachable,True,True,5,34,23,0,0,0,0,,,20,1,nobody expects the spanish inquisition

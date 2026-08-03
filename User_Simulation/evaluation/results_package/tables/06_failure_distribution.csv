@@ -1,0 +1,16 @@
+user_id,system,system_label,phrase_failure_reason,failure_count,failure_share
+A,og_nomon,OG Nomon,click_stream_exhausted_or_incomplete,3,1.0
+A,oneclick,OneClick,word_click_budget_letters,1,0.5
+A,oneclick,OneClick,word_click_budget_target_enter,1,0.5
+B,oneclick,OneClick,word_click_budget_letters,1,1.0
+C,og_nomon,OG Nomon,click_stream_exhausted_or_incomplete,4,1.0
+C,oneclick,OneClick,word_click_budget_letters,5,1.0
+D,og_nomon,OG Nomon,click_stream_exhausted_or_incomplete,1,1.0
+F,og_nomon,OG Nomon,click_stream_exhausted_or_incomplete,2,1.0
+F,oneclick,OneClick,undo_click_budget_exhausted,1,0.2
+F,oneclick,OneClick,word_click_budget_letters,4,0.8
+G,og_nomon,OG Nomon,click_stream_exhausted_or_incomplete,6,1.0
+G,oneclick,OneClick,target_not_displayed,3,0.07142857142857142
+G,oneclick,OneClick,undo_click_budget_exhausted,18,0.42857142857142855
+G,oneclick,OneClick,word_click_budget_letters,16,0.38095238095238093
+G,oneclick,OneClick,word_click_budget_target_enter,5,0.11904761904761904

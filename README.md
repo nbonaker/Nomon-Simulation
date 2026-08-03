@@ -13,6 +13,12 @@ Relevant papers about Nomon include:
 
 Nomon Simulated User Project Overview
 =================
+
+> **Current OneClick results:** Start with the curated
+> [simulation results package](User_Simulation/evaluation/results_package/README.md).
+> It identifies the canonical runs, presentation figures, headline tables,
+> limitations, superseded experiments, and reproduction commands.
+
 This repository contains a framework for simulating the use of nomon with data collected from real single-switch users. The repository is divided into five packages:
 - **User-Simulation** (Main Package) -- Contains a framework that simulates user interactions with a running instance of the Nomon keyboard.
 
@@ -72,10 +78,133 @@ _Simulations must be run as a python module._ For example, execute the following
 #### Language Model Configuration
 The text keyboard's language model is selected via the `parameters` dict passed to `simulate_phrases`:
 - **`lm_config`** (current default) -- a dict consumed by `TextSlingerLM` (see `Nomon_Text/textslinger_lm.py`). The example sims use `{"backend": "ngram", "lm_path": <char_lm_path>, "character_set_path": <char_set_path>}`.
+- **`imagineville_lm_config`** -- uses the historical NomonWeb HTTP word and character prediction endpoints through `Nomon_Text/imagineville_lm.py`. Responses can be cached by supplying `{"cache_dir": <path>}`.
 - **`lm_files`** (legacy) -- a 4-tuple `[word_lm_path, char_lm_path, vocab_path, char_path]` selecting the old kenlm `LanguageModel` in `Nomon_Text/kenlm/kenlm_lm.py`. Retained for A/B baseline comparison.
 - If neither key is present, the keyboard falls back to a default TextSlinger n-gram backend using `Nomon_Text/resources/lm_char_tiny.kenlm`.
 
 >***Behavior change vs the kenlm baseline -- With `lm_config`, word predictions come from a character-model beam search rather than the kenlm trie enumeration. Predicted "words" are therefore character fragments rather than dictionary words, so expect lower word-prediction usage and higher click load than the kenlm baseline until a word-level path is restored. Character predictions match the old code (log base aside). See `Nomon_Text/probe_textslinger_vs_kenlm.py` for a reference comparison.***
+
+The synthetic evaluator can select the historical HTTP backend explicitly:
+```
+python -m User_Simulation.evaluation.evaluation_synthetic_validation --user-id A --trials 1 --lm-backend imagineville
+```
+The first run populates `.cache/imagineville_lm`; later runs reuse those responses and avoid repeated network latency.
+
+### OneClick Clock-Speed Completion-by-Time Sweep
+
+Run the protected-OneClick fixed-period experiment from the repository root:
+
+```bash
+MPLCONFIGDIR=/tmp/matplotlib-cache .venv/bin/python -m \
+  User_Simulation.evaluation.evaluation_oneclick_clock_speed_tradeoff
+```
+
+The default run uses users A, B, C, D, F, and G; the canonical periods nearest
+1.5, 2.2, and 3.3 seconds; five trials; and the same 20 strictly
+prediction-reachable phrases for every condition. It saves resumable
+condition-level CSVs, phrase timing results, cumulative curve points, summaries,
+and PNG/PDF plots under `User_Simulation/evaluation/outputs/`.
+
+Resume an interrupted run with:
+
+```bash
+MPLCONFIGDIR=/tmp/matplotlib-cache .venv/bin/python -m \
+  User_Simulation.evaluation.evaluation_oneclick_clock_speed_tradeoff \
+  --resume-run-dir <existing-run-directory>
+```
+
+The OneClick language-model client may send phrase context and per-letter
+probability distributions to the configured character and word-prediction
+services when a response is not already cached.
+
+### OneClick Space/Enter Phase 1 Screening
+
+The Phase 1 runner independently fixes the Space (letter) and Enter/Undo
+(word) clock periods. Its default pilot evaluates users A and C over 25 sparse
+combinations drawn from ten canonical periods, using the previous sweep's exact
+20-phrase set and trial-0 paired click schedules:
+
+```bash
+MPLCONFIGDIR=/tmp/matplotlib-cache .venv/bin/python -m \
+  User_Simulation.evaluation.evaluation_oneclick_space_enter_phase1
+```
+
+Use `--baseline-run-dir <clock-speed-run-directory>` to select the source
+explicitly. Resume an interrupted pilot with:
+
+```bash
+MPLCONFIGDIR=/tmp/matplotlib-cache .venv/bin/python -m \
+  User_Simulation.evaluation.evaluation_oneclick_space_enter_phase1 \
+  --resume-run-dir <existing-phase1-run-directory>
+```
+
+Outputs include sparse completion heatmaps at 60, 120, and 180 seconds, final
+completion heatmaps, diagonal and off-diagonal cumulative curves, Pareto/AUC
+summaries, exact failure distributions, and atomic condition checkpoints.
+Live runs use the same external character and word-prediction services described
+above when required responses are not already cached.
+
+### OneClick Space/Enter Phase 2 Confirmation
+
+The targeted Phase 2 runner reuses Phase 1 trial 0 and runs four additional
+paired trials for four candidate conditions per user. The default A/C design
+therefore executes 640 new phrase attempts and analyzes 800 attempts in total:
+
+```bash
+MPLCONFIGDIR=/tmp/matplotlib-cache .venv/bin/python -m \
+  User_Simulation.evaluation.evaluation_oneclick_space_enter_phase2
+```
+
+Candidate selection first requires at least 80% pooled phrase completion, then
+maximizes normalized completion-by-time AUC through 180 seconds. Outputs include
+pooled and per-trial summaries, 95% Wilson completion intervals, paired
+candidate comparisons, cumulative curves, trial-stability plots, exact failure
+distributions, and atomic condition checkpoints.
+
+Resume an interrupted confirmation run with:
+
+```bash
+MPLCONFIGDIR=/tmp/matplotlib-cache .venv/bin/python -m \
+  User_Simulation.evaluation.evaluation_oneclick_space_enter_phase2 \
+  --resume-run-dir <existing-phase2-run-directory>
+```
+
+### Global OneClick Space/Enter Sweep
+
+The global runner selects one shared Space/Enter setting for users A, B, C, D,
+F, and G. Screening evaluates the complete 6-by-6 grid of canonical periods
+from 2.2 through 6.0 seconds with one paired trial. It freezes the top five
+cells using the cross-user reliability ranking, then confirmation adds four
+paired trials for those finalists:
+
+```bash
+MPLCONFIGDIR=/tmp/matplotlib-cache .venv/bin/python -m \
+  User_Simulation.evaluation.evaluation_oneclick_global_space_enter_sweep \
+  --phase all
+```
+
+The stages can also be run separately:
+
+```bash
+MPLCONFIGDIR=/tmp/matplotlib-cache .venv/bin/python -m \
+  User_Simulation.evaluation.evaluation_oneclick_global_space_enter_sweep \
+  --phase screen
+
+MPLCONFIGDIR=/tmp/matplotlib-cache .venv/bin/python -m \
+  User_Simulation.evaluation.evaluation_oneclick_global_space_enter_sweep \
+  --phase confirm \
+  --resume-run-dir <screen-run-directory>
+```
+
+Resume any interrupted stage with `--resume-run-dir`. Condition checkpoints are
+atomic, and compatible Phase 1, Phase 2, and legacy diagonal checkpoints are
+reused only after configuration and result validation. Screening heatmaps use
+trial 0 exclusively; the five-trial confirmation summaries remain separate.
+Outputs include reuse and schedule audits, phrase-level timing data, frozen
+shortlist and final-selection tables, global and per-user summaries, failure
+distributions, cumulative curves, and PNG/PDF plots. Live cache misses can send
+phrase context and derived per-letter prediction distributions to the configured
+external language-model services.
 
 ### Working with Simulation Results:
 

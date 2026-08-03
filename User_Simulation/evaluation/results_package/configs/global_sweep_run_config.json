@@ -1,0 +1,238 @@
+{
+  "auc_horizon_s": 180.0,
+  "baseline_run_dir": "/Users/pauliuskarvelis/Desktop/Nomon-Simulation/User_Simulation/evaluation/outputs/oneclick_clock_speed_tradeoff_2026_07_25-23_36_05",
+  "combination_count": 36,
+  "combo_pairs": [
+    [
+      10,
+      10
+    ],
+    [
+      10,
+      8
+    ],
+    [
+      10,
+      6
+    ],
+    [
+      10,
+      4
+    ],
+    [
+      10,
+      2
+    ],
+    [
+      10,
+      0
+    ],
+    [
+      8,
+      10
+    ],
+    [
+      8,
+      8
+    ],
+    [
+      8,
+      6
+    ],
+    [
+      8,
+      4
+    ],
+    [
+      8,
+      2
+    ],
+    [
+      8,
+      0
+    ],
+    [
+      6,
+      10
+    ],
+    [
+      6,
+      8
+    ],
+    [
+      6,
+      6
+    ],
+    [
+      6,
+      4
+    ],
+    [
+      6,
+      2
+    ],
+    [
+      6,
+      0
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      2
+    ],
+    [
+      4,
+      0
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      0,
+      8
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      0
+    ]
+  ],
+  "configured_phase": "all",
+  "confirmation_analyzed_phrase_attempts": 3000,
+  "confirmation_trials": 5,
+  "dead_time_mode": "zero_active_dead_time",
+  "enter_period_applies_to_undo": true,
+  "experiment": "oneclick_global_space_enter_sweep",
+  "max_clicks_per_word": 30,
+  "max_enter_attempts": 5,
+  "max_word_attempts": 5,
+  "maximum_unique_phrase_attempts": 6720,
+  "offset_transfer": "paired_absolute_seconds",
+  "oneclick_cache_dir": "/Users/pauliuskarvelis/Desktop/Nomon-Simulation/.cache/oneclick_phrase_audit",
+  "period_indices": [
+    10,
+    8,
+    6,
+    4,
+    2,
+    0
+  ],
+  "periods": [
+    {
+      "period_index": 10,
+      "period_label": "2.2 s",
+      "period_s": 2.207276647028654
+    },
+    {
+      "period_index": 8,
+      "period_label": "2.7 s",
+      "period_s": 2.6959737847033294
+    },
+    {
+      "period_index": 6,
+      "period_label": "3.3 s",
+      "period_s": 3.292869816564159
+    },
+    {
+      "period_index": 4,
+      "period_label": "4.0 s",
+      "period_s": 4.0219202762138355
+    },
+    {
+      "period_index": 2,
+      "period_label": "4.9 s",
+      "period_s": 4.912384518467891
+    },
+    {
+      "period_index": 0,
+      "period_label": "6.0 s",
+      "period_s": 6.0
+    }
+  ],
+  "phase1_run_dir": "/Users/pauliuskarvelis/Desktop/Nomon-Simulation/User_Simulation/evaluation/outputs/oneclick_space_enter_phase1_2026_07_26-12_18_22",
+  "phase2_run_dir": "/Users/pauliuskarvelis/Desktop/Nomon-Simulation/User_Simulation/evaluation/outputs/oneclick_space_enter_phase2_2026_07_26-16_58_14",
+  "phrase_count": 20,
+  "phrase_set_checksum": "73a089d180a98985dc97c980efc4dfe4d548bf8b958e21485c60eccabe698712",
+  "phrase_time_ceiling_s": null,
+  "reliability_floor": 0.8,
+  "screen_analyzed_phrase_attempts": 4320,
+  "screen_config_checksum": "3b3403346cb8159641edf5804ade78683f1009813dcfc9b366fa157bf0effb37",
+  "screen_trial": 0,
+  "seed": 12345,
+  "selection_policy": [
+    "users_meeting_reliability_floor_desc",
+    "worst_user_completion_desc",
+    "macro_completion_desc",
+    "macro_auc_180_desc",
+    "macro_completion_by_120s_desc",
+    "space_index_asc",
+    "enter_index_asc"
+  ],
+  "shortlist_size": 5,
+  "time_horizons_s": [
+    60.0,
+    120.0,
+    180.0
+  ],
+  "undo_mode": "protected",
+  "users": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "F",
+    "G"
+  ],
+  "worker_count": 1
+}
