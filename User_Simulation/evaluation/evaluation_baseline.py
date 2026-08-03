@@ -32,6 +32,7 @@ USER_DATA_ROOT = REPO_ROOT / "Nomon_User_Data" / "OSF Data"
 TEXT_DATA_ROOT = USER_DATA_ROOT / "text_entry_task"
 SYMBOL_DATA_ROOT = USER_DATA_ROOT / "picture_selection_task"
 TEXT_RESOURCE_ROOT = REPO_ROOT / "Nomon_Text" / "resources"
+DEFAULT_LM_CACHE_DIR = REPO_ROOT / ".cache" / "imagineville_lm"
 
 
 def load_text_click_data(user_id: str) -> pd.DataFrame:
@@ -90,6 +91,30 @@ def lm_files(lm_size: str) -> list[str]:
     return [str(path) for path in paths]
 
 
+def lm_parameters(
+    lm_backend: str,
+    lm_size: str,
+    lm_cache_dir: Path,
+    lm_display_config: dict | None = None,
+) -> dict:
+    if lm_backend == "imagineville":
+        imagineville_config = {
+            "cache_dir": str(lm_cache_dir),
+        }
+        if lm_display_config:
+            imagineville_config.update(lm_display_config)
+        parameters = {"imagineville_lm_config": imagineville_config}
+        if lm_display_config:
+            parameters["lm_display_config"] = dict(lm_display_config)
+        return parameters
+    if lm_backend == "kenlm":
+        parameters = {"lm_files": lm_files(lm_size)}
+        if lm_display_config:
+            parameters["lm_display_config"] = dict(lm_display_config)
+        return parameters
+    raise ValueError(f"Unsupported language-model backend: {lm_backend}")
+
+
 def make_sim_click_df(user_id: str, text_click_df: pd.DataFrame) -> pd.DataFrame:
     calibration_df = load_calibration_click_data(user_id)
     full_click_df = pd.concat([calibration_df, text_click_df], ignore_index=True, sort=False)
@@ -105,7 +130,9 @@ def run_baseline_simulator(
     user_id: str,
     click_df: pd.DataFrame,
     phrase_df: pd.DataFrame,
+    lm_backend: str,
     lm_size: str,
+    lm_cache_dir: Path,
     trials: int,
     verbose: bool,
 ) -> SimulatedUser:
@@ -113,8 +140,8 @@ def run_baseline_simulator(
     params = {
         "click_df": make_sim_click_df(user_id, click_df),
         "phrase_df": phrase_df,
-        "lm_files": lm_files(lm_size),
     }
+    params.update(lm_parameters(lm_backend, lm_size, lm_cache_dir))
 
     # Some legacy paths in the simulator are relative to User_Simulation.
     original_cwd = Path.cwd()
@@ -207,7 +234,19 @@ def build_alignment_summary(phrase_comparison_df: pd.DataFrame, simulated_phrase
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--user-id", default="A", help="OSF user id to evaluate, for example A or B.")
+    parser.add_argument(
+        "--lm-backend",
+        default="kenlm",
+        choices=["kenlm", "imagineville"],
+        help="Language-model backend used by old Nomon.",
+    )
     parser.add_argument("--lm-size", default="tiny", choices=["tiny", "medium"], help="Bundled KenLM model size.")
+    parser.add_argument(
+        "--lm-cache-dir",
+        type=Path,
+        default=DEFAULT_LM_CACHE_DIR,
+        help="Persistent response cache used by the Imagineville backend.",
+    )
     parser.add_argument("--trials", type=int, default=1, help="Number of simulator trials.")
     parser.add_argument("--max-sessions", type=int, default=1, help="Number of sessions to evaluate.")
     parser.add_argument("--all-sessions", action="store_true", help="Evaluate all sessions for the user.")
@@ -236,7 +275,9 @@ def main() -> None:
         user_id=args.user_id,
         click_df=real_click_df,
         phrase_df=real_phrase_df,
+        lm_backend=args.lm_backend,
         lm_size=args.lm_size,
+        lm_cache_dir=args.lm_cache_dir,
         trials=args.trials,
         verbose=args.verbose,
     )
@@ -261,7 +302,11 @@ def main() -> None:
         output_dir / "run_config.json",
         {
             "user_id": args.user_id,
+            "lm_backend": args.lm_backend,
             "lm_size": args.lm_size,
+            "lm_cache_dir": str(args.lm_cache_dir),
+            "lm_api_requests": int(getattr(sim.keyboard.lm, "request_count", 0)),
+            "lm_api_cache_hits": int(getattr(sim.keyboard.lm, "cache_hit_count", 0)),
             "trials": args.trials,
             "max_sessions": max_sessions,
             "real_click_rows": int(len(real_click_df)),

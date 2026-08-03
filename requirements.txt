@@ -5,3 +5,4 @@ matplotlib==3.10.9
 emoji==2.15.0
 kenlm==0.2.0
 textslinger==0.2.3
+requests==2.32.5

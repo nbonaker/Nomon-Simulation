@@ -16,3 +16,4 @@ __pycache__/
 .venv/
 .DS_Store
 User_Simulation/evaluation/outputs/
+.cache/

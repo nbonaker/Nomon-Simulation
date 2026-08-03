@@ -58,8 +58,13 @@ class Keyboard:
         self.sim_time = SimTime()
         self.is_simulation = True
 
-        self.N_pred = kconfig.N_pred
-        self.prob_thres = kconfig.prob_thres
+        lm_display_config = parameters.get(
+            "lm_display_config",
+            parameters.get("imagineville_lm_config", {}),
+        )
+        self.N_pred = int(lm_display_config.get("N_pred", kconfig.N_pred))
+        self.prob_thres = float(lm_display_config.get("prob_thres", kconfig.prob_thres))
+        self.num_words_total = int(lm_display_config.get("num_words_total", kconfig.num_words_total))
 
         self.win_diff_base = config.win_diff_base
         self.rotate_index = config.default_rotate_ind
@@ -87,7 +92,10 @@ class Keyboard:
         self.last_add_li = [0]
 
         # initialize the language model if in parameters
-        if "lm_config" in parameters:
+        if "imagineville_lm_config" in parameters:
+            from Nomon_Text.imagineville_lm import ImaginevilleLM
+            self.lm = ImaginevilleLM(parameters["imagineville_lm_config"])
+        elif "lm_config" in parameters:
             self.lm = TextSlingerLM(parameters["lm_config"])
         elif "lm_files" in parameters:
             # Legacy A/B path: old KenLM LanguageModel.
@@ -236,7 +244,7 @@ class Keyboard:
     def init_words(self):
         (self.words_li, self.word_freq_li, self.key_freq_li) = self.lm.get_words(self.left_context, self.context,
                                                                                  self.keys_li,
-                                                                                 num_words_total=kconfig.num_words_total)
+                                                                                 num_words_total=self.num_words_total)
 
         self.word_id = []
         self.word_pair = []
@@ -293,7 +301,7 @@ class Keyboard:
     def draw_words(self):
         (self.words_li, self.word_freq_li, self.key_freq_li) = self.lm.get_words(self.left_context, self.context,
                                                                                  self.keys_li,
-                                                                                 num_words_total=kconfig.num_words_total)
+                                                                                 num_words_total=self.num_words_total)
         word = 0
         index = 0
         self.words_on = []
