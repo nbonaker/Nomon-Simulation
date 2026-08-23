@@ -291,7 +291,7 @@ class SimulatedUser:
 
         # initialize the click time samples
         click_df = parameters["click_df"]
-        self.calibration_clicks = click_df[click_df["Session Num"].isna()][["Click Time Rlative (s)"]].to_numpy().T[0]
+        self.calibration_clicks = click_df[click_df["Session Num"].isna()][["Click Time Relative (s)"]].to_numpy().T[0]
         self.click_df = click_df[click_df["Session Num"].notna()]
         # used in progress bar to track simulation progress
         self.num_clicks_loaded = len(self.click_df["Click Time Relative (s)"])
