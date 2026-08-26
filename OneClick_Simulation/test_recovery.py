@@ -1,3 +1,4 @@
+import json
 import math
 import unittest
 from types import SimpleNamespace
@@ -72,7 +73,12 @@ def recovery_sim(enter_results):
 
     def press_enter(_index, action_kind="target_enter"):
         sim.num_clicks_phrase += 1
-        return next(results)
+        result = next(results)
+        _, selected_index = result
+        sim.num_enter_presses_phrase += 1
+        if selected_index != _index:
+            sim.num_enter_misselections_phrase += 1
+        return result
 
     sim._press_letter = press_letter
     sim._press_enter = press_enter
@@ -80,6 +86,93 @@ def recovery_sim(enter_results):
 
 
 class WordAttemptSnapshotTests(unittest.TestCase):
+    def test_word_list_limits_total_prefix_clocks_to_three(self):
+        keyboard = Keyboard.__new__(Keyboard)
+        clock_inf = SimpleNamespace(
+            observations=[[0.0] * len(kconfig.key_chars)],
+            format_observations=lambda _chars: [],
+        )
+        keyboard.bc = SimpleNamespace(clock_inf=clock_inf)
+        keyboard.context = ""
+        keyboard.lm = SimpleNamespace(
+            get_word_predictions=lambda _context, _observations: (
+                [
+                    {"text": text, "logprob": score}
+                    for score, text in enumerate(
+                        ["aa", "ab", "ac", "ad", "ae"], start=1
+                    )
+                ],
+                [],
+            )
+        )
+        keyboard.word_clock_util = SimpleNamespace(
+            init_round=lambda _indices: None,
+            latest_time=0.0,
+        )
+        keyboard.sim_time = SimpleNamespace(time=lambda: 0.0)
+
+        keyboard.update_word_list()
+
+        self.assertEqual(sum(map(len, keyboard.words_by_letter.values())), 3)
+
+    def test_adaptive_word_clocks_use_current_sigma_and_requested_priority(self):
+        keyboard = Keyboard.__new__(Keyboard)
+        delay_model = SimpleNamespace(sigma2=0.01)
+        clock_inf = SimpleNamespace(
+            observations=[[0.0] * len(kconfig.key_chars)],
+            format_observations=lambda _chars: [],
+            delay_model=delay_model,
+        )
+        keyboard.bc = SimpleNamespace(clock_inf=clock_inf)
+        keyboard.context = ""
+        keyboard.word_clock_mode = "adaptive"
+        keyboard.sigma_margin = 2.0
+        keyboard.lm = SimpleNamespace(
+            get_word_predictions=lambda _context, _observations: (
+                [
+                    {"text": "aa", "logprob": 3.0},
+                    {"text": "ab", "logprob": 2.0},
+                    {"text": "ac", "logprob": 1.0},
+                ],
+                [
+                    {"text": "x", "logprob": 3.0},
+                    {"text": "y", "logprob": 2.0},
+                    {"text": "z", "logprob": 1.0},
+                ],
+            )
+        )
+        keyboard.word_clock_util = SimpleNamespace(
+            time_rotate=2.5,
+            init_round=lambda _indices: None,
+            latest_time=0.0,
+        )
+        keyboard.sim_time = SimpleNamespace(time=lambda: 0.0)
+
+        keyboard.update_word_list()
+
+        self.assertEqual(keyboard._adaptive_word_clock_limit(), 6)
+        self.assertEqual(
+            keyboard.valid_word_indices,
+            [
+                kconfig.best_base_index,
+                0,
+                kconfig.best_base_index + 1,
+                3,
+                kconfig.argmax_word_index,
+                kconfig.undo_word_index,
+            ],
+        )
+        self.assertEqual(keyboard.word_clock_index("z"), kconfig.undo_word_index)
+
+        delay_model.sigma2 = 0.25
+        keyboard.update_word_list()
+
+        self.assertEqual(keyboard._adaptive_word_clock_limit(), 2)
+        self.assertEqual(
+            keyboard.valid_word_indices,
+            [kconfig.argmax_word_index, kconfig.undo_word_index],
+        )
+
     def test_undo_only_round_removes_prediction_competitors(self):
         initialized = []
         keyboard = Keyboard.__new__(Keyboard)
@@ -164,8 +257,65 @@ class WordAttemptSnapshotTests(unittest.TestCase):
         keyboard.commit_word("right", confirmed_correct=True)
         self.assertEqual(updates, [0.15])
 
+    def test_all_confirmed_clicks_updates_letters_and_successful_enter(self):
+        updates = []
+        delay_model = SimpleNamespace(
+            update_many=lambda values: updates.append(tuple(values)),
+        )
+        keyboard = Keyboard.__new__(Keyboard)
+        keyboard.typed = ""
+        keyboard.context = ""
+        keyboard.typed_versions = []
+        keyboard.bc = SimpleNamespace(clock_inf=SimpleNamespace(delay_model=delay_model))
+        keyboard.delay_learning_mode = "all_confirmed_clicks"
+        keyboard._pending_delay_samples = [0.1, 0.2]
+        keyboard._last_enter_time_in = 0.3
+        keyboard._reset_letter_round = lambda: None
+
+        keyboard.commit_word("right", confirmed_correct=True)
+
+        self.assertEqual(updates, [(0.1, 0.2, 0.3)])
+
 
 class RecoveryFlowTests(unittest.TestCase):
+    def test_immediate_success_metrics(self):
+        sim = recovery_sim([("cat", FakeKeyboard.target_index)])
+
+        sim.type_phrase("cat")
+        result = sim._calculate_phrase_results("cat", "?")
+
+        self.assertEqual(result["Successful Word Click Count"], 2)
+        self.assertEqual(result["Successful Word Selection Count"], 1)
+        self.assertEqual(result["Successful Word Character Count"], 3)
+        self.assertEqual(result["Clicks per Character"], round(2 / 3, 3))
+        self.assertEqual(result["Click Burden (clicks/successful selection)"], 2.0)
+        self.assertEqual(result["Corrective Undo Action Count"], 0)
+        self.assertEqual(result["Enter Press Count"], 1)
+        self.assertEqual(result["Enter Misselection Count"], 0)
+        self.assertEqual(result["Completion Rate"], 1.0)
+        self.assertEqual(result["Prefix Prediction Selection Count"], 1)
+        self.assertEqual(result["Best Prediction Selection Count"], 0)
+        self.assertEqual(result["Argmax Prediction Selection Count"], 0)
+
+    def test_successful_prediction_source_uses_actual_selected_index(self):
+        cases = [
+            (7, "prefix", "Prefix Prediction Selection Count"),
+            (kconfig.best_base_index, "best", "Best Prediction Selection Count"),
+            (kconfig.argmax_word_index, "argmax", "Argmax Prediction Selection Count"),
+        ]
+        for selected_index, source, count_column in cases:
+            with self.subTest(source=source):
+                sim = recovery_sim([("cat", selected_index)])
+                sim.keyboard.target_index = selected_index
+
+                sim.type_phrase("cat")
+                result = sim._calculate_phrase_results("cat", "?")
+                events = json.loads(result["Prediction Selection Events"])
+
+                self.assertEqual(result[count_column], 1)
+                self.assertEqual(events[0]["selected_index"], selected_index)
+                self.assertEqual(events[0]["prediction_source"], source)
+
     def test_trailing_space_does_not_hide_missing_final_letter(self):
         sim = recovery_sim([])
         sim.keyboard.typed = "i'm getting one for mya no "
@@ -194,6 +344,11 @@ class RecoveryFlowTests(unittest.TestCase):
         self.assertEqual(sim.num_word_attempts_phrase, 1)
         self.assertEqual(sim.num_enter_retries_phrase, 1)
         self.assertEqual(sim.num_clicks_phrase, 3)
+        result = sim._calculate_phrase_results("cat", "?")
+        self.assertEqual(result["Corrective Undo Action Count"], 0)
+        self.assertEqual(result["Enter Press Count"], 2)
+        self.assertEqual(result["Enter Misselection Count"], 1)
+        self.assertEqual(result["Enter Misselection Rate"], 0.5)
 
     def test_wrong_commit_undo_restore_retries_only_enter(self):
         sim = recovery_sim(
@@ -216,6 +371,17 @@ class RecoveryFlowTests(unittest.TestCase):
         self.assertEqual(phrase_result["Typed Text"], "cat ")
         self.assertEqual(phrase_result["Completed Word Count"], 1)
         self.assertTrue(phrase_result["Phrase Completed"])
+        self.assertEqual(phrase_result["Corrective Undo Action Count"], 1)
+        self.assertEqual(phrase_result["Correction Rate"], 1.0)
+        self.assertEqual(phrase_result["Enter Press Count"], 3)
+        self.assertEqual(phrase_result["Enter Misselection Count"], 1)
+        self.assertEqual(phrase_result["Successful Word Click Count"], 4)
+        self.assertEqual(phrase_result["Successful Word Selection Count"], 3)
+        self.assertEqual(phrase_result["Successful Word Character Count"], 3)
+        self.assertEqual(
+            phrase_result["Click Burden (clicks/successful selection)"],
+            round(4 / 3, 3),
+        )
 
     def test_mistimed_undo_suppresses_competitor_and_retries(self):
         sim = recovery_sim(
@@ -235,6 +401,12 @@ class RecoveryFlowTests(unittest.TestCase):
         self.assertEqual(sim.num_undo_failures_phrase, 0)
         self.assertEqual(sim.keyboard.restore_count, 1)
         self.assertEqual(sim.keyboard.prepare_undo_count, 1)
+        result = sim._calculate_phrase_results("cat", "?")
+        self.assertEqual(result["Corrective Undo Action Count"], 1)
+        self.assertEqual(result["Enter Press Count"], 4)
+        self.assertEqual(result["Enter Misselection Count"], 2)
+        self.assertEqual(result["Successful Word Click Count"], 5)
+        self.assertEqual(result["Successful Word Selection Count"], 4)
 
     def test_protected_undo_exhaustion_stops_without_context_corruption(self):
         sim = recovery_sim(
@@ -270,6 +442,18 @@ class RecoveryFlowTests(unittest.TestCase):
         self.assertEqual(phrase_result["Failure Word Click Count"], 4)
         self.assertEqual(phrase_result["Failure Target Enter Attempt Count"], 1)
         self.assertEqual(phrase_result["Failure Undo Attempt Count"], 2)
+        self.assertEqual(phrase_result["Successful Word Click Count"], 0)
+        self.assertEqual(phrase_result["Successful Word Selection Count"], 0)
+        self.assertEqual(phrase_result["Successful Word Character Count"], 0)
+        self.assertTrue(
+            math.isnan(phrase_result["Click Burden (clicks/successful selection)"])
+        )
+        self.assertEqual(phrase_result["Enter Press Count"], 3)
+        self.assertEqual(phrase_result["Enter Misselection Count"], 3)
+        self.assertEqual(
+            phrase_result["Failure Reason Counts"],
+            '{"undo_click_budget_exhausted": 1}',
+        )
 
     def test_target_not_displayed_is_reported_after_word_attempt_limit(self):
         sim = recovery_sim([(None, kconfig.undo_word_index)])

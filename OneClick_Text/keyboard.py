@@ -36,6 +36,7 @@ class WordAttemptSnapshot:
     typed: str
     context: str
     typed_versions: list
+    pending_delay_samples: list
 
 
 class SimTime:
@@ -115,6 +116,33 @@ class Keyboard:
         self.parent = parent
         self.sim_time = SimTime()
         self.is_simulation = True
+        use_click_offset = parameters.get(
+            "use_click_offset", config.use_click_offset
+        )
+        if not isinstance(use_click_offset, bool):
+            raise ValueError("use_click_offset must be a boolean")
+        self.use_click_offset = use_click_offset
+        self.delay_learning_mode = parameters.get(
+            "delay_learning_mode", "enter_only"
+        )
+        if self.delay_learning_mode not in {"enter_only", "all_confirmed_clicks"}:
+            raise ValueError(
+                "delay_learning_mode must be 'enter_only' or "
+                "'all_confirmed_clicks'"
+            )
+        self.word_clock_mode = parameters.get("word_clock_mode", "fixed")
+        if self.word_clock_mode not in {"fixed", "adaptive"}:
+            raise ValueError("word_clock_mode must be 'fixed' or 'adaptive'")
+        sigma_margin = parameters.get("sigma_margin")
+        self.sigma_margin = None if sigma_margin is None else float(sigma_margin)
+        if self.word_clock_mode == "adaptive" and (
+            self.sigma_margin is None
+            or not math.isfinite(self.sigma_margin)
+            or self.sigma_margin <= 0
+        ):
+            raise ValueError(
+                "adaptive word-clock mode requires a positive finite sigma_margin"
+            )
 
         # Clock periods. The legacy fixed period applies to both selection
         # stages; the specialized parameters must always be supplied together.
@@ -196,6 +224,7 @@ class Keyboard:
 
         self._last_enter_time_in = None
         self._last_commit_updated_delay = False
+        self._pending_delay_samples = []
 
     # ------------------------------------------------------------------
     # Letter-clock placement (LM letter prior, once per word — matches Nomon)
@@ -230,9 +259,14 @@ class Keyboard:
     # Space press (letter click)
     # ------------------------------------------------------------------
 
-    def on_press(self):
+    def on_press(self, target_letter_index=None):
         """Simulate a Space press: append an observation row in bc."""
-        self.bc.select()
+        target_time_in = self.bc.select(target_letter_index)
+        if (
+            self.delay_learning_mode == "all_confirmed_clicks"
+            and target_time_in is not None
+        ):
+            self._pending_delay_samples.append(target_time_in)
 
     # ------------------------------------------------------------------
     # Word list management
@@ -254,7 +288,11 @@ class Keyboard:
         # A completion no longer than the click prefix has no next letter -> skipped.
         self.words_by_letter = {}
         seen = set()
+        prefix_clock_count = 0
+        ranked_prefix_indices = []
         for item in sorted(prefix, key=_logprob, reverse=True):
+            if prefix_clock_count >= kconfig.max_prefix_clocks:
+                break
             t = item.get("text", "")
             if not t or len(t) <= obs_len:
                 continue
@@ -266,8 +304,14 @@ class Keyboard:
                 continue
             bucket = self.words_by_letter.setdefault(nxt, [])
             if len(bucket) < kconfig.n_pred:
+                slot = len(bucket)
                 bucket.append(t)
                 seen.add(tl)
+                prefix_clock_count += 1
+                letter_index = kconfig.key_chars.index(nxt)
+                ranked_prefix_indices.append(
+                    letter_index * kconfig.n_pred + slot
+                )
 
         # BEST decodings -> EOW cell. Error-corrected readings exactly as long as the
         # click count.
@@ -290,21 +334,42 @@ class Keyboard:
         if obs_len > 0:
             self.argmax_word = "".join(kconfig.key_chars[_argmax(row)] for row in obs)
 
-        # Build valid_word_indices over the fixed logical index space.
-        valid = []
-        for letter, bucket in self.words_by_letter.items():
-            li = kconfig.key_chars.index(letter)
-            for slot in range(len(bucket)):
-                valid.append(li * kconfig.n_pred + slot)
-        for i in range(len(self.best_words)):
-            valid.append(kconfig.best_base_index + i)
-        if self.argmax_word:
-            valid.append(kconfig.argmax_word_index)
-        valid.append(kconfig.undo_word_index)
+        # Build valid_word_indices over the fixed logical index space. Fixed mode
+        # retains its existing layout; adaptive mode uses the requested ranking.
+        if getattr(self, "word_clock_mode", "fixed") == "adaptive":
+            prediction_priority = []
+            for index in range(max(len(self.best_words), len(ranked_prefix_indices))):
+                if index < len(self.best_words):
+                    prediction_priority.append(kconfig.best_base_index + index)
+                if index < len(ranked_prefix_indices):
+                    prediction_priority.append(ranked_prefix_indices[index])
+            n_max = self._adaptive_word_clock_limit()
+            valid = prediction_priority[: n_max - 2]
+            valid.extend([kconfig.argmax_word_index, kconfig.undo_word_index])
+        else:
+            valid = []
+            for letter, bucket in self.words_by_letter.items():
+                li = kconfig.key_chars.index(letter)
+                for slot in range(len(bucket)):
+                    valid.append(li * kconfig.n_pred + slot)
+            for i in range(len(self.best_words)):
+                valid.append(kconfig.best_base_index + i)
+            if self.argmax_word:
+                valid.append(kconfig.argmax_word_index)
+            valid.append(kconfig.undo_word_index)
         self.valid_word_indices = valid
 
         self.word_clock_util.init_round(valid)
         self.word_clock_util.latest_time = self.sim_time.time()
+
+    def _adaptive_word_clock_limit(self):
+        """Calculate the current adaptive word-clock capacity."""
+        current_sigma = math.sqrt(self.bc.clock_inf.delay_model.sigma2)
+        n_max = math.floor(
+            self.word_clock_util.time_rotate
+            / (2 * self.sigma_margin * current_sigma)
+        )
+        return max(2, min(8, n_max))
 
     def clock_to_word(self, index):
         """
@@ -336,14 +401,20 @@ class Keyboard:
         """
         tw = target_word.lower()
         for i, w in enumerate(self.best_words):
-            if w.lower() == tw:
-                return kconfig.best_base_index + i
-        if self.argmax_word and self.argmax_word.lower() == tw:
+            index = kconfig.best_base_index + i
+            if w.lower() == tw and index in self.valid_word_indices:
+                return index
+        if (
+            self.argmax_word
+            and self.argmax_word.lower() == tw
+            and kconfig.argmax_word_index in self.valid_word_indices
+        ):
             return kconfig.argmax_word_index
         for letter, bucket in self.words_by_letter.items():
             for slot, w in enumerate(bucket):
-                if w.lower() == tw:
-                    return kconfig.key_chars.index(letter) * kconfig.n_pred + slot
+                index = kconfig.key_chars.index(letter) * kconfig.n_pred + slot
+                if w.lower() == tw and index in self.valid_word_indices:
+                    return index
         return kconfig.undo_word_index
 
     # ------------------------------------------------------------------
@@ -387,6 +458,9 @@ class Keyboard:
             typed=self.typed,
             context=self.context,
             typed_versions=list(self.typed_versions),
+            pending_delay_samples=list(
+                getattr(self, "_pending_delay_samples", ())
+            ),
         )
 
     def restore_word_attempt_state(self, snapshot):
@@ -403,6 +477,7 @@ class Keyboard:
         self.typed = snapshot.typed
         self.context = snapshot.context
         self.typed_versions = list(snapshot.typed_versions)
+        self._pending_delay_samples = list(snapshot.pending_delay_samples)
         self._last_enter_time_in = None
         self._last_commit_updated_delay = False
 
@@ -432,7 +507,16 @@ class Keyboard:
             confirmed_correct and self._last_enter_time_in is not None
         )
         if self._last_commit_updated_delay:
-            self.bc.clock_inf.delay_model.update(self._last_enter_time_in)
+            delay_model = self.bc.clock_inf.delay_model
+            if (
+                getattr(self, "delay_learning_mode", "enter_only")
+                == "all_confirmed_clicks"
+            ):
+                delay_model.update_many(
+                    (*self._pending_delay_samples, self._last_enter_time_in)
+                )
+            else:
+                delay_model.update(self._last_enter_time_in)
         self._last_enter_time_in = None
 
         self._reset_letter_round()
@@ -451,6 +535,7 @@ class Keyboard:
 
     def _reset_letter_round(self):
         """Clear observations and re-place letter clocks for the next word."""
+        self._pending_delay_samples = []
         self.bc.clock_inf.reset_observations()
         self.bc.latest_time = self.sim_time.time()
         self.place_letter_clocks()

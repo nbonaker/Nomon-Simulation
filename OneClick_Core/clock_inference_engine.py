@@ -8,24 +8,34 @@ from OneClick_Core import config
 class UserDelayModel:
     """Gaussian click-delay model: N(mu, sigma2). Updated on word commit, rolled back on Undo."""
 
-    def __init__(self):
+    def __init__(self, use_click_offset=None):
         self.mu = config.mu0
         self.sigma2 = config.sigma0_sq
         self.n_samples = 0
         self.last_update = None   # snapshot for rollback
+        self.use_click_offset = (
+            config.use_click_offset
+            if use_click_offset is None
+            else bool(use_click_offset)
+        )
 
     def update(self, dt):
         """
         Update the Gaussian model with a new click delay dt.
         Uses exponential decay to weight recent samples more heavily.
         """
+        self.update_many((dt,))
+
+    def update_many(self, delays):
+        """Update from one confirmed batch that can be rolled back atomically."""
         self.last_update = (self.mu, self.sigma2, self.n_samples)
-        mu_old = self.mu
-        self.mu = config.lambda_decay * self.mu + (1 - config.lambda_decay) * dt
-        diff = dt - mu_old
-        self.sigma2 = config.lambda_decay * self.sigma2 + (1 - config.lambda_decay) * diff * diff
-        self.sigma2 = max(self.sigma2, config.sigma2_min)
-        self.n_samples += 1
+        for dt in delays:
+            mu_old = self.mu
+            self.mu = config.lambda_decay * self.mu + (1 - config.lambda_decay) * dt
+            diff = dt - mu_old
+            self.sigma2 = config.lambda_decay * self.sigma2 + (1 - config.lambda_decay) * diff * diff
+            self.sigma2 = max(self.sigma2, config.sigma2_min)
+            self.n_samples += 1
 
     def rollback(self):
         """
@@ -36,7 +46,9 @@ class UserDelayModel:
             self.last_update = None
 
     def get_offset(self):
-        return self.mu if self.n_samples >= config.bootstrap_n else 0.0
+        if not self.use_click_offset or self.n_samples < config.bootstrap_n:
+            return 0.0
+        return self.mu
 
     def log_likelihood(self, yin):
         diff = yin - self.mu
@@ -56,22 +68,32 @@ class ClockInference:
         self.time_rotate = parent.time_rotate
 
         self.observations = []   # list of 27-length float arrays, one per Space press
-        self.delay_model = UserDelayModel()
+        self.delay_model = UserDelayModel(
+            use_click_offset=getattr(
+                parent,
+                "use_click_offset",
+                config.use_click_offset,
+            )
+        )
 
-    def add_click(self, time_diff_in):
+    def add_click(self, time_diff_in, target_index=None):
         """
         Record one Space press: append a row of 27 Gaussian log-likelihoods (one per
         letter clock) to the observation matrix. 
         """
         row = []
+        target_time_in = None
         for clock in self.clocks_li:
             time_in = (self.clock_util.cur_hours[clock] * self.time_rotate
                        / self.clock_util.num_divs_time
                        + time_diff_in
                        - self.time_rotate * config.frac_period)
+            if clock == target_index:
+                target_time_in = time_in
             ll = self.delay_model.log_likelihood(time_in)
             row.append(ll)
         self.observations.append(row)
+        return target_time_in
 
     def format_observations(self, key_chars):
         """Convert observations to the distribs format expected by the word API."""

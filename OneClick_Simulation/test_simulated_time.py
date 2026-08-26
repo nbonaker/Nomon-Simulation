@@ -119,6 +119,9 @@ class FixedPeriodSimulationTests(unittest.TestCase):
         sim.letter_clock_time_s = 0.0
         sim.target_enter_clock_time_s = 0.0
         sim.undo_clock_time_s = 0.0
+        sim.dead_time_s_phrase = 0.0
+        sim.num_enter_presses_phrase = 0
+        sim.num_enter_misselections_phrase = 0
         sim_time = SimpleNamespace(cur=0.0)
         sim_time.time = lambda: sim_time.cur
         sim_time.set_time = lambda value: setattr(sim_time, "cur", value)
@@ -140,7 +143,7 @@ class FixedPeriodSimulationTests(unittest.TestCase):
             word_clock_util=word_util,
             increment_clocks=lambda: None,
             increment_word_clocks=lambda: None,
-            on_press=lambda: None,
+            on_press=lambda _target_index=None: None,
             on_enter=lambda: (None, 7),
         )
 
@@ -152,6 +155,30 @@ class FixedPeriodSimulationTests(unittest.TestCase):
         self.assertAlmostEqual(sim.target_enter_clock_time_s, 0.75)
         self.assertAlmostEqual(sim.undo_clock_time_s, 0.75)
         self.assertAlmostEqual(sim.keyboard.sim_time.time(), 1.875)
+        self.assertEqual(sim.num_enter_presses_phrase, 2)
+        self.assertEqual(sim.num_enter_misselections_phrase, 0)
+
+    def test_active_time_excludes_only_dead_time_added_to_the_clock(self):
+        sim = SimulatedUser()
+        sim.keyboard = SimpleNamespace(
+            typed="cat ",
+            sim_time=SimpleNamespace(time=lambda: 12.0),
+        )
+        sim._clear_phrase_tracking()
+        sim.start_time = 2.0
+        sim.letter_clock_time_s = 6.0
+        sim.target_enter_clock_time_s = 4.0
+        sim.dead_time_s_phrase = 3.0
+        sim.num_target_words_phrase = 1
+        sim.num_completed_words_phrase = 1
+        sim.num_successful_word_clicks_phrase = 2
+        sim.num_successful_word_selections_phrase = 1
+
+        result = sim._calculate_phrase_results("cat", "?")
+
+        self.assertEqual(result["Simulated Attempt Time (s)"], 10.0)
+        self.assertEqual(result["Simulated Dead Time (s)"], 3.0)
+        self.assertEqual(result["Active Typing Time (s)"], 7.0)
 
     def test_dead_time_full_rotations_use_active_action_period(self):
         sim = SimulatedUser()

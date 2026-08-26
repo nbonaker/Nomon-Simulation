@@ -23,7 +23,13 @@ import json
 
 
 class Phrases:
-    def __init__(self, iv_phrases_file_name, oov_phrases_file_name, shuffle_seed=None):
+    def __init__(
+        self,
+        iv_phrases_file_name,
+        oov_phrases_file_name,
+        shuffle_seed=None,
+        quiet=False,
+    ):
         iv_phrases_file = open(iv_phrases_file_name, "r")
         iv_phrases_text = iv_phrases_file.read()
         iv_phrases_file.close()
@@ -66,7 +72,8 @@ class Phrases:
             split_ind += 1
 
         self.num_phrases = len(self.phrases)
-        print("loaded "+str(self.num_phrases)+" phrases")
+        if not quiet:
+            print("loaded "+str(self.num_phrases)+" phrases")
 
         self.cur_phrase = None
 
