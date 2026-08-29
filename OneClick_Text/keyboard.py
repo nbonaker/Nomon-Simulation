@@ -6,6 +6,7 @@ from numpy import ceil
 
 from OneClick_Core import config
 from OneClick_Core.broderclocks import BroderClocks
+from OneClick_Core.clock_inference_engine import UserDelayModel
 from OneClick_Core.clock_util import ClockUtil, SpacedArray, HourLocs
 from OneClick_Text import kconfig
 from OneClick_Text.language_model import LanguageModel
@@ -54,8 +55,8 @@ class WordClockUtil:
 
     def __init__(self, time_rotate, delay_model):
         self.time_rotate = time_rotate
-        # Space and Enter use the same physical switch, so word-clock selection
-        # must use the same calibrated click-delay model as letter observations.
+        # The caller supplies either the legacy shared model or the independent
+        # Enter model used by separate_space_enter.
         self.delay_model = delay_model
         self.num_divs_time = int(ceil(time_rotate / config.ideal_wait_s))
         self.spaced = SpacedArray(self.num_divs_time)
@@ -125,10 +126,10 @@ class Keyboard:
         self.delay_learning_mode = parameters.get(
             "delay_learning_mode", "enter_only"
         )
-        if self.delay_learning_mode not in {"enter_only", "all_confirmed_clicks"}:
+        if self.delay_learning_mode not in {"enter_only", "separate_space_enter"}:
             raise ValueError(
                 "delay_learning_mode must be 'enter_only' or "
-                "'all_confirmed_clicks'"
+                "'separate_space_enter'"
             )
         self.word_clock_mode = parameters.get("word_clock_mode", "fixed")
         if self.word_clock_mode not in {"fixed", "adaptive"}:
@@ -215,15 +216,27 @@ class Keyboard:
         self.bc.init_follow_up()
         self.place_letter_clocks()
 
+        self.space_delay_model = self.bc.clock_inf.delay_model
+        if self.delay_learning_mode == "separate_space_enter":
+            self.enter_delay_model = UserDelayModel(
+                use_click_offset=self.use_click_offset
+            )
+        else:
+            # Preserve the original behavior: Enter trains the shared model used
+            # for both letter and word clocks.
+            self.enter_delay_model = self.space_delay_model
+
         # Word clock utility (Enter-level selection)
         self.word_clock_util = WordClockUtil(
             word_time_rotate,
-            self.bc.clock_inf.delay_model,
+            self.enter_delay_model,
         )
         self.word_clock_util.init_round([])
 
         self._last_enter_time_in = None
         self._last_commit_updated_delay = False
+        self._last_space_delay_update = False
+        self._last_enter_delay_update = False
         self._pending_delay_samples = []
 
     # ------------------------------------------------------------------
@@ -263,7 +276,7 @@ class Keyboard:
         """Simulate a Space press: append an observation row in bc."""
         target_time_in = self.bc.select(target_letter_index)
         if (
-            self.delay_learning_mode == "all_confirmed_clicks"
+            self.delay_learning_mode == "separate_space_enter"
             and target_time_in is not None
         ):
             self._pending_delay_samples.append(target_time_in)
@@ -364,7 +377,10 @@ class Keyboard:
 
     def _adaptive_word_clock_limit(self):
         """Calculate the current adaptive word-clock capacity."""
-        current_sigma = math.sqrt(self.bc.clock_inf.delay_model.sigma2)
+        enter_delay_model = getattr(
+            self, "enter_delay_model", self.bc.clock_inf.delay_model
+        )
+        current_sigma = math.sqrt(enter_delay_model.sigma2)
         n_max = math.floor(
             self.word_clock_util.time_rotate
             / (2 * self.sigma_margin * current_sigma)
@@ -480,6 +496,8 @@ class Keyboard:
         self._pending_delay_samples = list(snapshot.pending_delay_samples)
         self._last_enter_time_in = None
         self._last_commit_updated_delay = False
+        self._last_space_delay_update = False
+        self._last_enter_delay_update = False
 
     def prepare_undo_round(self, undo_only=False):
         """Build either the protected competing or Undo-only correction display."""
@@ -503,20 +521,25 @@ class Keyboard:
         self.typed += text + " "
         self.context = self.typed
 
-        self._last_commit_updated_delay = bool(
-            confirmed_correct and self._last_enter_time_in is not None
-        )
-        if self._last_commit_updated_delay:
-            delay_model = self.bc.clock_inf.delay_model
-            if (
-                getattr(self, "delay_learning_mode", "enter_only")
-                == "all_confirmed_clicks"
-            ):
-                delay_model.update_many(
-                    (*self._pending_delay_samples, self._last_enter_time_in)
-                )
+        self._last_space_delay_update = False
+        self._last_enter_delay_update = False
+        if confirmed_correct and self._last_enter_time_in is not None:
+            delay_mode = getattr(self, "delay_learning_mode", "enter_only")
+            shared_model = self.bc.clock_inf.delay_model
+            enter_model = getattr(self, "enter_delay_model", shared_model)
+            if delay_mode == "separate_space_enter":
+                space_model = getattr(self, "space_delay_model", shared_model)
+                if self._pending_delay_samples:
+                    space_model.update_many(self._pending_delay_samples)
+                    self._last_space_delay_update = True
+                enter_model.update(self._last_enter_time_in)
+                self._last_enter_delay_update = True
             else:
-                delay_model.update(self._last_enter_time_in)
+                enter_model.update(self._last_enter_time_in)
+                self._last_enter_delay_update = True
+        self._last_commit_updated_delay = bool(
+            self._last_space_delay_update or self._last_enter_delay_update
+        )
         self._last_enter_time_in = None
 
         self._reset_letter_round()
@@ -528,9 +551,16 @@ class Keyboard:
             self.context = self.typed
         # Wrong/unconfirmed commits do not update the delay model, so undoing one
         # must not roll back the most recent valid calibration sample.
-        if getattr(self, "_last_commit_updated_delay", False):
-            self.bc.clock_inf.delay_model.rollback()
+        if getattr(self, "_last_space_delay_update", False):
+            self.space_delay_model.rollback()
+        if getattr(self, "_last_enter_delay_update", False):
+            enter_model = getattr(
+                self, "enter_delay_model", self.bc.clock_inf.delay_model
+            )
+            enter_model.rollback()
         self._last_commit_updated_delay = False
+        self._last_space_delay_update = False
+        self._last_enter_delay_update = False
         self._reset_letter_round()
 
     def _reset_letter_round(self):

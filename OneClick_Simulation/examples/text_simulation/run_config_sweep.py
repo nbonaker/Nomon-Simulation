@@ -77,7 +77,7 @@ class SweepValues:
     use_click_offset: Tuple[bool, ...] = (False, True)
     delay_learning_mode: Tuple[str, ...] = (
         "enter_only",
-        "all_confirmed_clicks",
+        "separate_space_enter",
     )
     word_clock_mode: Tuple[str, ...] = ("fixed", "adaptive")
     sigma_margin: Tuple[float, ...] = SIGMA_MARGIN_VALUES

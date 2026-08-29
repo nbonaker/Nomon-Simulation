@@ -92,6 +92,11 @@ class SimulatedUser:
 
     def prime_delay_model(self):
         """Warm-start the Gaussian delay model from pre-session calibration clicks."""
+        if (
+            getattr(self.keyboard, "delay_learning_mode", "enter_only")
+            == "separate_space_enter"
+        ):
+            return
         dm = self.keyboard.bc.clock_inf.delay_model
         for yin in self.calibration_clicks:
             if not np.isnan(yin):

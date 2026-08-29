@@ -3,6 +3,7 @@ import math
 import unittest
 from types import SimpleNamespace
 
+from OneClick_Core import config
 from OneClick_Simulation.simulated_user import SimulatedUser
 from OneClick_Text import kconfig
 from OneClick_Text.keyboard import Keyboard
@@ -86,6 +87,20 @@ def recovery_sim(enter_results):
 
 
 class WordAttemptSnapshotTests(unittest.TestCase):
+    def test_separate_space_enter_starts_with_independent_prior_models(self):
+        keyboard = Keyboard(
+            None,
+            parameters={"delay_learning_mode": "separate_space_enter"},
+        )
+
+        self.assertIs(keyboard.bc.clock_inf.delay_model, keyboard.space_delay_model)
+        self.assertIs(keyboard.word_clock_util.delay_model, keyboard.enter_delay_model)
+        self.assertIsNot(keyboard.space_delay_model, keyboard.enter_delay_model)
+        for model in (keyboard.space_delay_model, keyboard.enter_delay_model):
+            self.assertEqual(model.mu, config.mu0)
+            self.assertEqual(model.sigma2, config.sigma0_sq)
+            self.assertEqual(model.n_samples, 0)
+
     def test_word_list_limits_total_prefix_clocks_to_three(self):
         keyboard = Keyboard.__new__(Keyboard)
         clock_inf = SimpleNamespace(
@@ -117,13 +132,15 @@ class WordAttemptSnapshotTests(unittest.TestCase):
 
     def test_adaptive_word_clocks_use_current_sigma_and_requested_priority(self):
         keyboard = Keyboard.__new__(Keyboard)
-        delay_model = SimpleNamespace(sigma2=0.01)
+        space_delay_model = SimpleNamespace(sigma2=0.25)
+        enter_delay_model = SimpleNamespace(sigma2=0.01)
         clock_inf = SimpleNamespace(
             observations=[[0.0] * len(kconfig.key_chars)],
             format_observations=lambda _chars: [],
-            delay_model=delay_model,
+            delay_model=space_delay_model,
         )
         keyboard.bc = SimpleNamespace(clock_inf=clock_inf)
+        keyboard.enter_delay_model = enter_delay_model
         keyboard.context = ""
         keyboard.word_clock_mode = "adaptive"
         keyboard.sigma_margin = 2.0
@@ -164,7 +181,7 @@ class WordAttemptSnapshotTests(unittest.TestCase):
         )
         self.assertEqual(keyboard.word_clock_index("z"), kconfig.undo_word_index)
 
-        delay_model.sigma2 = 0.25
+        enter_delay_model.sigma2 = 0.25
         keyboard.update_word_list()
 
         self.assertEqual(keyboard._adaptive_word_clock_limit(), 2)
@@ -257,24 +274,50 @@ class WordAttemptSnapshotTests(unittest.TestCase):
         keyboard.commit_word("right", confirmed_correct=True)
         self.assertEqual(updates, [0.15])
 
-    def test_all_confirmed_clicks_updates_letters_and_successful_enter(self):
-        updates = []
-        delay_model = SimpleNamespace(
-            update_many=lambda values: updates.append(tuple(values)),
+    def test_separate_space_enter_updates_independent_models(self):
+        space_updates = []
+        enter_updates = []
+        space_model = SimpleNamespace(
+            update_many=lambda values: space_updates.append(tuple(values)),
+        )
+        enter_model = SimpleNamespace(
+            update=lambda value: enter_updates.append(value),
         )
         keyboard = Keyboard.__new__(Keyboard)
         keyboard.typed = ""
         keyboard.context = ""
         keyboard.typed_versions = []
-        keyboard.bc = SimpleNamespace(clock_inf=SimpleNamespace(delay_model=delay_model))
-        keyboard.delay_learning_mode = "all_confirmed_clicks"
+        keyboard.bc = SimpleNamespace(clock_inf=SimpleNamespace(delay_model=space_model))
+        keyboard.space_delay_model = space_model
+        keyboard.enter_delay_model = enter_model
+        keyboard.delay_learning_mode = "separate_space_enter"
         keyboard._pending_delay_samples = [0.1, 0.2]
         keyboard._last_enter_time_in = 0.3
         keyboard._reset_letter_round = lambda: None
 
         keyboard.commit_word("right", confirmed_correct=True)
 
-        self.assertEqual(updates, [(0.1, 0.2, 0.3)])
+        self.assertEqual(space_updates, [(0.1, 0.2)])
+        self.assertEqual(enter_updates, [0.3])
+
+    def test_separate_space_enter_skips_calibration_priming(self):
+        updates = []
+        simulation = SimulatedUser()
+        simulation.calibration_clicks = [0.1, 0.2]
+        simulation.keyboard = SimpleNamespace(
+            delay_learning_mode="separate_space_enter",
+            bc=SimpleNamespace(
+                clock_inf=SimpleNamespace(
+                    delay_model=SimpleNamespace(
+                        update=lambda value: updates.append(value)
+                    )
+                )
+            ),
+        )
+
+        simulation.prime_delay_model()
+
+        self.assertEqual(updates, [])
 
 
 class RecoveryFlowTests(unittest.TestCase):
