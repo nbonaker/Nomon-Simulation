@@ -47,6 +47,13 @@ This repository requires **Python 3.10** (TextSlinger declares `requires-python 
    ```
    This installs [TextSlinger](https://github.com/kdv123/textslinger), which is the default language-model backend for the text keyboard. TextSlinger pulls in its own transitive dependencies (torch, transformers, datasets, etc.) automatically.
 
+   To use a local TextSlinger checkout (recommended for the OneClick study),
+   install it into the simulation environment in editable mode:
+
+   ```bash
+   .venv/bin/python -m pip install -e /path/to/textslinger
+   ```
+
 >***Note on kenlm -- The character LM files in `Nomon_Text/resources/` (`lm_char_*.kenlm`) are 12-gram models. The kenlm package on PyPI is compiled with `KENLM_MAX_ORDER=6` by default and will raise a `FormatLoadException` when loading them. To use either the legacy kenlm path or the TextSlinger n-gram backend, build kenlm from source with a raised max order, e.g. `cmake -DKENLM_MAX_ORDER=12 ..` (see the [kenlm build docs](https://github.com/kpu/kenlm)). This is required for both `/kenlm` baseline runs and the default TextSlinger backend.***
 
 Main Package
@@ -113,9 +120,21 @@ MPLCONFIGDIR=/tmp/matplotlib-cache .venv/bin/python -m \
   --resume-run-dir <existing-run-directory>
 ```
 
-The OneClick language-model client may send phrase context and per-letter
-probability distributions to the configured character and word-prediction
-services when a response is not already cached.
+The OneClick simulator uses a local TextSlinger causal language model. A full
+configuration sweep loads the model once and reuses it for every user and
+configuration:
+
+```bash
+HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 \
+.venv/bin/python -m OneClick_Simulation.examples.text_simulation.run_config_sweep \
+  --run \
+  --lm-model-path /path/to/opt-125m-aac \
+  --lm-device mps \
+  --lm-precision fp32
+```
+
+The sweep writes the resolved model, TextSlinger, device, precision, and search
+settings to `lm_config.json` in the sweep output directory.
 
 ### OneClick Space/Enter Phase 1 Screening
 
@@ -141,8 +160,8 @@ MPLCONFIGDIR=/tmp/matplotlib-cache .venv/bin/python -m \
 Outputs include sparse completion heatmaps at 60, 120, and 180 seconds, final
 completion heatmaps, diagonal and off-diagonal cumulative curves, Pareto/AUC
 summaries, exact failure distributions, and atomic condition checkpoints.
-Live runs use the same external character and word-prediction services described
-above when required responses are not already cached.
+New OneClick studies should inject the same shared local TextSlinger adapter
+used by the configuration sweep.
 
 ### OneClick Space/Enter Phase 2 Confirmation
 
@@ -202,9 +221,9 @@ reused only after configuration and result validation. Screening heatmaps use
 trial 0 exclusively; the five-trial confirmation summaries remain separate.
 Outputs include reuse and schedule audits, phrase-level timing data, frozen
 shortlist and final-selection tables, global and per-user summaries, failure
-distributions, cumulative curves, and PNG/PDF plots. Live cache misses can send
-phrase context and derived per-letter prediction distributions to the configured
-external language-model services.
+distributions, cumulative curves, and PNG/PDF plots. Legacy reachability audits
+may still query their historical service; the OneClick simulator itself uses
+local TextSlinger inference.
 
 ### Working with Simulation Results:
 

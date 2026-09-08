@@ -106,7 +106,15 @@ class SimulatedUser:
     # Public entry point
     # ------------------------------------------------------------------
 
-    def parameter_metrics(self, parameters, trials=1, verbose=False):
+    def parameter_metrics(
+        self,
+        parameters,
+        trials=1,
+        verbose=False,
+        language_model=None,
+    ):
+        if language_model is None:
+            raise ValueError("OneClick simulation requires a loaded language_model")
         click_df = parameters["click_df"]
         self.calibration_clicks = \
             click_df[click_df["Session Num"].isna()][["Click Time Relative (s)"]].to_numpy().T[0]
@@ -177,7 +185,11 @@ class SimulatedUser:
         full_results = []
 
         for trial in range(trials):
-            self.keyboard = Keyboard(self, parameters=parameters)
+            self.keyboard = Keyboard(
+                self,
+                parameters=parameters,
+                language_model=language_model,
+            )
 
             phrase_shuffle_seed = parameters.get("phrase_shuffle_seed", None)
             if callable(phrase_shuffle_seed):
@@ -453,7 +465,7 @@ class SimulatedUser:
         reason suitable for terminal phrase telemetry.
         """
         self._last_attempt_target_displayed = False
-        # --- Space presses: one per letter, querying the API after each ---
+        # --- Space presses: one per letter, querying TextSlinger after each ---
         for letter in target_word:
             if self.click_util.clicks_remaining <= 0:
                 return "click_stream_exhausted_letters"

@@ -15,7 +15,9 @@ import sys
 import inspect
 import json
 import re
+import argparse
 from datetime import datetime
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -32,6 +34,10 @@ from OneClick_Simulation.examples.text_simulation.analyze_results import (
 )
 from OneClick_Simulation.simulated_user import SimulatedUser
 from OneClick_Simulation import sim_config
+from OneClick_Text.language_model import (
+    language_model_metadata,
+    load_local_language_model,
+)
 
 DATA_ROOT = os.path.join(parentdir, "Nomon_User_Data", "OSF Data")
 OUT_DIR = os.path.join(currentdir, "results",
@@ -58,8 +64,11 @@ def study_simulation_parameters():
     return parameters
 
 
-def load_fixed_iv_phrases():
-    """Load the first 30 existing IV labels/texts in repository file order."""
+def load_fixed_iv_phrases(phrase_count=FIXED_IV_PHRASE_COUNT):
+    """Load a fixed number of existing IV labels/texts in repository order."""
+    phrase_count = int(phrase_count)
+    if phrase_count < 1:
+        raise ValueError("phrase_count must be at least 1")
     rows = []
     with open(IV_PHRASE_PATH, "r") as phrase_file:
         for line in phrase_file:
@@ -69,11 +78,11 @@ def load_fixed_iv_phrases():
             phrase_text = re.sub(r"[^a-z \']+", "", phrase_text.lower())
             phrase_text = re.sub(r"  +", " ", phrase_text).strip()
             rows.append((phrase_id, phrase_text))
-            if len(rows) == FIXED_IV_PHRASE_COUNT:
+            if len(rows) == phrase_count:
                 break
-    if len(rows) != FIXED_IV_PHRASE_COUNT:
+    if len(rows) != phrase_count:
         raise ValueError(
-            f"Expected {FIXED_IV_PHRASE_COUNT} IV phrases in {IV_PHRASE_PATH}, "
+            f"Expected {phrase_count} IV phrases in {IV_PHRASE_PATH}, "
             f"found {len(rows)}"
         )
     return pd.DataFrame(
@@ -222,7 +231,7 @@ def perfect_click_df(n=8000):
     })
 
 
-def run_one(user_id, params, simulation_parameters=None):
+def run_one(user_id, params, simulation_parameters=None, language_model=None):
     # Output-only policy: retain every attempted phrase, including attempts that
     # terminate before reaching the old halfway-recording threshold.
     if simulation_parameters is None:
@@ -230,7 +239,12 @@ def run_one(user_id, params, simulation_parameters=None):
     params = {**simulation_parameters, **params}
     params["record_attempted_phrases"] = True
     sim = SimulatedUser()
-    sim.parameter_metrics(params, trials=1, verbose=False)
+    sim.parameter_metrics(
+        params,
+        trials=1,
+        verbose=False,
+        language_model=language_model,
+    )
     df = sim.result_df.copy()
     df["user_id"] = user_id
     return df
@@ -273,23 +287,36 @@ def write_summary(summary_rows, output_directory=OUT_DIR):
     return summary
 
 
-def prepare_study_inputs(output_directory):
+def prepare_study_inputs(output_directory, real_users=None, phrase_limit=None):
     """Prepare shared corpus, deterministic click schedules, and preflight data."""
     output_directory = os.fspath(output_directory)
     os.makedirs(output_directory, exist_ok=True)
-    phrase_df = load_fixed_iv_phrases()
+    selected_users = list(REAL_USERS if real_users is None else real_users)
+    if not selected_users:
+        raise ValueError("real_users must contain at least one user")
+    unknown_users = [
+        user_id for user_id in selected_users if user_id not in REAL_USERS
+    ]
+    if unknown_users:
+        raise ValueError(f"unknown real user(s): {', '.join(unknown_users)}")
+    if len(set(selected_users)) != len(selected_users):
+        raise ValueError("real_users must not contain duplicates")
+    phrase_count = (
+        FIXED_IV_PHRASE_COUNT if phrase_limit is None else phrase_limit
+    )
+    phrase_df = load_fixed_iv_phrases(phrase_count)
     phrase_df.to_csv(
         os.path.join(output_directory, "fixed_iv_phrase_corpus.csv"),
         index=False,
     )
 
     original_real_clicks = {
-        user_id: load_real_user_clicks(user_id) for user_id in REAL_USERS
+        user_id: load_real_user_clicks(user_id) for user_id in selected_users
     }
     maximum_click_budget = corpus_maximum_click_budget(phrase_df)
     real_clicks = {}
     bootstrap_metadata = {}
-    for user_id in REAL_USERS:
+    for user_id in selected_users:
         seed = bootstrap_seed_for_user(user_id)
         original = original_real_clicks[user_id]
         real_clicks[user_id] = block_bootstrap_click_stream(
@@ -310,7 +337,7 @@ def prepare_study_inputs(output_directory):
             **preflight_click_stream(user_id, real_clicks[user_id], phrase_df),
             **bootstrap_metadata[user_id],
         }
-        for user_id in REAL_USERS
+        for user_id in selected_users
     ]
     pd.DataFrame(sufficiency_rows).to_csv(
         os.path.join(output_directory, "click_stream_sufficiency.csv"),
@@ -318,6 +345,7 @@ def prepare_study_inputs(output_directory):
     )
     return {
         "phrase_df": phrase_df,
+        "real_users": selected_users,
         "real_clicks": real_clicks,
         "bootstrap_metadata": bootstrap_metadata,
         "sufficiency_rows": sufficiency_rows,
@@ -333,13 +361,26 @@ def run_full_study(
     simulation_parameters,
     output_directory,
     configuration_id,
+    language_model,
     study_inputs=None,
     write_outputs=True,
 ):
     """Run the complete study once for a supplied simulation configuration."""
+    if language_model is None:
+        raise ValueError("run_full_study requires a loaded language_model")
     simulation_parameters = dict(simulation_parameters)
     output_directory = os.fspath(output_directory)
     os.makedirs(output_directory, exist_ok=True)
+    if write_outputs:
+        Path(output_directory, "lm_config.json").write_text(
+            json.dumps(
+                language_model_metadata(language_model),
+                indent=2,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
     print("Writing results to", output_directory, flush=True)
     summary_rows = []
     user_result_frames = []
@@ -353,7 +394,7 @@ def run_full_study(
     print("\n===== CLICK-STREAM PREFLIGHT =====", flush=True)
     print(pd.DataFrame(sufficiency_rows).to_string(index=False), flush=True)
 
-    for report in sufficiency_rows:
+    for report_index, report in enumerate(sufficiency_rows):
         user_id = report["User"]
         print(f"\n===== USER {user_id} =====", flush=True)
         if not report["Minimum Sufficiency Passed"]:
@@ -368,6 +409,7 @@ def run_full_study(
                 user_id,
                 {"click_df": real_clicks[user_id], "phrase_df": phrase_df},
                 simulation_parameters,
+                language_model,
             )
             df["config_click_sampling_mode"] = CLICK_SAMPLING_MODE
             df["config_bootstrap_block_size"] = BOOTSTRAP_BLOCK_SIZE
@@ -379,7 +421,7 @@ def run_full_study(
             df["Configuration"] = configuration_id
             user_result_frames.append(df)
             updated_report = audit_click_stream_result(report, df, phrase_df)
-            sufficiency_rows[REAL_USERS.index(user_id)] = updated_report
+            sufficiency_rows[report_index] = updated_report
             summary = summarize_result(user_id, df, configuration_id)
             summary["Attempted All 30 Phrases"] = updated_report[
                 "Attempted All 30 Phrases"
@@ -404,7 +446,7 @@ def run_full_study(
                 )
             print(f"USER {user_id} done: {len(df)} phrases", flush=True)
         except Exception as e:
-            print(f"USER {user_id} FAILED: {e}", flush=True)
+            raise RuntimeError(f"USER {user_id} FAILED") from e
 
     configuration_sufficiency = [
         {"Configuration": configuration_id, **row} for row in sufficiency_rows
@@ -426,6 +468,7 @@ def run_full_study(
             "P",
             {"click_df": perfect_clicks, "phrase_df": phrase_df},
             simulation_parameters,
+            language_model,
         )
         df["config_click_sampling_mode"] = "synthetic_perfect"
         df["config_bootstrap_block_size"] = np.nan
@@ -451,7 +494,7 @@ def run_full_study(
             write_summary(summary_rows, output_directory)
         print(f"USER P done: {len(df)} phrases", flush=True)
     except Exception as e:
-        print(f"USER P FAILED: {e}", flush=True)
+        raise RuntimeError("USER P FAILED") from e
 
     user_results = (
         pd.concat(user_result_frames, ignore_index=True, sort=False)
@@ -479,11 +522,34 @@ def run_full_study(
     return {"summary": final_summary, "user_results": user_results}
 
 
-def main():
+def _build_parser():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--lm-model-path", type=Path, required=True)
+    parser.add_argument(
+        "--lm-device", choices=("mps", "cpu", "cuda"), default="mps"
+    )
+    parser.add_argument(
+        "--lm-precision", choices=("fp32", "fp16", "bf16"), default="fp32"
+    )
+    parser.add_argument("--lm-recognizer-nbest", type=int, default=1000)
+    parser.add_argument("--output-directory", type=Path, default=Path(OUT_DIR))
+    return parser
+
+
+def main(argv=None):
+    args = _build_parser().parse_args(argv)
+    language_model = load_local_language_model(
+        args.lm_model_path,
+        device=args.lm_device,
+        precision=args.lm_precision,
+        recognizer_nbest=args.lm_recognizer_nbest,
+    )
+    output_directory = args.output_directory.resolve()
     run_full_study(
         simulation_parameters=study_simulation_parameters(),
-        output_directory=OUT_DIR,
+        output_directory=output_directory,
         configuration_id=CONFIGURATION,
+        language_model=language_model,
     )
 
 

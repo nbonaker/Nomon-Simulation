@@ -43,13 +43,19 @@ class SimulatedPressTimeTests(unittest.TestCase):
 
 
 class FixedPeriodSimulationTests(unittest.TestCase):
+    @staticmethod
+    def _language_model():
+        return SimpleNamespace(
+            get_key_probs=lambda _context: [0.0] * len(kconfig.key_chars)
+        )
+
     def test_keyboard_constructs_all_clock_utilities_at_fixed_period(self):
         period = float(config.period_li[10])
-        with patch("OneClick_Text.keyboard.LanguageModel") as language_model:
-            language_model.return_value.get_key_probs.return_value = [
-                0.0
-            ] * len(kconfig.key_chars)
-            keyboard = Keyboard(None, {"fixed_clock_period_s": period})
+        keyboard = Keyboard(
+            None,
+            {"fixed_clock_period_s": period},
+            language_model=self._language_model(),
+        )
 
         self.assertAlmostEqual(keyboard.time_rotate, period)
         self.assertAlmostEqual(
@@ -59,17 +65,14 @@ class FixedPeriodSimulationTests(unittest.TestCase):
         self.assertAlmostEqual(keyboard.word_clock_util.time_rotate, period)
 
     def test_keyboard_supports_independent_space_and_enter_periods(self):
-        with patch("OneClick_Text.keyboard.LanguageModel") as language_model:
-            language_model.return_value.get_key_probs.return_value = [
-                0.0
-            ] * len(kconfig.key_chars)
-            keyboard = Keyboard(
-                None,
-                {
-                    "fixed_space_clock_period_s": 1.5,
-                    "fixed_enter_clock_period_s": 3.3,
-                },
-            )
+        keyboard = Keyboard(
+            None,
+            {
+                "fixed_space_clock_period_s": 1.5,
+                "fixed_enter_clock_period_s": 3.3,
+            },
+            language_model=self._language_model(),
+        )
 
         self.assertAlmostEqual(keyboard.time_rotate, 1.5)
         self.assertAlmostEqual(
@@ -80,7 +83,11 @@ class FixedPeriodSimulationTests(unittest.TestCase):
 
     def test_specialized_period_parameters_must_be_paired_and_not_mixed(self):
         with self.assertRaisesRegex(ValueError, "must be supplied together"):
-            Keyboard(None, {"fixed_space_clock_period_s": 1.5})
+            Keyboard(
+                None,
+                {"fixed_space_clock_period_s": 1.5},
+                language_model=self._language_model(),
+            )
         with self.assertRaisesRegex(ValueError, "cannot be combined"):
             Keyboard(
                 None,
@@ -89,6 +96,7 @@ class FixedPeriodSimulationTests(unittest.TestCase):
                     "fixed_space_clock_period_s": 1.5,
                     "fixed_enter_clock_period_s": 3.3,
                 },
+                language_model=self._language_model(),
             )
 
     def test_click_row_period_cannot_change_fixed_period(self):

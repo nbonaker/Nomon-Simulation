@@ -91,6 +91,9 @@ class WordAttemptSnapshotTests(unittest.TestCase):
         keyboard = Keyboard(
             None,
             parameters={"delay_learning_mode": "separate_space_enter"},
+            language_model=SimpleNamespace(
+                get_key_probs=lambda _context: [0.0] * len(kconfig.key_chars)
+            ),
         )
 
         self.assertIs(keyboard.bc.clock_inf.delay_model, keyboard.space_delay_model)
@@ -105,7 +108,6 @@ class WordAttemptSnapshotTests(unittest.TestCase):
         keyboard = Keyboard.__new__(Keyboard)
         clock_inf = SimpleNamespace(
             observations=[[0.0] * len(kconfig.key_chars)],
-            format_observations=lambda _chars: [],
         )
         keyboard.bc = SimpleNamespace(clock_inf=clock_inf)
         keyboard.context = ""
@@ -133,10 +135,12 @@ class WordAttemptSnapshotTests(unittest.TestCase):
     def test_adaptive_word_clocks_use_current_sigma_and_requested_priority(self):
         keyboard = Keyboard.__new__(Keyboard)
         space_delay_model = SimpleNamespace(sigma2=0.25)
-        enter_delay_model = SimpleNamespace(sigma2=0.01)
+        enter_delay_model = SimpleNamespace(
+            sigma2=0.01,
+            n_samples=config.bootstrap_n - 1,
+        )
         clock_inf = SimpleNamespace(
             observations=[[0.0] * len(kconfig.key_chars)],
-            format_observations=lambda _chars: [],
             delay_model=space_delay_model,
         )
         keyboard.bc = SimpleNamespace(clock_inf=clock_inf)
@@ -167,14 +171,32 @@ class WordAttemptSnapshotTests(unittest.TestCase):
 
         keyboard.update_word_list()
 
+        self.assertEqual(keyboard._adaptive_word_clock_limit(), 8)
+        self.assertEqual(
+            keyboard.valid_word_indices,
+            [
+                0,
+                kconfig.best_base_index,
+                3,
+                kconfig.best_base_index + 1,
+                6,
+                kconfig.best_base_index + 2,
+                kconfig.argmax_word_index,
+                kconfig.undo_word_index,
+            ],
+        )
+
+        enter_delay_model.n_samples = config.bootstrap_n
+        keyboard.update_word_list()
+
         self.assertEqual(keyboard._adaptive_word_clock_limit(), 6)
         self.assertEqual(
             keyboard.valid_word_indices,
             [
-                kconfig.best_base_index,
                 0,
-                kconfig.best_base_index + 1,
+                kconfig.best_base_index,
                 3,
+                kconfig.best_base_index + 1,
                 kconfig.argmax_word_index,
                 kconfig.undo_word_index,
             ],

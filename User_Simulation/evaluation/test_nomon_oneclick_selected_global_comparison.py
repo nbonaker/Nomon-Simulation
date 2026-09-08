@@ -180,18 +180,16 @@ class ConditionValidationTests(unittest.TestCase):
 
 
 class LanguageModelReliabilityTests(unittest.TestCase):
-    def test_oneclick_strict_mode_raises_instead_of_falling_back(self):
-        strict = LanguageModel({"strict_errors": True})
-        with patch.object(strict.session, "get", side_effect=OSError("offline")):
-            with self.assertRaisesRegex(RuntimeError, "character language-model"):
-                strict.get_key_probs("context")
-
-        permissive = LanguageModel()
-        with patch.object(permissive.session, "get", side_effect=OSError("offline")):
-            self.assertEqual(
-                len(permissive.get_key_probs("context")),
-                len(permissive.key_chars),
+    def test_oneclick_local_model_errors_are_not_silently_replaced(self):
+        model = SimpleNamespace(
+            predict_characters=lambda **_kwargs: (_ for _ in ()).throw(
+                RuntimeError("local inference failed")
             )
+        )
+        language_model = LanguageModel(model)
+
+        with self.assertRaisesRegex(RuntimeError, "local inference failed"):
+            language_model.get_key_probs("context")
 
     def test_imagineville_client_retries_transient_requests(self):
         lm = ImaginevilleLM()

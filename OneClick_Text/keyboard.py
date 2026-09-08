@@ -9,7 +9,6 @@ from OneClick_Core.broderclocks import BroderClocks
 from OneClick_Core.clock_inference_engine import UserDelayModel
 from OneClick_Core.clock_util import ClockUtil, SpacedArray, HourLocs
 from OneClick_Text import kconfig
-from OneClick_Text.language_model import LanguageModel
 
 
 def _logprob(item):
@@ -111,7 +110,7 @@ class WordClockUtil:
 
 class Keyboard:
 
-    def __init__(self, parent, parameters=None):
+    def __init__(self, parent, parameters=None, language_model=None):
         if parameters is None:
             parameters = {}
         self.parent = parent
@@ -202,10 +201,12 @@ class Keyboard:
         self.typed_versions = []     # undo stack: previous typed strings
         self.context = ""            # left context for the language model
 
-        # Language model
-        self.lm = LanguageModel(parameters.get("oneclick_lm_config"))
+        # One shared TextSlinger adapter is loaded by the study/sweep runner.
+        if language_model is None:
+            raise ValueError("Keyboard requires a loaded language_model")
+        self.lm = language_model
 
-        # Word-clock content for the current click prefix (rebuilt each API call):
+        # Word-clock content for the current click prefix (rebuilt each LM call):
         self.words_by_letter = {}    # next-letter -> [prefix completion text, ...] (<= n_pred)
         self.best_words = []         # EOW BEST decodings (exact click length), <= n_best
         self.argmax_word = ""        # literal per-click argmax decode (no API correction)
@@ -287,15 +288,14 @@ class Keyboard:
 
     def update_word_list(self):
         """
-        Based on oneclick/keyboard.js and update_inline_word_clocks(). Query the word API with the current observations and rebuild the word-clock
+        Based on oneclick/keyboard.js and update_inline_word_clocks(). Query the local language model with the current observations and rebuild the word-clock
         content (words_by_letter / best_words / argmax_word) and valid_word_indices.
         Then equispace the active word clocks. 
         """
         ci = self.bc.clock_inf
         obs = ci.observations
         obs_len = len(obs)
-        observations = ci.format_observations(kconfig.key_chars)
-        prefix, best = self.lm.get_word_predictions(self.context, observations)
+        prefix, best = self.lm.get_word_predictions(self.context, ci.observations)
 
         # Prefix completions -> letter cells, filed under the NEXT letter (charAt(obs_len)).
         # A completion no longer than the click prefix has no next letter -> skipped.
@@ -352,10 +352,10 @@ class Keyboard:
         if getattr(self, "word_clock_mode", "fixed") == "adaptive":
             prediction_priority = []
             for index in range(max(len(self.best_words), len(ranked_prefix_indices))):
-                if index < len(self.best_words):
-                    prediction_priority.append(kconfig.best_base_index + index)
                 if index < len(ranked_prefix_indices):
                     prediction_priority.append(ranked_prefix_indices[index])
+                if index < len(self.best_words):
+                    prediction_priority.append(kconfig.best_base_index + index)
             n_max = self._adaptive_word_clock_limit()
             valid = prediction_priority[: n_max - 2]
             valid.extend([kconfig.argmax_word_index, kconfig.undo_word_index])
@@ -380,6 +380,8 @@ class Keyboard:
         enter_delay_model = getattr(
             self, "enter_delay_model", self.bc.clock_inf.delay_model
         )
+        if enter_delay_model.n_samples < config.bootstrap_n:
+            return 8
         current_sigma = math.sqrt(enter_delay_model.sigma2)
         n_max = math.floor(
             self.word_clock_util.time_rotate
@@ -569,7 +571,7 @@ class Keyboard:
         self.bc.clock_inf.reset_observations()
         self.bc.latest_time = self.sim_time.time()
         self.place_letter_clocks()
-        # Clear word-clock content until the next API call.
+        # Clear word-clock content until the next local LM call.
         self.words_by_letter = {}
         self.best_words = []
         self.argmax_word = ""

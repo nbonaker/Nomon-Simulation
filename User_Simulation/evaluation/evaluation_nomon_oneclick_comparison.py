@@ -366,6 +366,7 @@ def run_oneclick(
     fixed_space_clock_period_s: float | None = None,
     fixed_enter_clock_period_s: float | None = None,
     strict_lm_errors: bool = False,
+    language_model=None,
 ) -> pd.DataFrame:
     sim = OneClickSimulatedUser()
     params = {
@@ -378,10 +379,6 @@ def run_oneclick(
         "undo_mode": undo_mode,
         "stop_phrase_on_failed_word": True,
         "perfect_letter_observations": perfect_letter_observations,
-        "oneclick_lm_config": {
-            "cache_dir": str(oneclick_cache_dir),
-            "strict_errors": bool(strict_lm_errors),
-        },
     }
     if fixed_clock_period_s is not None:
         params["fixed_clock_period_s"] = float(fixed_clock_period_s)
@@ -389,7 +386,12 @@ def run_oneclick(
         params["fixed_space_clock_period_s"] = float(fixed_space_clock_period_s)
     if fixed_enter_clock_period_s is not None:
         params["fixed_enter_clock_period_s"] = float(fixed_enter_clock_period_s)
-    sim.parameter_metrics(params, trials=1, verbose=verbose)
+    sim.parameter_metrics(
+        params,
+        trials=1,
+        verbose=verbose,
+        language_model=language_model,
+    )
     return sim.result_df.copy()
 
 

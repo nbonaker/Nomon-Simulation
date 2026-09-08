@@ -4,10 +4,13 @@ from pathlib import Path
 from unittest.mock import patch
 
 import pandas as pd
+from types import SimpleNamespace
 
 from OneClick_Simulation.examples.text_simulation.run_config_sweep import (
     SUMMARY_COLUMNS,
     SweepValues,
+    generate_config_combinations,
+    main,
     run_config_sweep,
 )
 
@@ -52,13 +55,26 @@ class ConfigSweepExecutionTests(unittest.TestCase):
                     values,
                     dry_run=False,
                     output_directory=temporary_directory,
+                    language_model=SimpleNamespace(
+                        recognizer_nbest=1000,
+                        word_search_values={},
+                    ),
                 )
 
             self.assertEqual(len(configs), 2)
             prepare_inputs.assert_called_once_with(Path(temporary_directory).resolve())
             self.assertEqual(study_runner.call_count, 2)
+            shared_models = {
+                id(call.kwargs["language_model"])
+                for call in study_runner.call_args_list
+            }
+            self.assertEqual(len(shared_models), 1)
             root = Path(temporary_directory)
             self.assertTrue((root / "sweep_config.csv").is_file())
+            self.assertTrue((root / "sweep_report.md").is_file())
+            report = (root / "sweep_report.md").read_text(encoding="utf-8")
+            self.assertIn("Completion-first top configurations", report)
+            self.assertIn("Synthetic user P (kept separate)", report)
             self.assertFalse((root / "all_results.csv").exists())
             results = pd.read_csv(root / "phrase_results.csv")
             self.assertIn("diagnostic", results.columns)
@@ -82,6 +98,34 @@ class ConfigSweepExecutionTests(unittest.TestCase):
             self.assertEqual(first_real_mean["Clicks per Character"], 0.75)
             self.assertEqual(first_real_mean["Active Typing Time per Phrase"], 9.0)
             self.assertFalse(any(path.is_dir() for path in root.iterdir()))
+
+    def test_smoke_cli_uses_small_factorial_scope(self):
+        module = (
+            "OneClick_Simulation.examples.text_simulation.run_config_sweep"
+        )
+        with patch(f"{module}.run_config_sweep") as sweep_runner:
+            main(["--smoke", "--lm-model-path", "/tmp/model"])
+
+        options = sweep_runner.call_args.kwargs
+        configs = generate_config_combinations(options["values"])
+        self.assertEqual(len(configs), 4)
+        self.assertEqual(options["study_users"], ("A",))
+        self.assertEqual(options["phrase_limit"], 1)
+        self.assertFalse(options["dry_run"])
+
+    def test_pilot_cli_uses_screening_factorial_scope(self):
+        module = (
+            "OneClick_Simulation.examples.text_simulation.run_config_sweep"
+        )
+        with patch(f"{module}.run_config_sweep") as sweep_runner:
+            main(["--pilot", "--lm-model-path", "/tmp/model"])
+
+        options = sweep_runner.call_args.kwargs
+        configs = generate_config_combinations(options["values"])
+        self.assertEqual(len(configs), 48)
+        self.assertEqual(options["study_users"], ("A",))
+        self.assertEqual(options["phrase_limit"], 3)
+        self.assertFalse(options["dry_run"])
 
 
 if __name__ == "__main__":

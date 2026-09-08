@@ -17,6 +17,6 @@ sigma2_min = 0.0025     # minimum variance floor
 bootstrap_n = 3         # samples before using learned offset
 use_click_offset = False   # whether to apply mu offset on word selection
 
-# API config
+# Prediction pool sizes
 num_prefix_fetch = 25   # pool size for prefix word predictions
 num_best_fetch = 10     # pool size for BEST (error-corrected) decodings

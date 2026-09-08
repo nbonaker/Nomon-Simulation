@@ -95,14 +95,6 @@ class ClockInference:
         self.observations.append(row)
         return target_time_in
 
-    def format_observations(self, key_chars):
-        """Convert observations to the distribs format expected by the word API."""
-        result = []
-        for row in self.observations:
-            distrib = [{"text": key_chars[i], "logProb": float(row[i])} for i in range(len(key_chars))]
-            result.append({"distrib": distrib})
-        return result
-
     def reset_observations(self):
         self.observations = []
         self.cscores = [0.0] * len(self.clocks_li)

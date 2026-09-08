@@ -22,9 +22,10 @@ import requests
 
 from OneClick_Core import config as oneclick_config
 from OneClick_Text import kconfig
-from OneClick_Text.language_model import WORD_API_URL
 from User_Simulation.evaluation.evaluation_baseline import TEXT_DATA_ROOT, write_json
 
+
+WORD_API_URL = "https://api.imagineville.org/rec/distrib"
 
 PHRASE_STATUS_PREDICTION = "prediction_reachable"
 PHRASE_STATUS_FALLBACK = "fallback_only"
