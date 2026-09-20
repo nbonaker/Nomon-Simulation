@@ -370,6 +370,22 @@ def write_sweep_report(output_root: Path, lm_metadata: dict) -> Path:
                 ["Precision", lm_metadata.get("precision")],
                 ["TextSlinger version", lm_metadata.get("textslinger_version")],
                 ["Recognizer n-best", lm_metadata.get("recognizer_nbest")],
+                [
+                    "Character cache hits / misses",
+                    "{hits} / {misses}".format(
+                        **lm_metadata.get("result_cache", {}).get(
+                            "character", {"hits": 0, "misses": 0}
+                        )
+                    ),
+                ],
+                [
+                    "Word cache hits / misses",
+                    "{hits} / {misses}".format(
+                        **lm_metadata.get("result_cache", {}).get(
+                            "word", {"hits": 0, "misses": 0}
+                        )
+                    ),
+                ],
             ],
         ),
     ]
@@ -702,6 +718,11 @@ def run_config_sweep(
     for summary_path in (user_summary_path, config_summary_path):
         if not summary_path.exists():
             pd.DataFrame(columns=SUMMARY_COLUMNS).to_csv(summary_path, index=False)
+    lm_metadata = language_model_metadata(language_model)
+    (output_root / "lm_config.json").write_text(
+        json.dumps(lm_metadata, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
     report_path = write_sweep_report(output_root, lm_metadata)
     print(f"Sweep report: {report_path}", flush=True)
     return configs

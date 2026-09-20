@@ -6,6 +6,7 @@ import importlib.metadata
 import json
 import math
 import os
+from collections import OrderedDict
 from dataclasses import asdict
 from pathlib import Path
 import subprocess
@@ -30,6 +31,8 @@ from textslinger.helpers import Device, ModelQuantization, Precision
 
 LOG_CLAMP_MIN = math.log(0.01)
 DEFAULT_RECOGNIZER_NBEST = 1000
+DEFAULT_CHARACTER_RESULT_CACHE_SIZE = 4096
+DEFAULT_WORD_RESULT_CACHE_SIZE = 20000
 WORD_SPELLING_CHARACTERS = tuple(kconfig.key_chars)
 
 DEFAULT_WORD_SEARCH = {
@@ -102,6 +105,8 @@ class LanguageModel:
         *,
         recognizer_nbest: int = DEFAULT_RECOGNIZER_NBEST,
         word_search: dict[str, Any] | None = None,
+        character_cache_size: int = DEFAULT_CHARACTER_RESULT_CACHE_SIZE,
+        word_cache_size: int = DEFAULT_WORD_RESULT_CACHE_SIZE,
     ):
         if model is None:
             raise ValueError("a loaded TextSlinger model is required")
@@ -112,6 +117,14 @@ class LanguageModel:
         self.model = model
         self.key_chars = tuple(kconfig.key_chars)
         self.recognizer_nbest = int(recognizer_nbest)
+        self.character_cache_size = max(0, int(character_cache_size))
+        self.word_cache_size = max(0, int(word_cache_size))
+        self._character_cache = OrderedDict()
+        self._word_cache = OrderedDict()
+        self.character_cache_hits = 0
+        self.character_cache_misses = 0
+        self.word_cache_hits = 0
+        self.word_cache_misses = 0
         search_values = {**DEFAULT_WORD_SEARCH, **(word_search or {})}
         self.word_search_values = search_values
         self.word_search_config = ConfigPredictWordsSubword(**search_values)
@@ -123,11 +136,57 @@ class LanguageModel:
             complete_endpoint_probability=0.5,
         )
 
+    @staticmethod
+    def _cache_get(cache: OrderedDict, key: Any) -> Any:
+        try:
+            value = cache.pop(key)
+        except KeyError:
+            return None
+        cache[key] = value
+        return value
+
+    @staticmethod
+    def _cache_put(
+        cache: OrderedDict,
+        key: Any,
+        value: Any,
+        max_size: int,
+    ) -> None:
+        if max_size <= 0:
+            return
+        cache.pop(key, None)
+        cache[key] = value
+        if len(cache) > max_size:
+            cache.popitem(last=False)
+
+    def result_cache_stats(self) -> dict[str, dict[str, int]]:
+        """Return per-adapter result-cache occupancy and hit counters."""
+        return {
+            "character": {
+                "max_entries": self.character_cache_size,
+                "entries": len(self._character_cache),
+                "hits": self.character_cache_hits,
+                "misses": self.character_cache_misses,
+            },
+            "word": {
+                "max_entries": self.word_cache_size,
+                "entries": len(self._word_cache),
+                "hits": self.word_cache_hits,
+                "misses": self.word_cache_misses,
+            },
+        }
+
     def get_key_probs(self, context: str) -> list[float]:
         """Return normalized next-character log masses in QuickClick key order."""
         uniform = [-math.log(len(self.key_chars))] * len(self.key_chars)
         if not context:
             return uniform
+
+        cached = self._cache_get(self._character_cache, context)
+        if cached is not None:
+            self.character_cache_hits += 1
+            return list(cached)
+        self.character_cache_misses += 1
 
         result = self.model.predict_characters(
             left_context=context,
@@ -146,7 +205,14 @@ class LanguageModel:
         log_normalizer = _log_add_exp(values)
         if log_normalizer == float("-inf"):
             return uniform
-        return [value - log_normalizer for value in values]
+        normalized = tuple(value - log_normalizer for value in values)
+        self._cache_put(
+            self._character_cache,
+            context,
+            normalized,
+            self.character_cache_size,
+        )
+        return list(normalized)
 
     @staticmethod
     def _input_events(
@@ -182,6 +248,26 @@ class LanguageModel:
     ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
         """Return autocomplete and exact-length words from one mixed search."""
         events = self._input_events(observations)
+        observation_key = tuple(
+            tuple(score for _, score in event.alternatives) for event in events
+        )
+        cache_key = (left_context, observation_key)
+        cached = self._cache_get(self._word_cache, cache_key)
+        if cached is not None:
+            self.word_cache_hits += 1
+            cached_prefix, cached_best = cached
+            return (
+                [
+                    {"text": text, "logprob": logprob}
+                    for text, logprob in cached_prefix
+                ],
+                [
+                    {"text": text, "logprob": logprob}
+                    for text, logprob in cached_best
+                ],
+            )
+        self.word_cache_misses += 1
+
         result = self.model.predict_words(
             left_context=left_context,
             input_sequence=events,
@@ -219,6 +305,16 @@ class LanguageModel:
                 and len(best) == config.num_best_fetch
             ):
                 break
+        cached_result = (
+            tuple((item["text"], item["logprob"]) for item in prefix),
+            tuple((item["text"], item["logprob"]) for item in best),
+        )
+        self._cache_put(
+            self._word_cache,
+            cache_key,
+            cached_result,
+            self.word_cache_size,
+        )
         return prefix, best
 
 
@@ -327,6 +423,24 @@ def language_model_metadata(language_model: LanguageModel) -> dict[str, Any]:
                 getattr(language_model, "model", None), "cache_max_bytes", None
             ),
         },
+        "result_cache": (
+            language_model.result_cache_stats()
+            if hasattr(language_model, "result_cache_stats")
+            else {
+                "character": {
+                    "max_entries": 0,
+                    "entries": 0,
+                    "hits": 0,
+                    "misses": 0,
+                },
+                "word": {
+                    "max_entries": 0,
+                    "entries": 0,
+                    "hits": 0,
+                    "misses": 0,
+                },
+            }
+        ),
         "input_channel": {
             "channel_insertion_probability": 0.0,
             "channel_deletion_probability": 0.0,

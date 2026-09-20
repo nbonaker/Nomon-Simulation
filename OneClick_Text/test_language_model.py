@@ -114,5 +114,38 @@ class LocalLanguageModelTests(unittest.TestCase):
         self.assertFalse(model.word_calls)
 
 
+    def test_character_predictions_are_cached_by_context(self):
+        model = FakeTextSlingerModel()
+        model.character_predictions = [
+            _prediction(character="a", lower=math.log(0.8)),
+        ]
+        adapter = LanguageModel(model)
+
+        first = adapter.get_key_probs("same context ")
+        first[0] = 123.0
+        second = adapter.get_key_probs("same context ")
+
+        self.assertEqual(len(model.character_calls), 1)
+        self.assertNotEqual(second[0], 123.0)
+        self.assertEqual(adapter.result_cache_stats()["character"]["hits"], 1)
+
+    def test_word_predictions_are_cached_by_exact_context_and_observations(self):
+        model = FakeTextSlingerModel()
+        model.word_predictions = [_prediction(word="cat", lower=-0.1)]
+        adapter = LanguageModel(model)
+        rows = [[0.0] * len(kconfig.key_chars)]
+
+        first, _ = adapter.get_word_predictions("left ", rows)
+        first[0]["text"] = "changed"
+        second, _ = adapter.get_word_predictions("left ", rows)
+        adapter.get_word_predictions("different ", rows)
+
+        self.assertEqual(second[0]["text"], "cat")
+        self.assertEqual(len(model.word_calls), 2)
+        stats = adapter.result_cache_stats()["word"]
+        self.assertEqual(stats["hits"], 1)
+        self.assertEqual(stats["misses"], 2)
+
+
 if __name__ == "__main__":
     unittest.main()
