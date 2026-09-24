@@ -166,6 +166,39 @@ class LocalLanguageModelTests(unittest.TestCase):
         self.assertNotEqual(second[0], 123.0)
         self.assertEqual(adapter.result_cache_stats()["character"]["hits"], 1)
 
+    def test_character_transition_matrix_is_ordered_cached_and_defensive(self):
+        model = FakeTextSlingerModel()
+        adapter = LanguageModel(model)
+        requested_contexts = []
+
+        def key_probs(context):
+            requested_contexts.append(context)
+            source_index = kconfig.key_chars.index(context[-1])
+            return [0.0 if index == source_index else -100.0 for index in range(27)]
+
+        with patch.object(adapter, "get_key_probs", side_effect=key_probs):
+            first = adapter.get_character_transition_log_probs("left ")
+            first[0][0] = 123.0
+            second = adapter.get_character_transition_log_probs("left ")
+            adapter.get_character_transition_log_probs("other ")
+
+        alphabet_size = len(kconfig.key_chars)
+        self.assertEqual(len(first), alphabet_size)
+        self.assertTrue(all(len(row) == alphabet_size for row in first))
+        for source_index, row in enumerate(second):
+            expected = [
+                0.0 if index == source_index else -100.0
+                for index in range(alphabet_size)
+            ]
+            self.assertEqual(row, expected)
+        self.assertEqual(second[0][0], 0.0)
+        self.assertEqual(requested_contexts[:alphabet_size], [
+            "left " + character for character in kconfig.key_chars
+        ])
+        stats = adapter.result_cache_stats()["character_transition"]
+        self.assertEqual((stats["hits"], stats["misses"]), (1, 2))
+
+
     def test_word_predictions_are_cached_by_exact_context_and_observations(self):
         model = FakeTextSlingerModel()
         model.word_predictions = [_prediction(word="cat", lower=-0.1)]

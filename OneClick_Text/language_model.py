@@ -41,6 +41,7 @@ NGRAM_BACKEND = "ngram"
 SUPPORTED_BACKENDS = (CAUSAL_SUBWORD_BACKEND, NGRAM_BACKEND)
 DEFAULT_RECOGNIZER_NBEST = 1000
 DEFAULT_CHARACTER_RESULT_CACHE_SIZE = 4096
+DEFAULT_CHARACTER_TRANSITION_CACHE_SIZE = 4096
 DEFAULT_WORD_RESULT_CACHE_SIZE = 20000
 WORD_SPELLING_CHARACTERS = tuple(kconfig.key_chars)
 NGRAM_MODEL_ALPHABET = tuple("abcdefghijklmnopqrstuvwxyz '.,?!")
@@ -140,6 +141,7 @@ class LanguageModel:
         recognizer_nbest: int = DEFAULT_RECOGNIZER_NBEST,
         word_search: dict[str, Any] | None = None,
         character_cache_size: int = DEFAULT_CHARACTER_RESULT_CACHE_SIZE,
+        character_transition_cache_size: int = DEFAULT_CHARACTER_TRANSITION_CACHE_SIZE,
         word_cache_size: int = DEFAULT_WORD_RESULT_CACHE_SIZE,
     ):
         if model is None:
@@ -159,11 +161,17 @@ class LanguageModel:
         self.key_chars = tuple(kconfig.key_chars)
         self.recognizer_nbest = int(recognizer_nbest)
         self.character_cache_size = max(0, int(character_cache_size))
+        self.character_transition_cache_size = max(
+            0, int(character_transition_cache_size)
+        )
         self.word_cache_size = max(0, int(word_cache_size))
         self._character_cache = OrderedDict()
+        self._character_transition_cache = OrderedDict()
         self._word_cache = OrderedDict()
         self.character_cache_hits = 0
         self.character_cache_misses = 0
+        self.character_transition_cache_hits = 0
+        self.character_transition_cache_misses = 0
         self.word_cache_hits = 0
         self.word_cache_misses = 0
         if backend == NGRAM_BACKEND:
@@ -217,6 +225,12 @@ class LanguageModel:
                 "hits": self.character_cache_hits,
                 "misses": self.character_cache_misses,
             },
+            "character_transition": {
+                "max_entries": self.character_transition_cache_size,
+                "entries": len(self._character_transition_cache),
+                "hits": self.character_transition_cache_hits,
+                "misses": self.character_transition_cache_misses,
+            },
             "word": {
                 "max_entries": self.word_cache_size,
                 "entries": len(self._word_cache),
@@ -262,6 +276,36 @@ class LanguageModel:
             self.character_cache_size,
         )
         return list(normalized)
+
+    def get_character_transition_log_probs(
+        self,
+        context: str,
+    ) -> list[list[float]]:
+        """Return P(next character | context + previous character) in key order."""
+        cached = self._cache_get(self._character_transition_cache, context)
+        if cached is not None:
+            self.character_transition_cache_hits += 1
+            return [list(row) for row in cached]
+        self.character_transition_cache_misses += 1
+
+        matrix = tuple(
+            tuple(self.get_key_probs(context + previous_character))
+            for previous_character in self.key_chars
+        )
+        expected_size = len(self.key_chars)
+        if len(matrix) != expected_size or any(
+            len(row) != expected_size for row in matrix
+        ):
+            raise ValueError(
+                "character transition matrix must match the QuickClick alphabet"
+            )
+        self._cache_put(
+            self._character_transition_cache,
+            context,
+            matrix,
+            self.character_transition_cache_size,
+        )
+        return [list(row) for row in matrix]
 
     @staticmethod
     def _input_events(

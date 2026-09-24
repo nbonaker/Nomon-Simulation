@@ -37,6 +37,9 @@ ALGORITHM_CONDITION_DESCRIPTIONS = {
         "Enable learned Enter-offset compensation with independent Space and "
         "Enter timing models"
     ),
+    "dynamic_character_rephasing": (
+        "Rebuild character-clock phases after every Space observation"
+    ),
     **{
         f"adaptive_sigma_{margin:.1f}".replace(".", "_"): (
             "Adaptive BEST-first word clocks with "
@@ -51,6 +54,7 @@ ALGORITHM_CONDITION_LABELS = {
     "separate_space_enter_models": "Separate models",
     "adaptive_word_clocks": "Adaptive clocks",
     "combined_offset_separate_models": "Offset + separate models",
+    "dynamic_character_rephasing": "Dynamic character rephasing",
     **{
         f"adaptive_sigma_{margin:.1f}".replace(".", "_"): (
             f"Adaptive k={margin:.1f}"
@@ -62,6 +66,7 @@ ALGORITHM_CONDITION_LABELS = {
 CONFIG_COLUMNS = [
     "config_id",
     "algorithm_condition",
+    "character_clock_mode",
     "clock_period",
     "use_click_offset",
     "delay_learning_mode",
@@ -92,10 +97,12 @@ class SweepConfig:
     word_clock_mode: str
     prediction_priority_mode: str
     sigma_margin: Optional[float]
+    character_clock_mode: str = "fixed"
 
     def simulation_parameters(self) -> dict:
         """Translate this sweep row into parameters accepted by SimulatedUser."""
         parameters = {
+            "character_clock_mode": self.character_clock_mode,
             "use_click_offset": self.use_click_offset,
             "delay_learning_mode": self.delay_learning_mode,
             "word_clock_mode": self.word_clock_mode,
@@ -120,6 +127,7 @@ def baseline_config() -> SweepConfig:
         word_clock_mode="fixed",
         prediction_priority_mode="legacy",
         sigma_margin=None,
+        character_clock_mode="fixed",
     )
 
 
@@ -163,10 +171,30 @@ def algorithm_experiment_configs() -> list[SweepConfig]:
             prediction_priority_mode="legacy",
             sigma_margin=None,
         ),
+        SweepConfig(
+            algorithm_condition="dynamic_character_rephasing",
+            clock_period=BASELINE_CLOCK_PERIOD,
+            use_click_offset=False,
+            delay_learning_mode="enter_only",
+            word_clock_mode="fixed",
+            prediction_priority_mode="legacy",
+            sigma_margin=None,
+            character_clock_mode="dynamic",
+        ),
     ]
     for config in configs:
         config.simulation_parameters()
     return configs
+
+
+def dynamic_rephasing_experiment_configs() -> list[SweepConfig]:
+    """Return the frozen baseline and isolated dynamic character rephasing."""
+    dynamic_config = next(
+        config
+        for config in algorithm_experiment_configs()
+        if config.algorithm_condition == "dynamic_character_rephasing"
+    )
+    return [baseline_config(), dynamic_config]
 
 
 def sigma_margin_experiment_configs() -> list[SweepConfig]:
@@ -830,7 +858,15 @@ def _build_parser() -> argparse.ArgumentParser:
     mode.add_argument(
         "--run",
         action="store_true",
-        help="Run all five algorithm conditions on the complete study corpus",
+        help="Run all six algorithm conditions on the complete study corpus",
+    )
+    mode.add_argument(
+        "--dynamic-rephasing",
+        action="store_true",
+        help=(
+            "Run the frozen baseline and dynamic character-clock rephasing "
+            "on the complete study corpus"
+        ),
     )
     mode.add_argument(
         "--sigma-sweep",
@@ -851,7 +887,7 @@ def _build_parser() -> argparse.ArgumentParser:
     mode.add_argument(
         "--smoke",
         action="store_true",
-        help="Run all five algorithm conditions for user A and P on one phrase",
+        help="Run all six algorithm conditions for user A on one phrase",
     )
     parser.add_argument(
         "--output-directory",
@@ -878,6 +914,11 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
         study_users = None
         phrase_limit = None
         output_label = "baseline"
+    elif args.dynamic_rephasing:
+        configs = dynamic_rephasing_experiment_configs()
+        study_users = None
+        phrase_limit = None
+        output_label = "character-rephasing-study"
     elif args.sigma_sweep:
         configs = sigma_margin_experiment_configs()
         study_users = None
@@ -895,7 +936,13 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
         output_label = "algorithm-study"
 
     output_directory = args.output_directory
-    should_run = args.run or args.sigma_sweep or args.baseline or args.smoke
+    should_run = (
+        args.run
+        or args.dynamic_rephasing
+        or args.sigma_sweep
+        or args.baseline
+        or args.smoke
+    )
     if should_run and output_directory is None:
         timestamp = datetime.now().strftime("%m_%d_%Y-%H_%M_%S")
         output_directory = str(

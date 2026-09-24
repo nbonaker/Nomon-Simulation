@@ -18,9 +18,8 @@ class BroderClocks:
         time_diff = time_in - self.latest_time
         self.latest_time = time_in
         target_time_in = self.clock_inf.add_click(time_diff, target_index)
-        # NOTE: letter clocks are NOT respaced per press (cf. oneclick/broderclocks.js
-        # select(), which only adds the click). They are placed once per word from the
-        # LM letter prior (Keyboard.place_letter_clocks) and then just tick.
+        # Post-observation rephasing, when enabled, is owned by Keyboard so test-only
+        # observation replacement happens before the phases are rebuilt.
         return target_time_in
 
     def init_follow_up(self):

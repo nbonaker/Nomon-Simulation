@@ -22,6 +22,16 @@ def _logprob(item):
 def _argmax(row):
     return max(range(len(row)), key=lambda i: row[i])
 
+def _log_add_exp(values):
+    """Return log(sum(exp(value))) while preserving finite rankings."""
+    maximum = max(values)
+    if maximum == float("-inf"):
+        return maximum
+    return maximum + math.log(
+        sum(math.exp(value - maximum) for value in values)
+    )
+
+
 
 @dataclass
 class WordAttemptSnapshot:
@@ -130,6 +140,11 @@ class Keyboard:
                 "delay_learning_mode must be 'enter_only' or "
                 "'separate_space_enter'"
             )
+        self.character_clock_mode = parameters.get("character_clock_mode", "fixed")
+        if self.character_clock_mode not in {"fixed", "dynamic"}:
+            raise ValueError(
+                "character_clock_mode must be 'fixed' or 'dynamic'"
+            )
         self.word_clock_mode = parameters.get("word_clock_mode", "fixed")
         if self.word_clock_mode not in {"fixed", "adaptive"}:
             raise ValueError("word_clock_mode must be 'fixed' or 'adaptive'")
@@ -221,6 +236,9 @@ class Keyboard:
         self.best_words = []         # EOW BEST decodings (exact click length), <= n_best
         self.argmax_word = ""        # literal per-click argmax decode (no API correction)
         self.valid_word_indices = [] # populated prefix slots + best slots + argmax + undo
+        self._character_transition_log_probs = None
+        self._last_rephased_observation_count = 0
+        self.character_rephase_count = 0
 
         # Letter BroderClocks
         self.bc = BroderClocks(self)
@@ -262,6 +280,67 @@ class Keyboard:
             ci.cscores[idx] = key_probs[i] if i < len(key_probs) else 0.0
         ci.update_sorted_inds()
         ci.clock_util.update_curhours(ci.sorted_inds)
+
+    def _rephase_letter_clocks(self):
+        """Rebuild character phases from the newest Space observation."""
+        if getattr(self, "character_clock_mode", "fixed") != "dynamic":
+            return False
+
+        ci = self.bc.clock_inf
+        observation_count = len(ci.observations)
+        last_count = getattr(self, "_last_rephased_observation_count", 0)
+        if observation_count == 0 or observation_count <= last_count:
+            return False
+
+        latest_observation = ci.observations[-1]
+        alphabet_size = len(ci.clocks_li)
+        if len(latest_observation) != alphabet_size:
+            raise ValueError(
+                "latest Space observation must match the character alphabet"
+            )
+
+        transition_matrix = getattr(
+            self, "_character_transition_log_probs", None
+        )
+        if transition_matrix is None:
+            transition_matrix = self.lm.get_character_transition_log_probs(
+                self.context
+            )
+            self._character_transition_log_probs = transition_matrix
+        if len(transition_matrix) != alphabet_size or any(
+            len(row) != alphabet_size for row in transition_matrix
+        ):
+            raise ValueError(
+                "character transition matrix must match the character alphabet"
+            )
+
+        scores = []
+        for next_index in range(alphabet_size):
+            terms = []
+            for previous_index in range(alphabet_size):
+                observation = float(latest_observation[previous_index])
+                transition = float(
+                    transition_matrix[previous_index][next_index]
+                )
+                if any(
+                    math.isnan(value) or value == float("inf")
+                    for value in (observation, transition)
+                ):
+                    raise ValueError("character rephasing scores must be valid")
+                terms.append(observation + transition)
+            scores.append(_log_add_exp(terms))
+
+        for index, score in enumerate(scores):
+            ci.cscores[index] = score
+        ci.sorted_inds = sorted(
+            ci.clocks_li, key=lambda index: (-ci.cscores[index], index)
+        )
+        ci.clock_util.update_curhours(ci.sorted_inds)
+        self._last_rephased_observation_count = observation_count
+        self.character_rephase_count = getattr(
+            self, "character_rephase_count", 0
+        ) + 1
+        return True
 
     # ------------------------------------------------------------------
     # Clock advancement (called by SimulatedUser before each press)
@@ -305,6 +384,7 @@ class Keyboard:
         ci = self.bc.clock_inf
         obs = ci.observations
         obs_len = len(obs)
+        self._rephase_letter_clocks()
         prefix, best = self.lm.get_word_predictions(self.context, ci.observations)
 
         # Prefix completions -> letter cells, filed under the NEXT letter (charAt(obs_len)).
@@ -584,6 +664,8 @@ class Keyboard:
     def _reset_letter_round(self):
         """Clear observations and re-place letter clocks for the next word."""
         self._pending_delay_samples = []
+        self._character_transition_log_probs = None
+        self._last_rephased_observation_count = 0
         self.bc.clock_inf.reset_observations()
         self.bc.latest_time = self.sim_time.time()
         self.place_letter_clocks()

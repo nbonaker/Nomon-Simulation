@@ -16,6 +16,7 @@ from OneClick_Simulation.examples.text_simulation.run_config_sweep import (
     SUMMARY_COLUMNS,
     algorithm_experiment_configs,
     baseline_config,
+    dynamic_rephasing_experiment_configs,
     main,
     run_config_sweep,
     sigma_margin_experiment_configs,
@@ -60,6 +61,7 @@ class ConfigSweepExecutionTests(unittest.TestCase):
                 "separate_space_enter_models",
                 "adaptive_word_clocks",
                 "combined_offset_separate_models",
+                "dynamic_character_rephasing",
             ],
         )
         config = configs[0]
@@ -69,8 +71,9 @@ class ConfigSweepExecutionTests(unittest.TestCase):
         self.assertEqual(config.word_clock_mode, "fixed")
         self.assertEqual(config.prediction_priority_mode, "legacy")
         self.assertIsNone(config.sigma_margin)
+        self.assertEqual(config.character_clock_mode, "fixed")
 
-        offset, separate, adaptive, combined = configs[1:]
+        offset, separate, adaptive, combined, dynamic = configs[1:]
         self.assertTrue(offset.use_click_offset)
         self.assertEqual(offset.delay_learning_mode, "enter_only")
         self.assertEqual(offset.word_clock_mode, "fixed")
@@ -87,6 +90,10 @@ class ConfigSweepExecutionTests(unittest.TestCase):
         self.assertEqual(combined.word_clock_mode, "fixed")
         self.assertEqual(combined.prediction_priority_mode, "legacy")
         self.assertIsNone(combined.sigma_margin)
+        self.assertEqual(dynamic.character_clock_mode, "dynamic")
+        self.assertEqual(dynamic.simulation_parameters(), {
+            **config.simulation_parameters(), "character_clock_mode": "dynamic"
+        })
         self.assertTrue(
             all(
                 config.prediction_priority_mode == "legacy"
@@ -96,7 +103,37 @@ class ConfigSweepExecutionTests(unittest.TestCase):
         self.assertTrue(
             all(config.clock_period == BASELINE_CLOCK_PERIOD for config in configs)
         )
+        self.assertTrue(all(
+            item.character_clock_mode == "fixed"
+            for item in configs[:-1]
+        ))
 
+
+    def test_dynamic_rephasing_scope_is_a_paired_full_corpus_comparison(self):
+        configs = dynamic_rephasing_experiment_configs()
+        self.assertEqual(
+            [config.algorithm_condition for config in configs],
+            ["baseline", "dynamic_character_rephasing"],
+        )
+        self.assertEqual(configs[0].character_clock_mode, "fixed")
+        self.assertEqual(configs[1].character_clock_mode, "dynamic")
+
+        module = (
+            "OneClick_Simulation.examples.text_simulation.run_config_sweep"
+        )
+        with patch(f"{module}.run_config_sweep") as sweep_runner:
+            main(["--dynamic-rephasing", "--lm-model-path", "/tmp/model"])
+
+        options = sweep_runner.call_args.kwargs
+        self.assertEqual(len(options["configs"]), 2)
+        self.assertEqual(
+            [config.algorithm_condition for config in options["configs"]],
+            ["baseline", "dynamic_character_rephasing"],
+        )
+        self.assertIsNone(options["study_users"])
+        self.assertIsNone(options["phrase_limit"])
+        self.assertFalse(options["dry_run"])
+        self.assertIn("character-rephasing-study-", options["output_directory"])
     def test_baseline_cli_pins_ngram_inputs_and_writes_manifest(self):
         module = (
             "OneClick_Simulation.examples.text_simulation.run_config_sweep"
@@ -239,7 +276,7 @@ class ConfigSweepExecutionTests(unittest.TestCase):
 
         options = sweep_runner.call_args.kwargs
         configs = options["configs"]
-        self.assertEqual(len(configs), 5)
+        self.assertEqual(len(configs), 6)
         self.assertEqual(options["study_users"], ("A",))
         self.assertEqual(options["phrase_limit"], 1)
         self.assertFalse(options["dry_run"])
@@ -255,7 +292,7 @@ class ConfigSweepExecutionTests(unittest.TestCase):
 
         options = sweep_runner.call_args.kwargs
         configs = options["configs"]
-        self.assertEqual(len(configs), 5)
+        self.assertEqual(len(configs), 6)
         self.assertIsNone(options["study_users"])
         self.assertIsNone(options["phrase_limit"])
         self.assertFalse(options["dry_run"])

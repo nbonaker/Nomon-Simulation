@@ -87,6 +87,114 @@ def recovery_sim(enter_results):
 
 
 class WordAttemptSnapshotTests(unittest.TestCase):
+    def test_fixed_character_clocks_do_not_rephase_after_space(self):
+        alphabet_size = len(kconfig.key_chars)
+        transition_calls = []
+        language_model = SimpleNamespace(
+            get_key_probs=lambda _context: [0.0] * alphabet_size,
+            get_character_transition_log_probs=lambda context: (
+                transition_calls.append(context)
+                or [[0.0] * alphabet_size for _ in range(alphabet_size)]
+            ),
+            get_word_predictions=lambda _context, _observations: ([], []),
+        )
+        keyboard = Keyboard(
+            None,
+            parameters={"character_clock_mode": "fixed"},
+            language_model=language_model,
+        )
+        initial_phases = list(keyboard.bc.clock_inf.clock_util.cur_hours)
+
+        keyboard.on_press(0)
+        replacement_row = [-10.0] * alphabet_size
+        replacement_row[5] = 0.0
+        keyboard.bc.clock_inf.observations[-1] = replacement_row
+        keyboard.update_word_list()
+
+        self.assertEqual(
+            keyboard.bc.clock_inf.clock_util.cur_hours,
+            initial_phases,
+        )
+        self.assertEqual(transition_calls, [])
+        self.assertEqual(keyboard.character_rephase_count, 0)
+
+    def test_dynamic_character_clocks_rephase_once_per_replaced_observation(self):
+        alphabet_size = len(kconfig.key_chars)
+        transition_matrix = [[-100.0] * alphabet_size for _ in range(alphabet_size)]
+        for index in range(alphabet_size):
+            transition_matrix[index][index] = 0.0
+        transition_calls = []
+
+        def get_transition_matrix(context):
+            transition_calls.append(context)
+            return [list(row) for row in transition_matrix]
+
+        language_model = SimpleNamespace(
+            get_key_probs=lambda _context: [0.0] * alphabet_size,
+            get_character_transition_log_probs=get_transition_matrix,
+            get_word_predictions=lambda _context, _observations: ([], []),
+        )
+        keyboard = Keyboard(
+            None,
+            parameters={"character_clock_mode": "dynamic"},
+            language_model=language_model,
+        )
+
+        first_row = [-20.0] * alphabet_size
+        first_row[2] = 0.0
+        first_row[1] = -1.0
+        keyboard.on_press(0)
+        keyboard.bc.clock_inf.observations[-1] = first_row
+        keyboard.update_word_list()
+
+        expected_first = sorted(
+            range(alphabet_size),
+            key=lambda index: (-first_row[index], index),
+        )
+        self.assertEqual(keyboard.bc.clock_inf.sorted_inds, expected_first)
+        self.assertEqual(
+            keyboard.bc.clock_inf.clock_util.cur_hours[2],
+            keyboard.bc.clock_inf.clock_util.spaced.arr[0],
+        )
+        self.assertEqual(keyboard.character_rephase_count, 1)
+        self.assertEqual(transition_calls, [""])
+
+        phases_after_first = list(keyboard.bc.clock_inf.clock_util.cur_hours)
+        keyboard.update_word_list()
+        self.assertEqual(keyboard.character_rephase_count, 1)
+        self.assertEqual(
+            keyboard.bc.clock_inf.clock_util.cur_hours,
+            phases_after_first,
+        )
+
+        second_row = [-20.0] * alphabet_size
+        second_row[4] = 0.0
+        second_row[3] = -1.0
+        keyboard.on_press(0)
+        keyboard.bc.clock_inf.observations[-1] = second_row
+        keyboard.update_word_list()
+
+        expected_second = sorted(
+            range(alphabet_size), key=lambda index: (-second_row[index], index)
+        )
+        self.assertEqual(keyboard.bc.clock_inf.sorted_inds, expected_second)
+        self.assertEqual(keyboard.character_rephase_count, 2)
+        self.assertEqual(transition_calls, [""])
+        self.assertNotEqual(
+            keyboard.bc.clock_inf.clock_util.cur_hours,
+            phases_after_first,
+        )
+
+        keyboard.context = "hello "
+        keyboard._reset_letter_round()
+        self.assertIsNone(keyboard._character_transition_log_probs)
+        self.assertEqual(keyboard._last_rephased_observation_count, 0)
+        keyboard.on_press(0)
+        keyboard.bc.clock_inf.observations[-1] = first_row
+        keyboard.update_word_list()
+        self.assertEqual(transition_calls, ["", "hello "])
+        self.assertEqual(keyboard.character_rephase_count, 3)
+
     def test_separate_space_enter_starts_with_independent_prior_models(self):
         keyboard = Keyboard(
             None,
