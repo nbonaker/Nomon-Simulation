@@ -15,6 +15,7 @@ alpha_target_layout = [
 n_pred = 3    # prefix word predictions per letter cell
 n_best = 3    # BEST (error-corrected) decodings in EOW cell
 max_prefix_clocks = 3  # total prefix clocks shown in an Enter round
+fixed_max_word_clocks = max_prefix_clocks + n_best + 2  # literal/commit + Undo
 
 # ----------------------------------------------------------------------------
 # Word-clock logical index space (mirrors oneclick/clock_inference_engine_word.js

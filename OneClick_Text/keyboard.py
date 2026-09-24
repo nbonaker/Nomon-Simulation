@@ -133,6 +133,16 @@ class Keyboard:
         self.word_clock_mode = parameters.get("word_clock_mode", "fixed")
         if self.word_clock_mode not in {"fixed", "adaptive"}:
             raise ValueError("word_clock_mode must be 'fixed' or 'adaptive'")
+        default_priority_mode = (
+            "alternating" if self.word_clock_mode == "adaptive" else "legacy"
+        )
+        self.prediction_priority_mode = parameters.get(
+            "prediction_priority_mode", default_priority_mode
+        )
+        if self.prediction_priority_mode not in {"legacy", "alternating"}:
+            raise ValueError(
+                "prediction_priority_mode must be 'legacy' or 'alternating'"
+            )
         sigma_margin = parameters.get("sigma_margin")
         self.sigma_margin = None if sigma_margin is None else float(sigma_margin)
         if self.word_clock_mode == "adaptive" and (
@@ -347,26 +357,32 @@ class Keyboard:
         if obs_len > 0:
             self.argmax_word = "".join(kconfig.key_chars[_argmax(row)] for row in obs)
 
-        # Build valid_word_indices over the fixed logical index space. Fixed mode
-        # retains its existing layout; adaptive mode uses the requested ranking.
+        # Build valid_word_indices over the fixed logical index space. The
+        # algorithm experiment can hold legacy prediction ordering constant
+        # while changing only adaptive capacity.
+        legacy_prefix_indices = []
+        for letter, bucket in self.words_by_letter.items():
+            li = kconfig.key_chars.index(letter)
+            for slot in range(len(bucket)):
+                legacy_prefix_indices.append(li * kconfig.n_pred + slot)
+        best_indices = [
+            kconfig.best_base_index + i for i in range(len(self.best_words))
+        ]
         if getattr(self, "word_clock_mode", "fixed") == "adaptive":
-            prediction_priority = []
-            for index in range(max(len(self.best_words), len(ranked_prefix_indices))):
-                if index < len(ranked_prefix_indices):
-                    prediction_priority.append(ranked_prefix_indices[index])
-                if index < len(self.best_words):
-                    prediction_priority.append(kconfig.best_base_index + index)
+            if getattr(self, "prediction_priority_mode", "alternating") == "legacy":
+                prediction_priority = legacy_prefix_indices + best_indices
+            else:
+                prediction_priority = []
+                for index in range(max(len(best_indices), len(ranked_prefix_indices))):
+                    if index < len(best_indices):
+                        prediction_priority.append(best_indices[index])
+                    if index < len(ranked_prefix_indices):
+                        prediction_priority.append(ranked_prefix_indices[index])
             n_max = self._adaptive_word_clock_limit()
             valid = prediction_priority[: n_max - 2]
             valid.extend([kconfig.argmax_word_index, kconfig.undo_word_index])
         else:
-            valid = []
-            for letter, bucket in self.words_by_letter.items():
-                li = kconfig.key_chars.index(letter)
-                for slot in range(len(bucket)):
-                    valid.append(li * kconfig.n_pred + slot)
-            for i in range(len(self.best_words)):
-                valid.append(kconfig.best_base_index + i)
+            valid = legacy_prefix_indices + best_indices
             if self.argmax_word:
                 valid.append(kconfig.argmax_word_index)
             valid.append(kconfig.undo_word_index)

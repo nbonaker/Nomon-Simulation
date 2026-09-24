@@ -120,21 +120,28 @@ MPLCONFIGDIR=/tmp/matplotlib-cache .venv/bin/python -m \
   --resume-run-dir <existing-run-directory>
 ```
 
-The OneClick simulator uses a local TextSlinger causal language model. A full
-configuration sweep loads the model once and reuses it for every user and
-configuration:
+The QuickClick algorithm study uses the local TextSlinger character n-gram
+backend and reuses one model instance for every user and condition. It runs
+four paired conditions: baseline, Enter-offset compensation, separate
+Space/Enter timing models, and adaptive word-clock capacity:
 
 ```bash
-HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 \
 .venv/bin/python -m OneClick_Simulation.examples.text_simulation.run_config_sweep \
-  --run \
-  --lm-model-path /path/to/opt-125m-aac \
-  --lm-device mps \
-  --lm-precision fp32
+  --run
 ```
 
-The sweep writes the resolved model, TextSlinger, device, precision, and search
-settings to `lm_config.json` in the sweep output directory.
+Use `--smoke` to run the same four conditions for user A and synthetic user P
+on one phrase. The study writes the named condition manifest, resolved model,
+TextSlinger version, and search settings to the output directory.
+
+To select the adaptive sigma margin separately from the primary algorithm
+comparison, run the fixed baseline and BEST-first adaptive margins
+`1.5, 2.0, 2.5, 3.0, 3.5` with:
+
+```bash
+.venv/bin/python -m OneClick_Simulation.examples.text_simulation.run_config_sweep \
+  --sigma-sweep
+```
 
 ### OneClick Space/Enter Phase 1 Screening
 
@@ -161,7 +168,7 @@ Outputs include sparse completion heatmaps at 60, 120, and 180 seconds, final
 completion heatmaps, diagonal and off-diagonal cumulative curves, Pareto/AUC
 summaries, exact failure distributions, and atomic condition checkpoints.
 New OneClick studies should inject the same shared local TextSlinger adapter
-used by the configuration sweep.
+used by the algorithm study.
 
 ### OneClick Space/Enter Phase 2 Confirmation
 

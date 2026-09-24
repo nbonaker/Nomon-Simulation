@@ -175,12 +175,12 @@ class WordAttemptSnapshotTests(unittest.TestCase):
         self.assertEqual(
             keyboard.valid_word_indices,
             [
-                0,
                 kconfig.best_base_index,
-                3,
+                0,
                 kconfig.best_base_index + 1,
-                6,
+                3,
                 kconfig.best_base_index + 2,
+                6,
                 kconfig.argmax_word_index,
                 kconfig.undo_word_index,
             ],
@@ -193,15 +193,44 @@ class WordAttemptSnapshotTests(unittest.TestCase):
         self.assertEqual(
             keyboard.valid_word_indices,
             [
-                0,
                 kconfig.best_base_index,
-                3,
+                0,
                 kconfig.best_base_index + 1,
+                3,
                 kconfig.argmax_word_index,
                 kconfig.undo_word_index,
             ],
         )
         self.assertEqual(keyboard.word_clock_index("z"), kconfig.undo_word_index)
+
+        enter_delay_model.sigma2 = 0.18 ** 2
+        keyboard.update_word_list()
+
+        self.assertEqual(keyboard._adaptive_word_clock_limit(), 3)
+        self.assertEqual(
+            keyboard.valid_word_indices,
+            [
+                kconfig.best_base_index,
+                kconfig.argmax_word_index,
+                kconfig.undo_word_index,
+            ],
+        )
+
+        enter_delay_model.sigma2 = 0.01
+        keyboard.prediction_priority_mode = "legacy"
+        keyboard.update_word_list()
+
+        self.assertEqual(
+            keyboard.valid_word_indices,
+            [
+                0,
+                3,
+                6,
+                kconfig.best_base_index,
+                kconfig.argmax_word_index,
+                kconfig.undo_word_index,
+            ],
+        )
 
         enter_delay_model.sigma2 = 0.25
         keyboard.update_word_list()

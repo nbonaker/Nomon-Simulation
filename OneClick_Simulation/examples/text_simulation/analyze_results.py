@@ -161,8 +161,8 @@ def load_results(
 
 
 def compute_clicks_per_character(phrases: pd.DataFrame) -> float:
-    """Return successful-word clicks / characters in successful words."""
-    clicks = _numeric_sum(phrases, "Successful Word Click Count")
+    """Return all attempted clicks / successfully entered characters."""
+    clicks = _numeric_sum(phrases, "Num Clicks")
     characters = _numeric_sum(phrases, "Successful Word Character Count")
     return clicks / characters if characters > 0 else np.nan
 

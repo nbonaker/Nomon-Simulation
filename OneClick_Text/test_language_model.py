@@ -1,9 +1,22 @@
 import math
+import tempfile
 import unittest
+from pathlib import Path
 from types import SimpleNamespace
+from unittest.mock import patch
 
 from OneClick_Text import kconfig
-from OneClick_Text.language_model import LanguageModel
+from OneClick_Text.language_model import (
+    LanguageModel,
+    NGRAM_BACKEND,
+    NGRAM_MODEL_ALPHABET,
+    language_model_metadata,
+    load_local_language_model,
+)
+from textslinger.ngram import (
+    ConfigPredictCharactersNGram,
+    ConfigPredictWordsNGram,
+)
 
 
 def _prediction(*, character=None, word=None, lower=None, retained=-20.0):
@@ -83,6 +96,31 @@ class LocalLanguageModelTests(unittest.TestCase):
         self.assertEqual(call["input_channel"].channel_insertion_probability, 0.0)
         self.assertEqual(call["input_channel"].channel_deletion_probability, 0.0)
 
+    def test_ngram_backend_uses_ngram_configs_and_fixed_word_list(self):
+        model = FakeTextSlingerModel()
+        word_list = object()
+        adapter = LanguageModel(
+            model,
+            backend=NGRAM_BACKEND,
+            word_list=word_list,
+        )
+
+        adapter.get_key_probs("hello ")
+        adapter.get_word_predictions(
+            "hello ",
+            [[0.0] * len(kconfig.key_chars)],
+        )
+
+        self.assertIsInstance(
+            model.character_calls[0]["config"],
+            ConfigPredictCharactersNGram,
+        )
+        self.assertIsInstance(
+            model.word_calls[0]["config"],
+            ConfigPredictWordsNGram,
+        )
+        self.assertIs(model.word_calls[0]["word_list"], word_list)
+
     def test_mixed_results_split_deduplicate_and_prefer_lower_bound(self):
         model = FakeTextSlingerModel()
         model.word_predictions = [
@@ -112,7 +150,6 @@ class LocalLanguageModelTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "expected 27"):
             adapter.get_word_predictions("", [[0.0]])
         self.assertFalse(model.word_calls)
-
 
     def test_character_predictions_are_cached_by_context(self):
         model = FakeTextSlingerModel()
@@ -145,6 +182,56 @@ class LocalLanguageModelTests(unittest.TestCase):
         stats = adapter.result_cache_stats()["word"]
         self.assertEqual(stats["hits"], 1)
         self.assertEqual(stats["misses"], 2)
+
+    def test_ngram_loader_records_model_and_vocabulary_metadata(self):
+        model = FakeTextSlingerModel()
+        word_list = object()
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            model_path = root / "lm_char_medium.kenlm"
+            vocabulary_path = root / "vocab_lower_100k.txt"
+            model_path.write_bytes(b"fake kenlm")
+            vocabulary_path.write_text("cat\ndog\n", encoding="utf-8")
+            module = "OneClick_Text.language_model"
+            with (
+                patch(f"{module}.NGramLanguageModel", return_value=model) as loader,
+                patch(f"{module}.WordList.from_file", return_value=word_list),
+            ):
+                adapter = load_local_language_model(
+                    model_path,
+                    backend=NGRAM_BACKEND,
+                    vocabulary_path=vocabulary_path,
+                )
+                metadata = language_model_metadata(adapter)
+
+        loader.assert_called_once_with(
+            lm_path=str(model_path.resolve()),
+            model_alphabet=NGRAM_MODEL_ALPHABET,
+            space_character="<sp>",
+        )
+        self.assertEqual(adapter.backend, NGRAM_BACKEND)
+        self.assertIs(adapter.word_list, word_list)
+        self.assertEqual(adapter.resolved_device, "cpu")
+        self.assertIsNone(adapter.precision)
+        self.assertEqual(metadata["model_family"], NGRAM_BACKEND)
+        self.assertEqual(metadata["model_source"], "local_file")
+        self.assertEqual(metadata["model_path"], str(model_path.resolve()))
+        self.assertEqual(
+            metadata["vocabulary_path"],
+            str(vocabulary_path.resolve()),
+        )
+        self.assertEqual(len(metadata["model_sha256"]), 64)
+        self.assertEqual(len(metadata["vocabulary_sha256"]), 64)
+
+    def test_ngram_loader_requires_a_vocabulary(self):
+        with tempfile.TemporaryDirectory() as directory:
+            model_path = Path(directory) / "lm_char_medium.kenlm"
+            model_path.write_bytes(b"fake kenlm")
+            with self.assertRaisesRegex(ValueError, "vocabulary_path is required"):
+                load_local_language_model(
+                    model_path,
+                    backend=NGRAM_BACKEND,
+                )
 
 
 if __name__ == "__main__":

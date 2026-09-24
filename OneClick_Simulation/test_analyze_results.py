@@ -93,6 +93,7 @@ class AnalysisMetricTests(unittest.TestCase):
         audited = audit_click_stream_result(report, partial, phrases)
 
         self.assertTrue(audited["Click Stream Exhausted"])
+        self.assertTrue(audited["Attempted All Phrases"] is False)
         self.assertEqual(audited["Exhaustion Phrase ID"], "mt_iv1")
         self.assertEqual(audited["First Unattempted Phrase ID"], "mt_iv2")
 
@@ -184,7 +185,7 @@ class AnalysisMetricTests(unittest.TestCase):
         row = summarize_users(raw).iloc[0]
 
         self.assertNotIn("Click Burden (clicks/successful selection)", row.index)
-        self.assertEqual(row["Clicks per Character"], 0.5)
+        self.assertAlmostEqual(row["Clicks per Character"], 20 / 24)
         self.assertEqual(row["Active Typing Time (s/phrase)"], 10.0)
         self.assertAlmostEqual(
             row["Correction Rate (undoes/successful word)"], 1 / 3
@@ -234,7 +235,9 @@ class AnalysisMetricTests(unittest.TestCase):
         self.assertNotIn(
             "Click Burden (clicks/successful selection)", aggregate.index
         )
-        self.assertEqual(aggregate["Clicks per Character"], 0.5)
+        self.assertAlmostEqual(
+            aggregate["Clicks per Character"], ((10 / 16) + (10 / 6)) / 2
+        )
         self.assertEqual(aggregate["Completion Rate"], 0.75)
 
     def test_structured_failure_counts_preserve_multiple_failures(self):
@@ -294,7 +297,33 @@ class AnalysisMetricTests(unittest.TestCase):
         self.assertNotIn(
             "Click Burden (clicks/successful selection)", summary.columns
         )
-        self.assertEqual(summary.loc["MEAN_REAL_USERS", "Clicks per Character"], 0.5)
+        self.assertAlmostEqual(
+            summary.loc["MEAN_REAL_USERS", "Clicks per Character"],
+            ((10 / 16) + (10 / 6)) / 2,
+        )
+
+    def test_clicks_per_character_counts_terminal_failed_word_clicks(self):
+        raw = pd.DataFrame(
+            [
+                phrase_row(
+                    "A",
+                    **{
+                        "Num Clicks": 14,
+                        "Successful Word Click Count": 8,
+                        "Successful Word Character Count": 16,
+                        "Target Word Count": 3,
+                        "Completed Word Count": 2,
+                        "Failed Word Count": 1,
+                        "Phrase Completed": False,
+                        "Phrase Failure Reason": "target_not_displayed",
+                    },
+                )
+            ]
+        )
+
+        row = summarize_users(raw).iloc[0]
+
+        self.assertEqual(row["Clicks per Character"], 14 / 16)
 
     def test_analysis_writes_all_output_tables(self):
         with tempfile.TemporaryDirectory() as tmp:

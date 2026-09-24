@@ -888,7 +888,7 @@ class SimulatedUser:
             else np.nan
         )
         clicks_per_character = (
-            self.num_successful_word_clicks_phrase
+            self.num_clicks_phrase
             / self.num_successful_word_characters_phrase
             if self.num_successful_word_characters_phrase > 0
             else np.nan
@@ -929,7 +929,8 @@ class SimulatedUser:
             "Target Phrase": target_phrase,
             "Phrase Type": phrase_type,
             "Typed Text": self.keyboard.typed,
-            # Backward-compatible name, now limited to successfully completed words.
+            # All attempted clicks count, including clicks spent on terminally
+            # failed words; only successfully entered characters earn credit.
             "Click Load (clicks/character)": round(
                 clicks_per_character, sim_config.data_save_precision
             ),

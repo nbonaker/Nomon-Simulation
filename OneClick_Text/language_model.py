@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import importlib.metadata
 import json
 import math
@@ -20,28 +21,43 @@ os.environ["TRANSFORMERS_OFFLINE"] = "1"
 from OneClick_Core import config
 from OneClick_Text import kconfig
 
-from textslinger import InputChannelConfig, InputEvent
+from textslinger import InputChannelConfig, InputEvent, WordList
 from textslinger.causal_subword import (
     CausalSubwordLanguageModel,
     ConfigPredictCharactersSubword,
     ConfigPredictWordsSubword,
 )
+from textslinger.ngram import (
+    ConfigPredictCharactersNGram,
+    ConfigPredictWordsNGram,
+    NGramLanguageModel,
+)
 from textslinger.helpers import Device, ModelQuantization, Precision
 
 
 LOG_CLAMP_MIN = math.log(0.01)
+CAUSAL_SUBWORD_BACKEND = "causal_subword"
+NGRAM_BACKEND = "ngram"
+SUPPORTED_BACKENDS = (CAUSAL_SUBWORD_BACKEND, NGRAM_BACKEND)
 DEFAULT_RECOGNIZER_NBEST = 1000
 DEFAULT_CHARACTER_RESULT_CACHE_SIZE = 4096
 DEFAULT_WORD_RESULT_CACHE_SIZE = 20000
 WORD_SPELLING_CHARACTERS = tuple(kconfig.key_chars)
+NGRAM_MODEL_ALPHABET = tuple("abcdefghijklmnopqrstuvwxyz '.,?!")
 
-DEFAULT_WORD_SEARCH = {
+DEFAULT_SUBWORD_WORD_SEARCH = {
     "max_active_hypotheses": 60,
     "beam_best": 8.0,
     "max_terminal_token_paths": 12800,
     "max_omitted_prefix_paths": 65536,
     "max_omitted_joint_prefix_paths": 64,
     "text_state_remaining_mass_tolerance": 1e-3,
+}
+DEFAULT_NGRAM_WORD_SEARCH = {
+    "max_active_hypotheses": 100,
+    "beam_best": 8.0,
+    "remaining_mass_tolerance": 1e-3,
+    "max_character_depth": 64,
 }
 
 
@@ -96,6 +112,22 @@ def validate_model_directory(model_path: str | Path) -> Path:
     return path
 
 
+def validate_ngram_model_file(model_path: str | Path) -> Path:
+    """Return a resolved local KenLM/ARPA path or fail before output creation."""
+    path = Path(model_path).expanduser().resolve()
+    if not path.is_file():
+        raise ValueError(f"n-gram model file does not exist: {path}")
+    return path
+
+
+def validate_vocabulary_file(vocabulary_path: str | Path) -> Path:
+    """Return a resolved TextSlinger word-list path."""
+    path = Path(vocabulary_path).expanduser().resolve()
+    if not path.is_file():
+        raise ValueError(f"vocabulary file does not exist: {path}")
+    return path
+
+
 class LanguageModel:
     """Expose TextSlinger predictions through the existing OneClick contract."""
 
@@ -103,6 +135,8 @@ class LanguageModel:
         self,
         model: Any,
         *,
+        backend: str = CAUSAL_SUBWORD_BACKEND,
+        word_list: WordList | None = None,
         recognizer_nbest: int = DEFAULT_RECOGNIZER_NBEST,
         word_search: dict[str, Any] | None = None,
         character_cache_size: int = DEFAULT_CHARACTER_RESULT_CACHE_SIZE,
@@ -110,11 +144,18 @@ class LanguageModel:
     ):
         if model is None:
             raise ValueError("a loaded TextSlinger model is required")
+        if backend not in SUPPORTED_BACKENDS:
+            raise ValueError(
+                f"unsupported TextSlinger backend {backend!r}; "
+                f"expected one of {SUPPORTED_BACKENDS}"
+            )
         if recognizer_nbest < config.num_prefix_fetch + config.num_best_fetch:
             raise ValueError(
                 "recognizer_nbest must be large enough for both prediction pools"
             )
         self.model = model
+        self.backend = backend
+        self.word_list = word_list
         self.key_chars = tuple(kconfig.key_chars)
         self.recognizer_nbest = int(recognizer_nbest)
         self.character_cache_size = max(0, int(character_cache_size))
@@ -125,10 +166,18 @@ class LanguageModel:
         self.character_cache_misses = 0
         self.word_cache_hits = 0
         self.word_cache_misses = 0
-        search_values = {**DEFAULT_WORD_SEARCH, **(word_search or {})}
+        if backend == NGRAM_BACKEND:
+            search_values = {**DEFAULT_NGRAM_WORD_SEARCH, **(word_search or {})}
+            self.word_search_config = ConfigPredictWordsNGram(**search_values)
+            self.character_search_config = ConfigPredictCharactersNGram()
+        else:
+            search_values = {
+                **DEFAULT_SUBWORD_WORD_SEARCH,
+                **(word_search or {}),
+            }
+            self.word_search_config = ConfigPredictWordsSubword(**search_values)
+            self.character_search_config = ConfigPredictCharactersSubword()
         self.word_search_values = search_values
-        self.word_search_config = ConfigPredictWordsSubword(**search_values)
-        self.character_search_config = ConfigPredictCharactersSubword()
         self.input_channel = InputChannelConfig(
             channel_insertion_probability=0.0,
             channel_deletion_probability=0.0,
@@ -274,7 +323,7 @@ class LanguageModel:
             input_channel=self.input_channel,
             config=self.word_search_config,
             word_spelling_characters=WORD_SPELLING_CHARACTERS,
-            word_list=None,
+            word_list=self.word_list,
             nbest=self.recognizer_nbest,
             predict_lower=True,
         )
@@ -321,18 +370,60 @@ class LanguageModel:
 def load_local_language_model(
     model_path: str | Path,
     *,
+    backend: str = CAUSAL_SUBWORD_BACKEND,
+    vocabulary_path: str | Path | None = None,
     device: str = "mps",
     precision: str = "fp32",
     recognizer_nbest: int = DEFAULT_RECOGNIZER_NBEST,
 ) -> LanguageModel:
-    """Load one local TextSlinger model and wrap it for OneClick."""
-    path = validate_model_directory(model_path)
-    requested_device = Device(device)
-    requested_precision = Precision(precision)
+    """Load one local TextSlinger backend and wrap it for QuickClick."""
+    if backend not in SUPPORTED_BACKENDS:
+        raise ValueError(
+            f"unsupported TextSlinger backend {backend!r}; "
+            f"expected one of {SUPPORTED_BACKENDS}"
+        )
     if recognizer_nbest < config.num_prefix_fetch + config.num_best_fetch:
         raise ValueError(
             "recognizer_nbest must be large enough for both prediction pools"
         )
+
+    if backend == NGRAM_BACKEND:
+        path = validate_ngram_model_file(model_path)
+        if vocabulary_path is None:
+            raise ValueError("vocabulary_path is required for the n-gram backend")
+        resolved_vocabulary_path = validate_vocabulary_file(vocabulary_path)
+        word_list = WordList.from_file(str(resolved_vocabulary_path))
+        try:
+            model = NGramLanguageModel(
+                lm_path=str(path),
+                model_alphabet=NGRAM_MODEL_ALPHABET,
+                space_character="<sp>",
+            )
+        except (OSError, RuntimeError) as error:
+            if "KENLM_MAX_ORDER" in str(error) or "order 12" in str(error):
+                raise RuntimeError(
+                    "the bundled character n-gram is order 12, but the "
+                    "installed KenLM build does not support that order; "
+                    "rebuild KenLM with KENLM_MAX_ORDER=12"
+                ) from error
+            raise
+        adapter = LanguageModel(
+            model,
+            backend=backend,
+            word_list=word_list,
+            recognizer_nbest=recognizer_nbest,
+        )
+        adapter.model_path = path
+        adapter.vocabulary_path = resolved_vocabulary_path
+        adapter.requested_device = "cpu"
+        adapter.resolved_device = "cpu"
+        adapter.precision = None
+        adapter.quantization = None
+        return adapter
+
+    path = validate_model_directory(model_path)
+    requested_device = Device(device)
+    requested_precision = Precision(precision)
     import torch
 
     if requested_device == Device.MPS and not torch.backends.mps.is_available():
@@ -345,12 +436,35 @@ def load_local_language_model(
         precision=requested_precision,
         quantization=ModelQuantization.NONE,
     )
-    adapter = LanguageModel(model, recognizer_nbest=recognizer_nbest)
+    word_list = None
+    resolved_vocabulary_path = None
+    if vocabulary_path is not None:
+        resolved_vocabulary_path = validate_vocabulary_file(vocabulary_path)
+        word_list = WordList.from_file(str(resolved_vocabulary_path))
+    adapter = LanguageModel(
+        model,
+        backend=backend,
+        word_list=word_list,
+        recognizer_nbest=recognizer_nbest,
+    )
     adapter.model_path = path
+    adapter.vocabulary_path = resolved_vocabulary_path
     adapter.requested_device = requested_device.value
     adapter.resolved_device = str(getattr(model, "device", requested_device.value))
     adapter.precision = requested_precision.value
+    adapter.quantization = "none"
     return adapter
+
+
+def _sha256_file(path: Path | None) -> str | None:
+    """Return a stable artifact hash without loading the complete file at once."""
+    if path is None or not path.is_file():
+        return None
+    digest = hashlib.sha256()
+    with path.open("rb") as source:
+        for chunk in iter(lambda: source.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def _git_commit_for(path: Path) -> str | None:
@@ -384,12 +498,28 @@ def language_model_metadata(language_model: LanguageModel) -> dict[str, Any]:
     raw_model_path = getattr(language_model, "model_path", None)
     model_path = Path(raw_model_path).resolve() if raw_model_path else None
     model_config = {}
-    config_path = model_path / "config.json" if model_path else None
+    config_path = (
+        model_path / "config.json"
+        if model_path is not None and model_path.is_dir()
+        else None
+    )
     if config_path and config_path.is_file():
         model_config = json.loads(config_path.read_text(encoding="utf-8"))
+    raw_vocabulary_path = getattr(language_model, "vocabulary_path", None)
+    vocabulary_path = (
+        Path(raw_vocabulary_path).resolve() if raw_vocabulary_path else None
+    )
+    model_family = getattr(
+        language_model,
+        "backend",
+        CAUSAL_SUBWORD_BACKEND,
+    )
     return {
         "backend": "textslinger",
-        "model_source": "local_directory",
+        "model_family": model_family,
+        "model_source": (
+            "local_file" if model_path and model_path.is_file() else "local_directory"
+        ),
         "network_access": "disabled",
         "textslinger_version": version,
         "textslinger_source_path": str(source_path) if source_path else None,
@@ -397,19 +527,25 @@ def language_model_metadata(language_model: LanguageModel) -> dict[str, Any]:
             _git_commit_for(source_path) if source_path else None
         ),
         "model_path": str(model_path) if model_path else None,
+        "model_sha256": _sha256_file(model_path),
+        "vocabulary_path": (
+            str(vocabulary_path) if vocabulary_path is not None else None
+        ),
+        "vocabulary_sha256": _sha256_file(vocabulary_path),
+        "model_alphabet": (
+            list(NGRAM_MODEL_ALPHABET) if model_family == NGRAM_BACKEND else None
+        ),
         "model_name_or_path": model_config.get("_name_or_path"),
         "hugging_face_revision": model_config.get("_commit_hash"),
         "requested_device": getattr(language_model, "requested_device", None),
         "resolved_device": getattr(language_model, "resolved_device", None),
         "precision": getattr(language_model, "precision", None),
-        "quantization": "none",
+        "quantization": getattr(language_model, "quantization", None),
         "recognizer_nbest": getattr(language_model, "recognizer_nbest", None),
-        "character_search": asdict(
-            getattr(
-                language_model,
-                "character_search_config",
-                ConfigPredictCharactersSubword(),
-            )
+        "character_search": (
+            asdict(language_model.character_search_config)
+            if hasattr(language_model, "character_search_config")
+            else None
         ),
         "word_search": dict(getattr(language_model, "word_search_values", {})),
         "model_cache": {

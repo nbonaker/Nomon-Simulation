@@ -1,6 +1,6 @@
 """
 Full OneClick study run: real users A-G and synthetic user P all attempt the
-same first 30 canonically labelled IV phrases from watch-iv.txt. Real-user
+same fixed canonically labelled IV phrases from watch-iv.txt. Real-user
 timing streams are extended to the full worst-case click budget with a
 deterministic, within-session moving-block bootstrap.
 
@@ -191,7 +191,7 @@ def preflight_click_stream(user_id, click_df, phrase_df):
         "Minimum Sufficiency Passed": bool(available >= minimum_required),
         "Full Corpus Guaranteed": bool(available >= maximum_required),
         "First Phrase Not Guaranteed": first_not_guaranteed,
-        "Attempted All 30 Phrases": False,
+        "Attempted All Phrases": False,
         "Click Stream Exhausted": False,
         "Exhaustion Phrase ID": "",
         "Exhaustion Reason": "",
@@ -205,7 +205,7 @@ def audit_click_stream_result(report, result_df, phrase_df):
     expected_ids = phrase_df["Comparison Phrase ID"].astype(str).tolist()
     actual_ids = result_df.get("Comparison Phrase ID", pd.Series(dtype=str)).astype(str).tolist()
     report = dict(report)
-    report["Attempted All 30 Phrases"] = actual_ids == expected_ids
+    report["Attempted All Phrases"] = actual_ids == expected_ids
     report["Clicks Consumed"] = int(result_df["Num Clicks"].sum()) if not result_df.empty else 0
     if len(actual_ids) < len(expected_ids):
         report["First Unattempted Phrase ID"] = expected_ids[len(actual_ids)]
@@ -267,9 +267,9 @@ def build_summary(summary_rows):
     if not real.empty:
         real_mean = summarize_all_users(real)
         real_mean["User"] = "MEAN_REAL_USERS"
-        if "Attempted All 30 Phrases" in real:
-            real_mean["Attempted All 30 Phrases"] = bool(
-                real["Attempted All 30 Phrases"].all()
+        if "Attempted All Phrases" in real:
+            real_mean["Attempted All Phrases"] = bool(
+                real["Attempted All Phrases"].all()
             )
         if "Click Stream Exhausted" in real:
             real_mean["Click Stream Exhausted"] = bool(
@@ -423,8 +423,8 @@ def run_full_study(
             updated_report = audit_click_stream_result(report, df, phrase_df)
             sufficiency_rows[report_index] = updated_report
             summary = summarize_result(user_id, df, configuration_id)
-            summary["Attempted All 30 Phrases"] = updated_report[
-                "Attempted All 30 Phrases"
+            summary["Attempted All Phrases"] = updated_report[
+                "Attempted All Phrases"
             ]
             summary["Click Stream Exhausted"] = updated_report["Click Stream Exhausted"]
             summary_rows.append(summary)
@@ -438,7 +438,7 @@ def run_full_study(
                     f"{updated_report['First Unattempted Phrase ID'] or 'none'}",
                     flush=True,
                 )
-            elif not updated_report["Attempted All 30 Phrases"]:
+            elif not updated_report["Attempted All Phrases"]:
                 print(
                     f"USER {user_id} DID NOT ATTEMPT ALL PHRASES; first missing="
                     f"{updated_report['First Unattempted Phrase ID']}",
@@ -483,8 +483,8 @@ def run_full_study(
             phrase_df,
         )
         perfect_summary = summarize_result("P", df, configuration_id)
-        perfect_summary["Attempted All 30 Phrases"] = perfect_report[
-            "Attempted All 30 Phrases"
+        perfect_summary["Attempted All Phrases"] = perfect_report[
+            "Attempted All Phrases"
         ]
         perfect_summary["Click Stream Exhausted"] = perfect_report[
             "Click Stream Exhausted"
@@ -526,6 +526,12 @@ def _build_parser():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--lm-model-path", type=Path, required=True)
     parser.add_argument(
+        "--lm-backend",
+        choices=("causal_subword", "ngram"),
+        default="causal_subword",
+    )
+    parser.add_argument("--lm-vocabulary-path", type=Path)
+    parser.add_argument(
         "--lm-device", choices=("mps", "cpu", "cuda"), default="mps"
     )
     parser.add_argument(
@@ -540,6 +546,8 @@ def main(argv=None):
     args = _build_parser().parse_args(argv)
     language_model = load_local_language_model(
         args.lm_model_path,
+        backend=args.lm_backend,
+        vocabulary_path=args.lm_vocabulary_path,
         device=args.lm_device,
         precision=args.lm_precision,
         recognizer_nbest=args.lm_recognizer_nbest,
