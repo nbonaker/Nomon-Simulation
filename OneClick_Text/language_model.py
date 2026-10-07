@@ -338,13 +338,22 @@ class LanguageModel:
         self,
         left_context: str,
         observations: Sequence[Sequence[float]],
+        *,
+        prefix_limit: int | None = None,
+        best_limit: int | None = None,
+        strict_scores: bool = False,
     ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
         """Return autocomplete and exact-length words from one mixed search."""
+        prefix_limit = config.num_prefix_fetch if prefix_limit is None else prefix_limit
+        best_limit = config.num_best_fetch if best_limit is None else best_limit
+        for limit in (prefix_limit, best_limit):
+            if type(limit) is not int or limit < 0:
+                raise ValueError("Prediction limits must be nonnegative integers")
         events = self._input_events(observations)
         observation_key = tuple(
             tuple(score for _, score in event.alternatives) for event in events
         )
-        cache_key = (left_context, observation_key)
+        cache_key = (left_context, observation_key, prefix_limit, best_limit, strict_scores)
         cached = self._cache_get(self._word_cache, cache_key)
         if cached is not None:
             self.word_cache_hits += 1
@@ -372,6 +381,11 @@ class LanguageModel:
             predict_lower=True,
         )
 
+        if strict_scores:
+            # Validate even candidates beyond the requested pools, so a bad
+            # service score cannot be hidden by truncation or deduplication.
+            for prediction in result.predictions:
+                _prediction_log_mass(prediction)
         event_count = len(events)
         prefix = []
         best = []
@@ -386,16 +400,18 @@ class LanguageModel:
             try:
                 score = _prediction_log_mass(prediction)
             except (AttributeError, TypeError, ValueError):
+                if strict_scores:
+                    raise
                 continue
-            if len(word) > event_count and len(prefix) < config.num_prefix_fetch:
+            if len(word) > event_count and len(prefix) < prefix_limit:
                 prefix.append({"text": word, "logprob": score})
                 seen.add(normalized)
-            elif len(word) == event_count and len(best) < config.num_best_fetch:
+            elif len(word) == event_count and len(best) < best_limit:
                 best.append({"text": word, "logprob": score})
                 seen.add(normalized)
             if (
-                len(prefix) == config.num_prefix_fetch
-                and len(best) == config.num_best_fetch
+                len(prefix) == prefix_limit
+                and len(best) == best_limit
             ):
                 break
         cached_result = (

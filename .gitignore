@@ -18,3 +18,9 @@ Nomon_Text/probes/screen_words_*.jsonl
 .DS_Store
 User_Simulation/evaluation/outputs/
 .cache/
+
+# Standalone shared-engine pilot output
+/bridge_pilot_output/
+
+# Shared-engine end-to-end validation artifacts
+/bridge_validation_output/

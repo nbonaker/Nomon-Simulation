@@ -1,0 +1,166 @@
+{
+  "characters": {
+    "results": [
+      {
+        "token": "a",
+        "logProb": -3.3
+      },
+      {
+        "token": "b",
+        "logProb": -3.3
+      },
+      {
+        "token": "c",
+        "logProb": -3.3
+      },
+      {
+        "token": "d",
+        "logProb": -3.3
+      },
+      {
+        "token": "e",
+        "logProb": -3.3
+      },
+      {
+        "token": "f",
+        "logProb": -3.3
+      },
+      {
+        "token": "g",
+        "logProb": -3.3
+      },
+      {
+        "token": "h",
+        "logProb": -3.3
+      },
+      {
+        "token": "i",
+        "logProb": -3.3
+      },
+      {
+        "token": "j",
+        "logProb": -3.3
+      },
+      {
+        "token": "k",
+        "logProb": -3.3
+      },
+      {
+        "token": "l",
+        "logProb": -3.3
+      },
+      {
+        "token": "m",
+        "logProb": -3.3
+      },
+      {
+        "token": "n",
+        "logProb": -3.3
+      },
+      {
+        "token": "o",
+        "logProb": -3.3
+      },
+      {
+        "token": "p",
+        "logProb": -3.3
+      },
+      {
+        "token": "q",
+        "logProb": -3.3
+      },
+      {
+        "token": "r",
+        "logProb": -3.3
+      },
+      {
+        "token": "s",
+        "logProb": -3.3
+      },
+      {
+        "token": "t",
+        "logProb": -3.3
+      },
+      {
+        "token": "u",
+        "logProb": -3.3
+      },
+      {
+        "token": "v",
+        "logProb": -3.3
+      },
+      {
+        "token": "w",
+        "logProb": -3.3
+      },
+      {
+        "token": "x",
+        "logProb": -3.3
+      },
+      {
+        "token": "y",
+        "logProb": -3.3
+      },
+      {
+        "token": "z",
+        "logProb": -3.3
+      },
+      {
+        "token": "'",
+        "logProb": -3.3
+      }
+    ]
+  },
+  "words": [
+    {
+      "left": "",
+      "observation_count": 0,
+      "data": {
+        "prefix": [],
+        "best": []
+      }
+    },
+    {
+      "left": "",
+      "observation_count": 1,
+      "data": {
+        "prefix": [
+          {
+            "text": "hello",
+            "logprob": -0.1
+          }
+        ],
+        "best": []
+      }
+    },
+    {
+      "left": "hello ",
+      "observation_count": 0,
+      "data": {
+        "prefix": [],
+        "best": []
+      }
+    },
+    {
+      "left": "hello ",
+      "observation_count": 1,
+      "data": {
+        "prefix": [
+          {
+            "text": "world",
+            "logprob": -0.1
+          }
+        ],
+        "best": []
+      }
+    },
+    {
+      "left": "hello world ",
+      "observation_count": 0,
+      "data": {
+        "prefix": [],
+        "best": []
+      }
+    }
+  ]
+}

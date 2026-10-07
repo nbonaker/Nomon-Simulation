@@ -144,6 +144,35 @@ class LocalLanguageModelTests(unittest.TestCase):
         self.assertEqual(best, [{"text": "ca", "logprob": -0.4}])
         self.assertEqual(len(model.word_calls), 1)
 
+    def test_strict_scores_are_opt_in_and_do_not_reuse_permissive_cache(self):
+        for score in (math.nan, math.inf):
+            model = FakeTextSlingerModel()
+            model.word_predictions = [_prediction(word="cat", lower=score)]
+            adapter = LanguageModel(model)
+            self.assertEqual(adapter.get_word_predictions("", [[0.0] * 27]), ([], []))
+            with self.assertRaisesRegex(ValueError, "invalid prediction score"):
+                adapter.get_word_predictions("", [[0.0] * 27], strict_scores=True)
+            self.assertEqual(len(model.word_calls), 2)
+        # Strict mode checks scores even after both requested pools are filled.
+        model.word_predictions = [_prediction(word="cat", lower=-1), _prediction(word="a", lower=-2),
+                                  _prediction(word="later", lower=math.nan)]
+        with self.assertRaises(ValueError):
+            LanguageModel(model).get_word_predictions("", [[0.0] * 27], prefix_limit=1, best_limit=1, strict_scores=True)
+
+    def test_requested_pool_limits_are_independent_cache_keys(self):
+        model = FakeTextSlingerModel()
+        model.word_predictions = [_prediction(word="cat", lower=-1), _prediction(word="car", lower=-2),
+                                  _prediction(word="a", lower=-3)]
+        adapter = LanguageModel(model)
+        rows = [[0.0] * 27]
+        self.assertEqual(adapter.get_word_predictions("", rows, prefix_limit=0, best_limit=0), ([], []))
+        prefix, best = adapter.get_word_predictions("", rows, prefix_limit=1, best_limit=1)
+        self.assertEqual([x["text"] for x in prefix], ["cat"])
+        self.assertEqual([x["text"] for x in best], ["a"])
+        prefix, _ = adapter.get_word_predictions("", rows, prefix_limit=2, best_limit=0)
+        self.assertEqual([x["text"] for x in prefix], ["cat", "car"])
+        self.assertEqual(len(model.word_calls), 3)
+
     def test_malformed_observation_fails_before_model_call(self):
         model = FakeTextSlingerModel()
         adapter = LanguageModel(model)

@@ -359,3 +359,33 @@ CSV data tables containing the raw interaction data for the switch-users that tr
  - **Click Time Relative (s)** -- The time in seconds that the user clicked their switch relative to when the clock they ultimately selected was at Noon. This value can range from [-Clock Period/2, Clock Period/2].
  - **Click Time Absolute (s)** -- The timestamp measured in seconds since epoch (epoch time) that the user clicked their switch.
  - **Dead Time (s)** -- The time in seconds since the last time the user clicked. Equal to the difference between the current and previous Click Time Absolute values. 
+
+### Shared JavaScript engine bridge (standalone)
+
+The [Python–Node bridge](OneClick_Bridge/README.md) can now drive the browser's shared QuickClick engine from Python. It is separate from the existing simulator; simulations have not been migrated. With Node 22+ and the sibling `Nomon-One-Click` shared-engine checkout:
+
+```sh
+python -m OneClick_Bridge.demo
+python -m unittest OneClick_Bridge.test_bridge -v
+```
+
+The demo and tests use fixed predictions and need no network or model downloads. See the bridge documentation for explicit checkout paths, event/result contracts, source fingerprints, and process cleanup.
+
+### Simulated-user bridge pilot (opt-in)
+
+The [bridge simulated-user pilot](OneClick_Simulation/BRIDGE_PILOT.md) now types words and sentences through the shared JavaScript engine, using explicit frame/click events and actual browser Undo behavior. It leaves the existing simulator and studies unchanged.
+
+```sh
+python -m OneClick_Simulation.bridge_pilot --output-dir /tmp/quickclick-pilot
+python -m OneClick_Simulation.bridge_pilot --replay /tmp/quickclick-pilot/trace.json
+```
+
+The bundled example uses fixed predictions and zero noise. Recorded/scripted click samples, bounded correction attempts, failure diagnostics, and deterministic replay are supported. This is an integration pilot, not a real-model evaluation.
+
+### Shared-engine prediction experiments
+
+The opt-in bridge pilot supports local TextSlinger n-gram predictions as well as fixed fixtures. Character transition sources and simulated character/word prediction delays are explicit settings; clocks advance while the simulated user waits for responses. Full response traces replay without model files. See [the bridge pilot guide](OneClick_Simulation/BRIDGE_PILOT.md#local-textslinger-n-gram-predictions) for setup, CLI examples, metadata, and tests. Existing study runners remain unchanged.
+
+### Shared-engine end-to-end acceptance
+
+The [validation guide](OneClick_Simulation/BRIDGE_VALIDATION.md) describes the `OneClick_Simulation.bridge_validate` command. It runs deterministic typing and correction scenarios, optionally adds the local n-gram model, and audits saved results against engine replay. Reports remain separate from study outputs.

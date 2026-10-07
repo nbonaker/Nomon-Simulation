@@ -1,0 +1,6 @@
+{
+  "description": "Pre-prediction-integration zero-latency hello_world fixture pilot; all 489 event records, effects and snapshot hashes.",
+  "engine_source_sha256": "654d69de45c19809f920efebfec4ced4e7fbdedd0bd0ea1e267f5d32d0d6ee59",
+  "event_count": 489,
+  "events_sha256": "8a33ceeae93af1c733e58b197b7a867055634441abec716055b544358aad4774"
+}
