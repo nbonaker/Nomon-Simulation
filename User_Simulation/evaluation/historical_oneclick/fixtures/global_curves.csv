@@ -1,0 +1,12 @@
+combo_id,space_period_index,space_period_s,enter_period_index,enter_period_s,combo_label,simulated_time_s,cumulative_completed,cumulative_completion_rate,phrase_attempts,event_type,plot_endpoint_s
+s06_e06,6,3.292869816564159,6,3.292869816564159,Space 3.3s / Enter 3.3s,0.0,0,0.0,4,start,180.0
+s06_e06,6,3.292869816564159,6,3.292869816564159,Space 3.3s / Enter 3.3s,30.0,1,0.25,4,completion,180.0
+s06_e06,6,3.292869816564159,6,3.292869816564159,Space 3.3s / Enter 3.3s,40.0,2,0.5,4,completion,180.0
+s06_e06,6,3.292869816564159,6,3.292869816564159,Space 3.3s / Enter 3.3s,80.0,3,0.75,4,completion,180.0
+s06_e06,6,3.292869816564159,6,3.292869816564159,Space 3.3s / Enter 3.3s,180.0,3,0.75,4,endpoint,180.0
+s06_e10,6,3.292869816564159,10,2.207276647028654,Space 3.3s / Enter 2.2s,0.0,0,0.0,4,start,180.0
+s06_e10,6,3.292869816564159,10,2.207276647028654,Space 3.3s / Enter 2.2s,20.0,1,0.25,4,completion,180.0
+s06_e10,6,3.292869816564159,10,2.207276647028654,Space 3.3s / Enter 2.2s,25.0,2,0.5,4,completion,180.0
+s06_e10,6,3.292869816564159,10,2.207276647028654,Space 3.3s / Enter 2.2s,50.0,3,0.75,4,completion,180.0
+s06_e10,6,3.292869816564159,10,2.207276647028654,Space 3.3s / Enter 2.2s,60.0,4,1.0,4,completion,180.0
+s06_e10,6,3.292869816564159,10,2.207276647028654,Space 3.3s / Enter 2.2s,180.0,4,1.0,4,endpoint,180.0

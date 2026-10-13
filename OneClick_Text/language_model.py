@@ -18,7 +18,7 @@ from typing import Any, Sequence
 os.environ["HF_HUB_OFFLINE"] = "1"
 os.environ["TRANSFORMERS_OFFLINE"] = "1"
 
-from OneClick_Core import config
+from OneClick_Text import prediction_config as config
 from OneClick_Text import kconfig
 
 from textslinger import InputChannelConfig, InputEvent, WordList

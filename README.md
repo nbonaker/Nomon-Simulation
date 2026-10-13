@@ -97,140 +97,11 @@ python -m User_Simulation.evaluation.evaluation_synthetic_validation --user-id A
 ```
 The first run populates `.cache/imagineville_lm`; later runs reuse those responses and avoid repeated network latency.
 
-### OneClick Clock-Speed Completion-by-Time Sweep
+### QuickClick simulation now uses the shared JS engine
 
-Run the protected-OneClick fixed-period experiment from the repository root:
+The supported QuickClick path is `OneClick_Simulation.bridge_pilot`, with end-to-end checks in `OneClick_Simulation.bridge_validate`. The duplicated Python keyboard and its algorithm-experiment runners have been retired. New algorithm changes belong in the shared JavaScript engine.
 
-```bash
-MPLCONFIGDIR=/tmp/matplotlib-cache .venv/bin/python -m \
-  User_Simulation.evaluation.evaluation_oneclick_clock_speed_tradeoff
-```
-
-The default run uses users A, B, C, D, F, and G; the canonical periods nearest
-1.5, 2.2, and 3.3 seconds; five trials; and the same 20 strictly
-prediction-reachable phrases for every condition. It saves resumable
-condition-level CSVs, phrase timing results, cumulative curve points, summaries,
-and PNG/PDF plots under `User_Simulation/evaluation/outputs/`.
-
-Resume an interrupted run with:
-
-```bash
-MPLCONFIGDIR=/tmp/matplotlib-cache .venv/bin/python -m \
-  User_Simulation.evaluation.evaluation_oneclick_clock_speed_tradeoff \
-  --resume-run-dir <existing-run-directory>
-```
-
-The QuickClick algorithm study uses the local TextSlinger character n-gram
-backend and reuses one model instance for every user and condition. It runs
-four paired conditions: baseline, Enter-offset compensation, separate
-Space/Enter timing models, and adaptive word-clock capacity:
-
-```bash
-.venv/bin/python -m OneClick_Simulation.examples.text_simulation.run_config_sweep \
-  --run
-```
-
-Use `--smoke` to run the same four conditions for user A and synthetic user P
-on one phrase. The study writes the named condition manifest, resolved model,
-TextSlinger version, and search settings to the output directory.
-
-To select the adaptive sigma margin separately from the primary algorithm
-comparison, run the fixed baseline and BEST-first adaptive margins
-`1.5, 2.0, 2.5, 3.0, 3.5` with:
-
-```bash
-.venv/bin/python -m OneClick_Simulation.examples.text_simulation.run_config_sweep \
-  --sigma-sweep
-```
-
-### OneClick Space/Enter Phase 1 Screening
-
-The Phase 1 runner independently fixes the Space (letter) and Enter/Undo
-(word) clock periods. Its default pilot evaluates users A and C over 25 sparse
-combinations drawn from ten canonical periods, using the previous sweep's exact
-20-phrase set and trial-0 paired click schedules:
-
-```bash
-MPLCONFIGDIR=/tmp/matplotlib-cache .venv/bin/python -m \
-  User_Simulation.evaluation.evaluation_oneclick_space_enter_phase1
-```
-
-Use `--baseline-run-dir <clock-speed-run-directory>` to select the source
-explicitly. Resume an interrupted pilot with:
-
-```bash
-MPLCONFIGDIR=/tmp/matplotlib-cache .venv/bin/python -m \
-  User_Simulation.evaluation.evaluation_oneclick_space_enter_phase1 \
-  --resume-run-dir <existing-phase1-run-directory>
-```
-
-Outputs include sparse completion heatmaps at 60, 120, and 180 seconds, final
-completion heatmaps, diagonal and off-diagonal cumulative curves, Pareto/AUC
-summaries, exact failure distributions, and atomic condition checkpoints.
-New OneClick studies should inject the same shared local TextSlinger adapter
-used by the algorithm study.
-
-### OneClick Space/Enter Phase 2 Confirmation
-
-The targeted Phase 2 runner reuses Phase 1 trial 0 and runs four additional
-paired trials for four candidate conditions per user. The default A/C design
-therefore executes 640 new phrase attempts and analyzes 800 attempts in total:
-
-```bash
-MPLCONFIGDIR=/tmp/matplotlib-cache .venv/bin/python -m \
-  User_Simulation.evaluation.evaluation_oneclick_space_enter_phase2
-```
-
-Candidate selection first requires at least 80% pooled phrase completion, then
-maximizes normalized completion-by-time AUC through 180 seconds. Outputs include
-pooled and per-trial summaries, 95% Wilson completion intervals, paired
-candidate comparisons, cumulative curves, trial-stability plots, exact failure
-distributions, and atomic condition checkpoints.
-
-Resume an interrupted confirmation run with:
-
-```bash
-MPLCONFIGDIR=/tmp/matplotlib-cache .venv/bin/python -m \
-  User_Simulation.evaluation.evaluation_oneclick_space_enter_phase2 \
-  --resume-run-dir <existing-phase2-run-directory>
-```
-
-### Global OneClick Space/Enter Sweep
-
-The global runner selects one shared Space/Enter setting for users A, B, C, D,
-F, and G. Screening evaluates the complete 6-by-6 grid of canonical periods
-from 2.2 through 6.0 seconds with one paired trial. It freezes the top five
-cells using the cross-user reliability ranking, then confirmation adds four
-paired trials for those finalists:
-
-```bash
-MPLCONFIGDIR=/tmp/matplotlib-cache .venv/bin/python -m \
-  User_Simulation.evaluation.evaluation_oneclick_global_space_enter_sweep \
-  --phase all
-```
-
-The stages can also be run separately:
-
-```bash
-MPLCONFIGDIR=/tmp/matplotlib-cache .venv/bin/python -m \
-  User_Simulation.evaluation.evaluation_oneclick_global_space_enter_sweep \
-  --phase screen
-
-MPLCONFIGDIR=/tmp/matplotlib-cache .venv/bin/python -m \
-  User_Simulation.evaluation.evaluation_oneclick_global_space_enter_sweep \
-  --phase confirm \
-  --resume-run-dir <screen-run-directory>
-```
-
-Resume any interrupted stage with `--resume-run-dir`. Condition checkpoints are
-atomic, and compatible Phase 1, Phase 2, and legacy diagonal checkpoints are
-reused only after configuration and result validation. Screening heatmaps use
-trial 0 exclusively; the five-trial confirmation summaries remain separate.
-Outputs include reuse and schedule audits, phrase-level timing data, frozen
-shortlist and final-selection tables, global and per-user summaries, failure
-distributions, cumulative curves, and PNG/PDF plots. Legacy reachability audits
-may still query their historical service; the OneClick simulator itself uses
-local TextSlinger inference.
+Historical Python studies can still be analyzed using the [historical analysis guide](User_Simulation/evaluation/historical_oneclick/README.md). To reproduce their original execution, use the tagged checkout described in [the retirement record](QUICKCLICK_RETIREMENT.md). The separate Nomon simulators and evaluations below remain supported.
 
 ### Working with Simulation Results:
 
@@ -362,7 +233,7 @@ CSV data tables containing the raw interaction data for the switch-users that tr
 
 ### Shared JavaScript engine bridge (standalone)
 
-The [Python–Node bridge](OneClick_Bridge/README.md) can now drive the browser's shared QuickClick engine from Python. It is separate from the existing simulator; simulations have not been migrated. With Node 22+ and the sibling `Nomon-One-Click` shared-engine checkout:
+The [Python–Node bridge](OneClick_Bridge/README.md) can now drive the browser's shared QuickClick engine from Python. It runs the shared engine used by the supported QuickClick simulator. With Node 22+ and the sibling `Nomon-One-Click` shared-engine checkout:
 
 ```sh
 python -m OneClick_Bridge.demo
@@ -373,7 +244,7 @@ The demo and tests use fixed predictions and need no network or model downloads.
 
 ### Simulated-user bridge pilot (opt-in)
 
-The [bridge simulated-user pilot](OneClick_Simulation/BRIDGE_PILOT.md) now types words and sentences through the shared JavaScript engine, using explicit frame/click events and actual browser Undo behavior. It leaves the existing simulator and studies unchanged.
+The [bridge simulated-user pilot](OneClick_Simulation/BRIDGE_PILOT.md) now types words and sentences through the shared JavaScript engine, using explicit frame/click events and actual browser Undo behavior. It is the supported QuickClick simulation path; the separate Nomon simulator remains available.
 
 ```sh
 python -m OneClick_Simulation.bridge_pilot --output-dir /tmp/quickclick-pilot
@@ -384,7 +255,7 @@ The bundled example uses fixed predictions and zero noise. Recorded/scripted cli
 
 ### Shared-engine prediction experiments
 
-The opt-in bridge pilot supports local TextSlinger n-gram predictions as well as fixed fixtures. Character transition sources and simulated character/word prediction delays are explicit settings; clocks advance while the simulated user waits for responses. Full response traces replay without model files. See [the bridge pilot guide](OneClick_Simulation/BRIDGE_PILOT.md#local-textslinger-n-gram-predictions) for setup, CLI examples, metadata, and tests. Existing study runners remain unchanged.
+The opt-in bridge pilot supports local TextSlinger n-gram predictions as well as fixed fixtures. Character transition sources and simulated character/word prediction delays are explicit settings; clocks advance while the simulated user waits for responses. Full response traces replay without model files. See [the bridge pilot guide](OneClick_Simulation/BRIDGE_PILOT.md#local-textslinger-n-gram-predictions) for setup, CLI examples, metadata, and tests. Old Python QuickClick study execution is retired; historical analysis remains available.
 
 ### Shared-engine end-to-end acceptance
 

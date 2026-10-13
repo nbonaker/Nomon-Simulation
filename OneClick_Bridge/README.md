@@ -2,7 +2,7 @@
 
 This package lets Python drive the same JavaScript engine used by the OneClick browser interface. One client owns one persistent Node worker and one engine session. It uses only the Python standard library: importing it does not load NumPy, TextSlinger, or the existing Python keyboard.
 
-The current simulator still uses its existing implementation. This bridge is a separately tested foundation for a later migration; it does not run predictions, choose clicks, schedule animation, or translate old simulator settings.
+The supported QuickClick simulator uses this bridge through `BridgeSimulatedUser`; the duplicated Python QuickClick algorithm and its experiment runners are retired. The bridge itself does not run predictions, choose clicks, schedule animation, or translate old simulator settings. See the [retirement record](../QUICKCLICK_RETIREMENT.md) for historical analysis and recovery instructions.
 
 ## Requirements and quick start
 
@@ -33,7 +33,7 @@ from OneClick_Bridge import OneClickEngineBridge
 with OneClickEngineBridge(
     engine_repo=None,              # default: sibling JS checkout
     node_executable="node",        # PATH lookup or explicit executable
-    config={"rotateIndex": 5, "useClickOffset": False},
+    config={"rotateIndex": 5, "useClickOffset": True},
     timeout_s=10,
 ) as engine:
     print(engine.metadata)
@@ -58,7 +58,7 @@ Transport is UTF-8 newline-delimited JSON on stdin/stdout. stdout contains only 
 Open a session:
 
 ```json
-{"id":1,"op":"open","protocolVersion":1,"config":{"rotateIndex":5,"useClickOffset":false}}
+{"id":1,"op":"open","protocolVersion":1,"config":{"rotateIndex":5,"useClickOffset":true}}
 ```
 
 Success has the envelope `{"id":1,"ok":true,"result":{"metadata":{...}}}`.

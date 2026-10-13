@@ -223,7 +223,11 @@ class BridgeSimulatedUser:
         self.attempts = [0] * len(self.words)
         self.presses_by_word = [0] * len(self.words)
         self.counts = {"presses": 0, "space": 0, "enter": 0, "wrong_commits": 0, "undo_attempts": 0}
-        self.trace = {"version": 1, "engine_config": copy.deepcopy(self.config), "engine_metadata": None, "events": []}
+        simulation_settings = {"max_attempts_per_word": self.max_attempts,
+                               "max_presses_per_word": self.max_word_presses,
+                               "max_presses_per_phrase": self.max_phrase_presses}
+        self.trace = {"version": 1, "engine_config": copy.deepcopy(self.config), "engine_metadata": None,
+                      "simulation_settings": copy.deepcopy(simulation_settings), "events": []}
         self.uncertain = False
         self.failure_detail = None
         failure = None
@@ -271,6 +275,7 @@ class BridgeSimulatedUser:
             "typing_elapsed_s": self.now - self.startup_elapsed if self.startup_elapsed is not None else 0.0,
             "prediction_wait_s": self.prediction_wait, "typing_prediction_wait_s": self.typing_prediction_wait,
             "prediction_metadata": prediction_metadata, "counts": dict(self.counts),
+            "simulation_settings": simulation_settings,
             "attempts_by_word": list(self.attempts), "presses_by_word": list(self.presses_by_word),
             "engine_metadata": self.trace["engine_metadata"], "final_text_known": self.state is not None and not self.uncertain,
             "final_snapshot": copy.deepcopy(self.state), "trace": self.trace,
@@ -383,6 +388,9 @@ class BridgeSimulatedUser:
             raise PilotStop("click_source_exhausted")
         if not any(clock["id"] == clock_id and clock["active"] for clock in self.state[group]["clocks"]):
             raise PilotStop("target_clock_unavailable")
+        # Reference the replayable snapshot before any frames sent to reach the press.
+        # Intent metadata stays in Python; only the press type/time enters the engine.
+        scheduled_from = {"event_index": len(self.trace["events"]) - 1, "time": self.scheduler.now}
         time, dead_rotations = self.scheduler.press_time(self.scheduler.now, self.state[group], clock_id, sample)
         self.scheduler.advance_to(time)
         kind = "space" if group == "letters" else "enter"
@@ -393,7 +401,8 @@ class BridgeSimulatedUser:
             self.counts["undo_attempts"] += 1
         intent = {"action": action, "target": target, "clock_id": clock_id, "word_position": self.current_word,
                   "offset_s": sample.offset_s, "dead_time_s": sample.dead_time_s,
-                  "dead_rotations_s": dead_rotations, "source_period_s": sample.source_period_s}
+                  "dead_rotations_s": dead_rotations, "source_period_s": sample.source_period_s,
+                  "scheduled_from": scheduled_from}
         self._dispatch({"type": kind, "time": self.scheduler.now}, intent)
         self._drain_predictions()
 

@@ -67,7 +67,7 @@ class BridgeTests(unittest.TestCase):
             const {createOneClickEngine}=await import(process.argv[1]);
             const traces=JSON.parse(readFileSync(0,'utf8'));
             const results=traces.map(steps=>{
-                const engine=createOneClickEngine();
+                const engine=createOneClickEngine({useClickOffset:false});
                 return steps.map(events=>{let result;for(const event of events)result=engine.dispatch(event);return result;});
             });
             process.stdout.write(JSON.stringify(results));
@@ -79,7 +79,8 @@ class BridgeTests(unittest.TestCase):
         expected_direct = json.loads(direct.stdout)
         count = 0
         for trace_index, trace in enumerate(traces):
-            with self.subTest(trace=trace["name"]), OneClickEngineBridge() as engine:
+            # Frozen extraction fixtures predate learned Enter-offset compensation.
+            with self.subTest(trace=trace["name"]), OneClickEngineBridge(config={"useClickOffset": False}) as engine:
                 for step_index, step in enumerate(trace["steps"]):
                     for event in step["events"]:
                         result = engine.dispatch(event)
@@ -134,9 +135,10 @@ class BridgeTests(unittest.TestCase):
         """
         direct = subprocess.run([NODE, "--input-type=module", "-e", script, (REPO / "js/oneclick/engine/index.mjs").as_uri()],
                                 input=json.dumps(events), text=True, capture_output=True, check=True, timeout=10)
-        with OneClickEngineBridge(config={"rotateIndex": 20, "useClickOffset": True}) as engine:
-            self.assertEqual([engine.dispatch(event) for event in events], json.loads(direct.stdout))
-            self.assertEqual(engine.get_snapshot()["last_selection"]["id"], 85)
+        for config in ({"rotateIndex": 20}, {"rotateIndex": 20, "useClickOffset": True}):
+            with self.subTest(config=config), OneClickEngineBridge(config=config) as engine:
+                self.assertEqual([engine.dispatch(event) for event in events], json.loads(direct.stdout))
+                self.assertEqual(engine.get_snapshot()["last_selection"]["id"], 85)
         with OneClickEngineBridge(config={"rotateIndex": 20, "useClickOffset": False}) as engine:
             for event in events:
                 engine.dispatch(event)

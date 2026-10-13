@@ -1,6 +1,6 @@
 # Simulated user using the shared JavaScript engine
 
-`BridgeSimulatedUser` is an opt-in pilot that generates user actions for the browser's shared engine through `OneClick_Bridge`. It never imports or calls the duplicated Python keyboard algorithm. The existing `SimulatedUser`, study runners, experiment settings, and result formats remain unchanged.
+`BridgeSimulatedUser` is an opt-in pilot that generates user actions for the browser's shared engine through `OneClick_Bridge`. It never imports or calls the duplicated Python keyboard algorithm. The duplicated Python QuickClick implementation and its study runners are retired. The separate Nomon simulator is preserved; historical Python QuickClick outputs have dedicated analysis tools.
 
 The pilot supplies intentions and timestamps. The engine owns observations, clock placement, selection, committed text, Undo history, and delay learning. Python reads snapshots to decide what to attempt next; it cannot replace a click distribution, confirm a commit, or restore a hidden keyboard snapshot.
 
@@ -168,6 +168,7 @@ Defaults are four attempts per target-word position, 30 presses per target-word 
 - `target`, `final_text`, `completed`, `failure_reason`, and optional `error` diagnostics.
 - `simulated_elapsed_s` (total), `startup_elapsed_s`, `typing_elapsed_s` (after all startup responses, including later waits), `prediction_wait_s` (total time spent waiting), and `typing_prediction_wait_s`. Typing time includes the response wait after the final Enter; it is not a last-keystroke-only metric.
 - `prediction_metadata`: backend provenance, character source responses, effective matrix and hash, latency values, and wait policy.
+- `simulation_settings`: the actual `max_attempts_per_word`, `max_presses_per_word`, and `max_presses_per_phrase` used for this phrase (defaults 4, 30, and 200). The same settings are saved independently in the trace, including runs that stop on a budget or another failure.
 - `counts` (all presses, Space, Enter, wrong commits, and intended Undo attempts), `attempts_by_word`, and `presses_by_word`.
 - `engine_metadata`, `final_snapshot`, and `final_text_known`.
 - `trace`: version, engine configuration/source metadata, and ordered event records.
@@ -177,6 +178,8 @@ A press counted just before a failed dispatch is an attempted press; its effect 
 Failure reasons include `prediction_failure`, `invalid_click_sample`, `click_source_exhausted`, `word_attempt_budget`, `word_press_budget`, `phrase_press_budget`, `target_clock_unavailable`, `engine_not_ready`, and `bridge_failure`.
 
 Each trace record contains the exact engine event, any intended action and sample metadata, observed text/selection, emitted effects, and a SHA-256 of the complete returned snapshot. Frame events and full prediction responses are recorded too. `trace.prediction_requests` records each request effect, request/due/delivery times, status, and prediction error where applicable. New metadata fields are additive to version-1 traces; older traces still replay. Snapshot hashes avoid storing the entire matrix and clock state after every animation callback.
+
+Press intentions also contain `scheduled_from: {event_index, time}` pointing to the replayable engine snapshot and simulated time used to choose the action, before advancing frames to the press. The full-run auditor uses that checkpoint to independently check the sampled offset, dead-time rotations, minimum 1 ms interval, and resulting press timestamp. The target, samples, and checkpoint remain Python trace metadata; engine press events still contain only type and time.
 
 `replay_trace` creates a fresh bridge with the recorded configuration, requires the same engine source fingerprint, and forwards recorded events without a predictor or click source. It checks full-snapshot hashes and effects. It never retries an event recorded as failed; it verifies only that trace's successful prefix and returns `complete_trace=False`. A prediction failure can still have a fully replayable recorded prefix: `complete_trace` means all recorded engine events were verified, not that the original phrase succeeded. Consult `result.json` for the original outcome.
 
@@ -189,8 +192,6 @@ Pilot artifacts are intentionally separate from canonical study results. They ar
   OneClick_Bridge.test_bridge \
   OneClick_Simulation.test_bridge_simulated_user \
   OneClick_Simulation.test_bridge_predictions \
-  OneClick_Simulation.test_simulated_time \
-  OneClick_Simulation.test_recovery \
   OneClick_Text.test_language_model -v
 ```
 
@@ -205,7 +206,7 @@ These integration tests use the bundled tiny model and vocabulary. They verify c
 
 Also run `npm test` from the JavaScript checkout. The pilot tests cover complete phrases, early/BEST/literal selection, observation preservation, timing noise and frame ordering, wrong commits and cascading Undo misses, missing fixtures, all budgets, cleanup, and replay. A focused observation-policy test checks revisiting a shorter correct prefix; the ordinary real-engine correction scenarios exercise the actual commit and Undo implementation through Node.
 
-Subword/HTTP adapters, overlapping input during prediction waits, dynamic context-conditioned transition matrices, multi-phrase learning sessions, the main study-runner migration, and high-throughput optimization remain separate work.
+Subword/HTTP adapters, overlapping input during prediction waits, dynamic context-conditioned transition matrices, multi-phrase learning sessions, new shared-engine study runners, and high-throughput optimization remain separate work.
 
 ## End-to-end acceptance validation
 

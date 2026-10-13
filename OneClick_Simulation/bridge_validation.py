@@ -37,6 +37,79 @@ def _duration(intervals):
     return total
 
 
+def _settings(result, trace):
+    """Require recorded budgets; do not guess defaults for older artifacts."""
+    settings = trace.get("simulation_settings")
+    if not isinstance(settings, dict):
+        raise _Mismatch("simulation_settings", "recorded action-budget settings", settings)
+    _equal("simulation_settings", result.get("simulation_settings"), settings)
+    for key in ("max_attempts_per_word", "max_presses_per_word", "max_presses_per_phrase"):
+        value = settings.get(key)
+        if type(value) is not int or value < 1:
+            raise _Mismatch(f"simulation_settings.{key}", "positive integer", value)
+    return settings
+
+
+def _sample_number(intent, key, index, *, nonnegative=False, optional=False):
+    if key not in intent:
+        raise _Mismatch(f"intent.{key}", "recorded timing sample", "missing", index)
+    value = intent[key]
+    if optional and value is None:
+        return value
+    _time(f"intent.{key}", value, value, index)
+    if (nonnegative and value < 0) or (optional and value <= 0):
+        raise _Mismatch(f"intent.{key}", "nonnegative" if nonnegative else "positive", value, index)
+    return value
+
+
+def _press_timing(intent, event, decision, frame_origin, frame_step, index):
+    """Derive the expected press from a replayed action-choice checkpoint.
+
+    This auditor does not call FrameScheduler or trust a saved expected timestamp.
+    Frames after the checkpoint must not hide an offset that scheduling ignored.
+    """
+    if decision is None:
+        raise _Mismatch("intent.scheduled_from", "ready snapshot after predictions", None, index)
+    choice_index, now, snapshot = decision
+    scheduled_from = intent.get("scheduled_from")
+    if not isinstance(scheduled_from, dict):
+        raise _Mismatch("intent.scheduled_from", "recorded action-choice checkpoint", scheduled_from, index)
+    _equal("intent.scheduled_from.event_index", scheduled_from.get("event_index"), choice_index, index)
+    _time("intent.scheduled_from.time", scheduled_from.get("time"), now, index)
+    offset = _sample_number(intent, "offset_s", index)
+    dead = _sample_number(intent, "dead_time_s", index, nonnegative=True)
+    rotations = _sample_number(intent, "dead_rotations_s", index, nonnegative=True)
+    _sample_number(intent, "source_period_s", index, optional=True)
+    group = snapshot["letters" if event["type"] == "space" else "words"]
+    clock_id = intent["clock_id"]
+    if type(clock_id) is not int or clock_id not in {c["id"] for c in group["clocks"] if c["active"]}:
+        raise _Mismatch("intent.clock_id", "active clock at action choice", clock_id, index)
+    period = group["period"]
+    # Recover the clock's noon from its phase and last frame, not the press snapshot.
+    noon = group["latest_time"] + period * (0.5 - group["phases"][clock_id] / group["num_divs_time"])
+    if noon < now:
+        noon += math.ceil((now - noon) / period) * period
+    expected = noon + offset
+    earliest = now + 0.001
+    if expected < earliest:
+        expected += math.ceil((earliest - expected) / period) * period
+    # divmod preserves the pilot's historical float floor-division interpretation.
+    dead_rotations = divmod(dead, period)[0] * period
+    _time("intent.dead_rotations_s", rotations, dead_rotations, index)
+    expected += dead_rotations
+    if not math.isfinite(expected):
+        raise _Mismatch("press.time", "finite scheduled press", expected, index)
+    boundary = frame_origin + round((expected - frame_origin) / frame_step) * frame_step
+    if abs(expected - boundary) < 1e-12:
+        expected = boundary
+    if event["time"] < earliest - 1e-12:
+        raise _Mismatch("press.minimum_interval", f">= {earliest}", event["time"], index)
+    _time("press.time", event["time"], expected, index)
+    return {"event_index": index, "scheduled_from": {"event_index": choice_index, "time": now},
+            "clock_id": clock_id, "offset_s": offset, "dead_rotations_s": dead_rotations,
+            "expected_time": expected, "time": event["time"]}
+
+
 def validate_run(result, trace, engine_repo=None, node_executable="node"):
     """Return a JSON report; valid means a complete successful run passed its audit.
 
@@ -50,6 +123,7 @@ def validate_run(result, trace, engine_repo=None, node_executable="node"):
     try:
         json.dumps([result, trace], allow_nan=False)
         _equal("trace.version", trace["version"], 1)
+        settings = _settings(result, trace)
         target = normalize_target(result["target"])
         _equal("target", result["target"], target)
         words = target.split()
@@ -77,6 +151,9 @@ def validate_run(result, trace, engine_repo=None, node_executable="node"):
         previous_time = 0.0
         current_word = 0
         frame_origin, frame_step, frame_number, frame_group = None, None, 1, "letters"
+        decision = None
+        press_schedule = []
+        report["reconstructed"].update(simulation_settings=settings, press_schedule=press_schedule)
         with OneClickEngineBridge(engine_repo=engine_repo, node_executable=node_executable,
                                   config=trace["engine_config"]) as engine:
             for field in ("sourceSha256", "protocolVersion", "sourceFiles"):
@@ -117,6 +194,7 @@ def validate_run(result, trace, engine_repo=None, node_executable="node"):
                     if startup is None or not state["ready"]:
                         raise _Mismatch("press.readiness", "initialized with startup responses delivered", state["ready"], index)
                     intent = record["intent"]
+                    press_schedule.append(_press_timing(intent, event, decision, frame_origin, frame_step, index))
                     before = state["typed"]
                     correction = before not in prefixes
                     if not correction:
@@ -141,6 +219,8 @@ def validate_run(result, trace, engine_repo=None, node_executable="node"):
                         _equal("intent.target", intent["target"], letter, index)
                         _equal("intent.clock_label", active[intent["clock_id"]]["label"], letter, index)
                         if not state["observations"]:
+                            if attempts[current_word] >= settings["max_attempts_per_word"]:
+                                raise _Mismatch("budget.max_attempts_per_word", settings["max_attempts_per_word"], attempts[current_word] + 1, index)
                             attempts[current_word] += 1
                     else:
                         _equal("intent.action", intent["action"], "target_enter", index)
@@ -148,6 +228,10 @@ def validate_run(result, trace, engine_repo=None, node_executable="node"):
                         matching = [i for i in state["valid_word_indices"] if i != undo_id
                                     and state["words"]["clocks"][i]["label"].lower() == words[current_word]]
                         _equal("intent.clock_id", intent["clock_id"], matching[0] if matching else undo_id - 1, index)
+                    if counts["presses"] >= settings["max_presses_per_phrase"]:
+                        raise _Mismatch("budget.max_presses_per_phrase", settings["max_presses_per_phrase"], counts["presses"] + 1, index)
+                    if per_word[current_word] >= settings["max_presses_per_word"]:
+                        raise _Mismatch("budget.max_presses_per_word", settings["max_presses_per_word"], per_word[current_word] + 1, index)
                     counts["presses"] += 1
                     counts[kind] += 1
                     per_word[current_word] += 1
@@ -207,6 +291,8 @@ def validate_run(result, trace, engine_repo=None, node_executable="node"):
                     generated += 1
                 if startup is None and index > 0 and not pending:
                     startup = time
+                if kind != "frame" and state["ready"] and not pending:
+                    decision = (index, time, state)
                 report["verified_events"] += 1
                 report["last_verified_text"] = state["typed"]
             _equal("pending_predictions", len(pending), 0, index)
@@ -220,6 +306,7 @@ def validate_run(result, trace, engine_repo=None, node_executable="node"):
                        "final_text": state["typed"], "simulated_elapsed_s": previous_time,
                        "startup_elapsed_s": startup, "typing_elapsed_s": previous_time - startup,
                        "prediction_wait_s": _duration(intervals), "typing_prediction_wait_s": _duration(typing_intervals),
+                       "simulation_settings": settings, "press_schedule": press_schedule,
                        "actual_undo_selections": actual_undos, "text_transitions": transitions, "selections": selections}
             report["reconstructed"] = rebuilt
             for field in ("counts", "attempts_by_word", "presses_by_word", "final_text"):

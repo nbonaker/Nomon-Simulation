@@ -1,3 +1,5 @@
+> **Historical Python QuickClick results.** Runner commands and algorithm settings in this document refer to the local tag `quickclick-python-retirement-baseline` (commit `df53ad2ef5c62264634451da46a25ca125138c66`). They are not current shared-engine commands. Reproduce them in a separate checkout of that tag. Tables, saved configurations, and the artifact manifest have been preserved. See [the retirement record](../../../QUICKCLICK_RETIREMENT.md) and [offline historical analysis](../historical_oneclick/README.md).
+
 # Nomon / OneClick simulation results package
 
 This directory is the canonical team handoff for the completed simulation work. It contains the presentation figures, essential summary tables, experiment lineage, limitations, and reproduction commands. The original run directories remain unchanged under `../outputs/`.

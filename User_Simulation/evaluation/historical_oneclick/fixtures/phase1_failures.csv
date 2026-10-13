@@ -1,0 +1,2 @@
+user_id,combo_id,space_period_index,enter_period_index,phrase_failure_reason,phrase_failure_stage,failure_count,phrase_attempts,failure_share_of_attempts
+B,s06_e06,6,6,word_click_budget_letters,letters,1,2,0.5

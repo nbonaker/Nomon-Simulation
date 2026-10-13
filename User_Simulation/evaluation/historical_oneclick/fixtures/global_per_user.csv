@@ -1,0 +1,5 @@
+user_id,combo_id,space_period_index,space_period_s,space_period_label,enter_period_index,enter_period_s,enter_period_label,combo_label,is_diagonal,phrase_attempts,completed_phrases,phrase_completion_rate,median_completion_time_s,maximum_completion_time_s,total_attempt_time_s,normalized_auc_180,completion_by_60s,completion_by_120s,completion_by_180s,pareto_nondominated,auc_180_rank,final_completion_rank
+A,s06_e06,6,3.292869816564159,3.3 s,6,3.292869816564159,3.3 s,Space 3.3s / Enter 3.3s,True,2,2,1.0,55.0,80.0,110.0,0.6944444444444444,0.5,1.0,1.0,False,2.0,1.0
+B,s06_e06,6,3.292869816564159,3.3 s,6,3.292869816564159,3.3 s,Space 3.3s / Enter 3.3s,True,2,1,0.5,40.0,40.0,160.0,0.3888888888888889,0.5,0.5,0.5,False,2.0,2.0
+A,s06_e10,6,3.292869816564159,3.3 s,10,2.207276647028654,2.2 s,Space 3.3s / Enter 2.2s,False,2,2,1.0,35.0,50.0,70.0,0.8055555555555556,1.0,1.0,1.0,True,1.0,1.0
+B,s06_e10,6,3.292869816564159,3.3 s,10,2.207276647028654,2.2 s,Space 3.3s / Enter 2.2s,False,2,2,1.0,42.5,60.0,85.0,0.7638888888888888,1.0,1.0,1.0,True,1.0,1.0

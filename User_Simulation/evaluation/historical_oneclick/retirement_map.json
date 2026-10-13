@@ -1,0 +1,158 @@
+{
+  "User_Simulation.evaluation.evaluation_nomon_oneclick_comparison": {
+    "module": "User_Simulation.evaluation.historical_oneclick.comparison",
+    "functions": [
+      "_sample_regime_offsets",
+      "build_comparison_phrase_df",
+      "build_comparison_summary",
+      "build_phrase_trial_comparison",
+      "build_shared_synthetic_click_df",
+      "build_trial_summary",
+      "clean_click_rows",
+      "load_selected_std_multipliers",
+      "normalize_system_results",
+      "parse_csv_values",
+      "phrase_period_lookup",
+      "plot_summary",
+      "selected_multiplier_label",
+      "timing_profile_row",
+      "write_markdown_report"
+    ]
+  },
+  "User_Simulation.evaluation.evaluation_nomon_oneclick_bootstrap_comparison": {
+    "module": "User_Simulation.evaluation.historical_oneclick.bootstrap",
+    "functions": [
+      "bootstrap_profile_row",
+      "build_shared_bootstrap_click_df",
+      "clean_click_rows",
+      "effective_bootstrap_source_sessions",
+      "write_bootstrap_markdown_report"
+    ]
+  },
+  "User_Simulation.evaluation.evaluation_oneclick_clock_speed_tradeoff": {
+    "module": "User_Simulation.evaluation.historical_oneclick.speed",
+    "functions": [
+      "apply_fixed_period",
+      "atomic_write_csv",
+      "atomic_write_json",
+      "build_curve_points",
+      "build_speed_summary",
+      "configure_plot_style",
+      "create_plots",
+      "normalize_condition_results",
+      "phrase_set_checksum",
+      "plot_user_curve",
+      "select_common_prediction_reachable_phrases",
+      "validate_final_outputs",
+      "validate_phrase_timing"
+    ]
+  },
+  "User_Simulation.evaluation.evaluation_oneclick_space_enter_phase1": {
+    "module": "User_Simulation.evaluation.historical_oneclick.phase1",
+    "functions": [
+      "_completion_times",
+      "_frame_checksum",
+      "_heatmap_matrix",
+      "_plot_curve_subset",
+      "_select_best",
+      "build_best_comparison",
+      "build_combo_summary",
+      "build_curve_points",
+      "build_failure_distribution",
+      "condition_path",
+      "create_curve_plots",
+      "create_heatmaps",
+      "create_plots",
+      "normalize_condition_results",
+      "saved_period_seconds",
+      "validate_diagonal_regression",
+      "validate_final_outputs"
+    ]
+  },
+  "User_Simulation.evaluation.evaluation_oneclick_space_enter_phase2": {
+    "module": "User_Simulation.evaluation.historical_oneclick.phase2",
+    "functions": [
+      "_short_label",
+      "build_paired_comparisons",
+      "build_selection_summary",
+      "build_trial_summary",
+      "create_plots",
+      "enrich_candidate_summary",
+      "validate_final_outputs",
+      "wilson_interval"
+    ]
+  },
+  "User_Simulation.evaluation.evaluation_oneclick_global_space_enter_sweep": {
+    "module": "User_Simulation.evaluation.historical_oneclick.global_sweep",
+    "functions": [
+      "_metric_matrix",
+      "build_global_curve_points",
+      "build_global_summary",
+      "build_global_trial_summary",
+      "build_paired_comparisons",
+      "create_confirmation_plots",
+      "create_failure_reason_heatmap",
+      "create_screen_heatmaps",
+      "rank_global_summary",
+      "validate_stage_outputs"
+    ]
+  },
+  "User_Simulation.evaluation.evaluation_nomon_oneclick_selected_global_comparison": {
+    "module": "User_Simulation.evaluation.historical_oneclick.selected_comparison",
+    "functions": [
+      "build_curve_points",
+      "build_failure_distribution",
+      "build_macro_summary",
+      "build_paired_results",
+      "build_paired_summary",
+      "build_trial_summary",
+      "completion_times",
+      "configure_plot_style",
+      "create_plots",
+      "file_checksum",
+      "frame_checksum",
+      "normalize_condition_results",
+      "plot_step_curve",
+      "save_figure",
+      "select_heldout_phrases",
+      "summarize_system_results",
+      "validate_condition",
+      "write_report"
+    ]
+  },
+  "User_Simulation.evaluation.evaluation_oneclick_phrase_audit": {
+    "module": "User_Simulation.evaluation.historical_oneclick.phrase_data",
+    "functions": [
+      "load_real_phrase_candidates"
+    ]
+  },
+  "OneClick_Simulation.examples.text_simulation.run_full_study": {
+    "module": "User_Simulation.evaluation.historical_oneclick.study_data",
+    "functions": [
+      "audit_click_stream_result",
+      "block_bootstrap_click_stream",
+      "bootstrap_seed_for_user",
+      "build_summary",
+      "corpus_maximum_click_budget",
+      "load_fixed_iv_phrases",
+      "load_real_user_clicks",
+      "perfect_click_df",
+      "preflight_click_stream",
+      "summarize_result",
+      "write_summary"
+    ]
+  },
+  "OneClick_Simulation.examples.text_simulation.run_config_sweep": {
+    "module": "User_Simulation.evaluation.historical_oneclick.config_summary",
+    "functions": [
+      "_completion_first",
+      "_configuration_rows",
+      "_markdown_table",
+      "_ratio",
+      "_report_value",
+      "summarize_by_config",
+      "summarize_by_user_config",
+      "write_sweep_report"
+    ]
+  }
+}

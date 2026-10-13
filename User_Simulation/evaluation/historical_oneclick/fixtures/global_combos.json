@@ -1,0 +1,24 @@
+[
+  {
+    "combo_id": "s06_e06",
+    "space_period_index": 6,
+    "space_period_s": 3.292869816564159,
+    "space_period_label": "3.3 s",
+    "enter_period_index": 6,
+    "enter_period_s": 3.292869816564159,
+    "enter_period_label": "3.3 s",
+    "combo_label": "Space 3.3s / Enter 3.3s",
+    "is_diagonal": true
+  },
+  {
+    "combo_id": "s06_e10",
+    "space_period_index": 6,
+    "space_period_s": 3.292869816564159,
+    "space_period_label": "3.3 s",
+    "enter_period_index": 10,
+    "enter_period_s": 2.207276647028654,
+    "enter_period_label": "2.2 s",
+    "combo_label": "Space 3.3s / Enter 2.2s",
+    "is_diagonal": false
+  }
+]

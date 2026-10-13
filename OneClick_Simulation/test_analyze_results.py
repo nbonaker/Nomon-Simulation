@@ -10,7 +10,7 @@ from OneClick_Simulation.examples.text_simulation.analyze_results import (
     summarize_failure_reasons,
     summarize_users,
 )
-from OneClick_Simulation.examples.text_simulation.run_full_study import (
+from User_Simulation.evaluation.historical_oneclick.study_data import (
     FIXED_IV_PHRASE_COUNT,
     REAL_USERS,
     audit_click_stream_result,
@@ -75,7 +75,7 @@ class AnalysisMetricTests(unittest.TestCase):
     def test_click_stream_preflight_and_runtime_exhaustion_location(self):
         phrases = load_fixed_iv_phrases()
         click_df = pd.DataFrame({"Session Num": [1.0]})
-        report = preflight_click_stream("A", click_df, phrases)
+        report = preflight_click_stream("A", click_df, phrases, max_clicks_per_word=30)
 
         self.assertFalse(report["Minimum Sufficiency Passed"])
 
@@ -138,7 +138,7 @@ class AnalysisMetricTests(unittest.TestCase):
 
     def test_bootstrap_fills_full_fixed_corpus_worst_case_budget(self):
         phrases = load_fixed_iv_phrases()
-        required = corpus_maximum_click_budget(phrases)
+        required = corpus_maximum_click_budget(phrases, max_clicks_per_word=30)
         source = pd.DataFrame(
             {
                 "Session Num": [1.0] * 25,
@@ -152,7 +152,7 @@ class AnalysisMetricTests(unittest.TestCase):
             block_size=20,
             seed=bootstrap_seed_for_user("A"),
         )
-        report = preflight_click_stream("A", schedule, phrases)
+        report = preflight_click_stream("A", schedule, phrases, max_clicks_per_word=30)
 
         self.assertEqual(
             required,

@@ -1,0 +1,5 @@
+user_id,combo_id,space_period_index,space_period_s,enter_period_index,enter_period_s,combo_label,trial,phrase_attempts,completed_phrases,phrase_completion_rate,normalized_auc_180,median_completion_time_s,completion_by_60s,completion_by_120s,completion_by_180s
+A,s06_e06,6,3.292869816564159,6,3.292869816564159,Space 3.3s / Enter 3.3s,0,2,2,1.0,0.6944444444444444,55.0,0.5,1.0,1.0
+B,s06_e06,6,3.292869816564159,6,3.292869816564159,Space 3.3s / Enter 3.3s,0,2,1,0.5,0.3888888888888889,40.0,0.5,0.5,0.5
+A,s06_e10,6,3.292869816564159,10,2.207276647028654,Space 3.3s / Enter 2.2s,0,2,2,1.0,0.8055555555555556,35.0,1.0,1.0,1.0
+B,s06_e10,6,3.292869816564159,10,2.207276647028654,Space 3.3s / Enter 2.2s,0,2,2,1.0,0.7638888888888888,42.5,1.0,1.0,1.0

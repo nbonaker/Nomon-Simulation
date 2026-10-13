@@ -2,7 +2,7 @@
 
 This module intentionally sits downstream of the simulator:
 
-    run_full_study.py -> user_*.csv -> analyze_results.py -> metric tables
+    historical user_*.csv -> analyze_results.py -> metric tables
 
 Metrics are reconstructed from raw phrase counters. Prediction usage is based
 on the actual successful winning clock index, classified as prefix, BEST, or

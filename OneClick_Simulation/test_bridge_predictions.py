@@ -109,12 +109,19 @@ class PredictionSchedulingTests(unittest.TestCase):
         result = self.run_fixture()
         self.assertTrue(result['completed'], result['error'])
         self.assertEqual(len(result['trace']['events']), baseline['event_count'])
-        self.assertEqual(snapshot_digest(result['trace']['events']), baseline['events_sha256'])
+        # Preserve the independent preintegration fixture: only new Python audit
+        # metadata is omitted, while events, observations, hashes and effects match.
+        original_fields = copy.deepcopy(result['trace']['events'])
+        for record in original_fields:
+            if record['intent'] is not None:
+                record['intent'].pop('scheduled_from')
+        self.assertEqual(snapshot_digest(original_fields), baseline['events_sha256'])
         self.assertEqual(result['simulated_elapsed_s'], 9.06)
         self.assertEqual(result['startup_elapsed_s'], 0)
         self.assertEqual(result['prediction_wait_s'], 0)
         # Version-1 traces without the new optional metadata still replay.
         legacy = {key: result['trace'][key] for key in ('version', 'engine_config', 'engine_metadata', 'events')}
+        legacy['events'] = original_fields
         self.assertEqual(replay_trace(legacy)['snapshot'], result['final_snapshot'])
 
     def test_startup_arrival_order_and_frame_origin(self):

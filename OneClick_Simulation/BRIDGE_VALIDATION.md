@@ -1,6 +1,6 @@
 # End-to-end validation of the shared-engine simulator
 
-This acceptance command runs the opt-in simulated user through the real Python–Node bridge, saves its artifacts, and audits them against a fresh JavaScript engine. It validates recording accuracy and reproducibility, not real-user performance. It does not change the browser algorithm or migrate study runners.
+This acceptance command runs the opt-in simulated user through the real Python–Node bridge, saves its artifacts, and audits them against a fresh JavaScript engine. It validates recording accuracy and reproducibility, not real-user performance. It does not change the browser algorithm. Old Python QuickClick study execution is retired; see the repository retirement record.
 
 ## Run the fixed scenarios
 
@@ -48,6 +48,7 @@ Each scenario directory contains:
 
 - `scenario.json`: independently specified target, settings, click-source description, and acceptance expectations.
 - `result.json`: the pilot's recorded result, without its embedded trace.
+- Both result and trace include `simulation_settings`, recording all three action budgets even when a run fails. Full validation requires matching positive integer settings and checks reconstructed attempts/presses against them; it does not assume the defaults for saved runs.
 - `trace.json`: all engine events, response payloads, intentions, effects, snapshot hashes, and prediction-request timing records.
 - `validation.json`: pass/fail status, verified event count, independently reconstructed metrics and selections, and the first audit mismatch. Scenario expectation mismatches are also reported.
 
@@ -65,6 +66,10 @@ The auditor derives actual selections and committed text from engine snapshots, 
 
 Timing checks use independently reconstructed frame cadence and prediction-request/response matching. Startup requests overlap, so wait time is the union of request-to-response intervals, not the sum of 27 character requests. Typing time starts after startup responses and includes later prediction waits, including the response after the final Enter. Presses may not occur with pending predictions.
 
+Each press records `intent.scheduled_from` with the event index and simulated time at action choice, before the intervening frames. The auditor identifies that checkpoint independently as the last ready snapshot after pending predictions were delivered, verifies the recorded reference, and derives the intended clock's next noon from its phase, period, and last-frame timestamp. It applies the recorded offset, whole-rotation dead time, earliest-action wraparound, and frame-boundary roundoff to calculate the expected timestamp without calling the simulator's scheduler. Non-finite samples, negative dead time, non-positive recorded source periods, inconsistent dead rotations, presses closer than 1 ms to action choice, and mismatched timestamps fail the audit. Source periods remain provenance and do not override engine speed. `reconstructed.press_schedule` shows each checked action checkpoint and expected/actual time.
+
+This checks consistency of the recorded samples and scheduled events. It does not authenticate samples against an external click dataset or establish that a backend produced the predictions. A trace with genuine engine hashes can now fail validation when its scheduler ignored an offset or dead time, even though basic replay still succeeds.
+
 Discrete state, snapshot hashes, effects, and counters must match exactly. Independently recomputed times allow an absolute tolerance of `1e-10` seconds. The effective transition matrix, its hash, and source character responses are checked against replay. Engine source fingerprints must match. Backend and historical runtime metadata are checked for consistency between artifacts; replay does not establish that a particular model produced the recorded predictions. A different checkout location or Node version is allowed if the protocol and engine sources match.
 
 ## Audit an existing run without a model
@@ -74,7 +79,7 @@ Discrete state, snapshot hashes, effects, and counters must match exactly. Indep
   --audit /tmp/quickclick-validation-ngram/ngram_correction
 ```
 
-Audit mode is read-only and prints its report. It neither loads TextSlinger nor calls a prediction service. It can also audit a current `bridge_pilot` output directory containing `result.json` and `trace.json`; `scenario.json` is optional. This full-run audit requires the prediction metadata/request records produced by the current pilot. Older minimal traces can still use the existing `bridge_pilot --replay` command.
+Audit mode is read-only and prints its report. It neither loads TextSlinger nor calls a prediction service. It can also audit a current `bridge_pilot` output directory containing `result.json` and `trace.json`; `scenario.json` is optional. This full-run audit requires current prediction metadata/request records, action budgets, and press scheduling checkpoints. Older traces lacking the new settings/checkpoints can still use `bridge_pilot --replay`, but cannot receive successful full timing validation. No defaults or checkpoints are invented for those artifacts.
 
 Python API:
 
@@ -95,9 +100,7 @@ The API audits artifacts; the CLI additionally checks the independently specifie
   OneClick_Bridge.test_bridge \
   OneClick_Simulation.test_bridge_simulated_user \
   OneClick_Simulation.test_bridge_predictions \
-  OneClick_Simulation.test_simulated_time \
-  OneClick_Simulation.test_recovery \
   OneClick_Text.test_language_model -v
 ```
 
-Run `npm test` in `Nomon-One-Click` as well. The new validation tests cover the six fixed scenarios, disk serialization, intentional result/trace corruption, response ordering, pending predictions, truncated and failed traces, model-free audit, nonzero CLI exits, and worker cleanup. Run the `--include-ngram` command above for the full local-model acceptance check.
+Run `npm test` in `Nomon-One-Click` as well. Validation tests cover the six fixed scenarios, disk serialization, intentional result/trace corruption, response ordering, pending predictions, truncated and failed traces, model-free audit, nonzero CLI exits, and worker cleanup. Timing tests additionally cover hand-specified noon/wrap/dead-time cases, early and late samples, frame ties, scheduling-checkpoint corruption, and faulty schedulers that ignore samples or violate the minimum interval. Budget tests cover custom limits, failures, invalid/mismatched metadata, and reconstructed attempts/presses exceeding saved limits. Run the `--include-ngram` command above for the full local-model acceptance check.

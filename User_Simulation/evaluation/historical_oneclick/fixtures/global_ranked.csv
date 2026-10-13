@@ -1,0 +1,3 @@
+combo_id,space_period_index,space_period_s,space_period_label,enter_period_index,enter_period_s,enter_period_label,combo_label,user_count,users_meeting_reliability_floor,worst_user_completion_rate,macro_phrase_completion_rate,macro_normalized_auc_180,reliability_floor,macro_completion_by_60s,macro_completion_by_120s,macro_completion_by_180s,dominant_failure_reason,dominant_failure_count,global_rank
+s06_e10,6,3.292869816564159,3.3 s,10,2.207276647028654,2.2 s,Space 3.3s / Enter 2.2s,2,2,1.0,1.0,0.7847222222222222,0.5,1.0,1.0,1.0,none,0,1
+s06_e06,6,3.292869816564159,3.3 s,6,3.292869816564159,3.3 s,Space 3.3s / Enter 3.3s,2,2,0.5,0.75,0.5416666666666666,0.5,0.5,0.75,0.75,word_click_budget_letters,1,2

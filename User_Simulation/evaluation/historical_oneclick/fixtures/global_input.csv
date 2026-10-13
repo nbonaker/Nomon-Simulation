@@ -1,0 +1,9 @@
+user_id,trial,Comparison Phrase ID,Target Phrase,Typed Text,phrase_completed,phrase_failure_reason,phrase_failure_stage,simulated_attempt_time_s,simulated_completion_time_s,letter_clock_time_s,target_enter_clock_time_s,undo_clock_time_s,simulated_time_accounting_error_s,paired_click_schedule_id,combo_id,space_period_index,space_period_s,space_period_label,enter_period_index,enter_period_s,enter_period_label,combo_label,is_diagonal
+A,0,p0,phrase 0,phrase 0,True,,,30.0,30.0,30.0,0.0,0.0,0.0,A_trial_00,s06_e06,6,3.292869816564159,3.3 s,6,3.292869816564159,3.3 s,Space 3.3s / Enter 3.3s,True
+A,0,p1,phrase 1,phrase 1,True,,,80.0,80.0,80.0,0.0,0.0,0.0,A_trial_00,s06_e06,6,3.292869816564159,3.3 s,6,3.292869816564159,3.3 s,Space 3.3s / Enter 3.3s,True
+B,0,p0,phrase 0,phrase 0,True,,,40.0,40.0,40.0,0.0,0.0,0.0,B_trial_00,s06_e06,6,3.292869816564159,3.3 s,6,3.292869816564159,3.3 s,Space 3.3s / Enter 3.3s,True
+B,0,p1,phrase 1,partial,False,word_click_budget_letters,letters,120.0,,120.0,0.0,0.0,0.0,B_trial_00,s06_e06,6,3.292869816564159,3.3 s,6,3.292869816564159,3.3 s,Space 3.3s / Enter 3.3s,True
+A,0,p0,phrase 0,phrase 0,True,,,20.0,20.0,20.0,0.0,0.0,0.0,A_trial_00,s06_e10,6,3.292869816564159,3.3 s,10,2.207276647028654,2.2 s,Space 3.3s / Enter 2.2s,False
+A,0,p1,phrase 1,phrase 1,True,,,50.0,50.0,50.0,0.0,0.0,0.0,A_trial_00,s06_e10,6,3.292869816564159,3.3 s,10,2.207276647028654,2.2 s,Space 3.3s / Enter 2.2s,False
+B,0,p0,phrase 0,phrase 0,True,,,25.0,25.0,25.0,0.0,0.0,0.0,B_trial_00,s06_e10,6,3.292869816564159,3.3 s,10,2.207276647028654,2.2 s,Space 3.3s / Enter 2.2s,False
+B,0,p1,phrase 1,phrase 1,True,,,60.0,60.0,60.0,0.0,0.0,0.0,B_trial_00,s06_e10,6,3.292869816564159,3.3 s,10,2.207276647028654,2.2 s,Space 3.3s / Enter 2.2s,False
