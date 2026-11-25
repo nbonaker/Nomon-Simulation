@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import copy
+from contextlib import ExitStack
 from dataclasses import dataclass
 import hashlib
 import heapq
@@ -10,6 +11,7 @@ import math
 from typing import Protocol
 
 from OneClick_Bridge import OneClickEngineBridge, BridgeError
+from .websocket_predictions import WebSocketBackendError
 
 ALPHABET = "abcdefghijklmnopqrstuvwxyz'"
 
@@ -233,7 +235,10 @@ class BridgeSimulatedUser:
         failure = None
         error = None
         try:
-            with OneClickEngineBridge(config=self.config, **self.bridge_options) as self.bridge:
+            with ExitStack() as stack:
+                if hasattr(prediction_backend, '__enter__'):
+                    self.backend = stack.enter_context(prediction_backend)
+                self.bridge = stack.enter_context(OneClickEngineBridge(config=self.config, **self.bridge_options))
                 self.trace["engine_metadata"] = self.bridge.metadata
                 self._dispatch({"type": "initialize", "time": 0.0})
                 self._drain_predictions()
@@ -245,6 +250,9 @@ class BridgeSimulatedUser:
             failure = exc.reason
         except BridgeError as exc:
             failure = "bridge_failure"
+            error = {"type": type(exc).__name__, "message": str(exc)}
+        except WebSocketBackendError as exc:
+            failure = "prediction_failure"
             error = {"type": type(exc).__name__, "message": str(exc)}
         except Exception as exc:
             # Context manager has already reaped the worker. Retain successful
@@ -314,7 +322,11 @@ class BridgeSimulatedUser:
                 raise ValueError("Prediction due time must be finite")
             backend = self.fixed_characters if effect["type"] == "predict-characters" and self.fixed_characters else self.backend
             dropped_before = getattr(backend, "dropped_negative_infinity", 0)
-            data = backend.predict(copy.deepcopy(effect))
+            try:
+                data = backend.predict(copy.deepcopy(effect))
+            finally:
+                if hasattr(backend, 'last_exchange'):
+                    request['transport'] = backend.last_exchange()
             request["dropped_negative_infinity_candidates"] = getattr(backend, "dropped_negative_infinity", 0) - dropped_before
             # Diagnose unusable backend payloads before recording an engine event.
             json.dumps(data, allow_nan=False)

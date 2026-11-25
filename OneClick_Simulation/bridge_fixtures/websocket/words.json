@@ -1,0 +1,15 @@
+{
+  "candidates": [
+    {"word": "cat", "probability": {"log_retained_joint_mass": -2}},
+    {"word": "a", "probability": {"log_retained_joint_mass": -0.1}},
+    {"word": "dog", "probability": {"log_retained_joint_mass": -2}},
+    {"word": "CAT", "probability": {"log_retained_joint_mass": -3}},
+    {"word": "can't", "probability": {"log_retained_joint_mass": -4}},
+    {"word": "omitted", "probability": {"log_retained_joint_mass": "-inf"}}
+  ],
+  "cases": [
+    {"observation_count": 0, "expected": {"prefix": [{"text": "a", "logprob": -0.1}, {"text": "cat", "logprob": -2}, {"text": "dog", "logprob": -2}], "best": []}},
+    {"observation_count": 1, "expected": {"prefix": [{"text": "cat", "logprob": -2}, {"text": "dog", "logprob": -2}, {"text": "can't", "logprob": -4}], "best": [{"text": "a", "logprob": -0.1}]}},
+    {"observation_count": 3, "expected": {"prefix": [{"text": "can't", "logprob": -4}], "best": [{"text": "cat", "logprob": -2}, {"text": "dog", "logprob": -2}]}}
+  ]
+}

@@ -1,4 +1,4 @@
-"""Run/replay the shared-engine pilot with fixtures or a local TextSlinger n-gram."""
+"""Run/replay the shared-engine pilot with fixtures, a direct LM, or WebSocket predictions."""
 import argparse
 import csv
 import json
@@ -6,13 +6,15 @@ from pathlib import Path
 
 from .bridge_simulated_user import (BridgeSimulatedUser, FixedPredictionBackend,
                                    ZeroNoiseClickSource, SequenceClickSource, replay_trace)
+from .websocket_predictions import add_websocket_arguments, backend_from_arguments
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--phrase', default='hello world')
     parser.add_argument('--fixture', type=Path, default=Path(__file__).with_name('bridge_fixtures') / 'hello_world.json')
-    parser.add_argument('--backend', choices=('fixture', 'textslinger-ngram'), default='fixture')
+    parser.add_argument('--backend', choices=('fixture', 'textslinger-ngram', 'textslinger-websocket'), default='fixture')
+    add_websocket_arguments(parser)
     parser.add_argument('--model', type=Path, help='Local KenLM/ARPA model; required for textslinger-ngram')
     parser.add_argument('--vocabulary', type=Path, help='Local word list; required for textslinger-ngram')
     parser.add_argument('--recognizer-nbest', type=int, default=1000)
@@ -34,6 +36,11 @@ def main(argv=None):
         return 0 if report['complete_trace'] else 1
     if args.backend == 'textslinger-ngram' and (args.model is None or args.vocabulary is None):
         parser.error('--backend textslinger-ngram requires --model and --vocabulary')
+    remote_options = (args.prediction_server, args.prediction_model, args.prediction_vocabulary, args.prediction_timeout_s)
+    if args.backend != 'textslinger-websocket' and any(x is not None for x in remote_options):
+        parser.error('--prediction-* options require --backend textslinger-websocket')
+    if args.backend == 'textslinger-websocket' and (args.model is not None or args.vocabulary is not None or args.recognizer_nbest != 1000):
+        parser.error('WebSocket mode uses server model/vocabulary profiles and the browser nbest=1000; omit local model options')
     if (args.character_transition_source == 'fixed') != (args.character_transitions is not None):
         parser.error('--character-transition-source fixed requires --character-transitions (and vice versa)')
     fixed_characters = json.loads(args.character_transitions.read_text()) if args.character_transitions else None
@@ -42,7 +49,12 @@ def main(argv=None):
                                fixed_character_responses=fixed_characters,
                                character_prediction_latency_s=args.character_prediction_latency_s,
                                word_prediction_latency_s=args.word_prediction_latency_s)
-    if args.backend == 'textslinger-ngram':
+    if args.backend == 'textslinger-websocket':
+        try:
+            backend = backend_from_arguments(args)
+        except ValueError as exc:
+            parser.error(str(exc))
+    elif args.backend == 'textslinger-ngram':
         from .bridge_predictions import TextSlingerNGramBackend
         backend = TextSlingerNGramBackend.from_local(args.model, args.vocabulary, recognizer_nbest=args.recognizer_nbest)
     else:

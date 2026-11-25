@@ -141,6 +141,21 @@ def validate_run(result, trace, engine_repo=None, node_executable="node"):
         if not trace["events"]:
             raise _Mismatch("events", "nonempty complete trace", [])
         requests = trace["prediction_requests"]
+        if meta['backend'].get('backend') == 'textslinger-websocket':
+            session, revision, identities = None, 0, set()
+            for record in requests:
+                if record['effect']['type'] == 'predict-characters' and meta['character_transition_source'] == 'fixed':
+                    continue
+                wire = record['transport']['wire_request']
+                if session is None:
+                    session = wire['session_id']
+                revision += 1
+                _equal('transport.session_id', wire['session_id'], session)
+                _equal('transport.revision', wire['revision'], revision)
+                identity = wire['request_id']
+                if not isinstance(identity, str) or not identity or identity in identities:
+                    raise _Mismatch('transport.request_id', 'unique nonempty string', identity)
+                identities.add(identity)
         counts = dict(presses=0, space=0, enter=0, wrong_commits=0, undo_attempts=0)
         per_word, attempts = [0] * len(words), [0] * len(words)
         report["reconstructed"] = {"counts": counts, "presses_by_word": per_word, "attempts_by_word": attempts}
@@ -248,6 +263,24 @@ def validate_run(result, trace, engine_repo=None, node_executable="node"):
                     request = requests[request_id]
                     _equal("request.status", request["status"], "delivered", index)
                     _time("request.delivered_time", request["delivered_time"], time, index)
+                    if meta['backend'].get('backend') == 'textslinger-websocket' and not (
+                            kind == 'character-response' and meta['character_transition_source'] == 'fixed'):
+                        from .websocket_codec import prediction_request, prediction_response
+                        transport = request['transport']
+                        _equal('transport.status', transport['status'], 'ok', index)
+                        wire = transport['wire_request']
+                        expected_wire = prediction_request(effect, session_id=wire['session_id'],
+                            request_id=wire['request_id'], revision=wire['revision'],
+                            model=meta['backend']['model'], vocabulary_profile=meta['backend']['vocabulary_profile'])
+                        _equal('transport.wire_request', wire, expected_wire, index)
+                        decoded = prediction_response(effect, wire, transport['wire_response'])
+                        _equal('transport.decoded_data', event['data'], decoded['data'], index)
+                        _equal('transport.server_timings', transport['server_timings'],
+                               transport['wire_response'].get('timings'), index)
+                        elapsed = transport['client_elapsed_s']
+                        _time('transport.client_elapsed_s', elapsed, elapsed, index)
+                        if elapsed < 0:
+                            raise _Mismatch('transport.client_elapsed_s', 'nonnegative', elapsed, index)
                     if kind == "character-response":
                         _equal("response.index", event["index"], effect["index"], index)
                         characters[ALPHABET[event["index"]]] = event["data"]

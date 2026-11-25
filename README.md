@@ -1,3 +1,8 @@
+The supported shared-engine QuickClick pilot can use the same TextSlinger
+WebSocket service as the browser. This is opt-in; direct local-model and fixture
+backends remain available. See [WebSocket setup and end-to-end
+validation](OneClick_Simulation/WEBSOCKET.md).
+
 Nomon Background
 ================
 To learn more about Nomon, visit our main website [nomon.app](https://nomon.app)
@@ -100,6 +105,8 @@ The first run populates `.cache/imagineville_lm`; later runs reuse those respons
 ### QuickClick simulation now uses the shared JS engine
 
 The supported QuickClick path is `OneClick_Simulation.bridge_pilot`, with end-to-end checks in `OneClick_Simulation.bridge_validate`. The duplicated Python keyboard and its algorithm-experiment runners have been retired. New algorithm changes belong in the shared JavaScript engine.
+
+Use [`OneClick_Simulation.bridge_study`](OneClick_Simulation/BRIDGE_STUDY.md) to run the recorded-click baseline across users and phrases, with deterministic sampling and per-phrase results.
 
 Historical Python studies can still be analyzed using the [historical analysis guide](User_Simulation/evaluation/historical_oneclick/README.md). To reproduce their original execution, use the tagged checkout described in [the retirement record](QUICKCLICK_RETIREMENT.md). The separate Nomon simulators and evaluations below remain supported.
 

@@ -9,6 +9,7 @@ from .bridge_simulated_user import (BridgeSimulatedUser, ClickSample, FixedPredi
                                     SequenceClickSource, ZeroNoiseClickSource)
 from .bridge_validation import validate_run
 from .bridge_validation_scenarios import fixed_scenarios, MissFirstTargetEnter
+from .websocket_predictions import add_websocket_arguments, backend_from_arguments
 
 
 def _write(path, data):
@@ -87,6 +88,8 @@ def main(argv=None):
     parser.add_argument('--node-executable', default='node')
     parser.add_argument('--audit', type=Path, help='Audit an existing scenario directory, without running predictions')
     parser.add_argument('--include-ngram', action='store_true', help='Also run local model word, sentence, and correction scenarios')
+    parser.add_argument('--include-websocket', action='store_true', help='Also run word, sentence, and correction through a running WebSocket server')
+    add_websocket_arguments(parser)
     parser.add_argument('--model', type=Path)
     parser.add_argument('--vocabulary', type=Path)
     args = parser.parse_args(argv)
@@ -99,6 +102,9 @@ def main(argv=None):
         parser.error('--include-ngram requires --model and --vocabulary')
     if not args.include_ngram and (args.model is not None or args.vocabulary is not None):
         parser.error('--model and --vocabulary require --include-ngram')
+    if not args.include_websocket and any(x is not None for x in (args.prediction_server, args.prediction_model,
+                                                               args.prediction_vocabulary, args.prediction_timeout_s)):
+        parser.error('--prediction-* options require --include-websocket')
     args.output_dir.mkdir(parents=True, exist_ok=True)
     summaries = []
     bridge_options = {'engine_repo': args.engine_repo, 'node_executable': args.node_executable}
@@ -147,6 +153,16 @@ def main(argv=None):
                     return user.run_phrase(target, source, backend)
                 execute(name, target, {'requires_correction': True} if correction else {}, options,
                         {'policy': 'miss_first_target_enter' if correction else 'zero_noise'}, run)
+    if args.include_websocket:
+        options = {'character_prediction_latency_s': .2, 'word_prediction_latency_s': .1}
+        for name, target, correction in [('websocket_word', 'hello', False), ('websocket_sentence', 'hello world', False),
+                                          ('websocket_correction', 'hello', True)]:
+            def run(target=target, correction=correction):
+                user = BridgeSimulatedUser(**bridge_options, **options)
+                source = MissFirstTargetEnter(user) if correction else ZeroNoiseClickSource()
+                return user.run_phrase(target, source, backend_from_arguments(args))
+            execute(name, target, {'requires_correction': True} if correction else {}, options,
+                    {'policy': 'miss_first_target_enter' if correction else 'zero_noise'}, run)
     valid = all(summary['valid'] for summary in summaries)
     _write(args.output_dir / 'summary.json', {'valid': valid, 'finished': True, 'scenarios': summaries})
     print(f"Validation artifacts: {args.output_dir.resolve()}")

@@ -21,7 +21,7 @@ Optional arguments:
 
 - `--engine-repo PATH` and `--node-executable PATH`: select the local engine checkout and Node binary.
 - `--phrase TEXT` and `--fixture PATH`: supply another target and an independently specified prediction fixture.
-- `--backend fixture|textslinger-ngram`: choose fixed predictions (default) or the local model.
+- `--backend fixture|textslinger-ngram|textslinger-websocket`: choose fixed predictions (default), the direct local model, or a running prediction service. See [WebSocket setup, diagnostics, and validation](WEBSOCKET.md).
 - `--model PATH`, `--vocabulary PATH`, `--recognizer-nbest N`: explicit local n-gram inputs; both paths are required in n-gram mode.
 - `--character-transition-source backend|fixed`: choose the startup matrix source (default `backend`). With `fixed`, supply `--character-transitions PATH`.
 - `--character-prediction-latency-s SECONDS`, `--word-prediction-latency-s SECONDS`: finite, nonnegative simulated response delays; both default to zero.

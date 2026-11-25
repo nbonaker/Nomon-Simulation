@@ -44,6 +44,12 @@ All model scenarios use 0.2-second character and 0.1-second word latency. The co
 
 ## Artifacts and reports
 
+To validate a running service, use `--include-websocket --prediction-server
+http://127.0.0.1:8766`. This adds `websocket_word`, `websocket_sentence`, and
+`websocket_correction` to the six fixed scenarios, with a fresh connection per
+phrase. See [WebSocket setup and replay](WEBSOCKET.md). Saved artifact auditing
+needs no prediction server.
+
 Each scenario directory contains:
 
 - `scenario.json`: independently specified target, settings, click-source description, and acceptance expectations.

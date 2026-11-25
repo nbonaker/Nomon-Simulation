@@ -1,0 +1,2 @@
+# Optional transport only; fixture execution and replay do not require this.
+websockets>=14,<17
